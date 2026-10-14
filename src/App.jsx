@@ -2,8 +2,7 @@ import React, { useState } from 'react';
 import Navbar from './components/Navbar';
 import HeroSection from './components/HeroSection';
 import WhatWeOfferSection from './components/WhatWeOfferSection';
-import ShowcaseMarquee from './components/ShowcaseMarquee';
-import ValuePropositionSection from './components/ValuePropositionSection';
+import OurWorkSection from './components/OurWorkSection';
 import TestimonialsMarquee from './components/TestimonialsMarquee';
 import PricingSection from './components/PricingSection';
 import FaqSection from './components/FaqSection';
@@ -32,9 +31,9 @@ export default function App() {
     setSelectedVideo(null);
   };
 
-  // Scroll to the AI Showcase section where the 5 user videos are presented
+  // Scroll to the AI Showcase / Our Work section
   const handleOpenShowreel = () => {
-    const el = document.getElementById('ai-showcase');
+    const el = document.getElementById('our-work') || document.getElementById('ai-showcase');
     if (el) {
       el.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
@@ -59,13 +58,11 @@ export default function App() {
         {/* 2. What We Offer / See What We Can Create Section */}
         <WhatWeOfferSection onOpenInquiryModal={handleOpenInquiryModal} />
 
-        {/* Interactive Showreel Marquee Showcase */}
-        <ShowcaseMarquee 
-          onSelectVideo={handleSelectVideo} 
+        {/* 3. Our Work: See What AI Video Can Do for Your Brand */}
+        <OurWorkSection 
+          onOpenVideoModal={handleSelectVideo}
+          onOpenInquiryModal={handleOpenInquiryModal}
         />
-
-        {/* 3. Value Proposition Section: 5 AI Videos Showcase */}
-        <ValuePropositionSection onOpenVideoModal={handleSelectVideo} />
 
         {/* Testimonials Section: "Hear what they say about us" */}
         <TestimonialsMarquee />

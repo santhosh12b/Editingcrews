@@ -79,6 +79,19 @@ export const translations = {
         }
       ]
     },
+    ourWork: {
+      badge: "Our Work",
+      heading: "See What AI Video Can Do for Your Brand",
+      subheading: "Explore videos we've created for other brands and discover what's possible for your products.",
+      cta: "Show Video Portfolio",
+      tagline: "Your next winning creative could start with a simple idea.",
+      taglineCta: "Get Your Video Today",
+      filterAll: "All Videos",
+      filterProduct: "Product Ads",
+      filterUGC: "UGC Style",
+      filterCinematic: "Cinematic & VFX",
+      filterExplainer: "Explainers"
+    },
     services: {
       badge: "Versatile Video Production",
       heading: "What Can We Create for Your Business?",
@@ -373,6 +386,19 @@ export const translations = {
           color: "pink"
         }
       ]
+    },
+    ourWork: {
+      badge: "Unsere Arbeiten",
+      heading: "Sehen Sie, was KI-Videos für Ihre Marke tun können",
+      subheading: "Entdecken Sie Videos, die wir für andere Marken erstellt haben, und erleben Sie, was für Ihre Produkte möglich ist.",
+      cta: "Video-Portfolio ansehen",
+      tagline: "Ihre nächste erfolgreiche Kampagne beginnt mit einer einfachen Idee.",
+      taglineCta: "Jetzt Video erstellen",
+      filterAll: "Alle Videos",
+      filterProduct: "Produkt-Ads",
+      filterUGC: "UGC-Stil",
+      filterCinematic: "Cinematisch & VFX",
+      filterExplainer: "Erklärvideos"
     },
     services: {
       badge: "Vielseitige Videoproduktion",
@@ -669,6 +695,19 @@ export const translations = {
         }
       ]
     },
+    ourWork: {
+      badge: "Nos Réalisations",
+      heading: "Découvrez ce que la vidéo IA peut apporter à votre marque",
+      subheading: "Explorez les vidéos créées pour d'autres marques et imaginez le potentiel pour vos produits.",
+      cta: "Voir le Portfolio Vidéo",
+      tagline: "Votre prochaine création gagnante commence par une simple idée.",
+      taglineCta: "Obtenez votre vidéo",
+      filterAll: "Toutes les vidéos",
+      filterProduct: "Pubs Produits",
+      filterUGC: "Style UGC",
+      filterCinematic: "Cinématique & VFX",
+      filterExplainer: "Vidéos Explicatives"
+    },
     services: {
       badge: "Production Vidéo Polyvalente",
       heading: "Que pouvons-nous créer pour votre entreprise ?",
@@ -964,6 +1003,19 @@ export const translations = {
         }
       ]
     },
+    ourWork: {
+      badge: "Nuestros Trabajos",
+      heading: "Descubre lo que los vídeos con IA pueden hacer por tu marca",
+      subheading: "Explora los vídeos que hemos creado para otras marcas y descubre el potencial para tus productos.",
+      cta: "Ver Portafolio de Vídeos",
+      tagline: "Tu próxima creatividad ganadora empieza con una simple idea.",
+      taglineCta: "Consigue tu vídeo hoy",
+      filterAll: "Todos los vídeos",
+      filterProduct: "Anuncios de Producto",
+      filterUGC: "Estilo UGC",
+      filterCinematic: "Cinematográfico & VFX",
+      filterExplainer: "Explicativos"
+    },
     services: {
       badge: "Producción Versátil",
       heading: "¿Qué podemos crear para tu negocio?",
@@ -1258,6 +1310,19 @@ export const translations = {
           color: "pink"
         }
       ]
+    },
+    ourWork: {
+      badge: "I Nostri Lavori",
+      heading: "Scopri cosa i video IA possono fare per il tuo brand",
+      subheading: "Esplora i video realizzati per altri marchi e scopri cosa è possibile per i tuoi prodotti.",
+      cta: "Mostra Portfolio Video",
+      tagline: "La tua prossima campagna vincente può nascere da una semplice idea.",
+      taglineCta: "Ottieni il tuo video oggi",
+      filterAll: "Tutti i video",
+      filterProduct: "Annunci Prodotto",
+      filterUGC: "Stile UGC",
+      filterCinematic: "Cinematografico & VFX",
+      filterExplainer: "Esplicativi"
     },
     services: {
       badge: "Produzione Video Versatile",

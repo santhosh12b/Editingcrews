@@ -1,0 +1,676 @@
+import React, { useState, useRef } from 'react';
+import { 
+  Play, 
+  Sparkles, 
+  ArrowRight, 
+  RotateCw, 
+  ChevronLeft, 
+  ChevronRight, 
+  Check, 
+  Film,
+  Layers,
+  Sparkle
+} from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
+import { showreelVideos } from '../data/landingData';
+
+export const portfolioVideos = [
+  {
+    id: 1,
+    title: {
+      de: "Produkt-Videoanzeigen",
+      en: "Product Video Ads",
+      fr: "Publicités Vidéo Produits",
+      es: "Anuncios de Productos",
+      it: "Annunci Video di Prodotto"
+    },
+    category: "product",
+    badge: {
+      de: "100% KI-generiert",
+      en: "100% AI Generated",
+      fr: "100% Généré par IA",
+      es: "100% Generado con IA",
+      it: "100% Generato con IA"
+    },
+    benefit: {
+      de: "Kein Filmset nötig",
+      en: "No Studio Shoot",
+      fr: "Sans tournage réel",
+      es: "Sin rodaje físico",
+      it: "Senza set o riprese"
+    },
+    videoUrl: "/video/dog.mp4",
+    rate: "69 €/Min."
+  },
+  {
+    id: 2,
+    title: {
+      de: "Service-Erklärvideos",
+      en: "Service Explainers",
+      fr: "Vidéos Explicatives",
+      es: "Vídeos Explicativos",
+      it: "Video Esplicativi"
+    },
+    category: "explainer",
+    badge: {
+      de: "48h Lieferzeit",
+      en: "48h Turnaround",
+      fr: "Livraison en 48h",
+      es: "Entrega en 48h",
+      it: "Consegna in 48h"
+    },
+    benefit: {
+      de: "Glasklare Botschaft",
+      en: "Crystal-Clear Pitch",
+      fr: "Message percutant",
+      es: "Mensaje de impacto",
+      it: "Messaggio chiaro"
+    },
+    videoUrl: "/video/per.mp4",
+    rate: "69 €/Min."
+  },
+  {
+    id: 3,
+    title: {
+      de: "Cinematische Ads & VFX",
+      en: "Cinematic Ads & VFX",
+      fr: "Pubs Cinématiques & VFX",
+      es: "Anuncios Cinemáticos & VFX",
+      it: "Spot Cinematografici & VFX"
+    },
+    category: "cinematic",
+    badge: {
+      de: "Kino-Spezialeffekte",
+      en: "Cinema Grade VFX",
+      fr: "Effets Cinéma",
+      es: "Efectos de Cine",
+      it: "Effetti Cinema"
+    },
+    benefit: {
+      de: "Grenzenlose Welten",
+      en: "Limitless Worlds",
+      fr: "Univers sans limites",
+      es: "Mundos sin límites",
+      it: "Mondi senza limiti"
+    },
+    videoUrl: "/video/per1.mp4",
+    rate: "69 €/Min."
+  },
+  {
+    id: 4,
+    title: {
+      de: "Animierte Geschichten & UGC",
+      en: "Animated Stories & UGC",
+      fr: "Histoires Animées & UGC",
+      es: "Historias Animadas & UGC",
+      it: "Storie Animate & UGC"
+    },
+    category: "ugc",
+    badge: {
+      de: "Kreative Charaktere",
+      en: "Creative Characters",
+      fr: "Personnages Créatifs",
+      es: "Personajes Creativos",
+      it: "Personaggi Creativi"
+    },
+    benefit: {
+      de: "Hohe Viralität",
+      en: "Viral Engagement",
+      fr: "Viralité maximale",
+      es: "Gran viralidad",
+      it: "Alto coinvolgimento"
+    },
+    videoUrl: "/video/per3.mp4",
+    rate: "69 €/Min."
+  },
+  {
+    id: 5,
+    title: {
+      de: "Mehrsprachige Kampagnen",
+      en: "Multilingual Campaigns",
+      fr: "Campagnes Multilingues",
+      es: "Campañas Multilingües",
+      it: "Campagne Multilingue"
+    },
+    category: "product",
+    badge: {
+      de: "Feste 69 €/Min.",
+      en: "Fixed €69/Min.",
+      fr: "Fixe 69 €/Min.",
+      es: "Fijo 69 €/Min.",
+      it: "Fisso 69 €/Min."
+    },
+    benefit: {
+      de: "Europaweite Reichweite",
+      en: "European Reach",
+      fr: "Portée européenne",
+      es: "Alcance europeo",
+      it: "Portata europea"
+    },
+    videoUrl: "/video/per4.mp4",
+    rate: "69 €/Min."
+  }
+];
+
+export default function OurWorkSection({ onOpenVideoModal, onOpenInquiryModal }) {
+  const { currentLang, t } = useLanguage();
+  const ow = t.ourWork || {};
+  const [activeCategory, setActiveCategory] = useState('all');
+  const portfolioRef = useRef(null);
+
+  const categories = [
+    { id: 'all', label: ow.filterAll || 'All Videos' },
+    { id: 'product', label: ow.filterProduct || 'Product Ads' },
+    { id: 'ugc', label: ow.filterUGC || 'UGC Style' },
+    { id: 'cinematic', label: ow.filterCinematic || 'Cinematic & VFX' },
+    { id: 'explainer', label: ow.filterExplainer || 'Explainers' }
+  ];
+
+  const filteredVideos = activeCategory === 'all'
+    ? portfolioVideos
+    : portfolioVideos.filter(v => v.category === activeCategory);
+
+  const handleScrollToPortfolio = () => {
+    if (portfolioRef.current) {
+      portfolioRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
+  const marqueeItems = [...showreelVideos, ...showreelVideos];
+
+  return (
+    <section id="our-work" className="py-20 sm:py-24 md:py-28 bg-white relative overflow-hidden border-b border-slate-200/80 scroll-mt-20">
+      
+      {/* Background Soft Mesh */}
+      <div className="absolute inset-0 pointer-events-none -z-10">
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-gradient-to-tr from-indigo-100/30 via-purple-100/20 to-pink-100/20 rounded-full blur-3xl -z-10"></div>
+      </div>
+
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1360px]">
+        
+        {/* Section Header */}
+        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
+          <span className="text-xs sm:text-[13px] font-bold uppercase tracking-widest text-indigo-600 mb-3 block">
+            {ow.badge || "Our Work"}
+          </span>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900 leading-tight font-heading">
+            {ow.heading || "See What AI Video Can Do for Your Brand"}
+          </h2>
+          <p className="text-slate-600 text-sm sm:text-base md:text-lg mt-3 sm:mt-4 leading-relaxed max-w-2xl mx-auto">
+            {ow.subheading || "Explore videos we've created for other brands and discover what's possible for your products."}
+          </p>
+
+          {/* Primary CTA: [Show Video Portfolio] */}
+          <div className="mt-7 flex items-center justify-center">
+            <button
+              onClick={handleScrollToPortfolio}
+              className="group inline-flex items-center gap-2.5 px-6 py-3.5 rounded-full bg-slate-900 hover:bg-indigo-600 text-white font-bold text-sm sm:text-base shadow-lg shadow-slate-900/10 hover:shadow-indigo-600/30 transition-all duration-200 transform hover:scale-[1.02] active:scale-[0.98]"
+            >
+              <div className="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center group-hover:scale-110 transition-transform">
+                <Play className="w-3.5 h-3.5 fill-white text-white ml-0.5" />
+              </div>
+              <span>{ow.cta || "Show Video Portfolio"}</span>
+              <ArrowRight className="w-4 h-4 ml-0.5 group-hover:translate-x-1 transition-transform" />
+            </button>
+          </div>
+        </div>
+
+        {/* Video Portfolio Stage */}
+        <div ref={portfolioRef} id="ai-showcase" className="scroll-mt-24 pt-4">
+          
+          {/* Category Filter Pills */}
+          <div className="flex items-center justify-center gap-2 sm:gap-2.5 flex-wrap mb-8 sm:mb-10">
+            {categories.map((cat) => (
+              <button
+                key={cat.id}
+                onClick={() => setActiveCategory(cat.id)}
+                className={`px-4 py-2 rounded-full text-xs sm:text-sm font-semibold transition-all duration-200 ${
+                  activeCategory === cat.id
+                    ? 'bg-indigo-600 text-white shadow-md shadow-indigo-600/20'
+                    : 'bg-slate-100 hover:bg-slate-200/80 text-slate-700'
+                }`}
+              >
+                {cat.label}
+              </button>
+            ))}
+          </div>
+
+          {/* Desktop 5-Column Panoramic Showcase (lg+) */}
+          <div className="hidden lg:grid lg:grid-cols-5 gap-4">
+            {filteredVideos.map((item, idx) => (
+              <PortfolioVideoCard 
+                key={item.id}
+                item={item}
+                index={idx}
+                currentLang={currentLang}
+                onOpenModal={onOpenVideoModal}
+              />
+            ))}
+          </div>
+
+          {/* Mobile & Tablet: 360° Rotating Carousel (< lg) */}
+          <div className="block lg:hidden">
+            <Mobile3DPortfolioCarousel
+              items={filteredVideos}
+              currentLang={currentLang}
+              onOpenModal={onOpenVideoModal}
+            />
+          </div>
+
+        </div>
+
+        {/* Continuous Ambient Marquee Strip */}
+        <div className="mt-12 sm:mt-16 pt-8 border-t border-slate-100">
+          <div className="relative w-full overflow-hidden">
+            <div className="pointer-events-none absolute inset-y-0 left-0 w-16 sm:w-28 md:w-44 z-20 bg-gradient-to-r from-white via-white/80 to-transparent"></div>
+            <div className="pointer-events-none absolute inset-y-0 right-0 w-16 sm:w-28 md:w-44 z-20 bg-gradient-to-l from-white via-white/80 to-transparent"></div>
+
+            <div className="group flex overflow-hidden [--gap:1.5rem] [gap:var(--gap)] flex-row">
+              <div className="flex shrink-0 justify-around [gap:var(--gap)] animate-marquee flex-row group-hover:[animation-play-state:paused]">
+                {marqueeItems.map((video, idx) => (
+                  <MarqueePillCard 
+                    key={`${video.id}-${idx}`}
+                    video={video}
+                    onSelectVideo={onOpenVideoModal}
+                  />
+                ))}
+              </div>
+              <div 
+                aria-hidden="true" 
+                className="flex shrink-0 justify-around [gap:var(--gap)] animate-marquee flex-row group-hover:[animation-play-state:paused]"
+              >
+                {marqueeItems.map((video, idx) => (
+                  <MarqueePillCard 
+                    key={`clone-${video.id}-${idx}`}
+                    video={video}
+                    onSelectVideo={onOpenVideoModal}
+                  />
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Bottom Tagline Banner: "Your next winning creative could start with a simple idea." */}
+        <div className="mt-14 sm:mt-18 rounded-3xl bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 text-white p-7 sm:p-9 shadow-xl border border-slate-800 flex flex-col md:flex-row items-center justify-between gap-6 relative overflow-hidden">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(99,102,241,0.22),transparent_50%)] pointer-events-none"></div>
+
+          <div className="relative z-10 flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-4 max-w-2xl">
+            <div className="w-12 h-12 rounded-2xl bg-indigo-500/20 border border-indigo-400/30 flex items-center justify-center text-indigo-300 shrink-0 shadow-inner">
+              <Sparkles className="w-6 h-6 text-indigo-400" />
+            </div>
+            <div>
+              <h3 className="text-xl sm:text-2xl font-extrabold text-white font-heading leading-snug">
+                {ow.tagline || "Your next winning creative could start with a simple idea."}
+              </h3>
+              <p className="text-slate-300 text-xs sm:text-sm mt-1.5 leading-relaxed">
+                {currentLang === 'de' 
+                  ? "Starten Sie Ihre professionelle KI-Videoproduktion ab 69 €/Minute – fertig in 48–72 Stunden."
+                  : "Launch your professional AI video production from €69/minute — delivered in 48–72 hours."}
+              </p>
+            </div>
+          </div>
+
+          <div className="relative z-10 shrink-0 w-full sm:w-auto">
+            <button
+              onClick={() => onOpenInquiryModal && onOpenInquiryModal()}
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-2xl bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-sm sm:text-base px-6 py-3.5 shadow-lg shadow-indigo-600/30 transition-all duration-200 transform hover:scale-[1.02] active:scale-[0.98]"
+            >
+              <span>{ow.taglineCta || "Get Your Video Today"}</span>
+              <ArrowRight className="w-4 h-4" />
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  );
+}
+
+function PortfolioVideoCard({ item, currentLang, onOpenModal }) {
+  const videoRef = useRef(null);
+
+  const title = item.title[currentLang] || item.title.en;
+  const badge = item.badge[currentLang] || item.badge.en;
+  const benefit = item.benefit[currentLang] || item.benefit.en;
+
+  const handleMouseEnter = () => {
+    if (videoRef.current) {
+      videoRef.current.play().catch(() => {});
+    }
+  };
+
+  const handleMouseLeave = () => {
+    if (videoRef.current) {
+      videoRef.current.pause();
+    }
+  };
+
+  const handleClick = () => {
+    if (onOpenModal) {
+      onOpenModal({
+        id: item.id,
+        title: title,
+        category: badge,
+        videoUrl: item.videoUrl,
+        type: "AI Commercial"
+      });
+    }
+  };
+
+  return (
+    <div 
+      onClick={handleClick}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+      className="relative flex-none w-full aspect-[9/16] rounded-3xl border border-slate-200/90 bg-slate-950 overflow-hidden shadow-lg cursor-pointer group hover:border-indigo-400 hover:-translate-y-2 hover:shadow-2xl hover:shadow-indigo-500/20 transition-all duration-300"
+    >
+      {/* Background Video */}
+      <video
+        ref={videoRef}
+        src={`${item.videoUrl}#t=0.001`}
+        muted
+        loop
+        playsInline
+        preload="auto"
+        className="absolute inset-0 w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
+      >
+        <source src={item.videoUrl} type="video/mp4" />
+      </video>
+
+      {/* Dark Readability Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-slate-950/60 pointer-events-none group-hover:from-slate-950/90 transition-colors"></div>
+
+      {/* Top Badge */}
+      <div className="absolute top-3 inset-x-3 flex items-center justify-between z-10 pointer-events-none">
+        <span className="text-[10px] sm:text-xs font-bold text-white bg-indigo-600/90 backdrop-blur-md px-2.5 py-1 rounded-full shadow-sm">
+          {badge}
+        </span>
+        <span className="text-[10px] sm:text-xs font-extrabold text-white/90 bg-black/50 backdrop-blur-md px-2 py-0.5 rounded-md">
+          {item.rate}
+        </span>
+      </div>
+
+      {/* Center Play Button Overlay */}
+      <div className="absolute inset-0 flex items-center justify-center z-10 pointer-events-none">
+        <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-white/20 backdrop-blur-md text-white border border-white/30 flex items-center justify-center shadow-lg group-hover:scale-115 group-hover:bg-indigo-600 group-hover:border-indigo-500 transition-all duration-300">
+          <Play className="w-5 h-5 sm:w-6 sm:h-6 fill-current ml-0.5 text-white" />
+        </div>
+      </div>
+
+      {/* Bottom Info Bar */}
+      <div className="absolute bottom-3.5 inset-x-3.5 z-10 pointer-events-none text-left">
+        <h4 className="text-xs sm:text-sm font-extrabold text-white leading-tight font-heading mb-1 drop-shadow-sm">
+          {title}
+        </h4>
+        <div className="flex items-center justify-between text-[10px] sm:text-xs text-indigo-300 font-medium">
+          <span>{benefit}</span>
+          <span className="text-white/80 group-hover:translate-x-0.5 transition-transform flex items-center">
+            ▶
+          </span>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function Mobile3DPortfolioCarousel({ items, currentLang, onOpenModal }) {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const touchStartX = useRef(0);
+  const touchStartY = useRef(0);
+  const isDragging = useRef(false);
+
+  const total = items.length;
+
+  const nextSlide = () => {
+    setActiveIndex((prev) => (prev + 1) % total);
+  };
+
+  const prevSlide = () => {
+    setActiveIndex((prev) => (prev - 1 + total) % total);
+  };
+
+  const handleTouchStart = (e) => {
+    touchStartX.current = e.touches[0].clientX;
+    touchStartY.current = e.touches[0].clientY;
+  };
+
+  const handleTouchEnd = (e) => {
+    const deltaX = e.changedTouches[0].clientX - touchStartX.current;
+    const deltaY = e.changedTouches[0].clientY - touchStartY.current;
+    if (Math.abs(deltaX) > 30 && Math.abs(deltaX) > Math.abs(deltaY)) {
+      if (deltaX < 0) {
+        nextSlide();
+      } else {
+        prevSlide();
+      }
+    }
+  };
+
+  const handleMouseDown = (e) => {
+    touchStartX.current = e.clientX;
+    isDragging.current = true;
+  };
+
+  const handleMouseUp = (e) => {
+    if (!isDragging.current) return;
+    isDragging.current = false;
+    const deltaX = e.clientX - touchStartX.current;
+    if (Math.abs(deltaX) > 40) {
+      if (deltaX < 0) nextSlide();
+      else prevSlide();
+    }
+  };
+
+  const isGerman = currentLang === 'de';
+
+  return (
+    <div className="relative w-full py-2 select-none">
+      
+      {/* 360 Rotation Pill & Counter */}
+      <div className="flex items-center justify-between px-2 mb-3 text-xs">
+        <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-indigo-50 border border-indigo-200 text-indigo-700 font-semibold shadow-xs">
+          <RotateCw className="w-3.5 h-3.5 text-indigo-600" />
+          <span>{isGerman ? "360° Karussell • Wischen" : "360° Rotation • Swipe"}</span>
+        </span>
+        <span className="px-2.5 py-1 rounded-full bg-slate-100 text-slate-700 font-bold text-[11px] border border-slate-200">
+          {activeIndex + 1} / {total}
+        </span>
+      </div>
+
+      {/* 3D Stage with cylindrical perspective */}
+      <div 
+        className="relative w-full h-[430px] sm:h-[480px] flex items-center justify-center overflow-hidden cursor-grab active:cursor-grabbing"
+        style={{ perspective: '1000px' }}
+        onTouchStart={handleTouchStart}
+        onTouchEnd={handleTouchEnd}
+        onMouseDown={handleMouseDown}
+        onMouseUp={handleMouseUp}
+      >
+        <div 
+          className="relative w-full h-full flex items-center justify-center"
+          style={{ transformStyle: 'preserve-3d' }}
+        >
+          {items.map((item, index) => {
+            let offset = index - activeIndex;
+            if (offset > total / 2) offset -= total;
+            if (offset < -total / 2) offset += total;
+
+            const isCenter = offset === 0;
+            const isImmediate = Math.abs(offset) === 1;
+            const isVisible = Math.abs(offset) <= 2;
+
+            if (!isVisible) return null;
+
+            const translateX = offset * 140; 
+            const translateZ = -Math.abs(offset) * 110; 
+            const rotateY = offset * -28; 
+            const opacity = isCenter ? 1 : isImmediate ? 0.75 : 0.35;
+            const scale = isCenter ? 1 : 0.88;
+
+            const title = item.title[currentLang] || item.title.en;
+            const badge = item.badge[currentLang] || item.badge.en;
+
+            return (
+              <div
+                key={item.id}
+                onClick={() => {
+                  if (isCenter) {
+                    if (onOpenModal) {
+                      onOpenModal({
+                        id: item.id,
+                        title: title,
+                        category: badge,
+                        videoUrl: item.videoUrl,
+                        type: "AI Commercial"
+                      });
+                    }
+                  } else {
+                    setActiveIndex(index);
+                  }
+                }}
+                className="absolute w-[220px] sm:w-[250px] aspect-[9/16] rounded-3xl overflow-hidden shadow-2xl transition-all duration-500 ease-out cursor-pointer border border-white/20 bg-slate-950"
+                style={{
+                  transform: `translateX(${translateX}px) translateZ(${translateZ}px) rotateY(${rotateY}deg) scale(${scale})`,
+                  opacity: opacity,
+                  zIndex: 20 - Math.abs(offset),
+                  boxShadow: isCenter ? '0 25px 50px -12px rgba(79, 70, 229, 0.4)' : '0 10px 25px -5px rgba(0,0,0,0.5)',
+                }}
+              >
+                <video
+                  src={`${item.videoUrl}#t=0.001`}
+                  muted
+                  loop
+                  playsInline
+                  autoPlay={isCenter}
+                  preload="metadata"
+                  className="w-full h-full object-cover"
+                />
+
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-slate-950/60 pointer-events-none"></div>
+
+                <div className="absolute top-3 inset-x-3 flex items-center justify-between z-10 pointer-events-none">
+                  <span className="text-[10px] font-bold text-white bg-indigo-600/90 backdrop-blur-md px-2.5 py-0.5 rounded-full shadow-sm">
+                    {badge}
+                  </span>
+                  <span className="text-[10px] font-extrabold text-white/90 bg-black/50 px-2 py-0.5 rounded-md">
+                    {item.rate}
+                  </span>
+                </div>
+
+                <div className="absolute inset-0 flex items-center justify-center z-10 pointer-events-none">
+                  <div className={`w-12 h-12 rounded-full flex items-center justify-center shadow-lg transition-transform ${
+                    isCenter ? 'bg-indigo-600 text-white scale-110 shadow-indigo-600/50' : 'bg-white/20 text-white'
+                  }`}>
+                    <Play className="w-5 h-5 fill-current ml-0.5 text-white" />
+                  </div>
+                </div>
+
+                <div className="absolute bottom-3 inset-x-3 z-10 pointer-events-none text-left">
+                  <h4 className="text-xs font-bold text-white leading-tight font-heading drop-shadow-sm">
+                    {title}
+                  </h4>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+
+      {/* Manual Slide Controls */}
+      <div className="flex items-center justify-center gap-4 mt-2">
+        <button
+          onClick={prevSlide}
+          aria-label="Previous Video"
+          className="w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-800 flex items-center justify-center transition-colors shadow-sm"
+        >
+          <ChevronLeft className="w-5 h-5" />
+        </button>
+        <div className="flex gap-1.5">
+          {items.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => setActiveIndex(i)}
+              aria-label={`Go to video ${i + 1}`}
+              className={`h-2 rounded-full transition-all duration-300 ${
+                i === activeIndex ? 'w-6 bg-indigo-600' : 'w-2 bg-slate-300'
+              }`}
+            />
+          ))}
+        </div>
+        <button
+          onClick={nextSlide}
+          aria-label="Next Video"
+          className="w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-800 flex items-center justify-center transition-colors shadow-sm"
+        >
+          <ChevronRight className="w-5 h-5" />
+        </button>
+      </div>
+
+    </div>
+  );
+}
+
+function MarqueePillCard({ video, onSelectVideo }) {
+  const videoRef = useRef(null);
+
+  const handleMouseEnter = () => {
+    if (videoRef.current) {
+      videoRef.current.play().catch(() => {});
+    }
+  };
+
+  const handleMouseLeave = () => {
+    if (videoRef.current) {
+      videoRef.current.pause();
+    }
+  };
+
+  const handleClick = () => {
+    if (onSelectVideo) {
+      onSelectVideo(video);
+    }
+  };
+
+  return (
+    <div 
+      onClick={handleClick}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+      className="relative flex-none w-[200px] sm:w-[240px] aspect-[9/16] rounded-2xl overflow-hidden bg-slate-900 border border-slate-200/90 shadow-md hover:shadow-xl hover:-translate-y-1 hover:border-indigo-400 transition-all duration-300 cursor-pointer group"
+    >
+      <video
+        ref={videoRef}
+        src={video.videoUrl}
+        poster={video.posterUrl}
+        muted
+        loop
+        playsInline
+        preload="metadata"
+        className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
+      />
+      <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent pointer-events-none group-hover:from-slate-950/80 transition-colors"></div>
+
+      <div className="absolute top-2.5 right-2.5 z-10">
+        <span className="text-[10px] font-bold text-white bg-indigo-600/90 px-2 py-0.5 rounded-full shadow-sm">
+          {video.type}
+        </span>
+      </div>
+
+      <div className="absolute inset-0 flex items-center justify-center z-10 pointer-events-none">
+        <div className="w-10 h-10 rounded-full bg-white/20 backdrop-blur-md text-white border border-white/30 flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:bg-indigo-600 transition-all duration-200">
+          <Play className="w-4 h-4 fill-current ml-0.5 text-white" />
+        </div>
+      </div>
+
+      <div className="absolute bottom-2.5 inset-x-2.5 z-10 pointer-events-none text-left">
+        <h5 className="text-xs font-bold text-white leading-tight font-heading line-clamp-1 mb-0.5">
+          {video.title}
+        </h5>
+        <span className="text-[10px] text-slate-300">
+          {video.category} • {video.duration}
+        </span>
+      </div>
+    </div>
+  );
+}
