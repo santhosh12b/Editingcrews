@@ -1,10 +1,42 @@
 import React from 'react';
-import { Play, Sparkles, ArrowRight, ShieldCheck, Clock, CheckCircle } from 'lucide-react';
+import { Play, Sparkles, ArrowRight, ShieldCheck, Clock, CheckCircle, TrendingUp } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 
+const trustAvatars = [
+  { url: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80", name: "User 1" },
+  { url: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&auto=format&fit=crop&q=80", name: "User 2" },
+  { url: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&auto=format&fit=crop&q=80", name: "User 3" },
+  { url: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&auto=format&fit=crop&q=80", name: "User 4" },
+  { url: "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?w=100&auto=format&fit=crop&q=80", name: "User 5" },
+];
+
+const trustText = {
+  de: {
+    highlight: "20+ Nutzer vertrauen uns",
+    sub: "99M+ Views letzte Woche"
+  },
+  en: {
+    highlight: "Trusted by 20+ users",
+    sub: "99M+ views last week"
+  },
+  fr: {
+    highlight: "Approuvé par 20+ utilisateurs",
+    sub: "99M+ vues générées"
+  },
+  es: {
+    highlight: "20+ usuarios confían en nosotros",
+    sub: "99M+ vistas generadas"
+  },
+  it: {
+    highlight: "Scelto da 20+ utenti",
+    sub: "99M+ visualizzazioni"
+  }
+};
+
 export default function HeroSection({ onOpenShowreel, onOpenInquiryModal }) {
-  const { t } = useLanguage();
+  const { currentLang, t } = useLanguage();
   const hero = t.hero;
+  const trust = trustText[currentLang] || trustText.en;
 
   return (
     <section className="relative overflow-hidden pt-28 pb-16 sm:pt-36 sm:pb-24 lg:pt-44 lg:pb-28 bg-white">
@@ -17,10 +49,33 @@ export default function HeroSection({ onOpenShowreel, onOpenInquiryModal }) {
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl text-center">
         
-        {/* Eyebrow Pill */}
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-indigo-50 border border-indigo-200/80 text-indigo-700 text-xs sm:text-sm font-semibold mb-6 shadow-sm">
-          <Sparkles className="w-3.5 h-3.5 text-indigo-600 fill-indigo-600/30" />
-          <span>{hero.eyebrow}</span>
+        {/* Social Proof Trust Badge (Replaces "AI Videos for Your Products & Services") */}
+        <div className="inline-flex items-center gap-2.5 sm:gap-3 px-3.5 py-1.5 rounded-full bg-white border border-slate-200/90 shadow-sm hover:shadow-md transition-shadow duration-200 mb-6">
+          {/* Overlapping Avatars Stack */}
+          <div className="flex -space-x-2 overflow-hidden shrink-0">
+            {trustAvatars.map((avatar, idx) => (
+              <img
+                key={idx}
+                src={avatar.url}
+                alt={avatar.name}
+                loading="eager"
+                className="inline-block h-6 w-6 sm:h-7 sm:w-7 rounded-full ring-2 ring-white object-cover bg-slate-100 shadow-xs"
+              />
+            ))}
+          </div>
+
+          {/* Purple Trend Icon */}
+          <TrendingUp className="w-4 h-4 sm:w-4.5 sm:h-4.5 text-indigo-600 stroke-[2.5] shrink-0" />
+
+          {/* Trust Text */}
+          <div className="text-xs sm:text-sm text-slate-800 flex items-center gap-1.5 leading-none">
+            <span className="font-extrabold text-slate-900">
+              {trust.highlight}
+            </span>
+            <span className="text-slate-500 font-medium hidden sm:inline">
+              • {trust.sub}
+            </span>
+          </div>
         </div>
 
         {/* Headline */}
