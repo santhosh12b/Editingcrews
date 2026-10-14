@@ -1,8 +1,8 @@
 export const heroContent = {
   eyebrow: "AI Videos for Your Products & Services",
-  headline: "Bring Your Ideas to Life.",
-  subheading: "Without the Cost of Traditional Video Production.",
-  description: "From product commercials and business explainers to animated stories and stunning visual effects — create professional videos powered by AI.",
+  headline: "High-Quality AI Videos for Your Brand — From Just €69/Minute.",
+  subheading: "Create scroll-stopping product videos for your ads and social media without expensive video shoots.",
+  description: "From UGC-style ads to cinematic product videos, we handle everything from AI production to final editing.",
   primaryCta: "Watch Showreel",
   secondaryCta: "Get Your Video Today"
 };

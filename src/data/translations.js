@@ -10,9 +10,9 @@ export const translations = {
   en: {
     hero: {
       eyebrow: "AI Videos for Your Products & Services",
-      headline: "Bring Your Ideas to Life.",
-      subheading: "Without the Cost of Traditional Video Production.",
-      description: "From product commercials and business explainers to animated stories and stunning visual effects — create professional videos powered by AI.",
+      headline: "High-Quality AI Videos for Your Brand — From Just €69/Minute.",
+      subheading: "Create scroll-stopping product videos for your ads and social media without expensive video shoots.",
+      description: "From UGC-style ads to cinematic product videos, we handle everything from AI production to final editing.",
       primaryCta: "Watch Showreel",
       secondaryCta: "Get Your Video Today",
       badge1: "Fixed €69 / Finished Minute",
@@ -277,9 +277,9 @@ export const translations = {
   de: {
     hero: {
       eyebrow: "KI-Videos für Ihre Produkte & Dienstleistungen",
-      headline: "Erwecken Sie Ihre Ideen zum Leben.",
-      subheading: "Ohne die hohen Kosten traditioneller Videoproduktion.",
-      description: "Von Produktwerbung und Erklärvideos bis hin zu animierten Geschichten und spektakulären visuellen Effekten – erstellen Sie professionelle Videos mit modernster KI.",
+      headline: "Hochwertige KI-Videos für Ihre Marke – ab nur 69 €/Minute.",
+      subheading: "Erstellen Sie packende Produktvideos für Ihre Ads und Social Media – ohne teure Videodrehs.",
+      description: "Von Ads im UGC-Stil bis hin zu kinoreifen Produktvideos: Wir übernehmen alles von der KI-Produktion bis zum finalen Schnitt.",
       primaryCta: "Showreel ansehen",
       secondaryCta: "Starten Sie noch heute",
       badge1: "Feste 69 € / Fertige Minute",
@@ -544,9 +544,9 @@ export const translations = {
   fr: {
     hero: {
       eyebrow: "Vidéos IA pour vos produits et services",
-      headline: "Donnez vie à vos idées.",
-      subheading: "Sans le coût de la production vidéo traditionnelle.",
-      description: "Des publicités produits et explications d'entreprise aux histoires animées et effets visuels spectaculaires — créez des vidéos professionnelles propulsées par l'IA.",
+      headline: "Vidéos IA haut de gamme pour votre marque — à partir de seulement 69 €/minute.",
+      subheading: "Créez des vidéos captivantes pour vos publicités et réseaux sociaux sans tournages coûteux.",
+      description: "Des publicités style UGC aux vidéos produits cinématiques, nous gérons tout, de la production IA au montage final.",
       primaryCta: "Voir le Showreel",
       secondaryCta: "Obtenez votre vidéo",
       badge1: "Tarif fixe 69 € / minute finalisée",
@@ -811,9 +811,9 @@ export const translations = {
   es: {
     hero: {
       eyebrow: "Videos con IA para tus productos y servicios",
-      headline: "Da vida a tus ideas.",
-      subheading: "Sin el coste de la producción de vídeo tradicional.",
-      description: "Desde anuncios de productos y vídeos explicativos hasta historias animadas y efectos visuales asombrosos: crea vídeos profesionales impulsados por IA.",
+      headline: "Vídeos de IA de alta calidad para su marca — desde solo 69 €/minuto.",
+      subheading: "Cree vídeos impactantes para sus anuncios y redes sociales sin costosos rodajes.",
+      description: "Desde anuncios estilo UGC hasta vídeos de producto cinematográficos, gestionamos todo, desde la producción con IA hasta la edición final.",
       primaryCta: "Ver Showreel",
       secondaryCta: "Obtén tu vídeo hoy",
       badge1: "Tarifa fija 69 € / minuto finalizado",
@@ -1078,9 +1078,9 @@ export const translations = {
   it: {
     hero: {
       eyebrow: "Video con IA per i tuoi prodotti e servizi",
-      headline: "Dai vita alle tue idee.",
-      subheading: "Senza i costi della produzione video tradizionale.",
-      description: "Dagli spot di prodotto ai video esplicativi aziendali, storie animate ed effetti visivi spettacolari: crea video professionali con l'intelligenza artificiale.",
+      headline: "Video IA di alta qualità per il tuo brand — da soli 69 €/minuto.",
+      subheading: "Crea video prodotto irresistibili per le tue inserzioni e i social media senza costose riprese.",
+      description: "Dalle inserzioni in stile UGC ai video prodotto cinematografici, gestiamo tutto: dalla generazione IA al montaggio finale.",
       primaryCta: "Guarda Showreel",
       secondaryCta: "Ottieni il tuo video oggi",
       badge1: "Prezzo fisso 69 € / minuto completato",
