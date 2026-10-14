@@ -3,8 +3,8 @@ export const heroContent = {
   headline: "High-Quality AI Videos for Your Brand — From Just €69/Minute.",
   subheading: "Create scroll-stopping product videos for your ads and social media without expensive video shoots.",
   description: "From UGC-style ads to cinematic product videos, we handle everything from AI production to final editing.",
-  primaryCta: "Watch Showreel",
-  secondaryCta: "Get Your Video Today"
+  primaryCta: "Get Your First Video",
+  secondaryCta: "Get Your First Video"
 };
 
 export const whatWeOffer = [

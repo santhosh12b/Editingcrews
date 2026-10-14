@@ -93,27 +93,15 @@ export default function HeroSection({ onOpenShowreel, onOpenInquiryModal }) {
           {hero.description}
         </p>
 
-        {/* Dual Call To Actions */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
-          
-          {/* Primary CTA: Watch Showreel */}
-          <button
-            onClick={onOpenShowreel}
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 rounded-2xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-base sm:text-lg px-8 py-4 shadow-xl shadow-indigo-600/25 transition-all duration-200 transform hover:scale-[1.02] active:scale-[0.98] glow-primary"
-          >
-            <Play className="w-5 h-5 fill-white" />
-            <span>{hero.primaryCta}</span>
-          </button>
-
-          {/* Secondary CTA: Get Your Video Today */}
+        {/* Single Call To Action: Get Your First Video */}
+        <div className="flex items-center justify-center mb-12">
           <button
             onClick={onOpenInquiryModal}
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-2xl bg-white hover:bg-slate-50 text-slate-900 font-bold text-base sm:text-lg px-7 py-4 border-2 border-slate-200 transition-all duration-200 shadow-sm hover:border-slate-300"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 rounded-2xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-base sm:text-lg px-9 py-4 shadow-xl shadow-indigo-600/25 transition-all duration-200 transform hover:scale-[1.02] active:scale-[0.98] glow-primary"
           >
-            <span>{hero.secondaryCta}</span>
-            <ArrowRight className="w-5 h-5 text-indigo-600" />
+            <span>{hero.primaryCta}</span>
+            <ArrowRight className="w-5 h-5 text-white stroke-[2.5]" />
           </button>
-
         </div>
 
         {/* Trust Badges */}
