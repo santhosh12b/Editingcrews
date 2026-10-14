@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { X, CheckCircle2, ArrowRight } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
+import { GOOGLE_SHEETS_SCRIPT_URL } from '../config/googleSheets';
 
 export default function CreateVideoModal({ isOpen, onClose, initialService }) {
   const { currentLang, t } = useLanguage();
@@ -38,13 +39,48 @@ export default function CreateVideoModal({ isOpen, onClose, initialService }) {
     onClose();
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setIsSuccess(true);
-    }, 500);
+
+    const now = new Date();
+    const formattedDate = now.toLocaleDateString('de-DE', {
+      year: 'numeric',
+      month: '2-digit',
+      day: '2-digit',
+      hour: '2-digit',
+      minute: '2-digit'
+    });
+
+    const payload = {
+      date: formattedDate,
+      name: name.trim(),
+      email: email.trim(),
+      projectType: projectType || (currentLang === 'de' ? 'Allgemeine Anfrage' : 'General Enquiry'),
+      duration: duration || 1,
+      description: description.trim()
+    };
+
+    if (GOOGLE_SHEETS_SCRIPT_URL) {
+      try {
+        await fetch(GOOGLE_SHEETS_SCRIPT_URL, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: {
+            'Content-Type': 'text/plain;charset=utf-8'
+          },
+          body: JSON.stringify(payload)
+        });
+      } catch (err) {
+        console.error('Failed to submit to Google Sheets:', err);
+      }
+    } else {
+      // Simulate brief network delay if no URL is configured yet
+      await new Promise((resolve) => setTimeout(resolve, 600));
+    }
+
+    setIsSubmitting(false);
+    setIsSuccess(true);
   };
 
   const calculatedTotal = (parseInt(duration) || 1) * 69;
