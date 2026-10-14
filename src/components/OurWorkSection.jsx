@@ -12,7 +12,6 @@ import {
   Sparkle
 } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
-import { showreelVideos } from '../data/landingData';
 
 export const portfolioVideos = [
   {
@@ -176,8 +175,6 @@ export default function OurWorkSection({ onOpenVideoModal, onOpenInquiryModal })
     }
   };
 
-  const marqueeItems = [...showreelVideos, ...showreelVideos];
-
   return (
     <section id="our-work" className="py-20 sm:py-24 md:py-28 bg-white relative overflow-hidden border-b border-slate-200/80 scroll-mt-20">
       
@@ -257,38 +254,6 @@ export default function OurWorkSection({ onOpenVideoModal, onOpenInquiryModal })
             />
           </div>
 
-        </div>
-
-        {/* Continuous Ambient Marquee Strip */}
-        <div className="mt-12 sm:mt-16 pt-8 border-t border-slate-100">
-          <div className="relative w-full overflow-hidden">
-            <div className="pointer-events-none absolute inset-y-0 left-0 w-16 sm:w-28 md:w-44 z-20 bg-gradient-to-r from-white via-white/80 to-transparent"></div>
-            <div className="pointer-events-none absolute inset-y-0 right-0 w-16 sm:w-28 md:w-44 z-20 bg-gradient-to-l from-white via-white/80 to-transparent"></div>
-
-            <div className="group flex overflow-hidden [--gap:1.5rem] [gap:var(--gap)] flex-row">
-              <div className="flex shrink-0 justify-around [gap:var(--gap)] animate-marquee flex-row group-hover:[animation-play-state:paused]">
-                {marqueeItems.map((video, idx) => (
-                  <MarqueePillCard 
-                    key={`${video.id}-${idx}`}
-                    video={video}
-                    onSelectVideo={onOpenVideoModal}
-                  />
-                ))}
-              </div>
-              <div 
-                aria-hidden="true" 
-                className="flex shrink-0 justify-around [gap:var(--gap)] animate-marquee flex-row group-hover:[animation-play-state:paused]"
-              >
-                {marqueeItems.map((video, idx) => (
-                  <MarqueePillCard 
-                    key={`clone-${video.id}-${idx}`}
-                    video={video}
-                    onSelectVideo={onOpenVideoModal}
-                  />
-                ))}
-              </div>
-            </div>
-          </div>
         </div>
 
         {/* Bottom Tagline Banner: "Your next winning creative could start with a simple idea." */}
@@ -607,70 +572,6 @@ function Mobile3DPortfolioCarousel({ items, currentLang, onOpenModal }) {
         </button>
       </div>
 
-    </div>
-  );
-}
-
-function MarqueePillCard({ video, onSelectVideo }) {
-  const videoRef = useRef(null);
-
-  const handleMouseEnter = () => {
-    if (videoRef.current) {
-      videoRef.current.play().catch(() => {});
-    }
-  };
-
-  const handleMouseLeave = () => {
-    if (videoRef.current) {
-      videoRef.current.pause();
-    }
-  };
-
-  const handleClick = () => {
-    if (onSelectVideo) {
-      onSelectVideo(video);
-    }
-  };
-
-  return (
-    <div 
-      onClick={handleClick}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-      className="relative flex-none w-[200px] sm:w-[240px] aspect-[9/16] rounded-2xl overflow-hidden bg-slate-900 border border-slate-200/90 shadow-md hover:shadow-xl hover:-translate-y-1 hover:border-indigo-400 transition-all duration-300 cursor-pointer group"
-    >
-      <video
-        ref={videoRef}
-        src={video.videoUrl}
-        poster={video.posterUrl}
-        muted
-        loop
-        playsInline
-        preload="metadata"
-        className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
-      />
-      <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent pointer-events-none group-hover:from-slate-950/80 transition-colors"></div>
-
-      <div className="absolute top-2.5 right-2.5 z-10">
-        <span className="text-[10px] font-bold text-white bg-indigo-600/90 px-2 py-0.5 rounded-full shadow-sm">
-          {video.type}
-        </span>
-      </div>
-
-      <div className="absolute inset-0 flex items-center justify-center z-10 pointer-events-none">
-        <div className="w-10 h-10 rounded-full bg-white/20 backdrop-blur-md text-white border border-white/30 flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:bg-indigo-600 transition-all duration-200">
-          <Play className="w-4 h-4 fill-current ml-0.5 text-white" />
-        </div>
-      </div>
-
-      <div className="absolute bottom-2.5 inset-x-2.5 z-10 pointer-events-none text-left">
-        <h5 className="text-xs font-bold text-white leading-tight font-heading line-clamp-1 mb-0.5">
-          {video.title}
-        </h5>
-        <span className="text-[10px] text-slate-300">
-          {video.category} • {video.duration}
-        </span>
-      </div>
     </div>
   );
 }
