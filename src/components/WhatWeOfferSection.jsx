@@ -76,11 +76,11 @@ export default function WhatWeOfferSection({ onOpenInquiryModal }) {
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[500px] bg-gradient-to-tr from-indigo-50/50 via-purple-50/30 to-pink-50/20 rounded-full blur-3xl -z-10"></div>
       </div>
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1360px]">
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <span className="text-xs sm:text-sm font-bold uppercase tracking-widest text-indigo-600 mb-3 block font-mono">
+          <span className="text-xs sm:text-[13px] font-bold uppercase tracking-widest text-indigo-600 mb-3 block">
             {offer.badge}
           </span>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900 leading-tight font-heading">
@@ -92,7 +92,7 @@ export default function WhatWeOfferSection({ onOpenInquiryModal }) {
         </div>
 
         {/* 6 Video Format Cards in a Single Row */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3.5 sm:gap-4 lg:gap-3 xl:gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3.5 sm:gap-4 lg:gap-3 xl:gap-4 items-stretch">
           {offer.items.map((item) => {
             const IconComponent = iconMap[item.id] || iconMap[item.icon] || Sparkles;
             const theme = colorStyles[item.color] || colorStyles.indigo;
@@ -101,22 +101,26 @@ export default function WhatWeOfferSection({ onOpenInquiryModal }) {
               <div 
                 key={item.id}
                 onClick={() => onOpenInquiryModal && onOpenInquiryModal()}
-                className={`group relative bg-white rounded-3xl p-6 sm:p-7 flex flex-col items-center text-center border border-slate-100 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] hover:shadow-xl hover:-translate-y-1.5 ${theme.hoverBorder} transition-all duration-300 cursor-pointer`}
+                className={`group relative bg-white rounded-3xl p-5 sm:p-6 lg:px-3.5 lg:py-6 xl:px-4 xl:py-7 flex flex-col items-center text-center border border-slate-100 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] hover:shadow-xl hover:-translate-y-1.5 ${theme.hoverBorder} transition-all duration-300 cursor-pointer h-full justify-start`}
               >
                 {/* Centered Soft Icon Container */}
-                <div className={`w-14 h-14 sm:w-16 sm:h-16 rounded-2xl flex items-center justify-center mb-5 sm:mb-6 transition-all duration-300 group-hover:scale-110 shadow-xs ${theme.iconBg}`}>
+                <div className={`w-14 h-14 sm:w-16 sm:h-16 rounded-2xl flex items-center justify-center mb-5 shrink-0 transition-all duration-300 group-hover:scale-105 shadow-xs ${theme.iconBg}`}>
                   <IconComponent className="w-7 h-7 sm:w-8 sm:h-8" />
                 </div>
 
-                {/* Title */}
-                <h3 className="text-base sm:text-lg font-bold text-slate-900 mb-2 leading-snug group-hover:text-indigo-600 transition-colors">
-                  {item.title}
-                </h3>
+                {/* Title Container - Fixed Minimum Height for Exact Horizontal Baseline Alignment */}
+                <div className="min-h-[46px] xl:min-h-[50px] flex items-center justify-center w-full mb-2">
+                  <h3 className="text-[14px] sm:text-[15px] xl:text-[16px] font-bold text-slate-900 leading-snug group-hover:text-indigo-600 transition-colors text-center tracking-tight">
+                    {item.title}
+                  </h3>
+                </div>
 
-                {/* Description */}
-                <p className="text-xs sm:text-sm text-slate-500 leading-relaxed">
-                  {item.description}
-                </p>
+                {/* Description Container - Top-Aligned with Proportional Font */}
+                <div className="w-full flex-1 flex items-start justify-center">
+                  <p className="text-[12px] sm:text-[13px] text-slate-500 leading-relaxed text-center font-normal">
+                    {item.description}
+                  </p>
+                </div>
               </div>
             );
           })}
