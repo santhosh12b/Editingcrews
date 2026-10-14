@@ -9,32 +9,52 @@ export const heroContent = {
 
 export const whatWeOffer = [
   {
-    id: 1,
-    title: "AI Video Generation & Creative Storytelling",
-    description: "Cutting-edge generative models paired with cinematic pacing and narrative hooks tailored to your business.",
-    icon: "Wand2",
-    badge: "Creative Tech"
+    id: "ugc",
+    title: "UGC-Style Ads",
+    description: "Create creator-style videos that feel natural and relatable.",
+    badge: "Creator Style",
+    icon: "Smartphone",
+    color: "violet"
   },
   {
-    id: 2,
-    title: "Complete Video Editing & Professional Finishing",
-    description: "Color grading, precision timing, titles, subtitle typography, and broadcast-ready exports.",
-    icon: "SlidersHorizontal",
-    badge: "Full Post-Production"
+    id: "showcase",
+    title: "Product Showcase Videos",
+    description: "Present your products with premium visuals and creative scenes.",
+    badge: "High Impact",
+    icon: "ShoppingBag",
+    color: "indigo"
   },
   {
-    id: 3,
-    title: "Sound Effects & Background Music",
-    description: "Rich foley sound effects, audio mixing, and commercial-licensed soundtracks matched to your mood.",
-    icon: "Volume2",
-    badge: "Immersive Audio"
+    id: "unboxing",
+    title: "Unboxing Videos",
+    description: "Showcase the product experience through engaging unboxing-style content.",
+    badge: "Experience",
+    icon: "Package",
+    color: "emerald"
   },
   {
-    id: 4,
-    title: "Multiple Languages for European Markets",
-    description: "Native-quality multilingual voiceovers and localized subtitles in English, German, French, Spanish, Italian & Dutch.",
-    icon: "Languages",
-    badge: "Pan-European Reach"
+    id: "concept",
+    title: "Concept Ads",
+    description: "Bring creative advertising ideas to life with unique visuals and storytelling.",
+    badge: "Creative Hooks",
+    icon: "Lightbulb",
+    color: "amber"
+  },
+  {
+    id: "animation",
+    title: "Animation Videos",
+    description: "Explain product features and benefits through eye-catching animations.",
+    badge: "Explainer",
+    icon: "Layers",
+    color: "rose"
+  },
+  {
+    id: "cinematic",
+    title: "Cinematic & VFX Videos",
+    description: "Give your products a premium look with cinematic scenes and visual effects.",
+    badge: "Studio Grade",
+    icon: "Sparkles",
+    color: "fuchsia"
   }
 ];
 

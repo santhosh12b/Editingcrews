@@ -58,8 +58,8 @@ export default function App() {
           onOpenInquiryModal={handleOpenInquiryModal}
         />
 
-        {/* 2. What We Offer Section */}
-        <WhatWeOfferSection />
+        {/* 2. What We Offer / See What We Can Create Section */}
+        <WhatWeOfferSection onOpenInquiryModal={handleOpenInquiryModal} />
 
         {/* 4. Video Production Services: What Can We Create for Your Business? */}
         <ServicesSection 

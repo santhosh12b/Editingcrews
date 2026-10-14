@@ -20,34 +20,62 @@ export const translations = {
       badge3: "100% Commercial Rights"
     },
     whatWeOffer: {
-      badge: "Full-Stack Production",
-      heading: "What We Offer",
-      subheading: "Everything your brand needs to produce high-impact, broadcast-quality videos in one streamlined service.",
-      included: "Included in every video",
+      badge: "See What We Can Create",
+      heading: "Your Products. More Creative Possibilities.",
+      subheading: "Turn your product ideas into engaging videos designed for advertising, social media, and brand storytelling.",
+      cta: "Create Video",
+      customIdeaBadge: "Custom Production",
+      customIdeaHeading: "Have another idea? Tell us what you have in mind.",
+      customIdeaSub: "From multi-angle 3D CGI to custom storyboards and European campaigns — we bring any creative concept to life.",
+      customIdeaBtn: "Tell Us Your Idea",
       items: [
         {
-          id: 1,
-          title: "AI Video Generation & Creative Storytelling",
-          description: "Cutting-edge generative models paired with cinematic pacing and narrative hooks tailored to your business.",
-          badge: "Creative Tech"
+          id: "ugc",
+          title: "UGC-Style Ads",
+          description: "Create creator-style videos that feel natural and relatable.",
+          badge: "Creator Style",
+          icon: "Smartphone",
+          color: "violet"
         },
         {
-          id: 2,
-          title: "Complete Video Editing & Professional Finishing",
-          description: "Color grading, precision timing, titles, subtitle typography, and broadcast-ready exports.",
-          badge: "Full Post-Production"
+          id: "showcase",
+          title: "Product Showcase Videos",
+          description: "Present your products with premium visuals and creative scenes.",
+          badge: "High Impact",
+          icon: "ShoppingBag",
+          color: "indigo"
         },
         {
-          id: 3,
-          title: "Sound Effects & Background Music",
-          description: "Rich foley sound effects, audio mixing, and commercial-licensed soundtracks matched to your mood.",
-          badge: "Immersive Audio"
+          id: "unboxing",
+          title: "Unboxing Videos",
+          description: "Showcase the product experience through engaging unboxing-style content.",
+          badge: "Experience",
+          icon: "Package",
+          color: "emerald"
         },
         {
-          id: 4,
-          title: "Multiple Languages for European Markets",
-          description: "Native-quality multilingual voiceovers and localized subtitles in English, German, French, Spanish, Italian & Dutch.",
-          badge: "Pan-European Reach"
+          id: "concept",
+          title: "Concept Ads",
+          description: "Bring creative advertising ideas to life with unique visuals and storytelling.",
+          badge: "Creative Hooks",
+          icon: "Lightbulb",
+          color: "amber"
+        },
+        {
+          id: "animation",
+          title: "Animation Videos",
+          description: "Explain product features and benefits through eye-catching animations.",
+          badge: "Explainer",
+          icon: "Layers",
+          color: "rose"
+        },
+        {
+          id: "cinematic",
+          title: "Cinematic & VFX Videos",
+          description: "Give your products a premium look with cinematic scenes and visual effects.",
+          badge: "Studio Grade",
+          icon: "Sparkles",
+          color: "fuchsia"
         }
       ]
     },
@@ -287,34 +315,62 @@ export const translations = {
       badge3: "100 % kommerzielle Rechte"
     },
     whatWeOffer: {
-      badge: "Full-Stack Produktion",
-      heading: "Was wir bieten",
-      subheading: "Alles, was Ihre Marke für hochwertige, sendefähige Videos benötigt – in einem optimierten Service.",
-      included: "In jedem Video enthalten",
+      badge: "Entdecken Sie, was wir kreieren können",
+      heading: "Ihre Produkte. Mehr kreative Möglichkeiten.",
+      subheading: "Verwandeln Sie Ihre Produktideen in packende Videos für Werbeanzeigen, Social Media und Brand Storytelling.",
+      cta: "Video anfragen",
+      customIdeaBadge: "Individuelle Produktion",
+      customIdeaHeading: "Haben Sie eine andere Idee? Erzählen Sie uns davon.",
+      customIdeaSub: "Von multi-perspektivischen 3D-CGI-Renderings bis hin zu individuellen Storyboards und europaweiten Kampagnen — wir verwirklichen jedes Konzept.",
+      customIdeaBtn: "Idee mitteilen",
       items: [
         {
-          id: 1,
-          title: "KI-Videogenerierung & kreatives Storytelling",
-          description: "Modernste generative Modelle kombiniert mit kinoreifem Pacing und zielgruppengerechten Hooks.",
-          badge: "Kreativ-Technologie"
+          id: "ugc",
+          title: "UGC-Style Ads",
+          description: "Erstellen Sie Videos im Creator-Stil, die authentisch und nahbar wirken.",
+          badge: "Creator-Stil",
+          icon: "Smartphone",
+          color: "violet"
         },
         {
-          id: 2,
-          title: "Kompletter Videoschnitt & professionelle Fertigstellung",
-          description: "Farbkorrektur, präzises Timing, Titelanimation, dynamische Untertitel und sendefähige Exporte.",
-          badge: "Vollständige Postproduktion"
+          id: "showcase",
+          title: "Produkt-Showcase-Videos",
+          description: "Präsentieren Sie Ihre Produkte mit erstklassigen Bildern und kreativen Szenen.",
+          badge: "Hohe Konversion",
+          icon: "ShoppingBag",
+          color: "indigo"
         },
         {
-          id: 3,
-          title: "Soundeffekte & Hintergrundmusik",
-          description: "Hochwertige Foley-Soundeffekte, präziser Audiomix und kommerziell lizensierte Soundtracks.",
-          badge: "Immersives Audio"
+          id: "unboxing",
+          title: "Unboxing-Videos",
+          description: "Zeigen Sie das Produkterlebnis durch packende Unboxing-Inhalte.",
+          badge: "Erlebnis-Format",
+          icon: "Package",
+          color: "emerald"
         },
         {
-          id: 4,
-          title: "Mehrere Sprachen für europäische Märkte",
-          description: "Muttersprachliche Voiceover und lokalisierte Untertitel auf Deutsch, Englisch, Französisch, Spanisch, Italienisch & Niederländisch.",
-          badge: "Paneuropäische Reichweite"
+          id: "concept",
+          title: "Konzept-Werbung & Ads",
+          description: "Erwecken Sie kreative Werbeideen mit einzigartiger Bildsprache und Storytelling zum Leben.",
+          badge: "Kreative Hooks",
+          icon: "Lightbulb",
+          color: "amber"
+        },
+        {
+          id: "animation",
+          title: "Animations-Videos",
+          description: "Erklären Sie Produktfeatures und Vorteile durch aufmerksamkeitsstarke Animationen.",
+          badge: "Erklärformat",
+          icon: "Layers",
+          color: "rose"
+        },
+        {
+          id: "cinematic",
+          title: "Cinematische & VFX-Videos",
+          description: "Verleihen Sie Ihren Produkten einen Premium-Look mit kinoreifen Szenen und visuellen Effekten.",
+          badge: "Kino-Qualität",
+          icon: "Sparkles",
+          color: "fuchsia"
         }
       ]
     },
@@ -554,34 +610,62 @@ export const translations = {
       badge3: "100 % droits commerciaux"
     },
     whatWeOffer: {
-      badge: "Production Complète",
-      heading: "Ce que nous offrons",
-      subheading: "Tout ce dont votre marque a besoin pour des vidéos captivantes de qualité broadcast en un seul service.",
-      included: "Inclus dans chaque vidéo",
+      badge: "Découvrez ce que nous pouvons créer",
+      heading: "Vos Produits. Plus de possibilités créatives.",
+      subheading: "Transformez vos idées de produits en vidéos percutantes conçues pour la publicité, les réseaux sociaux et le brand storytelling.",
+      cta: "Créer une vidéo",
+      customIdeaBadge: "Production Sur Mesure",
+      customIdeaHeading: "Vous avez une autre idée ? Dites-nous ce que vous envisagez.",
+      customIdeaSub: "Des rendus 3D CGI multi-angles aux storyboards sur mesure et campagnes paneuropéennes — nous donnons vie à chaque concept.",
+      customIdeaBtn: "Partagez votre idée",
       items: [
         {
-          id: 1,
-          title: "Génération vidéo IA et narration créative",
-          description: "Modèles génératifs de pointe associés à un rythme cinématographique et des accroches adaptées à votre entreprise.",
-          badge: "Technologie Créative"
+          id: "ugc",
+          title: "Publicités style UGC",
+          description: "Créez des vidéos style créateur au rendu naturel et authentique.",
+          badge: "Style Créateur",
+          icon: "Smartphone",
+          color: "violet"
         },
         {
-          id: 2,
-          title: "Montage vidéo complet et finitions professionnelles",
-          description: "Étalonnage couleur, timing précis, titrage, typographie de sous-titres et exports broadcast.",
-          badge: "Post-production Complète"
+          id: "showcase",
+          title: "Vidéos Showcase Produit",
+          description: "Présentez vos produits avec des visuels haut de gamme et des scènes créatives.",
+          badge: "Fort Impact",
+          icon: "ShoppingBag",
+          color: "indigo"
         },
         {
-          id: 3,
-          title: "Effets sonores et musique de fond",
-          description: "Bruitages riches, mixage audio et bandes sonores sous licence commerciale adaptées à votre ambiance.",
-          badge: "Audio Immersif"
+          id: "unboxing",
+          title: "Vidéos Unboxing",
+          description: "Mettez en valeur l'expérience produit grâce à un contenu unboxing captivant.",
+          badge: "Expérience",
+          icon: "Package",
+          color: "emerald"
         },
         {
-          id: 4,
-          title: "Plusieurs langues pour les marchés européens",
-          description: "Voix off natives et sous-titres localisés en français, anglais, allemand, espagnol, italien et néerlandais.",
-          badge: "Portée Européenne"
+          id: "concept",
+          title: "Publicités Conceptuelles",
+          description: "Donnez vie à vos idées publicitaires avec des visuels et un storytelling uniques.",
+          badge: "Accroches Créatives",
+          icon: "Lightbulb",
+          color: "amber"
+        },
+        {
+          id: "animation",
+          title: "Vidéos d'Animation",
+          description: "Expliquez les fonctionnalités et avantages de vos produits grâce à des animations saisissantes.",
+          badge: "Explicatif",
+          icon: "Layers",
+          color: "rose"
+        },
+        {
+          id: "cinematic",
+          title: "Vidéos Cinématiques & VFX",
+          description: "Offrez à vos produits un rendu cinématographique avec des effets visuels spectaculaires.",
+          badge: "Qualité Cinéma",
+          icon: "Sparkles",
+          color: "fuchsia"
         }
       ]
     },
@@ -821,34 +905,62 @@ export const translations = {
       badge3: "100 % derechos comerciales"
     },
     whatWeOffer: {
-      badge: "Producción Integral",
-      heading: "Lo que ofrecemos",
-      subheading: "Todo lo que tu marca necesita para producir vídeos de calidad broadcast en un único servicio simplificado.",
-      included: "Incluido en cada vídeo",
+      badge: "Descubre lo que podemos crear",
+      heading: "Tus productos. Más posibilidades creativas.",
+      subheading: "Convierte las ideas de tus productos en vídeos atractivos diseñados para publicidad, redes sociales y brand storytelling.",
+      cta: "Solicitar vídeo",
+      customIdeaBadge: "Producción Personalizada",
+      customIdeaHeading: "¿Tienes otra idea en mente? Cuéntanos qué imaginas.",
+      customIdeaSub: "Desde renders 3D CGI multiángulo hasta storyboards personalizados y campañas a escala europea: hacemos realidad cualquier concepto creativo.",
+      customIdeaBtn: "Cuéntanos tu idea",
       items: [
         {
-          id: 1,
-          title: "Generación de video IA y narrativa creativa",
-          description: "Modelos generativos avanzados combinados con ritmo cinematográfico y ganchos adaptados a tu negocio.",
-          badge: "Tecnología Creativa"
+          id: "ugc",
+          title: "Anuncios estilo UGC",
+          description: "Crea vídeos de estilo creador que transmitan cercanía y naturalidad.",
+          badge: "Estilo Creador",
+          icon: "Smartphone",
+          color: "violet"
         },
         {
-          id: 2,
-          title: "Edición completa de vídeo y acabado profesional",
-          description: "Corrección de color, sincronización precisa, títulos, subtítulos dinámicos y exportación broadcast.",
-          badge: "Postproducción Completa"
+          id: "showcase",
+          title: "Vídeos de muestra de producto",
+          description: "Presenta tus productos con visuales prémium y escenas creativas.",
+          badge: "Alto Impacto",
+          icon: "ShoppingBag",
+          color: "indigo"
         },
         {
-          id: 3,
-          title: "Efectos de sonido y música de fondo",
-          description: "Efectos foley envolventes, mezcla de audio profesional y bandas sonoras con licencia comercial.",
-          badge: "Audio Envolvente"
+          id: "unboxing",
+          title: "Vídeos de unboxing",
+          description: "Muestra la experiencia del producto a través de contenido dinámico de desempaquetado.",
+          badge: "Experiencia",
+          icon: "Package",
+          color: "emerald"
         },
         {
-          id: 4,
-          title: "Múltiples idiomas para mercados europeos",
-          description: "Locuciones nativas y subtítulos localizados en español, inglés, alemán, francés, italiano y holandés.",
-          badge: "Alcance Europeo"
+          id: "concept",
+          title: "Anuncios conceptuales",
+          description: "Da vida a ideas publicitarias creativas con efectos visuales únicos y narrativa atractiva.",
+          badge: "Ganchos Creativos",
+          icon: "Lightbulb",
+          color: "amber"
+        },
+        {
+          id: "animation",
+          title: "Vídeos de animación",
+          description: "Explica las características y beneficios de tus productos mediante animaciones llamativas.",
+          badge: "Explicativo",
+          icon: "Layers",
+          color: "rose"
+        },
+        {
+          id: "cinematic",
+          title: "Vídeos cinematográficos y VFX",
+          description: "Otorga a tus productos un acabado prémium con planos cinematográficos y efectos visuales.",
+          badge: "Calidad Estudio",
+          icon: "Sparkles",
+          color: "fuchsia"
         }
       ]
     },
@@ -1088,34 +1200,62 @@ export const translations = {
       badge3: "100% diritti commerciali"
     },
     whatWeOffer: {
-      badge: "Produzione Completa",
-      heading: "Cosa offriamo",
-      subheading: "Tutto ciò di cui il tuo brand ha bisogno per produrre video di qualità broadcast in un unico servizio snello.",
-      included: "Incluso in ogni video",
+      badge: "Scopri cosa possiamo creare",
+      heading: "I tuoi prodotti. Più possibilità creative.",
+      subheading: "Trasforma le idee dei tuoi prodotti in video coinvolgenti progettati per pubblicità, social media e brand storytelling.",
+      cta: "Richiedi video",
+      customIdeaBadge: "Produzione Personalizzata",
+      customIdeaHeading: "Hai un'altra idea? Raccontaci cosa hai in mente.",
+      customIdeaSub: "Dai render 3D CGI multi-angolazione a storyboard su misura e campagne a livello europeo: diamo vita a qualsiasi concetto creativo.",
+      customIdeaBtn: "Raccontaci la tua idea",
       items: [
         {
-          id: 1,
-          title: "Generazione video IA e narrazione creativa",
-          description: "Modelli generativi all'avanguardia abbinati a ritmo cinematografico e ganci narrativi su misura per la tua attività.",
-          badge: "Tecnologia Creativa"
+          id: "ugc",
+          title: "Annunci stile UGC",
+          description: "Crea video in stile creator che risultano spontanei e autentici.",
+          badge: "Stile Creator",
+          icon: "Smartphone",
+          color: "violet"
         },
         {
-          id: 2,
-          title: "Montaggio video completo e finitura professionale",
-          description: "Color grading, timing preciso, titoli, tipografia dei sottotitoli ed esportazioni pronte per la trasmissione.",
-          badge: "Post-produzione Completa"
+          id: "showcase",
+          title: "Video presentazione prodotto",
+          description: "Presenta i tuoi prodotti con immagini premium e scene creative.",
+          badge: "Alto Impatto",
+          icon: "ShoppingBag",
+          color: "indigo"
         },
         {
-          id: 3,
-          title: "Effetti sonori e musica di sottofondo",
-          description: "Ricchi effetti sonori foley, missaggio audio e colonne sonore con licenza commerciale adatte al tuo stile.",
-          badge: "Audio Immersivo"
+          id: "unboxing",
+          title: "Video unboxing",
+          description: "Mostra l'esperienza del prodotto attraverso video di unboxing dinamici e coinvolgenti.",
+          badge: "Esperienza",
+          icon: "Package",
+          color: "emerald"
         },
         {
-          id: 4,
-          title: "Lingue multiple per i mercati europei",
-          description: "Voiceover nativi e sottotitoli localizzati in italiano, inglese, tedesco, francese, spagnolo e olandese.",
-          badge: "Copertura Europea"
+          id: "concept",
+          title: "Annunci concettuali",
+          description: "Dai vita a idee pubblicitarie creative con effetti visivi unici e storytelling efficace.",
+          badge: "Ganci Creativi",
+          icon: "Lightbulb",
+          color: "amber"
+        },
+        {
+          id: "animation",
+          title: "Video animati",
+          description: "Spiega caratteristiche e vantaggi del prodotto attraverso animazioni accattivanti.",
+          badge: "Esplicativo",
+          icon: "Layers",
+          color: "rose"
+        },
+        {
+          id: "cinematic",
+          title: "Video cinematografici e VFX",
+          description: "Dona ai tuoi prodotti un look premium con inquadrature cinematografiche ed effetti speciali.",
+          badge: "Qualità Studio",
+          icon: "Sparkles",
+          color: "fuchsia"
         }
       ]
     },
