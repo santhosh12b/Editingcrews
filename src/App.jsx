@@ -64,13 +64,13 @@ export default function App() {
           onOpenInquiryModal={handleOpenInquiryModal}
         />
 
-        {/* Testimonials Section: "Hear what they say about us" */}
-        <TestimonialsMarquee />
-
-        {/* 5. Pricing Section: Complete Video Production. One Simple Price. Just €69 per finished minute. */}
+        {/* 4. What You Get for €69/Minute: Complete Video Production. One Simple Price. */}
         <PricingSection 
           onOpenInquiryModal={handleOpenInquiryModal}
         />
+
+        {/* Testimonials Section: "Hear what they say about us" */}
+        <TestimonialsMarquee />
 
         {/* FAQ Section */}
         <FaqSection />

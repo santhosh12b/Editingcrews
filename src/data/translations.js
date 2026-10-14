@@ -203,36 +203,40 @@ export const translations = {
       pillar3Badge: "Limitless creative scope"
     },
     pricing: {
-      badge: "Transparent Pricing",
+      badge: "What You Get for €69/Minute",
       heading: "Complete Video Production. One Simple Price.",
-      price: "Just €69",
-      unit: "per finished minute",
-      description: "AI generation, complete editing, sound effects and background music — all in one service.",
-      rateBanner: "All-In-One Flat Rate",
-      turnaroundTitle: "Typical Turnaround",
-      turnaroundValue: "48–72 Hours",
-      selectDurationLabel: "Select your desired video duration:",
-      option1: { mins: 1, label: "60 Seconds", tag: "Social Reel & Ad" },
-      option2: { mins: 2, label: "2 Minutes", tag: "Product Commercial" },
-      option3: { mins: 3, label: "3 Minutes", tag: "Full Service Explainer" },
-      option4: { mins: 5, label: "5 Minutes", tag: "Story & Multi-part" },
-      calcPrefix: "Calculation:",
-      calcSuffix: "finished minute",
-      calcSuffixPlural: "finished minutes",
-      totalInvestment: "Total Investment:",
-      featuresTitle: "Everything Included In Every Finished Minute:",
+      subheading: "No need to manage different creators, editors, or production teams. We take care of the entire process.",
+      pricePrefix: "Just",
+      price: "€69",
+      priceSuffix: "per finished minute",
+      cta: "Let's Create Your Video",
+      subnote: "Starting at just €69 per finished minute. No expensive video shoots required.",
       features: [
-        "AI Visual Generation & Cinematic Storyboarding",
-        "Complete Professional Video Editing & Color Grading",
-        "Foley Sound Effects & Commercial Music Licensing",
-        "Professional Natural Voiceover in Any European Language",
-        "Dynamic Animated Subtitles & Brand Graphics",
-        "Commercial Rights Included (TikTok, YouTube, Meta, Web)",
-        "Fast 48–72 Hour Turnaround Per Finished Minute",
-        "Dedicated Producer & 2 Revision Rounds Included"
-      ],
-      guarantee: "Zero hidden fees. You only pay for the exact finished length you approve.",
-      cta: "Get Your Video Today"
+        {
+          title: "AI Video Production",
+          desc: "Custom visuals created around your product and idea."
+        },
+        {
+          title: "Professional Editing",
+          desc: "Smooth transitions, polished cuts, and a finished video."
+        },
+        {
+          title: "Sound Effects",
+          desc: "Audio details that make your video more engaging."
+        },
+        {
+          title: "Background Music",
+          desc: "Music that fits the mood and style of your video."
+        },
+        {
+          title: "Creative Direction",
+          desc: "We help bring your concept to life."
+        },
+        {
+          title: "Ready-to-Use Video",
+          desc: "A finished video for your marketing channels."
+        }
+      ]
     },
     testimonials: {
       heading: "Hear what they say about us",
@@ -511,36 +515,40 @@ export const translations = {
       pillar3Badge: "Grenzenlose Kreativität"
     },
     pricing: {
-      badge: "Transparente Preise",
+      badge: "Alles inklusive",
       heading: "Komplette Videoproduktion. Ein einfacher Preis.",
-      price: "Nur 69 €",
-      unit: "pro fertiger Minute",
-      description: "KI-Generierung, kompletter Schnitt, Soundeffekte und Hintergrundmusik – alles in einem Service.",
-      rateBanner: "All-In-One Festpreis",
-      turnaroundTitle: "Typische Lieferzeit",
-      turnaroundValue: "48–72 Stunden",
-      selectDurationLabel: "Wählen Sie Ihre gewünschte Videolänge:",
-      option1: { mins: 1, label: "60 Sekunden", tag: "Social Reel & Ad" },
-      option2: { mins: 2, label: "2 Minuten", tag: "Produkt-Spot" },
-      option3: { mins: 3, label: "3 Minuten", tag: "Komplettes Erklärvideo" },
-      option4: { mins: 5, label: "5 Minuten", tag: "Storytelling & Serie" },
-      calcPrefix: "Berechnung:",
-      calcSuffix: "fertige Minute",
-      calcSuffixPlural: "fertige Minuten",
-      totalInvestment: "Gesamtinvestition:",
-      featuresTitle: "In jeder fertigen Minute vollständig enthalten:",
+      subheading: "Du musst dich nicht um verschiedene Anbieter kümmern. Wir übernehmen den gesamten Prozess – von der Idee bis zum fertigen Video.",
+      pricePrefix: "Nur",
+      price: "69 €",
+      priceSuffix: "pro Videominute",
+      cta: "Jetzt Video erstellen",
+      subnote: "Ab nur 69 € pro fertiger Videominute. Keine teuren Drehs erforderlich.",
       features: [
-        "KI-Bilderstellung & kinoreifes Storyboard",
-        "Professioneller Videoschnitt & Color Grading",
-        "Foley-Soundeffekte & kommerzielle Musiklizenzen",
-        "Professionelles natürliches Voiceover in europäischen Sprachen",
-        "Animierte Untertitel & individuelle Marken-Grafiken",
-        "Volle kommerzielle Nutzungsrechte (TikTok, YouTube, Meta, Web)",
-        "Schnelle Lieferung innerhalb von 48–72 Stunden",
-        "Fester Ansprechpartner & 2 Korrekturschleifen inklusive"
-      ],
-      guarantee: "Keine versteckten Gebühren. Sie zahlen nur die exakt abgenommene Minutenlänge.",
-      cta: "Starten Sie noch heute"
+        {
+          title: "KI-Produktion",
+          desc: "Individuelle Visuals rund um dein Produkt und deine Idee."
+        },
+        {
+          title: "Professioneller Schnitt",
+          desc: "Hochwertiger, sauberer und dynamischer Videoschnitt."
+        },
+        {
+          title: "Soundeffekte",
+          desc: "Passende Audioeffekte für mehr Wirkung."
+        },
+        {
+          title: "Hintergrundmusik",
+          desc: "Musik, die zur Stimmung und Marke passt."
+        },
+        {
+          title: "Kreative Unterstützung",
+          desc: "Wir helfen dir, deine Idee optimal umzusetzen."
+        },
+        {
+          title: "Fertiges Video",
+          desc: "Ein einsatzbereites Video für deine Marketingkanäle."
+        }
+      ]
     },
     testimonials: {
       heading: "Das sagen unsere Nutzer über uns",
@@ -819,36 +827,40 @@ export const translations = {
       pillar3Badge: "Créativité illimitée"
     },
     pricing: {
-      badge: "Tarification Transparente",
+      badge: "Tout compris",
       heading: "Production vidéo complète. Un prix simple.",
-      price: "Seulement 69 €",
-      unit: "par minute finalisée",
-      description: "Génération IA, montage complet, effets sonores et musique de fond — tout en un seul service.",
-      rateBanner: "Tarif Forfaitaire Tout Inclus",
-      turnaroundTitle: "Délai de livraison",
-      turnaroundValue: "48–72 Heures",
-      selectDurationLabel: "Sélectionnez la durée de votre vidéo :",
-      option1: { mins: 1, label: "60 Secondes", tag: "Reel & Publicité Réseaux" },
-      option2: { mins: 2, label: "2 Minutes", tag: "Spot Produit" },
-      option3: { mins: 3, label: "3 Minutes", tag: "Vidéo Explicative Complète" },
-      option4: { mins: 5, label: "5 Minutes", tag: "Storytelling & Multi-parties" },
-      calcPrefix: "Calcul :",
-      calcSuffix: "minute finalisée",
-      calcSuffixPlural: "minutes finalisées",
-      totalInvestment: "Investissement Total :",
-      featuresTitle: "Tout ce qui est inclus dans chaque minute finalisée :",
+      subheading: "Pas besoin de gérer différents créateurs, monteurs ou équipes. Nous prenons en charge l'ensemble du processus.",
+      pricePrefix: "Seulement",
+      price: "69 €",
+      priceSuffix: "par minute de vidéo",
+      cta: "Créons votre vidéo",
+      subnote: "À partir de 69 € par minute finalisée. Aucun tournage coûteux requis.",
       features: [
-        "Génération visuelle IA et storyboard cinématographique",
-        "Montage vidéo professionnel complet et étalonnage",
-        "Effets sonores Foley et licences musicales commerciales",
-        "Voix off naturelle professionnelle dans votre langue européenne",
-        "Sous-titres animés et graphismes de marque personnalisés",
-        "Droits d'exploitation commerciale inclus (TikTok, YouTube, Meta, Web)",
-        "Délai d'exécution rapide de 48 à 72 heures par minute",
-        "Producteur dédié et 2 séries de révisions incluses"
-      ],
-      guarantee: "Zéro frais cachés. Vous ne payez que la durée exacte que vous approuvez.",
-      cta: "Obtenez votre vidéo"
+        {
+          title: "Production IA",
+          desc: "Visuels sur mesure créés autour de votre produit et de votre idée."
+        },
+        {
+          title: "Montage professionnel",
+          desc: "Transitions fluides, coupes nettes et rendu impeccable."
+        },
+        {
+          title: "Effets sonores",
+          desc: "Détails audio pour rendre vos vidéos plus captivantes."
+        },
+        {
+          title: "Musique de fond",
+          desc: "Musique adaptée à l'ambiance et à votre marque."
+        },
+        {
+          title: "Direction créative",
+          desc: "Nous donnons vie à votre concept avec expertise."
+        },
+        {
+          title: "Vidéo prête à l'emploi",
+          desc: "Une vidéo finalisée pour tous vos canaux marketing."
+        }
+      ]
     },
     testimonials: {
       heading: "Ce qu'ils disent de nous",
@@ -1127,36 +1139,40 @@ export const translations = {
       pillar3Badge: "Creatividad sin límites"
     },
     pricing: {
-      badge: "Precios Transparentes",
+      badge: "Todo incluido",
       heading: "Producción de vídeo completa. Un precio simple.",
-      price: "Solo 69 €",
-      unit: "por minuto finalizado",
-      description: "Generación con IA, edición completa, efectos de sonido y música de fondo: todo en un solo servicio.",
-      rateBanner: "Tarifa Plana Todo Incluido",
-      turnaroundTitle: "Tiempo de entrega",
-      turnaroundValue: "48–72 Horas",
-      selectDurationLabel: "Selecciona la duración de tu vídeo:",
-      option1: { mins: 1, label: "60 Segundos", tag: "Reel y Anuncio Social" },
-      option2: { mins: 2, label: "2 Minutos", tag: "Spot de Producto" },
-      option3: { mins: 3, label: "3 Minutos", tag: "Vídeo Explicativo Completo" },
-      option4: { mins: 5, label: "5 Minutos", tag: "Storytelling y Serie" },
-      calcPrefix: "Cálculo:",
-      calcSuffix: "minuto finalizado",
-      calcSuffixPlural: "minutos finalizados",
-      totalInvestment: "Inversión Total:",
-      featuresTitle: "Todo incluido en cada minuto finalizado:",
+      subheading: "Sin necesidad de gestionar creadores, editores o productoras. Nos encargamos de todo el proceso.",
+      pricePrefix: "Solo",
+      price: "69 €",
+      priceSuffix: "por minuto de vídeo",
+      cta: "Creemos tu vídeo",
+      subnote: "Desde solo 69 € por minuto finalizado. Sin costosos rodajes.",
       features: [
-        "Generación visual IA y storyboard cinematográfico",
-        "Edición de vídeo profesional completa y etalonaje",
-        "Efectos de sonido Foley y licencias de música comercial",
-        "Locución natural profesional en idiomas europeos",
-        "Subtítulos animados dinámicos y gráficos de marca",
-        "Derechos comerciales incluidos (TikTok, YouTube, Meta, Web)",
-        "Entrega rápida en 48 a 72 horas por minuto finalizado",
-        "Productor dedicado y 2 rondas de revisiones incluidas"
-      ],
-      guarantee: "Sin costes ocultos. Solo pagas por la duración exacta que apruebes.",
-      cta: "Obtén tu vídeo hoy"
+        {
+          title: "Producción con IA",
+          desc: "Visuales personalizados creados en torno a tu producto e idea."
+        },
+        {
+          title: "Edición profesional",
+          desc: "Transiciones fluidas, cortes precisos y acabado perfecto."
+        },
+        {
+          title: "Efectos de sonido",
+          desc: "Detalles de audio que hacen tu vídeo más atractivo."
+        },
+        {
+          title: "Música de fondo",
+          desc: "Música que encaja con el tono y estilo de tu marca."
+        },
+        {
+          title: "Dirección creativa",
+          desc: "Te ayudamos a hacer realidad tu concepto."
+        },
+        {
+          title: "Vídeo listo para usar",
+          desc: "Un vídeo terminado para tus canales de marketing."
+        }
+      ]
     },
     testimonials: {
       heading: "Lo que dicen de nosotros",
@@ -1435,36 +1451,40 @@ export const translations = {
       pillar3Badge: "Creatività senza confini"
     },
     pricing: {
-      badge: "Prezzi Trasparenti",
+      badge: "Tutto compreso",
       heading: "Produzione video completa. Un prezzo semplice.",
-      price: "Solo 69 €",
-      unit: "al minuto finito",
-      description: "Generazione IA, montaggio completo, effetti sonori e musica di sottofondo: tutto in un unico servizio.",
-      rateBanner: "Tariffa Fissa Tutto Incluso",
-      turnaroundTitle: "Tempo di consegna tipico",
-      turnaroundValue: "48–72 Ore",
-      selectDurationLabel: "Seleziona la durata desiderata del video:",
-      option1: { mins: 1, label: "60 Secondi", tag: "Social Reel & Spot" },
-      option2: { mins: 2, label: "2 Minuti", tag: "Spot di Prodotto" },
-      option3: { mins: 3, label: "3 Minuti", tag: "Video Esplicativo Completo" },
-      option4: { mins: 5, label: "5 Minuti", tag: "Storytelling & Serie" },
-      calcPrefix: "Calcolo:",
-      calcSuffix: "minuto completato",
-      calcSuffixPlural: "minuti completati",
-      totalInvestment: "Investimento Totale:",
-      featuresTitle: "Tutto ciò che è incluso in ogni minuto completato:",
+      subheading: "Nessun bisogno di gestire creator, montatori o troupe. Ci occupiamo dell'intero processo.",
+      pricePrefix: "Solo",
+      price: "69 €",
+      priceSuffix: "per minuto di video",
+      cta: "Creiamo il tuo video",
+      subnote: "A partire da soli 69 € per minuto finito. Nessuna ripresa costosa richiesta.",
       features: [
-        "Generazione visiva IA e storyboard cinematografico",
-        "Montaggio video professionale completo e color grading",
-        "Effetti sonori Foley e licenze musicali commerciali",
-        "Voiceover professionale naturale nelle principali lingue europee",
-        "Sottotitoli dinamici animati e grafica personalizzata del brand",
-        "Diritti commerciali completi inclusi (TikTok, YouTube, Meta, Web)",
-        "Consegna rapida in 48–72 ore per minuto completato",
-        "Producer dedicato e 2 cicli di revisione inclusi"
-      ],
-      guarantee: "Nessun costo nascosto. Paghi solo per la durata esatta che approvi.",
-      cta: "Ottieni il tuo video oggi"
+        {
+          title: "Produzione IA",
+          desc: "Visual su misura creati attorno al tuo prodotto e alla tua idea."
+        },
+        {
+          title: "Montaggio professionale",
+          desc: "Transizioni fluide, tagli dinamici e rifinitura completa."
+        },
+        {
+          title: "Effetti sonori",
+          desc: "Dettagli audio che rendono il video più coinvolgente."
+        },
+        {
+          title: "Musica di sottofondo",
+          desc: "Colonna sonora adatta all'atmosfera e al tuo brand."
+        },
+        {
+          title: "Direzione creativa",
+          desc: "Ti aiutiamo a dare vita al tuo concetto."
+        },
+        {
+          title: "Video pronto all'uso",
+          desc: "Un video pronto per i tuoi canali di marketing."
+        }
+      ]
     },
     testimonials: {
       heading: "Cosa dicono di noi",
