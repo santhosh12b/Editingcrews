@@ -2,8 +2,6 @@ import React, { useState } from 'react';
 import Navbar from './components/Navbar';
 import HeroSection from './components/HeroSection';
 import WhatWeOfferSection from './components/WhatWeOfferSection';
-import HowItWorksSection from './components/HowItWorksSection';
-import ServicesSection from './components/ServicesSection';
 import ShowcaseMarquee from './components/ShowcaseMarquee';
 import ValuePropositionSection from './components/ValuePropositionSection';
 import TestimonialsMarquee from './components/TestimonialsMarquee';
@@ -60,14 +58,6 @@ export default function App() {
 
         {/* 2. What We Offer / See What We Can Create Section */}
         <WhatWeOfferSection onOpenInquiryModal={handleOpenInquiryModal} />
-
-        {/* 4. Video Production Services: What Can We Create for Your Business? */}
-        <ServicesSection 
-          onOpenInquiryModal={handleOpenInquiryModal}
-        />
-
-        {/* 3-Step "How It Works" Section: Content & Script, Generate Storyboard, Watch Socials Grow */}
-        <HowItWorksSection />
 
         {/* Interactive Showreel Marquee Showcase */}
         <ShowcaseMarquee 
