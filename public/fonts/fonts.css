@@ -1,4 +1,49 @@
-﻿/* cyrillic-ext */
+/* Satoshi Light (300) */
+@font-face {
+  font-family: 'Satoshi';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url('/fonts/satoshi-300.woff2') format('woff2');
+}
+
+/* Satoshi Regular (400) */
+@font-face {
+  font-family: 'Satoshi';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/satoshi-400.woff2') format('woff2');
+}
+
+/* Satoshi Medium (500) */
+@font-face {
+  font-family: 'Satoshi';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('/fonts/satoshi-500.woff2') format('woff2');
+}
+
+/* Satoshi Bold (700) */
+@font-face {
+  font-family: 'Satoshi';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/fonts/satoshi-700.woff2') format('woff2');
+}
+
+/* Satoshi Black (900) */
+@font-face {
+  font-family: 'Satoshi';
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url('/fonts/satoshi-900.woff2') format('woff2');
+}
+
+/* cyrillic-ext */
 @font-face {
   font-family: 'Inter';
   font-style: normal;

@@ -73,6 +73,10 @@ export default {
         'marquee-vertical': 'marquee-vertical var(--duration, 40s) linear infinite',
         'pulse-subtle': 'pulse-subtle 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
       },
+      fontFamily: {
+        sans: ['Satoshi', 'Inter', 'sans-serif'],
+        heading: ['Satoshi', 'sans-serif'],
+      },
     },
   },
   plugins: [],
