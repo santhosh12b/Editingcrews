@@ -34,16 +34,8 @@ export const translations = {
           title: "UGC-Style Ads",
           description: "Create creator-style videos that feel natural and relatable.",
           badge: "Creator Style",
-          icon: "Smartphone",
+          icon: "Users",
           color: "violet"
-        },
-        {
-          id: "showcase",
-          title: "Product Showcase Videos",
-          description: "Present your products with premium visuals and creative scenes.",
-          badge: "High Impact",
-          icon: "ShoppingBag",
-          color: "indigo"
         },
         {
           id: "unboxing",
@@ -51,6 +43,14 @@ export const translations = {
           description: "Showcase the product experience through engaging unboxing-style content.",
           badge: "Experience",
           icon: "Package",
+          color: "rose"
+        },
+        {
+          id: "showcase",
+          title: "Product Showcase Videos",
+          description: "Present your products with premium visuals and creative scenes.",
+          badge: "High Impact",
+          icon: "ShoppingCart",
           color: "emerald"
         },
         {
@@ -67,7 +67,7 @@ export const translations = {
           description: "Explain product features and benefits through eye-catching animations.",
           badge: "Explainer",
           icon: "Layers",
-          color: "rose"
+          color: "blue"
         },
         {
           id: "cinematic",
@@ -75,7 +75,7 @@ export const translations = {
           description: "Give your products a premium look with cinematic scenes and visual effects.",
           badge: "Studio Grade",
           icon: "Sparkles",
-          color: "fuchsia"
+          color: "pink"
         }
       ]
     },
@@ -329,16 +329,8 @@ export const translations = {
           title: "UGC-Style Ads",
           description: "Erstellen Sie Videos im Creator-Stil, die authentisch und nahbar wirken.",
           badge: "Creator-Stil",
-          icon: "Smartphone",
+          icon: "Users",
           color: "violet"
-        },
-        {
-          id: "showcase",
-          title: "Produkt-Showcase-Videos",
-          description: "Präsentieren Sie Ihre Produkte mit erstklassigen Bildern und kreativen Szenen.",
-          badge: "Hohe Konversion",
-          icon: "ShoppingBag",
-          color: "indigo"
         },
         {
           id: "unboxing",
@@ -346,6 +338,14 @@ export const translations = {
           description: "Zeigen Sie das Produkterlebnis durch packende Unboxing-Inhalte.",
           badge: "Erlebnis-Format",
           icon: "Package",
+          color: "rose"
+        },
+        {
+          id: "showcase",
+          title: "Produkt-Showcase-Videos",
+          description: "Präsentieren Sie Ihre Produkte mit erstklassigen Bildern und kreativen Szenen.",
+          badge: "Hohe Konversion",
+          icon: "ShoppingCart",
           color: "emerald"
         },
         {
@@ -362,7 +362,7 @@ export const translations = {
           description: "Erklären Sie Produktfeatures und Vorteile durch aufmerksamkeitsstarke Animationen.",
           badge: "Erklärformat",
           icon: "Layers",
-          color: "rose"
+          color: "blue"
         },
         {
           id: "cinematic",
@@ -370,7 +370,7 @@ export const translations = {
           description: "Verleihen Sie Ihren Produkten einen Premium-Look mit kinoreifen Szenen und visuellen Effekten.",
           badge: "Kino-Qualität",
           icon: "Sparkles",
-          color: "fuchsia"
+          color: "pink"
         }
       ]
     },
@@ -624,16 +624,8 @@ export const translations = {
           title: "Publicités style UGC",
           description: "Créez des vidéos style créateur au rendu naturel et authentique.",
           badge: "Style Créateur",
-          icon: "Smartphone",
+          icon: "Users",
           color: "violet"
-        },
-        {
-          id: "showcase",
-          title: "Vidéos Showcase Produit",
-          description: "Présentez vos produits avec des visuels haut de gamme et des scènes créatives.",
-          badge: "Fort Impact",
-          icon: "ShoppingBag",
-          color: "indigo"
         },
         {
           id: "unboxing",
@@ -641,6 +633,14 @@ export const translations = {
           description: "Mettez en valeur l'expérience produit grâce à un contenu unboxing captivant.",
           badge: "Expérience",
           icon: "Package",
+          color: "rose"
+        },
+        {
+          id: "showcase",
+          title: "Vidéos Showcase Produit",
+          description: "Présentez vos produits avec des visuels haut de gamme et des scènes créatives.",
+          badge: "Fort Impact",
+          icon: "ShoppingCart",
           color: "emerald"
         },
         {
@@ -657,7 +657,7 @@ export const translations = {
           description: "Expliquez les fonctionnalités et avantages de vos produits grâce à des animations saisissantes.",
           badge: "Explicatif",
           icon: "Layers",
-          color: "rose"
+          color: "blue"
         },
         {
           id: "cinematic",
@@ -665,7 +665,7 @@ export const translations = {
           description: "Offrez à vos produits un rendu cinématographique avec des effets visuels spectaculaires.",
           badge: "Qualité Cinéma",
           icon: "Sparkles",
-          color: "fuchsia"
+          color: "pink"
         }
       ]
     },
@@ -919,16 +919,8 @@ export const translations = {
           title: "Anuncios estilo UGC",
           description: "Crea vídeos de estilo creador que transmitan cercanía y naturalidad.",
           badge: "Estilo Creador",
-          icon: "Smartphone",
+          icon: "Users",
           color: "violet"
-        },
-        {
-          id: "showcase",
-          title: "Vídeos de muestra de producto",
-          description: "Presenta tus productos con visuales prémium y escenas creativas.",
-          badge: "Alto Impacto",
-          icon: "ShoppingBag",
-          color: "indigo"
         },
         {
           id: "unboxing",
@@ -936,6 +928,14 @@ export const translations = {
           description: "Muestra la experiencia del producto a través de contenido dinámico de desempaquetado.",
           badge: "Experiencia",
           icon: "Package",
+          color: "rose"
+        },
+        {
+          id: "showcase",
+          title: "Vídeos de muestra de producto",
+          description: "Presenta tus productos con visuales prémium y escenas creativas.",
+          badge: "Alto Impacto",
+          icon: "ShoppingCart",
           color: "emerald"
         },
         {
@@ -952,7 +952,7 @@ export const translations = {
           description: "Explica las características y beneficios de tus productos mediante animaciones llamativas.",
           badge: "Explicativo",
           icon: "Layers",
-          color: "rose"
+          color: "blue"
         },
         {
           id: "cinematic",
@@ -960,7 +960,7 @@ export const translations = {
           description: "Otorga a tus productos un acabado prémium con planos cinematográficos y efectos visuales.",
           badge: "Calidad Estudio",
           icon: "Sparkles",
-          color: "fuchsia"
+          color: "pink"
         }
       ]
     },
@@ -1214,16 +1214,8 @@ export const translations = {
           title: "Annunci stile UGC",
           description: "Crea video in stile creator che risultano spontanei e autentici.",
           badge: "Stile Creator",
-          icon: "Smartphone",
+          icon: "Users",
           color: "violet"
-        },
-        {
-          id: "showcase",
-          title: "Video presentazione prodotto",
-          description: "Presenta i tuoi prodotti con immagini premium e scene creative.",
-          badge: "Alto Impatto",
-          icon: "ShoppingBag",
-          color: "indigo"
         },
         {
           id: "unboxing",
@@ -1231,6 +1223,14 @@ export const translations = {
           description: "Mostra l'esperienza del prodotto attraverso video di unboxing dinamici e coinvolgenti.",
           badge: "Esperienza",
           icon: "Package",
+          color: "rose"
+        },
+        {
+          id: "showcase",
+          title: "Video presentazione prodotto",
+          description: "Presenta i tuoi prodotti con immagini premium e scene creative.",
+          badge: "Alto Impatto",
+          icon: "ShoppingCart",
           color: "emerald"
         },
         {
@@ -1247,7 +1247,7 @@ export const translations = {
           description: "Spiega caratteristiche e vantaggi del prodotto attraverso animazioni accattivanti.",
           badge: "Esplicativo",
           icon: "Layers",
-          color: "rose"
+          color: "blue"
         },
         {
           id: "cinematic",
@@ -1255,7 +1255,7 @@ export const translations = {
           description: "Dona ai tuoi prodotti un look premium con inquadrature cinematografiche ed effetti speciali.",
           badge: "Qualità Studio",
           icon: "Sparkles",
-          color: "fuchsia"
+          color: "pink"
         }
       ]
     },

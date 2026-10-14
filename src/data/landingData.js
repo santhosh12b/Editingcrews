@@ -13,16 +13,8 @@ export const whatWeOffer = [
     title: "UGC-Style Ads",
     description: "Create creator-style videos that feel natural and relatable.",
     badge: "Creator Style",
-    icon: "Smartphone",
+    icon: "Users",
     color: "violet"
-  },
-  {
-    id: "showcase",
-    title: "Product Showcase Videos",
-    description: "Present your products with premium visuals and creative scenes.",
-    badge: "High Impact",
-    icon: "ShoppingBag",
-    color: "indigo"
   },
   {
     id: "unboxing",
@@ -30,6 +22,14 @@ export const whatWeOffer = [
     description: "Showcase the product experience through engaging unboxing-style content.",
     badge: "Experience",
     icon: "Package",
+    color: "rose"
+  },
+  {
+    id: "showcase",
+    title: "Product Showcase Videos",
+    description: "Present your products with premium visuals and creative scenes.",
+    badge: "High Impact",
+    icon: "ShoppingCart",
     color: "emerald"
   },
   {
@@ -46,7 +46,7 @@ export const whatWeOffer = [
     description: "Explain product features and benefits through eye-catching animations.",
     badge: "Explainer",
     icon: "Layers",
-    color: "rose"
+    color: "blue"
   },
   {
     id: "cinematic",
@@ -54,7 +54,7 @@ export const whatWeOffer = [
     description: "Give your products a premium look with cinematic scenes and visual effects.",
     badge: "Studio Grade",
     icon: "Sparkles",
-    color: "fuchsia"
+    color: "pink"
   }
 ];
 
