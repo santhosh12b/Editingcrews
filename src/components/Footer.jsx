@@ -1,5 +1,4 @@
 import React from 'react';
-import { Clapperboard } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 
 export default function Footer() {
@@ -13,12 +12,14 @@ export default function Footer() {
           
           {/* Logo & Brand Tagline */}
           <div className="flex flex-col sm:flex-row items-center gap-3">
-            <a href="#" className="flex items-center space-x-2.5 group">
-              <div className="p-2 rounded-xl bg-indigo-600 text-white shadow-md shadow-indigo-600/20 group-hover:bg-indigo-700 transition-colors">
-                <Clapperboard className="w-5 h-5" />
-              </div>
+            <a href="#" className="flex items-center space-x-2.5 sm:space-x-3 group">
+              <img 
+                src="/logo.png" 
+                alt="Editing Crew" 
+                className="w-8 h-8 sm:w-9 sm:h-9 object-contain drop-shadow-[0_4px_10px_rgba(16,185,129,0.3)] group-hover:scale-105 transition-transform duration-200" 
+              />
               <span className="text-xl font-extrabold tracking-tight font-heading text-slate-900">
-                EDITING <span className="text-indigo-600">CREW</span>
+                EDITING <span className="text-emerald-500">CREW</span>
               </span>
             </a>
             <span className="hidden sm:inline text-slate-300">|</span>

@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Clapperboard, Globe, ChevronDown, Check } from 'lucide-react';
+import { Globe, ChevronDown, Check } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 
 export default function Navbar() {
@@ -29,12 +29,14 @@ export default function Navbar() {
         <div className="flex h-16 sm:h-20 items-center justify-between">
           
           {/* Logo */}
-          <a href="#" className="flex items-center space-x-2.5 group">
-            <div className="p-2 rounded-xl bg-indigo-600 text-white shadow-md shadow-indigo-600/20 group-hover:bg-indigo-700 transition-colors">
-              <Clapperboard className="w-5 h-5 sm:w-6 sm:h-6" />
-            </div>
+          <a href="#" className="flex items-center space-x-2.5 sm:space-x-3 group">
+            <img 
+              src="/logo.png" 
+              alt="Editing Crew Logo" 
+              className="w-9 h-9 sm:w-10 sm:h-10 object-contain drop-shadow-[0_4px_12px_rgba(16,185,129,0.35)] group-hover:scale-105 transition-transform duration-200" 
+            />
             <span className="text-xl sm:text-2xl font-extrabold tracking-tight text-slate-900 font-heading">
-              EDITING <span className="text-indigo-600">CREW</span>
+              EDITING <span className="text-emerald-500">CREW</span>
             </span>
           </a>
 
