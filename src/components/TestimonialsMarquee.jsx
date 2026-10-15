@@ -47,31 +47,31 @@ export default function TestimonialsMarquee() {
   }[currentLang] || "Google Review";
 
   return (
-    <section id="testimonials" className="py-20 sm:py-24 md:py-28 bg-white relative border-t border-slate-100">
+    <section id="testimonials" className="py-14 sm:py-20 md:py-28 bg-white relative border-t border-slate-100">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
         
         {/* Section Header (Matching User Design) */}
-        <div className="text-center mb-12 sm:mb-16 md:mb-20 max-w-3xl mx-auto">
-          <span className="text-[11px] sm:text-xs font-bold uppercase tracking-[0.22em] text-indigo-600 block mb-2.5">
+        <div className="text-center mb-8 sm:mb-12 md:mb-16 max-w-3xl mx-auto">
+          <span className="text-[11px] sm:text-xs font-bold uppercase tracking-[0.22em] text-indigo-600 block mb-2 sm:mb-2.5">
             {testimonials.badge || "KUNDENSTIMMEN"}
           </span>
-          <h2 className="text-3xl sm:text-4xl md:text-[42px] font-extrabold tracking-tight text-slate-900 font-heading leading-tight mb-3">
+          <h2 className="text-2xl xs:text-3xl sm:text-4xl md:text-[42px] font-extrabold tracking-tight text-slate-900 font-heading leading-tight mb-2 sm:mb-3">
             {testimonials.heading || "Das sagen unsere Kunden"}
           </h2>
-          <p className="text-slate-500 text-sm sm:text-base leading-relaxed max-w-xl mx-auto">
+          <p className="text-slate-500 text-xs sm:text-base leading-relaxed max-w-xl mx-auto">
             {testimonials.subheading || "Marken aus verschiedenen Branchen vertrauen auf unsere KI-Videos."}
           </p>
         </div>
 
         {/* 2x2 Grid of Embedded Original Review Screenshot Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-7 lg:gap-8 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 lg:gap-8 max-w-5xl mx-auto">
           {originalReviews.map((review) => (
             <div
               key={review.id}
-              className="bg-white rounded-3xl border border-slate-200/80 p-6 sm:p-7 lg:p-8 shadow-[0_4px_25px_-5px_rgba(0,0,0,0.04)] hover:shadow-xl hover:border-slate-300 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group"
+              className="bg-white rounded-2xl sm:rounded-3xl border border-slate-200/80 p-4 sm:p-6 lg:p-8 shadow-[0_4px_25px_-5px_rgba(0,0,0,0.04)] hover:shadow-xl hover:border-slate-300 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group"
             >
               {/* Header: Google verified badge & 5 stars */}
-              <div className="flex items-center justify-between pb-3.5 mb-4 border-b border-slate-100">
+              <div className="flex items-center justify-between pb-3 mb-3 sm:pb-3.5 sm:mb-4 border-b border-slate-100">
                 <div className="flex items-center gap-2">
                   <svg className="w-4 h-4 sm:w-4.5 sm:h-4.5 shrink-0" viewBox="0 0 24 24">
                     <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" />
@@ -94,11 +94,11 @@ export default function TestimonialsMarquee() {
               </div>
 
               {/* Embedded Original Review Image */}
-              <div className="bg-slate-50/70 rounded-2xl p-4 sm:p-5 flex items-center justify-center border border-slate-100/90 overflow-hidden min-h-[110px]">
+              <div className="bg-slate-50/70 rounded-xl sm:rounded-2xl p-3 sm:p-5 flex items-center justify-center border border-slate-100/90 overflow-hidden min-h-[90px] sm:min-h-[110px]">
                 <img
                   src={review.src}
                   alt={review.alt}
-                  className="w-full h-auto max-h-[140px] object-contain select-none pointer-events-none transition-transform duration-300 group-hover:scale-[1.02]"
+                  className="w-full h-auto max-h-[120px] sm:max-h-[140px] object-contain select-none pointer-events-none transition-transform duration-300 group-hover:scale-[1.02]"
                   loading="lazy"
                 />
               </div>

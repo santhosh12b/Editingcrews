@@ -163,7 +163,7 @@ export default function OurWorkSection({ onOpenVideoModal, onOpenInquiryModal })
   };
 
   return (
-    <section id="our-work" className="py-20 sm:py-24 md:py-28 bg-white relative overflow-hidden border-b border-slate-200/80 scroll-mt-20">
+    <section id="our-work" className="py-14 sm:py-20 md:py-28 bg-white relative overflow-hidden border-b border-slate-200/80 scroll-mt-20">
       
       {/* Background Soft Mesh */}
       <div className="absolute inset-0 pointer-events-none -z-10">
@@ -173,22 +173,22 @@ export default function OurWorkSection({ onOpenVideoModal, onOpenInquiryModal })
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1360px]">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
-          <span className="text-xs sm:text-[13px] font-bold uppercase tracking-widest text-indigo-600 mb-3 block">
+        <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-12">
+          <span className="text-[11px] sm:text-[13px] font-bold uppercase tracking-widest text-indigo-600 mb-2 sm:mb-3 block">
             {ow.badge || "Our Work"}
           </span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900 leading-tight font-heading">
+          <h2 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900 leading-tight font-heading">
             {ow.heading || "See What AI Video Can Do for Your Brand"}
           </h2>
-          <p className="text-slate-600 text-sm sm:text-base md:text-lg mt-3 sm:mt-4 leading-relaxed max-w-2xl mx-auto">
+          <p className="text-slate-600 text-xs sm:text-base md:text-lg mt-2.5 sm:mt-4 leading-relaxed max-w-2xl mx-auto">
             {ow.subheading || "Explore videos we've created for other brands and discover what's possible for your products."}
           </p>
 
           {/* Primary CTA: [Show Video Portfolio] */}
-          <div className="mt-7 flex items-center justify-center">
+          <div className="mt-6 sm:mt-7 flex items-center justify-center">
             <button
               onClick={handleScrollToPortfolio}
-              className="group inline-flex items-center gap-2.5 px-6 py-3.5 rounded-full bg-slate-900 hover:bg-indigo-600 text-white font-bold text-sm sm:text-base shadow-lg shadow-slate-900/10 hover:shadow-indigo-600/30 transition-all duration-200 transform hover:scale-[1.02] active:scale-[0.98]"
+              className="w-full sm:w-auto group inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-full bg-slate-900 hover:bg-indigo-600 text-white font-bold text-sm sm:text-base shadow-lg shadow-slate-900/10 hover:shadow-indigo-600/30 transition-all duration-200 transform hover:scale-[1.02] active:scale-[0.98]"
             >
               <div className="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center group-hover:scale-110 transition-transform">
                 <Play className="w-3.5 h-3.5 fill-white text-white ml-0.5" />
@@ -200,7 +200,7 @@ export default function OurWorkSection({ onOpenVideoModal, onOpenInquiryModal })
         </div>
 
         {/* Video Portfolio Stage */}
-        <div ref={portfolioRef} id="ai-showcase" className="scroll-mt-24 pt-4">
+        <div ref={portfolioRef} id="ai-showcase" className="scroll-mt-24 pt-2 sm:pt-4">
           
           {/* Desktop 5-Column Panoramic Showcase (lg+) */}
           <div className="hidden lg:grid lg:grid-cols-5 gap-4">
@@ -227,18 +227,18 @@ export default function OurWorkSection({ onOpenVideoModal, onOpenInquiryModal })
         </div>
 
         {/* Bottom Tagline Banner: "Your next winning creative could start with a simple idea." */}
-        <div className="mt-14 sm:mt-18 rounded-3xl bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 text-white p-7 sm:p-9 shadow-xl border border-slate-800 flex flex-col md:flex-row items-center justify-between gap-6 relative overflow-hidden">
+        <div className="mt-10 sm:mt-16 rounded-2xl sm:rounded-3xl bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 text-white p-5 sm:p-8 md:p-9 shadow-xl border border-slate-800 flex flex-col md:flex-row items-center justify-between gap-5 sm:gap-6 relative overflow-hidden">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(99,102,241,0.22),transparent_50%)] pointer-events-none"></div>
 
-          <div className="relative z-10 flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-4 max-w-2xl">
-            <div className="w-12 h-12 rounded-2xl bg-indigo-500/20 border border-indigo-400/30 flex items-center justify-center text-indigo-300 shrink-0 shadow-inner">
-              <Sparkles className="w-6 h-6 text-indigo-400" />
+          <div className="relative z-10 flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-3.5 sm:gap-4 max-w-2xl">
+            <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-indigo-500/20 border border-indigo-400/30 flex items-center justify-center text-indigo-300 shrink-0 shadow-inner">
+              <Sparkles className="w-5 h-5 sm:w-6 sm:h-6 text-indigo-400" />
             </div>
             <div>
-              <h3 className="text-xl sm:text-2xl font-extrabold text-white font-heading leading-snug">
+              <h3 className="text-lg sm:text-2xl font-extrabold text-white font-heading leading-snug">
                 {ow.tagline || "Your next winning creative could start with a simple idea."}
               </h3>
-              <p className="text-slate-300 text-xs sm:text-sm mt-1.5 leading-relaxed">
+              <p className="text-slate-300 text-xs sm:text-sm mt-1 sm:mt-1.5 leading-relaxed">
                 {currentLang === 'de' 
                   ? "Starten Sie Ihre professionelle KI-Videoproduktion ab 69 €/Minute – fertig in 48–72 Stunden."
                   : "Launch your professional AI video production from €69/minute — delivered in 48–72 hours."}
@@ -249,7 +249,7 @@ export default function OurWorkSection({ onOpenVideoModal, onOpenInquiryModal })
           <div className="relative z-10 shrink-0 w-full sm:w-auto">
             <button
               onClick={() => onOpenInquiryModal && onOpenInquiryModal()}
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-2xl bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-sm sm:text-base px-6 py-3.5 shadow-lg shadow-indigo-600/30 transition-all duration-200 transform hover:scale-[1.02] active:scale-[0.98]"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl sm:rounded-2xl bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-sm sm:text-base px-6 py-3.5 shadow-lg shadow-indigo-600/30 transition-all duration-200 transform hover:scale-[1.02] active:scale-[0.98]"
             >
               <span>{ow.taglineCta || "Get Your Video Today"}</span>
               <ArrowRight className="w-4 h-4" />

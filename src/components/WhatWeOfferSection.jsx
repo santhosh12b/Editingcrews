@@ -69,7 +69,7 @@ export default function WhatWeOfferSection({ onOpenInquiryModal }) {
   const offer = t.whatWeOffer;
 
   return (
-    <section id="what-we-create" className="py-20 sm:py-24 md:py-28 bg-[#FAFAFC] relative overflow-hidden border-b border-slate-200/80">
+    <section id="what-we-create" className="py-14 sm:py-20 md:py-28 bg-[#FAFAFC] relative overflow-hidden border-b border-slate-200/80">
       
       {/* Background Subtle Gradient Atmosphere */}
       <div className="absolute inset-0 pointer-events-none -z-10">
@@ -79,20 +79,20 @@ export default function WhatWeOfferSection({ onOpenInquiryModal }) {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1360px]">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <span className="text-xs sm:text-[13px] font-bold uppercase tracking-widest text-indigo-600 mb-3 block">
+        <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-12 md:mb-16">
+          <span className="text-[11px] sm:text-[13px] font-bold uppercase tracking-widest text-indigo-600 mb-2 sm:mb-3 block">
             {offer.badge}
           </span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900 leading-tight font-heading">
+          <h2 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900 leading-tight font-heading">
             {offer.heading}
           </h2>
-          <p className="text-slate-600 text-sm sm:text-base md:text-lg mt-3 sm:mt-4 leading-relaxed max-w-2xl mx-auto">
+          <p className="text-slate-600 text-xs sm:text-base md:text-lg mt-2.5 sm:mt-4 leading-relaxed max-w-2xl mx-auto">
             {offer.subheading}
           </p>
         </div>
 
-        {/* 6 Video Format Cards in a Single Row */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3.5 sm:gap-4 lg:gap-3 xl:gap-4 items-stretch">
+        {/* 6 Video Format Cards */}
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4 lg:gap-3 xl:gap-4 items-stretch">
           {offer.items.map((item) => {
             const IconComponent = iconMap[item.id] || iconMap[item.icon] || Sparkles;
             const theme = colorStyles[item.color] || colorStyles.indigo;
@@ -101,23 +101,23 @@ export default function WhatWeOfferSection({ onOpenInquiryModal }) {
               <div 
                 key={item.id}
                 onClick={() => onOpenInquiryModal && onOpenInquiryModal()}
-                className={`group relative bg-white rounded-3xl p-5 sm:p-6 lg:px-3.5 lg:py-6 xl:px-4 xl:py-7 flex flex-col items-center text-center border border-slate-100 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] hover:shadow-xl hover:-translate-y-1.5 ${theme.hoverBorder} transition-all duration-300 cursor-pointer h-full justify-start`}
+                className={`group relative bg-white rounded-2xl sm:rounded-3xl p-3.5 sm:p-5 lg:px-3.5 lg:py-6 xl:px-4 xl:py-7 flex flex-col items-center text-center border border-slate-100 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] hover:shadow-xl hover:-translate-y-1.5 ${theme.hoverBorder} transition-all duration-300 cursor-pointer h-full justify-start`}
               >
                 {/* Centered Soft Icon Container */}
-                <div className={`w-14 h-14 sm:w-16 sm:h-16 rounded-2xl flex items-center justify-center mb-5 shrink-0 transition-all duration-300 group-hover:scale-105 shadow-xs ${theme.iconBg}`}>
-                  <IconComponent className="w-7 h-7 sm:w-8 sm:h-8" />
+                <div className={`w-11 h-11 sm:w-14 sm:h-14 lg:w-16 lg:h-16 rounded-xl sm:rounded-2xl flex items-center justify-center mb-3 sm:mb-5 shrink-0 transition-all duration-300 group-hover:scale-105 shadow-xs ${theme.iconBg}`}>
+                  <IconComponent className="w-5 h-5 sm:w-7 sm:h-7 lg:w-8 lg:h-8" />
                 </div>
 
-                {/* Title Container - Fixed Minimum Height for Exact Horizontal Baseline Alignment */}
-                <div className="min-h-[46px] xl:min-h-[50px] flex items-center justify-center w-full mb-2">
-                  <h3 className="text-[14px] sm:text-[15px] xl:text-[16px] font-bold text-slate-900 leading-snug group-hover:text-indigo-600 transition-colors text-center tracking-tight">
+                {/* Title Container */}
+                <div className="min-h-[36px] sm:min-h-[46px] xl:min-h-[50px] flex items-center justify-center w-full mb-1 sm:mb-2">
+                  <h3 className="text-xs sm:text-[15px] xl:text-[16px] font-bold text-slate-900 leading-snug group-hover:text-indigo-600 transition-colors text-center tracking-tight">
                     {item.title}
                   </h3>
                 </div>
 
-                {/* Description Container - Top-Aligned with Proportional Font */}
+                {/* Description Container */}
                 <div className="w-full flex-1 flex items-start justify-center">
-                  <p className="text-[12px] sm:text-[13px] text-slate-500 leading-relaxed text-center font-normal">
+                  <p className="text-[11px] sm:text-[13px] text-slate-500 leading-relaxed text-center font-normal">
                     {item.description}
                   </p>
                 </div>
@@ -127,8 +127,8 @@ export default function WhatWeOfferSection({ onOpenInquiryModal }) {
         </div>
 
         {/* 7th Feature Banner: Have another idea? Tell us what you have in mind. */}
-        <div className="mt-12 sm:mt-16 text-center">
-          <div className="inline-flex flex-col sm:flex-row items-center gap-3 sm:gap-5 p-2.5 sm:p-2 sm:px-6 bg-white rounded-3xl sm:rounded-full border border-slate-200/80 shadow-xs hover:shadow-md hover:border-indigo-200 transition-all max-w-full">
+        <div className="mt-10 sm:mt-16 text-center">
+          <div className="inline-flex flex-col sm:flex-row items-center gap-3 sm:gap-5 p-3 sm:p-2 sm:px-6 bg-white rounded-2xl sm:rounded-full border border-slate-200/80 shadow-xs hover:shadow-md hover:border-indigo-200 transition-all max-w-full">
             <div className="flex items-center gap-2.5 text-xs sm:text-sm text-slate-600 font-medium text-center sm:text-left">
               <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse shrink-0"></span>
               <span className="font-bold text-slate-900">
@@ -137,7 +137,7 @@ export default function WhatWeOfferSection({ onOpenInquiryModal }) {
             </div>
             <button
               onClick={() => onOpenInquiryModal && onOpenInquiryModal()}
-              className="inline-flex items-center justify-center gap-2 text-xs sm:text-sm font-bold text-white bg-indigo-600 hover:bg-indigo-700 px-5 py-2.5 rounded-xl sm:rounded-full transition-all shadow-md shadow-indigo-600/20 active:scale-95 shrink-0"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 text-xs sm:text-sm font-bold text-white bg-indigo-600 hover:bg-indigo-700 px-5 py-2.5 rounded-xl sm:rounded-full transition-all shadow-md shadow-indigo-600/20 active:scale-95 shrink-0"
             >
               <span>{offer.customIdeaBtn || "Tell Us Your Idea"}</span>
               <ArrowRight className="w-4 h-4" />
