@@ -25,6 +25,24 @@
   src: url('/fonts/satoshi-500.woff2') format('woff2');
 }
 
+/* Satoshi SemiBold (600) */
+@font-face {
+  font-family: 'Satoshi';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('/fonts/satoshi-variable.woff2') format('woff2');
+}
+
+/* Satoshi Variable (300 to 900) */
+@font-face {
+  font-family: 'Satoshi';
+  font-style: normal;
+  font-weight: 300 900;
+  font-display: swap;
+  src: url('/fonts/satoshi-variable.woff2') format('woff2');
+}
+
 /* Satoshi Bold (700) */
 @font-face {
   font-family: 'Satoshi';

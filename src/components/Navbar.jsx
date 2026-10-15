@@ -35,7 +35,10 @@ export default function Navbar() {
               alt="The Editing Crew Logo" 
               className="w-9 h-9 sm:w-10 sm:h-10 object-contain drop-shadow-[0_4px_12px_rgba(16,185,129,0.35)] group-hover:scale-105 transition-transform duration-200" 
             />
-            <span className="text-xl sm:text-2xl font-extrabold tracking-tight text-slate-900 font-heading">
+            <span 
+              className="text-xl sm:text-2xl font-semibold tracking-tight text-slate-900 font-heading"
+              style={{ fontFamily: "'Satoshi', sans-serif", fontWeight: 600 }}
+            >
               The Editing Crew
             </span>
           </a>

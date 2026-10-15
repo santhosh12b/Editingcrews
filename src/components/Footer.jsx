@@ -18,7 +18,10 @@ export default function Footer() {
                 alt="The Editing Crew" 
                 className="w-8 h-8 sm:w-9 sm:h-9 object-contain drop-shadow-[0_4px_10px_rgba(16,185,129,0.3)] group-hover:scale-105 transition-transform duration-200" 
               />
-              <span className="text-xl font-extrabold tracking-tight font-heading text-slate-900">
+              <span 
+                className="text-xl font-semibold tracking-tight text-slate-900 font-heading"
+                style={{ fontFamily: "'Satoshi', sans-serif", fontWeight: 600 }}
+              >
                 The Editing Crew
               </span>
             </a>
