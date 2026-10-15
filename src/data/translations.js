@@ -239,8 +239,29 @@ export const translations = {
       ]
     },
     testimonials: {
-      heading: "Hear what they say about us",
-      subheading: "See what our clients have to say about Editing Crew."
+      badge: "KUNDENSTIMMEN",
+      heading: "What Our Clients Say",
+      subheading: "Brands from various industries trust our AI videos.",
+      items: [
+        {
+          quote: "The videos have taken our advertisements to a whole new level. Fast turnaround and outstanding quality!",
+          author: "Sophie K.",
+          role: "D2C Beauty Brand",
+          rating: 5
+        },
+        {
+          quote: "Exactly what we needed for our social media campaigns. Creative, professional, and effortless to work with.",
+          author: "Lukas M.",
+          role: "E-Commerce Brand",
+          rating: 5
+        },
+        {
+          quote: "We are thrilled with the creative possibilities of AI. The videos look ultra-premium and perform exceptionally well in our ads.",
+          author: "Laura S.",
+          role: "Lifestyle Brand",
+          rating: 5
+        }
+      ]
     },
     faq: {
       badge: "Frequently Asked Questions",
@@ -551,8 +572,29 @@ export const translations = {
       ]
     },
     testimonials: {
-      heading: "Das sagen unsere Nutzer über uns",
-      subheading: "Erfahren Sie, was unsere Kunden über Editing Crew sagen."
+      badge: "KUNDENSTIMMEN",
+      heading: "Das sagen unsere Kunden",
+      subheading: "Marken aus verschiedenen Branchen vertrauen auf unsere KI-Videos.",
+      items: [
+        {
+          quote: "Die Videos haben unsere Werbeanzeigen auf ein neues Level gebracht. Schnelle Umsetzung und tolle Qualität!",
+          author: "Sophie K.",
+          role: "D2C Beauty Brand",
+          rating: 5
+        },
+        {
+          quote: "Genau das, was wir für unsere Social Media Kampagnen gebraucht haben. Kreativ, professionell und einfach in der Zusammenarbeit.",
+          author: "Lukas M.",
+          role: "E-Commerce Brand",
+          rating: 5
+        },
+        {
+          quote: "Wir sind begeistert von den kreativen Möglichkeiten mit KI. Die Videos sehen hochwertig aus und performen sehr gut in unseren Ads.",
+          author: "Laura S.",
+          role: "Lifestyle Brand",
+          rating: 5
+        }
+      ]
     },
     faq: {
       badge: "Häufig gestellte Fragen",
@@ -863,8 +905,29 @@ export const translations = {
       ]
     },
     testimonials: {
-      heading: "Ce qu'ils disent de nous",
-      subheading: "Découvrez les retours de nos clients sur Editing Crew."
+      badge: "KUNDENSTIMMEN",
+      heading: "Ce que disent nos clients",
+      subheading: "Des marques de divers secteurs font confiance à nos vidéos IA.",
+      items: [
+        {
+          quote: "Les vidéos ont propulsé nos publicités à un tout autre niveau. Rapidité d'exécution et qualité remarquable !",
+          author: "Sophie K.",
+          role: "D2C Beauty Brand",
+          rating: 5
+        },
+        {
+          quote: "Exactement ce dont nous avions besoin pour nos réseaux sociaux. Créatif, professionnel et un plaisir de collaborer.",
+          author: "Lukas M.",
+          role: "E-Commerce Brand",
+          rating: 5
+        },
+        {
+          quote: "Nous sommes conquis par les possibilités créatives de l'IA. Les vidéos sont haut de gamme et performent très bien en ads.",
+          author: "Laura S.",
+          role: "Lifestyle Brand",
+          rating: 5
+        }
+      ]
     },
     faq: {
       badge: "Foire Aux Questions",
@@ -1175,8 +1238,29 @@ export const translations = {
       ]
     },
     testimonials: {
-      heading: "Lo que dicen de nosotros",
-      subheading: "Vea lo que dicen nuestros clientes sobre Editing Crew."
+      badge: "KUNDENSTIMMEN",
+      heading: "Lo que dicen nuestros clientes",
+      subheading: "Marcas de diversos sectores confían en nuestros vídeos con IA.",
+      items: [
+        {
+          quote: "Los vídeos llevaron nuestros anuncios a otro nivel. ¡Entrega rápida y excelente calidad!",
+          author: "Sophie K.",
+          role: "D2C Beauty Brand",
+          rating: 5
+        },
+        {
+          quote: "Justo lo que necesitábamos para nuestras campañas en redes sociales. Creativos, profesionales y trato impecable.",
+          author: "Lukas M.",
+          role: "E-Commerce Brand",
+          rating: 5
+        },
+        {
+          quote: "Estamos fascinados con las posibilidades creativas de la IA. Los vídeos se ven de primera y convierten muy bien.",
+          author: "Laura S.",
+          role: "Lifestyle Brand",
+          rating: 5
+        }
+      ]
     },
     faq: {
       badge: "Preguntas Frecuentes",
@@ -1487,8 +1571,29 @@ export const translations = {
       ]
     },
     testimonials: {
-      heading: "Cosa dicono di noi",
-      subheading: "Scopri cosa dicono i nostri utenti su Editing Crew."
+      badge: "KUNDENSTIMMEN",
+      heading: "Cosa dicono i nostri clienti",
+      subheading: "Brand di vari settori si affidano ai nostri video con IA.",
+      items: [
+        {
+          quote: "I video hanno portato le nostre inserzioni a un livello superiore. Consegna rapida e qualità fantastica!",
+          author: "Sophie K.",
+          role: "D2C Beauty Brand",
+          rating: 5
+        },
+        {
+          quote: "Esattamente ciò di cui avevamo bisogno per le nostre campagne social. Creativi, professionali e collaborativi.",
+          author: "Lukas M.",
+          role: "E-Commerce Brand",
+          rating: 5
+        },
+        {
+          quote: "Siamo entusiasti delle possibilità creative dell'IA. I video sono di alta qualità e ottengono ottimi risultati negli ads.",
+          author: "Laura S.",
+          role: "Lifestyle Brand",
+          rating: 5
+        }
+      ]
     },
     faq: {
       badge: "Domande Frequenti",

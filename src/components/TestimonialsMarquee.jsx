@@ -1,123 +1,88 @@
 import React from 'react';
+import { Star } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
-
-export const reviewImages = [
-  {
-    id: 1,
-    src: "/review.png",
-    author: "Vignesh Natarajan",
-    alt: "Google review by Vignesh Natarajan - 5 stars: Excellent work ethics! Outstanding customer satisfaction"
-  },
-  {
-    id: 2,
-    src: "/review2.png",
-    author: "S Sujin",
-    alt: "Google review by S Sujin - 5 stars: Good AI provides excellent video-making services"
-  },
-  {
-    id: 3,
-    src: "/review3.png",
-    author: "Bijoy Cherian",
-    alt: "Google review by Bijoy Cherian - 5 stars: Very understanding and creative team"
-  },
-  {
-    id: 4,
-    src: "/review4.png",
-    author: "Salem SS Travel",
-    alt: "Google review by Salem SS Travel - 5 stars: Superb Creativity. Very Good Work."
-  }
-];
 
 export default function TestimonialsMarquee() {
   const { t } = useLanguage();
-  const heading = t?.testimonials?.heading || "Hear what they say about us";
-  const subheading = t?.testimonials?.subheading || "See what our clients have to say about Editing Crew.";
+  const testimonials = t?.testimonials || {};
 
-  // Duplicate for smooth, continuous loop
-  const row1 = [...reviewImages, ...reviewImages, ...reviewImages, ...reviewImages];
-  const row2 = [
-    ...reviewImages.slice().reverse(),
-    ...reviewImages.slice().reverse(),
-    ...reviewImages.slice().reverse(),
-    ...reviewImages.slice().reverse()
+  const defaultItems = [
+    {
+      quote: "Die Videos haben unsere Werbeanzeigen auf ein neues Level gebracht. Schnelle Umsetzung und tolle Qualität!",
+      author: "Sophie K.",
+      role: "D2C Beauty Brand",
+      rating: 5
+    },
+    {
+      quote: "Genau das, was wir für unsere Social Media Kampagnen gebraucht haben. Kreativ, professionell und einfach in der Zusammenarbeit.",
+      author: "Lukas M.",
+      role: "E-Commerce Brand",
+      rating: 5
+    },
+    {
+      quote: "Wir sind begeistert von den kreativen Möglichkeiten mit KI. Die Videos sehen hochwertig aus und performen sehr gut in unseren Ads.",
+      author: "Laura S.",
+      role: "Lifestyle Brand",
+      rating: 5
+    }
   ];
 
+  const items = testimonials.items && testimonials.items.length > 0 ? testimonials.items : defaultItems;
+
   return (
-    <section className="py-12 sm:py-20 md:py-28 bg-white overflow-hidden relative border-t border-slate-100">
-      <div className="container mx-auto px-4 sm:px-6 mb-8 sm:mb-12 md:mb-16 text-center">
-        <h2 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900 font-heading">
-          {heading}
-        </h2>
-        <p className="text-slate-500 text-xs xs:text-sm sm:text-base max-w-xl mx-auto mt-2 sm:mt-3">
-          {subheading}
-        </p>
-      </div>
-
-      {/* Marquee Wrapper with side fade gradients */}
-      <div className="relative w-full overflow-hidden">
+    <section id="testimonials" className="py-20 sm:py-24 md:py-28 bg-white relative border-t border-slate-100">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
         
-        {/* Left & Right Subtle Fade Masks (compact on mobile so cards are fully visible) */}
-        <div className="pointer-events-none absolute inset-y-0 left-0 w-6 xs:w-10 sm:w-24 md:w-40 z-20 bg-gradient-to-r from-white via-white/80 to-transparent"></div>
-        <div className="pointer-events-none absolute inset-y-0 right-0 w-6 xs:w-10 sm:w-24 md:w-40 z-20 bg-gradient-to-l from-white via-white/80 to-transparent"></div>
-
-        {/* Row 1 - Leftward scrolling */}
-        <div 
-          className="group flex overflow-hidden py-1.5 sm:py-3 [gap:var(--gap)] flex-row"
-          style={{ '--gap': '1rem', '--duration': '85s' }}
-        >
-          <div className="flex shrink-0 justify-around [gap:var(--gap)] animate-marquee flex-row group-hover:[animation-play-state:paused]">
-            {row1.map((item, idx) => (
-              <ReviewImageCard key={`row1-${item.id}-${idx}`} review={item} />
-            ))}
-          </div>
-          <div 
-            aria-hidden="true" 
-            className="flex shrink-0 justify-around [gap:var(--gap)] animate-marquee flex-row group-hover:[animation-play-state:paused]"
-          >
-            {row1.map((item, idx) => (
-              <ReviewImageCard key={`row1-clone-${item.id}-${idx}`} review={item} />
-            ))}
-          </div>
+        {/* Header (Matching User Screenshot) */}
+        <div className="text-center mb-12 sm:mb-16 md:mb-20 max-w-3xl mx-auto">
+          <span className="text-[11px] sm:text-xs font-bold uppercase tracking-[0.22em] text-indigo-600 block mb-2.5">
+            {testimonials.badge || "KUNDENSTIMMEN"}
+          </span>
+          <h2 className="text-3xl sm:text-4xl md:text-[42px] font-extrabold tracking-tight text-slate-900 font-heading leading-tight mb-3">
+            {testimonials.heading || "Das sagen unsere Kunden"}
+          </h2>
+          <p className="text-slate-500 text-sm sm:text-base leading-relaxed max-w-xl mx-auto">
+            {testimonials.subheading || "Marken aus verschiedenen Branchen vertrauen auf unsere KI-Videos."}
+          </p>
         </div>
 
-        {/* Row 2 - Rightward reverse scrolling */}
-        <div 
-          className="group flex overflow-hidden py-1.5 sm:py-3 [gap:var(--gap)] flex-row"
-          style={{ '--gap': '1rem', '--duration': '85s' }}
-        >
-          <div 
-            className="flex shrink-0 justify-around [gap:var(--gap)] animate-marquee flex-row group-hover:[animation-play-state:paused]"
-            style={{ animationDirection: 'reverse' }}
-          >
-            {row2.map((item, idx) => (
-              <ReviewImageCard key={`row2-${item.id}-${idx}`} review={item} />
-            ))}
-          </div>
-          <div 
-            aria-hidden="true" 
-            className="flex shrink-0 justify-around [gap:var(--gap)] animate-marquee flex-row group-hover:[animation-play-state:paused]"
-            style={{ animationDirection: 'reverse' }}
-          >
-            {row2.map((item, idx) => (
-              <ReviewImageCard key={`row2-clone-${item.id}-${idx}`} review={item} />
-            ))}
-          </div>
+        {/* 3 Review Cards Grid (1 column on mobile, 3 columns on tablet/desktop) */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-7 lg:gap-8 max-w-6xl mx-auto">
+          {items.map((item, index) => (
+            <div
+              key={index}
+              className="bg-white rounded-3xl border border-slate-100 p-7 sm:p-8 lg:p-9 shadow-[0_4px_25px_-5px_rgba(0,0,0,0.04)] flex flex-col justify-between hover:shadow-xl hover:border-slate-200/90 hover:-translate-y-1 transition-all duration-300"
+            >
+              {/* Quote */}
+              <div>
+                <p className="text-slate-700 text-sm sm:text-[15px] lg:text-base font-normal leading-relaxed">
+                  "{item.quote}"
+                </p>
+              </div>
+
+              {/* Author & Rating Stars at bottom */}
+              <div className="mt-8 pt-2">
+                <span className="block text-slate-300 font-light text-sm my-3 select-none">—</span>
+                <h4 className="font-bold text-slate-900 text-base sm:text-lg font-heading tracking-tight">
+                  {item.author}
+                </h4>
+                <p className="text-xs sm:text-sm text-slate-500 font-medium mt-0.5 mb-3.5">
+                  {item.role}
+                </p>
+                <div className="flex items-center gap-1.5 text-amber-400">
+                  {[...Array(item.rating || 5)].map((_, i) => (
+                    <Star 
+                      key={i} 
+                      className="w-4 h-4 sm:w-4.5 sm:h-4.5 fill-amber-400 text-amber-400" 
+                    />
+                  ))}
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
 
       </div>
     </section>
-  );
-}
-
-function ReviewImageCard({ review }) {
-  return (
-    <div className="relative w-[300px] xs:w-[330px] sm:w-[480px] md:w-[560px] lg:w-[620px] h-[135px] xs:h-[145px] sm:h-[185px] md:h-[205px] shrink-0 rounded-2xl border border-slate-200/90 bg-white p-2 xs:p-2.5 sm:p-4 md:p-5 shadow-sm hover:shadow-md hover:border-slate-300 transition-all flex items-center justify-center">
-      <img
-        src={review.src}
-        alt={review.alt}
-        className="w-full h-full object-contain select-none pointer-events-none"
-        loading="lazy"
-      />
-    </div>
   );
 }
