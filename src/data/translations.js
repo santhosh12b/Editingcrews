@@ -143,42 +143,23 @@ export const translations = {
       ]
     },
     howItWorks: {
-      heading: "How It Works",
-      subheading: "Create faceless videos in three simple steps",
+      badge: "HOW IT WORKS",
+      heading: "From Your Idea to a Finished Video in 3 Simple Steps",
+      subheading: "Simple, straightforward, and without the hassle of a traditional video shoot.",
       step1: {
-        badge: "Step 1",
-        title: "Content and Script",
-        description: "Choose your niche and video formats. Our AI handles the rest.",
-        bullet1: "Unlimited niches supported",
-        bullet2: "Multiple video formats available",
-        voiceStyle: "Voice Style",
-        adamName: "Adam",
-        adamTag: "Male",
-        adamDesc: "The well-known voice of TikTok & Instagram.",
-        alexName: "Alex",
-        alexTag: "Male",
-        alexDesc: "An upbeat and pleasant male voice. Great for YouTube shorts and social media...",
-        back: "Back",
-        continue: "Continue"
+        num: "1",
+        title: "Share Your Idea",
+        desc: "Send us your product photos, script, reference video, or just a rough concept."
       },
       step2: {
-        badge: "Step 2",
-        title: "Generate the Storyboard",
-        description: "Pick art styles and add your favorite music.",
-        bullet1: "Various art styles to choose from",
-        bullet2: "Upload custom music or enter TikTok sound link",
-        boldStroke: "Bold Stroke",
-        redHighlight: "Red Highlight",
-        sleek: "Sleek",
-        back: "Back",
-        continue: "Continue"
+        num: "2",
+        title: "We Create Your Video",
+        desc: "Our team handles AI production, editing, sound effects, and background music."
       },
       step3: {
-        badge: "Step 3",
-        title: "Watch your socials grow",
-        description: "Connect your accounts and let us handle the posting.",
-        bullet1: "Automatic posting while you sleep",
-        bullet2: "Supports: Instagram, TikTok, YouTube"
+        num: "3",
+        title: "Receive Your Finished Video",
+        desc: "Get your completed video, ready to use across your marketing channels."
       }
     },
     showreel: {
@@ -291,13 +272,11 @@ export const translations = {
       ]
     },
     bottomCta: {
-      pill: "Start Your Video Production",
-      heading: "Ready to Bring Your Idea to Life?",
-      description: "Tell us about your product, service or creative idea. We'll help turn it into a compelling video for your business.",
-      buttonText: "Get Your Video Today",
-      badge1: "€69 Per Finished Minute",
-      badge2: "48–72h Turnaround",
-      badge3: "2 Revisions Included"
+      heading: "Ready to Create Videos for Your Brand?",
+      description: "Give your products more ways to stand out with high-quality AI videos. Whether you need product ads, UGC-style content, animations, or creative concepts, we're ready to help.",
+      priceHighlight: "Your first video starts at just €69 per minute.",
+      buttonText: "Get Started Today",
+      subtext: "Share your product or idea, and let's bring it to life."
     },
     footer: {
       tagline: "Studio-grade AI video production for businesses and brands. Complete video editing, sound effects, background music and multilingual voiceovers at €69 per finished minute.",
@@ -476,42 +455,23 @@ export const translations = {
       ]
     },
     howItWorks: {
-      heading: "So funktioniert es",
-      subheading: "Erstellen Sie Videos in drei einfachen Schritten",
+      badge: "SO FUNKTIONIERT'S",
+      heading: "In 3 einfachen Schritten zu deinem Video",
+      subheading: "Einfach, schnell und unkompliziert.",
       step1: {
-        badge: "Schritt 1",
-        title: "Inhalt und Drehbuch",
-        description: "Wählen Sie Ihre Nische und Ihr Videoformat. Unsere KI erledigt den Rest.",
-        bullet1: "Unbegrenzte Themen & Nischen unterstützt",
-        bullet2: "Mehrere Videoformate verfügbar",
-        voiceStyle: "Stimmen-Stil",
-        adamName: "Adam",
-        adamTag: "Männlich",
-        adamDesc: "Die bekannte Stimme von TikTok & Instagram.",
-        alexName: "Alex",
-        alexTag: "Männlich",
-        alexDesc: "Angenehme und dynamische Männerstimme. Ideal für Shorts und Social Media...",
-        back: "Zurück",
-        continue: "Weiter"
+        num: "1",
+        title: "Teile deine Idee",
+        desc: "Schick uns dein Produkt, dein Skript oder eine grobe Idee."
       },
       step2: {
-        badge: "Schritt 2",
-        title: "Storyboard generieren",
-        description: "Wählen Sie Bildstile und fügen Sie Ihre Lieblingsmusik hinzu.",
-        bullet1: "Große Auswahl an visuellen Stilen",
-        bullet2: "Eigene Musik hochladen oder TikTok-Soundlink einfügen",
-        boldStroke: "Fette Kontur",
-        redHighlight: "Rote Hervorhebung",
-        sleek: "Elegant & Schlicht",
-        back: "Zurück",
-        continue: "Weiter"
+        num: "2",
+        title: "Wir erstellen dein Video",
+        desc: "Unser Team übernimmt die KI-Produktion, den Schnitt, die Soundeffekte und die Hintergrundmusik."
       },
       step3: {
-        badge: "Schritt 3",
-        title: "Sehen Sie Ihren sozialen Kanälen beim Wachsen zu",
-        description: "Verbinden Sie Ihre Konten und überlassen Sie uns das Posting.",
-        bullet1: "Automatisches Posten während Sie schlafen",
-        bullet2: "Unterstützt: Instagram, TikTok, YouTube"
+        num: "3",
+        title: "Du erhältst dein fertiges Video",
+        desc: "Ein professionelles Video, bereit für deine Ads und Social Media."
       }
     },
     showreel: {
@@ -624,13 +584,11 @@ export const translations = {
       ]
     },
     bottomCta: {
-      pill: "Starten Sie Ihre Videoproduktion",
-      heading: "Bereit, Ihre Idee zum Leben zu erwecken?",
-      description: "Erzählen Sie uns von Ihrem Produkt, Ihrer Dienstleistung oder Idee. Wir erstellen ein überzeugendes Video für Ihr Unternehmen.",
-      buttonText: "Starten Sie noch heute",
-      badge1: "69 € pro fertige Minute",
-      badge2: "48–72 Std. Lieferzeit",
-      badge3: "2 Korrekturen inklusive"
+      heading: "Bereit für dein erstes KI-Video?",
+      description: "Gib deinen Produkten mehr Möglichkeiten, sich mit hochwertigen Videos von der Masse abzuheben.",
+      priceHighlight: "Dein erstes Video schon ab 69 € pro Minute.",
+      buttonText: "Jetzt Video anfragen",
+      subtext: "Nur 69 € pro Minute. Alles inklusive."
     },
     footer: {
       tagline: "Erstklassige KI-Videoproduktion für Unternehmen und Marken. Vollständiger Videoschnitt, Soundeffekte, Musik und Voiceover für nur 69 € pro fertiger Minute.",
@@ -809,42 +767,23 @@ export const translations = {
       ]
     },
     howItWorks: {
-      heading: "Comment ça marche",
-      subheading: "Créez des vidéos en trois étapes simples",
+      badge: "COMMENT ÇA MARCHE",
+      heading: "De votre idée à une vidéo finale en 3 étapes simples",
+      subheading: "Simple, rapide et sans les contraintes d'un tournage traditionnel.",
       step1: {
-        badge: "Étape 1",
-        title: "Contenu et script",
-        description: "Choisissez votre thématique et vos formats vidéo. Notre IA s'occupe du reste.",
-        bullet1: "Thématiques illimitées prises en charge",
-        bullet2: "Plusieurs formats vidéo disponibles",
-        voiceStyle: "Style de voix",
-        adamName: "Adam",
-        adamTag: "Homme",
-        adamDesc: "La voix populaire de TikTok et Instagram.",
-        alexName: "Alex",
-        alexTag: "Homme",
-        alexDesc: "Voix masculine chaleureuse et dynamique. Idéale pour YouTube shorts et réseaux sociaux...",
-        back: "Retour",
-        continue: "Continuer"
+        num: "1",
+        title: "Partagez votre idée",
+        desc: "Envoyez-nous vos photos de produits, un script ou un simple concept."
       },
       step2: {
-        badge: "Étape 2",
-        title: "Générer le storyboard",
-        description: "Choisissez vos styles artistiques et ajoutez votre musique préférée.",
-        bullet1: "Nombreux styles artistiques au choix",
-        bullet2: "Importez vos musiques ou collez un lien son TikTok",
-        boldStroke: "Contour Épais",
-        redHighlight: "Surbrillance Rouge",
-        sleek: "Épuré et Moderne",
-        back: "Retour",
-        continue: "Continuer"
+        num: "2",
+        title: "Nous créons votre vidéo",
+        desc: "Notre équipe gère la production IA, le montage, les effets sonores et la musique."
       },
       step3: {
-        badge: "Étape 3",
-        title: "Regardez vos réseaux grandir",
-        description: "Connectez vos comptes et laissez-nous gérer la publication.",
-        bullet1: "Publication automatique pendant votre sommeil",
-        bullet2: "Compatible : Instagram, TikTok, YouTube"
+        num: "3",
+        title: "Recevez votre vidéo finalisée",
+        desc: "Une vidéo professionnelle prête à être diffusée sur vos canaux publicitaires."
       }
     },
     showreel: {
@@ -957,13 +896,11 @@ export const translations = {
       ]
     },
     bottomCta: {
-      pill: "Lancez votre production vidéo",
-      heading: "Prêt à donner vie à votre idée ?",
-      description: "Parlez-nous de votre produit, service ou idée. Nous vous aiderons à en faire une vidéo percutante pour votre entreprise.",
-      buttonText: "Obtenez votre vidéo aujourd'hui",
-      badge1: "69 € par minute finalisée",
-      badge2: "Livraison 48–72h",
-      badge3: "2 révisions incluses"
+      heading: "Prêt pour votre première vidéo IA ?",
+      description: "Donnez à vos produits toutes les chances de captiver vos clients grâce à des vidéos IA percutantes.",
+      priceHighlight: "Votre première vidéo dès 69 € par minute.",
+      buttonText: "Demander votre vidéo",
+      subtext: "À partir de 69 € par minute. Tout inclus."
     },
     footer: {
       tagline: "Production vidéo IA de qualité studio pour entreprises et marques. Montage complet, sound design, musique et voix off à 69 € par minute finalisée.",
@@ -1142,42 +1079,23 @@ export const translations = {
       ]
     },
     howItWorks: {
-      heading: "Cómo funciona",
-      subheading: "Crea vídeos en tres sencillos pasos",
+      badge: "CÓMO FUNCIONA",
+      heading: "De tu idea al vídeo final en 3 sencillos pasos",
+      subheading: "Fácil, rápido y sin complicaciones de rodajes tradicionales.",
       step1: {
-        badge: "Paso 1",
-        title: "Contenido y guion",
-        description: "Elige tu temática y formato de vídeo. Nuestra IA se encarga del resto.",
-        bullet1: "Temáticas ilimitadas soportadas",
-        bullet2: "Múltiples formatos de vídeo disponibles",
-        voiceStyle: "Estilo de voz",
-        adamName: "Adam",
-        adamTag: "Hombre",
-        adamDesc: "La conocida voz de TikTok e Instagram.",
-        alexName: "Alex",
-        alexTag: "Hombre",
-        alexDesc: "Voz masculina agradable y dinámica. Ideal para YouTube shorts y redes...",
-        back: "Atrás",
-        continue: "Continuar"
+        num: "1",
+        title: "Comparte tu idea",
+        desc: "Envíanos fotos de tus productos, tu guión o una idea inicial."
       },
       step2: {
-        badge: "Paso 2",
-        title: "Generar el guion gráfico",
-        description: "Elige estilos artísticos y añade tu música favorita.",
-        bullet1: "Variedad de estilos artísticos a elegir",
-        bullet2: "Sube música propia o pega un enlace de sonido TikTok",
-        boldStroke: "Trazo Grueso",
-        redHighlight: "Resaltado Rojo",
-        sleek: "Elegante y Limpio",
-        back: "Atrás",
-        continue: "Continuar"
+        num: "2",
+        title: "Creamos tu vídeo",
+        desc: "Nuestro equipo se encarga de la producción con IA, montaje, efectos de sonido y música."
       },
       step3: {
-        badge: "Paso 3",
-        title: "Mira crecer tus redes sociales",
-        description: "Conecta tus cuentas y déjanos gestionar la publicación.",
-        bullet1: "Publicación automática mientras duermes",
-        bullet2: "Compatible con: Instagram, TikTok, YouTube"
+        num: "3",
+        title: "Recibe tu vídeo terminado",
+        desc: "Un vídeo profesional listo para tus anuncios y redes sociales."
       }
     },
     showreel: {
@@ -1290,13 +1208,11 @@ export const translations = {
       ]
     },
     bottomCta: {
-      pill: "Inicia tu producción de vídeo",
-      heading: "¿Listo para dar vida a tu idea?",
-      description: "Cuéntanos sobre tu producto, servicio o idea creativa. Te ayudaremos a convertirlo en un video convincente para tu negocio.",
-      buttonText: "Obtén tu vídeo hoy",
-      badge1: "69 € por minuto finalizado",
-      badge2: "Entrega 48–72h",
-      badge3: "2 revisiones incluidas"
+      heading: "¿Listo para tu primer vídeo con IA?",
+      description: "Da a tus productos más opciones de destacar con vídeos de alta calidad.",
+      priceHighlight: "Tu primer vídeo desde solo 69 € por minuto.",
+      buttonText: "Solicitar vídeo ahora",
+      subtext: "Solo 69 € por minuto. Todo incluido."
     },
     footer: {
       tagline: "Producción de vídeo con IA de calidad de estudio para empresas y marcas. Edición completa, sonido, música y voz a 69 € por minuto finalizado.",
@@ -1475,42 +1391,23 @@ export const translations = {
       ]
     },
     howItWorks: {
-      heading: "Come funziona",
-      subheading: "Crea video in tre semplici passaggi",
+      badge: "COME FUNZIONA",
+      heading: "Dalla tua idea al video finito in 3 semplici passaggi",
+      subheading: "Semplice, veloce e senza le complessità di una produzione tradizionale.",
       step1: {
-        badge: "Passo 1",
-        title: "Contenuto e sceneggiatura",
-        description: "Scegli la tua nicchia e i formati video. La nostra IA pensa al resto.",
-        bullet1: "Nicchie illimitate supportate",
-        bullet2: "Diversi formati video disponibili",
-        voiceStyle: "Stile della voce",
-        adamName: "Adam",
-        adamTag: "Uomo",
-        adamDesc: "La celebre voce di TikTok e Instagram.",
-        alexName: "Alex",
-        alexTag: "Uomo",
-        alexDesc: "Voiceover maschile caldo e dinamico. Perfetto per YouTube shorts e social...",
-        back: "Indietro",
-        continue: "Continua"
+        num: "1",
+        title: "Condividi la tua idea",
+        desc: "Inviaci foto del prodotto, la sceneggiatura o una semplice idea."
       },
       step2: {
-        badge: "Passo 2",
-        title: "Genera lo storyboard",
-        description: "Scegli gli stili visivi e aggiungi la tua musica preferita.",
-        bullet1: "Vari stili artistici tra cui scegliere",
-        bullet2: "Carica la tua musica o incolla un link audio TikTok",
-        boldStroke: "Tratto Spesso",
-        redHighlight: "Evidenziato in Rosso",
-        sleek: "Elegante e Minimale",
-        back: "Indietro",
-        continue: "Continua"
+        num: "2",
+        title: "Creiamo il tuo video",
+        desc: "Il nostro team cura la produzione con IA, montaggio, sound design e colonna sonora."
       },
       step3: {
-        badge: "Passo 3",
-        title: "Guarda crescere i tuoi canali social",
-        description: "Collega i tuoi profili e lascia a noi la pubblicazione.",
-        bullet1: "Pubblicazione automatica mentre dormi",
-        bullet2: "Supporta: Instagram, TikTok, YouTube"
+        num: "3",
+        title: "Ricevi il tuo video finito",
+        desc: "Un video professionale pronto per le tue campagne e i social media."
       }
     },
     showreel: {
@@ -1623,13 +1520,11 @@ export const translations = {
       ]
     },
     bottomCta: {
-      pill: "Inizia la tua produzione video",
-      heading: "Pronto a dare vita alla tua idea?",
-      description: "Parlaci del tuo prodotto, servizio o idea creativa. Ti aiuteremo a trasformarlo in un video avvincente per la tua attività.",
-      buttonText: "Ottieni il tuo video oggi",
-      badge1: "69 € per minuto finito",
-      badge2: "Consegna in 48–72h",
-      badge3: "2 revisioni incluse"
+      heading: "Pronto per il tuo primo video con IA?",
+      description: "Offri ai tuoi prodotti più opportunità di distinguersi con video di alta qualità.",
+      priceHighlight: "Il tuo primo video da soli 69 € al minuto.",
+      buttonText: "Richiedi il tuo video",
+      subtext: "Solo 69 € al minuto. Tutto incluso."
     },
     footer: {
       tagline: "Produzione video IA di qualità da studio per aziende e brand. Montaggio completo, effetti sonori, musica e voce narrante a 69 € per minuto finito.",

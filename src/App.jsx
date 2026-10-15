@@ -3,9 +3,9 @@ import Navbar from './components/Navbar';
 import HeroSection from './components/HeroSection';
 import WhatWeOfferSection from './components/WhatWeOfferSection';
 import OurWorkSection from './components/OurWorkSection';
-import TestimonialsMarquee from './components/TestimonialsMarquee';
 import PricingSection from './components/PricingSection';
-import FaqSection from './components/FaqSection';
+import TestimonialsMarquee from './components/TestimonialsMarquee';
+import HowItWorksSection from './components/HowItWorksSection';
 import BottomCtaSection from './components/BottomCtaSection';
 import Footer from './components/Footer';
 import VideoModal from './components/VideoModal';
@@ -69,13 +69,13 @@ export default function App() {
           onOpenInquiryModal={handleOpenInquiryModal}
         />
 
-        {/* Testimonials Section: "Hear what they say about us" */}
+        {/* 5. Customer Reviews / Testimonials */}
         <TestimonialsMarquee />
 
-        {/* FAQ Section */}
-        <FaqSection />
+        {/* 6. How It Works: From Your Idea to a Finished Video in 3 Simple Steps */}
+        <HowItWorksSection />
 
-        {/* 6. Final Call to Action Section */}
+        {/* 7. Final Call to Action Section */}
         <BottomCtaSection 
           onOpenInquiryModal={handleOpenInquiryModal}
         />
