@@ -33,6 +33,31 @@ export default function HeroSection({ onOpenShowreel, onOpenInquiryModal }) {
   const hero = t.hero;
   const trust = trustText[currentLang] || trustText.en;
 
+  // Ensure pricing tokens (e.g. "69 €/Minute.") stay atomically together and never wrap separately
+  const renderHeadline = (text) => {
+    if (!text || typeof text !== 'string') return text;
+
+    // Matches German, French, Spanish, Italian, and English price phrases like "69 €/Minute.", "€69/Minute."
+    const priceRegex = /(69[\s\u00A0]*€[\s\u00A0]*\/[\s\u00A0]*Minute\.?|€[\s\u00A0]*69[\s\u00A0]*\/[\s\u00A0]*Minute\.?|69[\s\u00A0]*€[\s\u00A0]*\/[\s\u00A0]*minute\.?|69[\s\u00A0]*€[\s\u00A0]*\/[\s\u00A0]*minuto\.?)/i;
+    const match = text.match(priceRegex);
+
+    if (match) {
+      const idx = text.indexOf(match[0]);
+      const before = text.substring(0, idx);
+      const after = text.substring(idx + match[0].length);
+      return (
+        <>
+          {before}
+          <span className="inline-block whitespace-nowrap">
+            {match[0].replace(/[\s\u00A0]+/g, '\u00A0')}
+          </span>
+          {after}
+        </>
+      );
+    }
+    return text;
+  };
+
   return (
     <section className="relative overflow-hidden pt-24 pb-12 sm:pt-36 sm:pb-24 lg:pt-44 lg:pb-28 bg-white">
       
@@ -72,7 +97,7 @@ export default function HeroSection({ onOpenShowreel, onOpenInquiryModal }) {
 
         {/* Headline */}
         <h1 className="text-[28px] xs:text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-slate-900 leading-tight sm:leading-[1.1] mb-3 sm:mb-4 font-heading">
-          {hero.headline}
+          {renderHeadline(hero.headline)}
         </h1>
 
         {/* Subheading */}

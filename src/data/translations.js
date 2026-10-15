@@ -343,7 +343,7 @@ export const translations = {
   de: {
     hero: {
       eyebrow: "KI-Videos für Ihre Produkte & Dienstleistungen",
-      headline: "Hochwertige KI-Videos für Ihre Marke – ab nur 69 €/Minute.",
+      headline: "Hochwertige KI-Videos für Ihre Marke – ab nur 69\u00A0€/Minute.",
       subheading: "Erstellen Sie packende Produktvideos für Ihre Ads und Social Media – ohne teure Videodrehs.",
       description: "Von Ads im UGC-Stil bis hin zu kinoreifen Produktvideos: Wir übernehmen alles von der KI-Produktion bis zum finalen Schnitt.",
       primaryCta: "Jetzt erstes Video erstellen",
