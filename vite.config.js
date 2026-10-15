@@ -14,7 +14,10 @@ export default defineConfig({
       input: {
         main: resolve(__dirname, 'index.html'),
         singapore: resolve(__dirname, 'singapore/index.html'),
-        malaysia: resolve(__dirname, 'malaysia/index.html')
+        malaysia: resolve(__dirname, 'malaysia/index.html'),
+        thanks: resolve(__dirname, 'thanks/index.html'),
+        singaporeThanks: resolve(__dirname, 'singapore/thanks/index.html'),
+        malaysiaThanks: resolve(__dirname, 'malaysia/thanks/index.html')
       }
     }
   }

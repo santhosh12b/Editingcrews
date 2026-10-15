@@ -2,6 +2,18 @@
   "cleanUrls": true,
   "rewrites": [
     {
+      "source": "/thanks",
+      "destination": "/thanks/index.html"
+    },
+    {
+      "source": "/singapore/thanks",
+      "destination": "/singapore/thanks/index.html"
+    },
+    {
+      "source": "/malaysia/thanks",
+      "destination": "/malaysia/thanks/index.html"
+    },
+    {
       "source": "/singapore",
       "destination": "/singapore/index.html"
     },
