@@ -32,11 +32,11 @@ export default function Navbar() {
           <a href="#" className="flex items-center space-x-2.5 sm:space-x-3 group">
             <img 
               src="/logo.png" 
-              alt="Editing Crew Logo" 
+              alt="The Editing Crew Logo" 
               className="w-9 h-9 sm:w-10 sm:h-10 object-contain drop-shadow-[0_4px_12px_rgba(16,185,129,0.35)] group-hover:scale-105 transition-transform duration-200" 
             />
             <span className="text-xl sm:text-2xl font-extrabold tracking-tight text-slate-900 font-heading">
-              EDITING <span className="text-emerald-500">CREW</span>
+              The Editing Crew
             </span>
           </a>
 

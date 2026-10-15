@@ -306,7 +306,7 @@ export const translations = {
       col3Title: "Get Started",
       col3Desc: "Ready to create your next video? Tell us about your idea and get started today.",
       cta: "Get Your Video Today",
-      rights: "© 2026 EDITING CREW. All rights reserved."
+      rights: "© 2026 The Editing Crew. All rights reserved."
     },
     modal: {
       stepOf: "Step {step} of 3",
@@ -639,7 +639,7 @@ export const translations = {
       col3Title: "Jetzt starten",
       col3Desc: "Bereit für Ihr nächstes Video? Erzählen Sie uns von Ihrer Idee und starten Sie noch heute.",
       cta: "Starten Sie noch heute",
-      rights: "© 2026 EDITING CREW. Alle Rechte vorbehalten."
+      rights: "© 2026 The Editing Crew. Alle Rechte vorbehalten."
     },
     modal: {
       stepOf: "Schritt {step} von 3",
@@ -972,7 +972,7 @@ export const translations = {
       col3Title: "Commencer",
       col3Desc: "Prêt à créer votre prochaine vidéo ? Parlez-nous de votre projet dès maintenant.",
       cta: "Obtenez votre vidéo aujourd'hui",
-      rights: "© 2026 EDITING CREW. Tous droits réservés."
+      rights: "© 2026 The Editing Crew. Tous droits réservés."
     },
     modal: {
       stepOf: "Étape {step} sur 3",
@@ -1305,7 +1305,7 @@ export const translations = {
       col3Title: "Empezar",
       col3Desc: "¿Listo para tu próximo vídeo? Cuéntanos tu idea y empieza hoy mismo.",
       cta: "Obtén tu vídeo hoy",
-      rights: "© 2026 EDITING CREW. Todos los derechos reservados."
+      rights: "© 2026 The Editing Crew. Todos los derechos reservados."
     },
     modal: {
       stepOf: "Paso {step} de 3",
@@ -1638,7 +1638,7 @@ export const translations = {
       col3Title: "Inizia ora",
       col3Desc: "Pronto a creare il tuo prossimo video? Raccontaci la tua idea e inizia oggi stesso.",
       cta: "Ottieni il tuo video oggi",
-      rights: "© 2026 EDITING CREW. Tutti i diritti riservati."
+      rights: "© 2026 The Editing Crew. Tutti i diritti riservati."
     },
     modal: {
       stepOf: "Passo {step} di 3",

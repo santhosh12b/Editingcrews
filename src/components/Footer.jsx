@@ -15,11 +15,11 @@ export default function Footer() {
             <a href="#" className="flex items-center space-x-2.5 sm:space-x-3 group">
               <img 
                 src="/logo.png" 
-                alt="Editing Crew" 
+                alt="The Editing Crew" 
                 className="w-8 h-8 sm:w-9 sm:h-9 object-contain drop-shadow-[0_4px_10px_rgba(16,185,129,0.3)] group-hover:scale-105 transition-transform duration-200" 
               />
               <span className="text-xl font-extrabold tracking-tight font-heading text-slate-900">
-                EDITING <span className="text-emerald-500">CREW</span>
+                The Editing Crew
               </span>
             </a>
             <span className="hidden sm:inline text-slate-300">|</span>
