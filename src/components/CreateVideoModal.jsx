@@ -4,8 +4,8 @@ import { useLanguage } from '../context/LanguageContext';
 import { GOOGLE_SHEETS_SCRIPT_URL } from '../config/googleSheets';
 
 const countryList = [
-  { code: 'DE', dialCode: '+49', name: 'Germany (Deutschland)', minDigits: 10, maxDigits: 11, placeholder: '170 1234567' },
-  { code: 'AT', dialCode: '+43', name: 'Austria (Österreich)', minDigits: 10, maxDigits: 11, placeholder: '664 1234567' },
+  { code: 'DE', dialCode: '+49', name: 'Germany (Deutschland)', minDigits: 10, maxDigits: 10, placeholder: '170 1234567' },
+  { code: 'AT', dialCode: '+43', name: 'Austria (Österreich)', minDigits: 10, maxDigits: 10, placeholder: '664 1234567' },
   { code: 'CH', dialCode: '+41', name: 'Switzerland (Schweiz)', minDigits: 9, maxDigits: 9, placeholder: '79 123 4567' },
   { code: 'GB', dialCode: '+44', name: 'United Kingdom', minDigits: 10, maxDigits: 10, placeholder: '7911 123456' },
   { code: 'US', dialCode: '+1', name: 'United States', minDigits: 10, maxDigits: 10, placeholder: '202 555 0199' },
@@ -93,17 +93,23 @@ export default function CreateVideoModal({ isOpen, onClose, initialService }) {
   };
 
   // Strictly disallow letters & special characters in Phone input (digits only 0-9)
+  // Strictly block typing after country's max digits (e.g. 10 digits for Germany)
   const handlePhoneChange = (e) => {
     // Only keep numeric digits 0-9
     const digits = e.target.value.replace(/\D/g, '');
-    // Allow up to 15 digits (international max standard)
-    setPhone(digits.slice(0, 15));
+    const maxDigits = selectedCountry?.maxDigits || 10;
+    // Strictly prevent typing after maxDigits
+    setPhone(digits.slice(0, maxDigits));
     if (phoneError) setPhoneError('');
   };
 
   const handleSelectCountry = (country) => {
     setSelectedCountry(country);
     setIsCountryDropdownOpen(false);
+    const maxDigits = country.maxDigits || 10;
+    if (phone.length > maxDigits) {
+      setPhone(phone.slice(0, maxDigits));
+    }
     if (phoneError) setPhoneError('');
   };
 
@@ -116,9 +122,14 @@ export default function CreateVideoModal({ isOpen, onClose, initialService }) {
       return;
     }
 
-    // 2. Validate Phone (at least 6 digits)
-    if (!phone.trim() || phone.trim().length < 6) {
-      setPhoneError(isGerman ? 'Bitte geben Sie eine gültige Telefonnummer ein.' : 'Please enter a valid phone number.');
+    // 2. Validate Phone
+    const minDigits = selectedCountry?.minDigits || 10;
+    if (!phone.trim() || phone.trim().length < minDigits) {
+      setPhoneError(
+        isGerman 
+          ? `Bitte geben Sie mindestens ${minDigits} Ziffern ein.` 
+          : `Please enter at least ${minDigits} digits.`
+      );
       return;
     }
 
@@ -292,10 +303,13 @@ export default function CreateVideoModal({ isOpen, onClose, initialService }) {
                     </label>
                     {/* Live digit counter indicator */}
                     {phone.length > 0 && (
-                      <span className={`text-[11px] font-semibold tracking-tight transition-colors ${
-                        phone.length >= 8 ? 'text-emerald-600 font-bold' : 'text-slate-500'
+                      <span className={`text-[11px] font-semibold tracking-tight transition-colors flex items-center gap-1 ${
+                        phone.length >= (selectedCountry?.minDigits || 10) ? 'text-emerald-600 font-bold' : 'text-slate-500'
                       }`}>
-                        {phone.length} digits
+                        {phone.length}/{selectedCountry?.maxDigits || 10} {isGerman ? 'Ziffern' : 'digits'}
+                        {phone.length >= (selectedCountry?.minDigits || 10) && (
+                          <CheckCircle2 className="w-3 h-3 text-emerald-600 shrink-0" />
+                        )}
                       </span>
                     )}
                   </div>
@@ -361,7 +375,7 @@ export default function CreateVideoModal({ isOpen, onClose, initialService }) {
                       )}
                     </div>
 
-                    {/* Phone Number Input (Strictly Numeric) */}
+                    {/* Phone Number Input (Strictly Numeric & Capped at Country maxDigits) */}
                     <input
                       type="tel"
                       inputMode="numeric"
@@ -370,7 +384,7 @@ export default function CreateVideoModal({ isOpen, onClose, initialService }) {
                       value={phone}
                       onChange={handlePhoneChange}
                       placeholder={selectedCountry.placeholder || strings.phonePlaceholder}
-                      maxLength={15}
+                      maxLength={selectedCountry?.maxDigits || 10}
                       className="w-full bg-transparent px-3 py-2.5 sm:py-3 text-slate-900 placeholder:text-slate-400 text-sm focus:outline-none rounded-r-xl"
                     />
                   </div>
