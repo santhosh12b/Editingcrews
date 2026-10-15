@@ -119,6 +119,7 @@ export const aiVideosList = [
     badge: {
       de: "Nur 69 €/Min.",
       en: "Just €69/Min.",
+      sg: "Just S$94/Min.",
       fr: "Dès 69 €/Min.",
       es: "Solo 69 €/Min.",
       it: "Solo 69 €/Min."
@@ -412,7 +413,6 @@ function Mobile3DVideoCarousel({ items, currentLang, onOpenModal }) {
           })}
         </div>
 
-        {/* Floating Left & Right Glass Arrows */}
         <button
           onClick={(e) => {
             e.stopPropagation();

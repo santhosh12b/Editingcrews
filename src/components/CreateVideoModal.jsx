@@ -4,6 +4,7 @@ import { useLanguage } from '../context/LanguageContext';
 import { GOOGLE_SHEETS_SCRIPT_URL } from '../config/googleSheets';
 
 const countryList = [
+  { code: 'SG', dialCode: '+65', name: 'Singapore', minDigits: 8, maxDigits: 8, placeholder: '8123 4567' },
   { code: 'DE', dialCode: '+49', name: 'Germany (Deutschland)', minDigits: 10, maxDigits: 10, placeholder: '170 1234567' },
   { code: 'AT', dialCode: '+43', name: 'Austria (Österreich)', minDigits: 10, maxDigits: 10, placeholder: '664 1234567' },
   { code: 'CH', dialCode: '+41', name: 'Switzerland (Schweiz)', minDigits: 9, maxDigits: 9, placeholder: '79 123 4567' },
@@ -26,12 +27,16 @@ const countryList = [
 ];
 
 export default function CreateVideoModal({ isOpen, onClose, initialService }) {
-  const { currentLang, t } = useLanguage();
+  const { currentLang, t, isSingapore } = useLanguage();
   
   const [name, setName] = useState('');
   const [nameError, setNameError] = useState('');
   const [email, setEmail] = useState('');
-  const [selectedCountry, setSelectedCountry] = useState(countryList[0]);
+  const [selectedCountry, setSelectedCountry] = useState(() => {
+    return isSingapore 
+      ? countryList[0] 
+      : (countryList.find(c => c.code === 'DE') || countryList[1]);
+  });
   const [phone, setPhone] = useState('');
   const [phoneError, setPhoneError] = useState('');
   const [isCountryDropdownOpen, setIsCountryDropdownOpen] = useState(false);
@@ -41,6 +46,16 @@ export default function CreateVideoModal({ isOpen, onClose, initialService }) {
   const [isSuccess, setIsSuccess] = useState(false);
 
   const countryDropdownRef = useRef(null);
+
+  // Sync default country if market changes
+  useEffect(() => {
+    if (isSingapore) {
+      setSelectedCountry(countryList[0]);
+    } else {
+      const de = countryList.find(c => c.code === 'DE');
+      if (de) setSelectedCountry(de);
+    }
+  }, [isSingapore]);
 
   useEffect(() => {
     if (initialService) {
@@ -199,20 +214,23 @@ export default function CreateVideoModal({ isOpen, onClose, initialService }) {
     setIsSuccess(true);
   };
 
-  // Localized texts based on current language
+  // Localized texts based on current language & region
   const isGerman = currentLang === 'de';
+  const isSg = isSingapore || currentLang === 'sg';
 
   const strings = {
     title: isGerman ? "Starten Sie Ihr Videoprojekt" : "Start Your Video Project",
     subtitle: isGerman 
       ? "Erzählen Sie uns von Ihrem Produkt, Ihrer Dienstleistung oder Ihrer Idee. Wir verwandeln sie in ein überzeugendes Video für Ihr Unternehmen."
-      : "Tell us about your product, service or creative idea. We'll help turn it into a compelling video for your business.",
+      : (isSg 
+        ? "Tell us about your product, service or creative idea. We'll help turn it into a high-converting video for your brand in Singapore." 
+        : "Tell us about your product, service or creative idea. We'll help turn it into a compelling video for your business."),
     nameLabel: isGerman ? "Ihr Name *" : "Your Name *",
-    namePlaceholder: "e.g. Elena Rostova",
+    namePlaceholder: isSg ? "e.g. Rachel Tan" : (isGerman ? "z.B. Max Mustermann" : "e.g. Elena Rostova"),
     emailLabel: isGerman ? "E-Mail-Adresse *" : "Email Address *",
     emailPlaceholder: "name@company.com",
     phoneLabel: isGerman ? "Telefon / WhatsApp *" : "Phone / WhatsApp *",
-    phonePlaceholder: isGerman ? "0170 1234567" : "170 1234567",
+    phonePlaceholder: isSg ? "8123 4567" : (isGerman ? "0170 1234567" : "170 1234567"),
     projectTypeLabel: isGerman ? "Projekttyp" : "Project Type",
     projectTypePlaceholder: isGerman ? "Videokategorie auswählen" : "Select a video category",
     durationLabel: isGerman ? "Zieldauer (Minuten)" : "Target Duration (minutes)",
@@ -221,18 +239,20 @@ export default function CreateVideoModal({ isOpen, onClose, initialService }) {
     successTitle: isGerman ? "Vielen Dank für Ihre Anfrage!" : "Enquiry Received Successfully!",
     successDesc: isGerman 
       ? `Danke, ${name || 'Kunde'}. Unser Produktionsteam wird sich innerhalb von 12 Stunden mit den ersten Vorschlägen bei Ihnen melden.`
-      : `Thank you, ${name || 'there'}. Our video production directors will reach out within 12 hours with script & storyboard previews.`,
+      : (isSg 
+        ? `Thank you, ${name || 'there'}. Our video production team in Singapore will reach out within 12 hours with script & storyboard previews.`
+        : `Thank you, ${name || 'there'}. Our video production directors will reach out within 12 hours with script & storyboard previews.`),
     successClose: isGerman ? "Schließen" : "Close"
   };
 
   // Video categories from services
   const categories = [
-    { value: 'product-ads', label: isGerman ? 'Produkt-Videoanzeigen' : 'Product Video Ads' },
+    { value: 'product-ads', label: isGerman ? 'Produkt-Videoanzeigen' : (isSg ? 'Product & TikTok Video Ads' : 'Product Video Ads') },
     { value: 'explainers', label: isGerman ? 'Service-Erklärvideos' : 'Service Explainer Videos' },
     { value: 'animated-stories', label: isGerman ? 'Animierte Geschichten' : 'Animated Stories' },
     { value: 'cinematic-vfx', label: isGerman ? 'Cinematische Ads & VFX' : 'Cinematic Ads & VFX' },
     { value: 'promotional', label: isGerman ? 'Unternehmens- & Promotion-Videos' : 'Business Promotional Videos' },
-    { value: 'multilingual', label: isGerman ? 'Mehrsprachige Videos (Europa)' : 'Multilingual Videos (European Markets)' }
+    { value: 'multilingual', label: isGerman ? 'Mehrsprachige Videos (Europa)' : (isSg ? 'Multilingual Videos (Singapore & APAC)' : 'Multilingual Videos (European Markets)') }
   ];
 
   return (

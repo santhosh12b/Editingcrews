@@ -1,6 +1,7 @@
 export const languages = [
   { code: 'de', label: 'Deutsch', short: 'DE' },
   { code: 'en', label: 'English', short: 'EN' },
+  { code: 'sg', label: 'English (Singapore)', short: 'SG' },
   { code: 'fr', label: 'Français', short: 'FR' },
   { code: 'es', label: 'Español', short: 'ES' },
   { code: 'it', label: 'Italiano', short: 'IT' }
@@ -1669,6 +1670,319 @@ export const translations = {
       successNote1: "Ti contatteremo all'indirizzo {email} entro 12 ore con le prime bozze di storyboard.",
       successNote2: "Tempi di consegna stimati: 48-72 ore dall'approvazione del testo.",
       done: "Fatto"
+    }
+  },
+  sg: {
+    hero: {
+      eyebrow: "AI Video Production for Singapore & APAC Brands",
+      headline: "High-Quality AI Videos for Your Brand — From Just S$94/Minute.",
+      subheading: "Create scroll-stopping product videos for your ads, TikTok Shop, and social media without expensive video shoots.",
+      description: "From UGC-style ads to cinematic product videos, we handle everything from AI generation to final editing in Singapore.",
+      primaryCta: "Get Your First Video",
+      secondaryCta: "Get Your First Video",
+      badge1: "Just S$94 / Finished Minute",
+      badge2: "48–72h Turnaround",
+      badge3: "100% Commercial Rights"
+    },
+    whatWeOffer: {
+      badge: "See What We Can Create",
+      heading: "Your Products. More Creative Possibilities.",
+      subheading: "Turn your product ideas into engaging videos designed for advertising, social media, and brand storytelling in Singapore & APAC.",
+      cta: "Create Video",
+      customIdeaBadge: "Custom Production",
+      customIdeaHeading: "Have another idea? Tell us what you have in mind.",
+      customIdeaSub: "From multi-angle 3D CGI to custom storyboards and regional APAC campaigns — we bring any creative concept to life.",
+      customIdeaBtn: "Tell Us Your Idea",
+      items: [
+        {
+          id: "ugc",
+          title: "UGC-Style Ads",
+          description: "Create creator-style videos that feel natural, relatable, and authentic for TikTok and Instagram.",
+          badge: "Creator Style",
+          icon: "Users",
+          color: "violet"
+        },
+        {
+          id: "unboxing",
+          title: "Unboxing Videos",
+          description: "Showcase the product experience through engaging unboxing-style content.",
+          badge: "Experience",
+          icon: "Package",
+          color: "rose"
+        },
+        {
+          id: "showcase",
+          title: "Product Showcase Videos",
+          description: "Present your products with premium visuals and creative scenes.",
+          badge: "High Impact",
+          icon: "ShoppingCart",
+          color: "emerald"
+        },
+        {
+          id: "concept",
+          title: "Concept Ads",
+          description: "Bring creative advertising ideas to life with unique visuals and storytelling.",
+          badge: "Creative Hooks",
+          icon: "Lightbulb",
+          color: "amber"
+        },
+        {
+          id: "animation",
+          title: "Animation Videos",
+          description: "Explain product features and benefits through eye-catching animations.",
+          badge: "Explainer",
+          icon: "Layers",
+          color: "blue"
+        },
+        {
+          id: "cinematic",
+          title: "Cinematic & VFX Videos",
+          description: "Give your products a premium look with cinematic scenes and visual effects.",
+          badge: "Studio Grade",
+          icon: "Sparkles",
+          color: "pink"
+        }
+      ]
+    },
+    ourWork: {
+      badge: "Our Work",
+      heading: "See What AI Video Can Do for Your Brand",
+      subheading: "Explore videos we've created for brands and discover what's possible for your products in Singapore.",
+      cta: "Show Video Portfolio",
+      tagline: "Your next winning creative could start with a simple idea.",
+      taglineCta: "Get Your Video Today",
+      filterAll: "All Videos",
+      filterProduct: "Product Ads",
+      filterUGC: "UGC Style",
+      filterCinematic: "Cinematic & VFX",
+      filterExplainer: "Explainers"
+    },
+    services: {
+      badge: "Versatile Video Production",
+      heading: "What Can We Create for Your Business?",
+      subheading: "From viral social ads to high-converting explainers and cinematic campaigns, all produced at just S$94 per finished minute.",
+      cta: "Create",
+      items: [
+        {
+          id: "product-ads",
+          title: "Product Video Ads",
+          description: "Showcase your products with eye-catching visuals and cinematic scenes.",
+          tag: "High Conversion",
+          details: ["3D Product Rendering", "Commercial Hooks", "TikTok Shop & Meta Ads", "Cinematic Macro Shots"]
+        },
+        {
+          id: "explainers",
+          title: "Service Explainer Videos",
+          description: "Explain what you do and why customers should choose you.",
+          tag: "Clarity & Trust",
+          details: ["Problem/Solution Narratives", "Software & SaaS Walkthroughs", "Animated Diagrams", "Clear Value Propositions"]
+        },
+        {
+          id: "animated-stories",
+          title: "Animated Stories",
+          description: "Bring your ideas to life with creative characters and animation.",
+          tag: "Engagement",
+          details: ["Character Design", "Storybook & Anime Styles", "Social Media Narratives", "Brand Mascots"]
+        },
+        {
+          id: "cinematic-vfx",
+          title: "Cinematic Ads & VFX",
+          description: "Create stunning visuals, dramatic effects and impossible scenes.",
+          tag: "Spectacle",
+          details: ["Impossible Camera Angles", "Dramatic Lighting", "Sci-Fi & Urban Worlds", "Studio Aesthetics"]
+        },
+        {
+          id: "business-promo",
+          title: "Business Promotional Videos",
+          description: "Promote your brand, services and special offers.",
+          tag: "Brand Awareness",
+          details: ["Seasonal Campaigns", "Brand Storytelling", "Social Proof Commercials", "Multi-Platform Formats"]
+        },
+        {
+          id: "multilingual",
+          title: "Multilingual Videos",
+          description: "Connect with regional audiences across Singapore, Southeast Asia and international markets.",
+          tag: "Regional Expansion",
+          details: ["English, Mandarin, Malay, Indonesian & More", "Accurate Lip Sync", "Native Voice Synthesis", "Localized Subtitles"]
+        }
+      ]
+    },
+    howItWorks: {
+      badge: "HOW IT WORKS",
+      heading: "From Your Idea to a Finished Video in 3 Simple Steps",
+      subheading: "Simple, straightforward, and without the hassle of a traditional filming crew.",
+      step1: {
+        num: "1",
+        title: "Share Your Idea",
+        desc: "Send us your product photos, script, reference video, or just a rough concept."
+      },
+      step2: {
+        num: "2",
+        title: "We Create Your Video",
+        desc: "Our team handles AI generation, editing, sound design, and background music."
+      },
+      step3: {
+        num: "3",
+        title: "Receive Your Finished Video",
+        desc: "Get your completed video in 48-72h, ready to launch across TikTok, Meta, and YouTube."
+      },
+      note: "Simple, straightforward, and without the hassle of a traditional video shoot."
+    },
+    showreel: {
+      badge: "Editing Crew Showreel",
+      heading: "See What We Produce",
+      subheading: "Hover to preview clips or click any reel to watch full-screen with original sound design.",
+      duration: "Duration",
+      rate: "S$94/min"
+    },
+    valueProposition: {
+      tagline: "The Modern Alternative To Filming Crews",
+      headline: "No Expensive Shoots. Faster Production. Endless Possibilities.",
+      subtext: "Traditional production agencies in Singapore charge S$5,000–S$15,000 for single shoots with weeks of delays. Editing Crew produces studio-quality videos in days at a fraction of the cost.",
+      pillar1Title: "No Expensive Shoots",
+      pillar1Desc: "Eliminate camera crew rates, studio rentals, actors, location fees, and equipment rentals entirely.",
+      pillar1Badge: "Save up to 80% on budget",
+      pillar2Title: "Faster Production",
+      pillar2Desc: "Go from concept to final rendered broadcast video in 48 to 72 hours instead of 4–6 weeks of traditional filming.",
+      pillar2Badge: "10x quicker delivery",
+      pillar3Title: "Endless Possibilities",
+      pillar3Desc: "Futuristic CGI, microscopic product views, aerial landscapes, or impossible VFX scenes rendered without limits.",
+      pillar3Badge: "Limitless creative scope"
+    },
+    pricing: {
+      badge: "What You Get for S$94/Minute",
+      heading: "Complete Video Production. One Simple Price.",
+      subheading: "No need to manage different creators, editors, or production teams. We handle the entire video production process.",
+      pricePrefix: "Just",
+      price: "S$94",
+      priceSuffix: "per finished minute",
+      cta: "Let's Create Your Video",
+      subnote: "Starting at just S$94 per finished minute. No expensive video shoots required.",
+      features: [
+        {
+          title: "AI Video Production",
+          desc: "Custom visuals created around your product and brand vision."
+        },
+        {
+          title: "Professional Editing",
+          desc: "Smooth transitions, polished pacing, and finished high-definition render."
+        },
+        {
+          title: "Sound Effects & Audio",
+          desc: "Audio details that make your video immersive and engaging."
+        },
+        {
+          title: "Licensed Background Music",
+          desc: "Music that fits the mood and comes with full commercial rights."
+        },
+        {
+          title: "Creative Direction",
+          desc: "We help turn your raw concept into a high-converting video."
+        },
+        {
+          title: "Ready-to-Use Video",
+          desc: "Optimized format ready for TikTok, Meta, YouTube, and website."
+        }
+      ]
+    },
+    testimonials: {
+      badge: "CLIENT STORIES",
+      heading: "What Brands Say About Us",
+      subheading: "E-commerce brands and agencies trust our AI video production.",
+      items: [
+        {
+          quote: "The videos took our TikTok Shop and Meta ads to the next level. Fast turnaround and outstanding visuals!",
+          author: "Rachel T.",
+          role: "D2C Brand Director (Singapore)",
+          rating: 5
+        },
+        {
+          quote: "Exactly what we needed for our marketing campaigns. Creative, fast, and effortless to collaborate with.",
+          author: "Marcus L.",
+          role: "E-Commerce Founder",
+          rating: 5
+        },
+        {
+          quote: "We were amazed by how cinematic the product shots turned out. The videos perform exceptionally well in paid ads.",
+          author: "Samantha K.",
+          role: "Lifestyle & Retail Agency",
+          rating: 5
+        }
+      ]
+    },
+    faq: {
+      badge: "Frequently Asked Questions",
+      heading: "Got Questions? We Have Answers.",
+      subheading: "Everything you need to know about our S$94/min full-production video service and workflow.",
+      items: [
+        {
+          question: "How does the S$94 per finished minute pricing work?",
+          answer: "It's all-inclusive with zero hidden fees. If you need a 60-second video, you pay exactly S$94. If you need a 2-minute video, it's 2 × S$94 = S$188. This covers the entire workflow: concept scripting, AI visual generation, professional video editing, licensed music, sound effects, and voiceover."
+        },
+        {
+          question: "What languages can you produce videos in?",
+          answer: "We support English (Singapore, UK & US), Mandarin Chinese, Malay, Indonesian, and European languages. We can also produce the same video in multiple regional variants with localized voiceovers and subtitles."
+        },
+        {
+          question: "What is your turnaround time?",
+          answer: "Standard delivery is 48 to 72 hours for videos up to 3 minutes. For larger batches or complex VFX storyboards, we establish a transparent timeline with daily previews."
+        },
+        {
+          question: "Do I get full commercial rights to use the video for advertising?",
+          answer: "Yes, 100%. Upon completion, you receive unrestricted commercial rights for online ads, TikTok Shop, Meta, YouTube, website embedding, presentations, and digital billboards."
+        },
+        {
+          question: "What if I need revisions on my video?",
+          answer: "Every project includes 2 revision rounds. If you want adjustments to pacing, music, voiceover tone, subtitles, or specific visuals, our editors will fine-tune it until you're completely satisfied."
+        }
+      ]
+    },
+    bottomCta: {
+      heading: "Ready to Create Videos for Your Brand?",
+      description: "Give your products more ways to stand out with high-quality AI videos for TikTok, Meta, and social campaigns. We're ready to help.",
+      priceHighlight: "Your first video starts at just S$94 per minute.",
+      buttonText: "Get Started Today",
+      subtext: "Share your product or idea, and let's bring it to life."
+    },
+    footer: {
+      tagline: "Studio-grade AI video production for Singapore & APAC brands. Complete video editing, sound effects, background music and voiceovers at S$94 per finished minute.",
+      col1Title: "Production Services",
+      col2Title: "What We Offer",
+      col3Title: "Get Started",
+      col3Desc: "Ready to create your next video in Singapore? Tell us about your idea and get started today.",
+      cta: "Get Your Video Today",
+      pricePerMin: "S$94 / Finished Minute",
+      rights: "© 2026 The Editing Crew. All rights reserved."
+    },
+    modal: {
+      stepOf: "Step {step} of 3",
+      pricePerMin: "S$94 / Finished Minute",
+      step1Title: "Select Your Video Production Service",
+      step1Desc: "Which type of video does your business need? Every service includes AI visual generation, complete editing, sound effects and music.",
+      step1Btn: "Continue to Duration & Price",
+      step2Title: "Choose Duration & Language",
+      step2DurationLabel: "Select Video Length (Finished Minutes):",
+      step2LangLabel: "Target Language / Voiceover Market:",
+      step2LangDesc: "Native pronunciation with professional voiceover and localized subtitles.",
+      totalInvestment: "Total Investment",
+      allInclusive: "All inclusive",
+      turnaround: "48–72h Delivery",
+      revisions: "2 Revisions Included",
+      step2Btn: "Continue to Project Details",
+      back: "Back",
+      step3Title: "Tell Us About Your Creative Idea",
+      step3BriefLabel: "Tell us about your product, service or creative idea:",
+      step3BriefPlaceholder: "e.g. We sell an eco-friendly water bottle and need a 60-second cinematic commercial for TikTok and Meta...",
+      step3NameLabel: "Your Name:",
+      step3EmailLabel: "Work Email:",
+      step3CompanyLabel: "Company / Brand Name:",
+      submitting: "Submitting Brief...",
+      submitBtn: "Get Your Video Today",
+      successTitle: "We've Received Your Video Brief!",
+      successDesc: "Thank you {name}. Our video production team in Singapore is reviewing your request for {service} ({minutes} minute(s) at {price}).",
+      successNote1: "We will contact you at {email} within 12 hours with storyboard previews.",
+      successNote2: "Estimated delivery time: 48-72 hours after concept approval.",
+      done: "Done"
     }
   }
 };

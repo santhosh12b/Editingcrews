@@ -4,7 +4,7 @@ import { useLanguage } from '../context/LanguageContext';
 
 export default function Navbar() {
   const [dropdownOpen, setDropdownOpen] = useState(false);
-  const { currentLang, setLanguage, languages, currentLanguageObj } = useLanguage();
+  const { currentLang, setLanguage, languages, currentLanguageObj, isSingapore, navigateToMarket, priceFormatted } = useLanguage();
   const dropdownRef = useRef(null);
 
   // Close dropdown when clicking outside
@@ -19,7 +19,16 @@ export default function Navbar() {
   }, []);
 
   const handleSelectLanguage = (code) => {
-    setLanguage(code);
+    if (code === 'sg') {
+      navigateToMarket('singapore');
+    } else {
+      setLanguage(code);
+    }
+    setDropdownOpen(false);
+  };
+
+  const handleSwitchMarket = (targetMarket) => {
+    navigateToMarket(targetMarket);
     setDropdownOpen(false);
   };
 
@@ -29,7 +38,14 @@ export default function Navbar() {
         <div className="flex h-16 sm:h-20 items-center justify-between">
           
           {/* Logo */}
-          <a href="#" className="flex items-center space-x-2.5 sm:space-x-3 group">
+          <a 
+            href={isSingapore ? "/singapore" : "/"} 
+            onClick={(e) => {
+              e.preventDefault();
+              navigateToMarket(isSingapore ? 'singapore' : 'global');
+            }}
+            className="flex items-center space-x-2.5 sm:space-x-3 group"
+          >
             <img 
               src="/logo.png" 
               alt="The Editing Crew Logo" 
@@ -41,19 +57,26 @@ export default function Navbar() {
             >
               The Editing Crew
             </span>
+            {isSingapore && (
+              <span className="ml-1 text-[10px] sm:text-xs font-extrabold uppercase tracking-wider bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded-full border border-emerald-300">
+                Singapore
+              </span>
+            )}
           </a>
 
-          {/* Right: Language Dropdown Only (as requested) */}
+          {/* Right: Market & Language Dropdown */}
           <div className="relative" ref={dropdownRef}>
             <button
               type="button"
               onClick={() => setDropdownOpen(!dropdownOpen)}
-              className="inline-flex items-center gap-2 px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-full border border-slate-800 bg-white hover:bg-slate-50 text-slate-900 font-bold text-xs sm:text-sm shadow-sm transition-all duration-150 focus:outline-none focus:ring-2 focus:ring-indigo-500/30"
-              aria-label="Select Language"
+              className="inline-flex items-center gap-1.5 sm:gap-2 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full border border-slate-800 bg-white hover:bg-slate-50 text-slate-900 font-bold text-xs sm:text-sm shadow-sm transition-all duration-150 focus:outline-none focus:ring-2 focus:ring-indigo-500/30 cursor-pointer"
+              aria-label="Select Market & Language"
               aria-expanded={dropdownOpen}
             >
-              <Globe className="w-4 h-4 text-slate-800 shrink-0" />
-              <span className="font-extrabold tracking-wide">{currentLanguageObj.short}</span>
+              <Globe className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-slate-800 shrink-0" />
+              <span className="font-extrabold tracking-wide">
+                {isSingapore ? '🇸🇬 SG · S$94' : `🇪🇺 ${currentLanguageObj.short}`}
+              </span>
               <ChevronDown 
                 className={`w-3.5 h-3.5 text-slate-800 transition-transform duration-200 ${
                   dropdownOpen ? 'rotate-180' : ''
@@ -61,30 +84,79 @@ export default function Navbar() {
               />
             </button>
 
-            {/* Dropdown Menu (Matches User Screenshot) */}
+            {/* Dropdown Menu with Region Selector */}
             {dropdownOpen && (
-              <div className="absolute right-0 mt-2 w-44 rounded-2xl border border-slate-200/90 bg-white p-1.5 shadow-xl shadow-slate-200/60 z-50 animate-in fade-in-50 zoom-in-95 duration-150">
+              <div className="absolute right-0 mt-2 w-56 rounded-2xl border border-slate-200/90 bg-white p-2 shadow-xl shadow-slate-200/60 z-50 animate-in fade-in-50 zoom-in-95 duration-150 text-slate-900">
+                
+                {/* Region / Market Switcher Header */}
+                <div className="px-2.5 py-1 text-[11px] font-bold uppercase tracking-wider text-slate-600">
+                  Region & Currency
+                </div>
+                
+                <div className="space-y-0.5 mb-2">
+                  <button
+                    type="button"
+                    onClick={() => handleSwitchMarket('singapore')}
+                    className={`w-full flex items-center justify-between px-3 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-colors cursor-pointer ${
+                      isSingapore
+                        ? 'bg-emerald-50 text-emerald-800 font-bold border border-emerald-200'
+                        : 'text-slate-700 hover:bg-slate-50 hover:text-slate-900'
+                    }`}
+                  >
+                    <span className="flex items-center gap-2">
+                      <span className="text-base">🇸🇬</span>
+                      <span>Singapore (S$94/min)</span>
+                    </span>
+                    {isSingapore && <Check className="w-4 h-4 text-emerald-800 stroke-[2.5]" />}
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={() => handleSwitchMarket('global')}
+                    className={`w-full flex items-center justify-between px-3 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-colors cursor-pointer ${
+                      !isSingapore
+                        ? 'bg-emerald-50 text-emerald-800 font-bold border border-emerald-200'
+                        : 'text-slate-700 hover:bg-slate-50 hover:text-slate-900'
+                    }`}
+                  >
+                    <span className="flex items-center gap-2">
+                      <span className="text-base">🇪🇺</span>
+                      <span>Europe (69 €/min)</span>
+                    </span>
+                    {!isSingapore && <Check className="w-4 h-4 text-emerald-800 stroke-[2.5]" />}
+                  </button>
+                </div>
+
+                <div className="border-t border-slate-100 my-1"></div>
+
+                {/* Language list */}
+                <div className="px-2.5 py-1 text-[11px] font-bold uppercase tracking-wider text-slate-600">
+                  Language
+                </div>
+
                 <div className="space-y-0.5">
-                  {languages.map((lang) => {
-                    const isSelected = currentLang === lang.code;
-                    return (
-                      <button
-                        key={lang.code}
-                        type="button"
-                        onClick={() => handleSelectLanguage(lang.code)}
-                        className={`w-full flex items-center justify-between px-3.5 py-2 rounded-xl text-sm font-semibold transition-colors ${
-                          isSelected
-                            ? 'bg-indigo-50 text-indigo-700 font-bold'
-                            : 'text-slate-700 hover:bg-slate-50 hover:text-slate-900'
-                        }`}
-                      >
-                        <span>{lang.label}</span>
-                        {isSelected && (
-                          <Check className="w-4 h-4 text-indigo-700 stroke-[2.5]" />
-                        )}
-                      </button>
-                    );
-                  })}
+                  {languages
+                    .filter(l => l.code !== 'sg') // sg is selected via Singapore region above
+                    .map((lang) => {
+                      const isSelected = !isSingapore && currentLang === lang.code;
+                      return (
+                        <button
+                          key={lang.code}
+                          type="button"
+                          onClick={() => handleSelectLanguage(lang.code)}
+                          className={`w-full flex items-center justify-between px-3 py-1.5 rounded-xl text-xs sm:text-sm font-semibold transition-colors cursor-pointer ${
+                            isSelected
+                              ? 'bg-slate-100 text-slate-900 font-bold'
+                              : 'text-slate-700 hover:bg-slate-50 hover:text-slate-900'
+                          }`}
+                        >
+                          <span>{lang.label}</span>
+                          {isSelected && (
+                            <Check className="w-3.5 h-3.5 text-slate-900 stroke-[2.5]" />
+                          )}
+                        </button>
+                      );
+                    })}
                 </div>
               </div>
             )}

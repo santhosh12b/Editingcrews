@@ -135,6 +135,7 @@ export const portfolioVideos = [
     badge: {
       de: "Nur 69 €/Min.",
       en: "Just €69/Min.",
+      sg: "Just S$94/Min.",
       fr: "Dès 69 €/Min.",
       es: "Solo 69 €/Min.",
       it: "Solo 69 €/Min."
