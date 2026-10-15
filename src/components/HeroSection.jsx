@@ -12,24 +12,19 @@ const trustAvatars = [
 
 const trustText = {
   de: {
-    highlight: "20+ Nutzer vertrauen uns",
-    sub: "99M+ Views letzte Woche"
+    highlight: "100+ Nutzer vertrauen uns"
   },
   en: {
-    highlight: "Trusted by 20+ users",
-    sub: "99M+ views last week"
+    highlight: "Trusted by 100+ users"
   },
   fr: {
-    highlight: "Approuvé par 20+ utilisateurs",
-    sub: "99M+ vues générées"
+    highlight: "Approuvé par 100+ utilisateurs"
   },
   es: {
-    highlight: "20+ usuarios confían en nosotros",
-    sub: "99M+ vistas generadas"
+    highlight: "100+ usuarios confían en nosotros"
   },
   it: {
-    highlight: "Scelto da 20+ utenti",
-    sub: "99M+ visualizzazioni"
+    highlight: "Scelto da 100+ utenti"
   }
 };
 
