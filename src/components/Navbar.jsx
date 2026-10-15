@@ -59,30 +59,20 @@ export default function Navbar() {
             >
               The Editing Crew
             </span>
-            {isMalaysia && (
-              <span className="ml-1 text-[10px] sm:text-xs font-extrabold uppercase tracking-wider bg-amber-100 text-amber-900 px-2 py-0.5 rounded-full border border-amber-300">
-                Malaysia
-              </span>
-            )}
-            {isSingapore && (
-              <span className="ml-1 text-[10px] sm:text-xs font-extrabold uppercase tracking-wider bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded-full border border-emerald-300">
-                Singapore
-              </span>
-            )}
           </a>
 
-          {/* Right: Market & Language Dropdown */}
+          {/* Right: Language Dropdown */}
           <div className="relative" ref={dropdownRef}>
             <button
               type="button"
               onClick={() => setDropdownOpen(!dropdownOpen)}
               className="inline-flex items-center gap-1.5 sm:gap-2 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full border border-slate-800 bg-white hover:bg-slate-50 text-slate-900 font-bold text-xs sm:text-sm shadow-sm transition-all duration-150 focus:outline-none focus:ring-2 focus:ring-indigo-500/30 cursor-pointer"
-              aria-label="Select Market & Language"
+              aria-label="Select Language"
               aria-expanded={dropdownOpen}
             >
               <Globe className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-slate-800 shrink-0" />
               <span className="font-extrabold tracking-wide">
-                {isMalaysia ? '🇲🇾 MY · RM299' : (isSingapore ? '🇸🇬 SG · S$94' : `🇪🇺 ${currentLanguageObj.short}`)}
+                {(currentLang === 'sg' || currentLang === 'my' || currentLang === 'en') ? 'EN' : (currentLanguageObj?.short || 'DE')}
               </span>
               <ChevronDown 
                 className={`w-3.5 h-3.5 text-slate-800 transition-transform duration-200 ${
@@ -91,77 +81,18 @@ export default function Navbar() {
               />
             </button>
 
-            {/* Dropdown Menu with Region Selector */}
+            {/* Dropdown Menu */}
             {dropdownOpen && (
-              <div className="absolute right-0 mt-2 w-56 rounded-2xl border border-slate-200/90 bg-white p-2 shadow-xl shadow-slate-200/60 z-50 animate-in fade-in-50 zoom-in-95 duration-150 text-slate-900">
-                
-                {/* Region / Market Switcher Header */}
-                <div className="px-2.5 py-1 text-[11px] font-bold uppercase tracking-wider text-slate-600">
-                  Region & Currency
-                </div>
-                
-                <div className="space-y-0.5 mb-2">
-                  <button
-                    type="button"
-                    onClick={() => handleSwitchMarket('malaysia')}
-                    className={`w-full flex items-center justify-between px-3 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-colors cursor-pointer ${
-                      isMalaysia
-                        ? 'bg-amber-50 text-amber-900 font-bold border border-amber-200'
-                        : 'text-slate-700 hover:bg-slate-50 hover:text-slate-900'
-                    }`}
-                  >
-                    <span className="flex items-center gap-2">
-                      <span className="text-base">🇲🇾</span>
-                      <span>Malaysia (RM299/min)</span>
-                    </span>
-                    {isMalaysia && <Check className="w-4 h-4 text-amber-800 stroke-[2.5]" />}
-                  </button>
-
-                  <button
-                    type="button"
-                    onClick={() => handleSwitchMarket('singapore')}
-                    className={`w-full flex items-center justify-between px-3 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-colors cursor-pointer ${
-                      isSingapore
-                        ? 'bg-emerald-50 text-emerald-800 font-bold border border-emerald-200'
-                        : 'text-slate-700 hover:bg-slate-50 hover:text-slate-900'
-                    }`}
-                  >
-                    <span className="flex items-center gap-2">
-                      <span className="text-base">🇸🇬</span>
-                      <span>Singapore (S$94/min)</span>
-                    </span>
-                    {isSingapore && <Check className="w-4 h-4 text-emerald-800 stroke-[2.5]" />}
-                  </button>
-
-                  <button
-                    type="button"
-                    onClick={() => handleSwitchMarket('global')}
-                    className={`w-full flex items-center justify-between px-3 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-colors cursor-pointer ${
-                      !isSingapore && !isMalaysia
-                        ? 'bg-emerald-50 text-emerald-800 font-bold border border-emerald-200'
-                        : 'text-slate-700 hover:bg-slate-50 hover:text-slate-900'
-                    }`}
-                  >
-                    <span className="flex items-center gap-2">
-                      <span className="text-base">🇪🇺</span>
-                      <span>Europe (69 €/min)</span>
-                    </span>
-                    {!isSingapore && !isMalaysia && <Check className="w-4 h-4 text-emerald-800 stroke-[2.5]" />}
-                  </button>
-                </div>
-
-                <div className="border-t border-slate-100 my-1"></div>
-
-                {/* Language list */}
+              <div className="absolute right-0 mt-2 w-48 rounded-2xl border border-slate-200/90 bg-white p-2 shadow-xl shadow-slate-200/60 z-50 animate-in fade-in-50 zoom-in-95 duration-150 text-slate-900">
                 <div className="px-2.5 py-1 text-[11px] font-bold uppercase tracking-wider text-slate-600">
                   Language
                 </div>
 
                 <div className="space-y-0.5">
                   {languages
-                    .filter(l => l.code !== 'sg' && l.code !== 'my') // sg and my are selected via region options above
+                    .filter(l => l.code !== 'sg' && l.code !== 'my')
                     .map((lang) => {
-                      const isSelected = !isSingapore && !isMalaysia && currentLang === lang.code;
+                      const isSelected = (currentLang === lang.code) || ((currentLang === 'sg' || currentLang === 'my') && lang.code === 'en');
                       return (
                         <button
                           key={lang.code}

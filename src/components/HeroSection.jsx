@@ -18,10 +18,10 @@ const trustText = {
     highlight: "Trusted by 100+ users"
   },
   sg: {
-    highlight: "100+ Brands in Singapore trust us"
+    highlight: "Trusted by 100+ users"
   },
   my: {
-    highlight: "100+ Brands in Malaysia trust us"
+    highlight: "Trusted by 100+ users"
   },
   fr: {
     highlight: "Approuvé par 100+ utilisateurs"
