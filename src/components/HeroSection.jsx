@@ -68,12 +68,9 @@ export default function HeroSection({ onOpenShowreel, onOpenInquiryModal }) {
           <TrendingUp className="w-3.5 h-3.5 sm:w-4.5 sm:h-4.5 text-indigo-600 stroke-[2.5] shrink-0" />
 
           {/* Trust Text */}
-          <div className="text-[11px] sm:text-sm text-slate-800 flex items-center gap-1.5 leading-none">
+          <div className="text-[11px] sm:text-sm text-slate-800 flex items-center leading-none">
             <span className="font-extrabold text-slate-900 truncate">
               {trust.highlight}
-            </span>
-            <span className="text-slate-500 font-medium hidden sm:inline">
-              • {trust.sub}
             </span>
           </div>
         </div>

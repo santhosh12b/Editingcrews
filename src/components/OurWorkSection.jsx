@@ -402,12 +402,8 @@ function Mobile3DPortfolioCarousel({ items, currentLang, onOpenModal }) {
   return (
     <div className="relative w-full py-2 select-none">
       
-      {/* 360 Rotation Pill & Counter */}
-      <div className="flex items-center justify-between px-2 mb-3 text-xs">
-        <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-indigo-50 border border-indigo-200 text-indigo-700 font-semibold shadow-xs">
-          <RotateCw className="w-3.5 h-3.5 text-indigo-600" />
-          <span>{isGerman ? "360° Karussell • Wischen" : "360° Rotation • Swipe"}</span>
-        </span>
+      {/* Carousel Slide Counter */}
+      <div className="flex items-center justify-end px-2 mb-3 text-xs">
         <span className="px-2.5 py-1 rounded-full bg-slate-100 text-slate-700 font-bold text-[11px] border border-slate-200">
           {activeIndex + 1} / {total}
         </span>
