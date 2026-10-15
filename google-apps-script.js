@@ -1,79 +1,100 @@
 /**
- * Google Apps Script for Editing Crew Form Submissions
+ * EDITING CREW - Google Sheets Web App Backend
  * 
- * Column mapping in Google Sheet:
- * Column A: Date
- * Column B: Your Name
- * Column C: Email Address *
- * Column D: Project Type
- * Column E: Target Duration (minutes)
- * Column F: Tell us about your product or idea
- * 
- * -------------------------------------------------------------
- * HOW TO INSTALL IN YOUR GOOGLE SHEET:
- * -------------------------------------------------------------
- * 1. Open your "Editing Crew" Google Sheet
- * 2. In top menu, click: Extensions -> Apps Script
- * 3. Delete any code in the editor and paste this entire code
- * 4. Click the blue "Deploy" button (top right) -> "New deployment"
- * 5. Click the gear icon next to "Select type" -> choose "Web app"
- * 6. Set the following settings:
- *    - Description: Editing Crew Form Handler
- *    - Execute as: Me (your Google account)
- *    - Who has access: Anyone  <-- (IMPORTANT: Must be "Anyone")
- * 7. Click "Deploy"
- * 8. Authorize permissions when prompted by Google
- * 9. Copy the "Web app URL" (it ends with /exec)
- * 10. Paste the URL into src/config/googleSheets.js or send it here!
+ * Instructions:
+ * 1. Open your Google Sheet: https://sheets.google.com
+ * 2. Click "Extensions" (Erweiterungen) -> "Apps Script"
+ * 3. Delete any default code in Code.gs and paste this entire script.
+ * 4. Click "Deploy" (Bereitstellen) -> "New deployment" (Neue Bereitstellung)
+ * 5. Select type: "Web app" (Web-App)
+ * 6. Set Description: "Editing Crew Lead Form"
+ * 7. Set "Execute as": "Me" (your Google account)
+ * 8. Set "Who has access": "Anyone" (Jeder)  <-- IMPORTANT!
+ * 9. Click "Deploy" and authorize permissions.
+ * 10. Copy the Web App URL and paste it into `src/config/googleSheets.js`.
  */
 
 function doPost(e) {
-  var lock = LockService.getScriptLock();
-  lock.tryLock(10000); // Wait up to 10 seconds for concurrent requests
-
   try {
+    // Open the active spreadsheet and the first sheet
     var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
-    var data = {};
+    
+    // Parse the incoming POST body
+    var rawData = e.postData.contents;
+    var data = JSON.parse(rawData);
 
-    if (e.postData && e.postData.contents) {
-      try {
-        data = JSON.parse(e.postData.contents);
-      } catch (err) {
-        data = e.parameter;
-      }
-    } else if (e.parameter) {
-      data = e.parameter;
+    // If sheet is empty, create formatted headers automatically
+    if (sheet.getLastRow() === 0) {
+      var headers = [
+        "Datum / Date",
+        "Name",
+        "E-Mail",
+        "Telefonnummer / Phone",
+        "Land / Country",
+        "Projekttyp / Project Type",
+        "Dauer / Duration",
+        "Gesamtpreis / Total",
+        "Beschreibung / Description"
+      ];
+      sheet.appendRow(headers);
+      
+      // Style header row (Dark Slate background with White bold text)
+      var headerRange = sheet.getRange(1, 1, 1, headers.length);
+      headerRange.setFontWeight("bold");
+      headerRange.setBackground("#1E293B"); // Slate-800
+      headerRange.setFontColor("#FFFFFF");
+      headerRange.setHorizontalAlignment("center");
+      sheet.setFrozenRows(1);
     }
 
-    var timestamp = data.date || Utilities.formatDate(new Date(), "Europe/Berlin", "yyyy-MM-dd HH:mm:ss");
+    // Format fields safely
+    var date = data.date || Utilities.formatDate(new Date(), "Europe/Berlin", "dd.MM.yyyy HH:mm");
+    var name = data.name || "";
+    var email = data.email || "";
+    var phone = data.phone || data.phoneNumber || "";
+    var country = data.country ? (data.country + " (" + (data.countryCode || "") + ")") : (data.countryCode || "");
+    var projectType = data.projectType || "General Enquiry";
+    var duration = data.duration ? (data.duration + " Min.") : "1 Min.";
+    var totalPrice = data.totalPrice || ("€" + ((parseInt(data.duration) || 1) * 69));
+    var description = data.description || "";
 
-    var row = [
-      timestamp,
-      data.name || "",
-      data.email || "",
-      data.projectType || "",
-      data.duration || "",
-      data.description || ""
-    ];
+    // Append the new row to the sheet
+    sheet.appendRow([
+      date,
+      name,
+      email,
+      phone,
+      country,
+      projectType,
+      duration,
+      totalPrice,
+      description
+    ]);
 
-    sheet.appendRow(row);
-
-    return ContentService.createTextOutput(JSON.stringify({
-      result: "success",
-      row: row
-    })).setMimeType(ContentService.MimeType.JSON);
+    // Return success JSON
+    return ContentService
+      .createTextOutput(JSON.stringify({ 
+        status: "success", 
+        message: "Entry recorded successfully" 
+      }))
+      .setMimeType(ContentService.MimeType.JSON);
 
   } catch (error) {
-    return ContentService.createTextOutput(JSON.stringify({
-      result: "error",
-      error: error.toString()
-    })).setMimeType(ContentService.MimeType.JSON);
-
-  } finally {
-    lock.releaseLock();
+    return ContentService
+      .createTextOutput(JSON.stringify({ 
+        status: "error", 
+        message: error.toString() 
+      }))
+      .setMimeType(ContentService.MimeType.JSON);
   }
 }
 
+// Support GET requests for health check testing
 function doGet(e) {
-  return ContentService.createTextOutput("Editing Crew Google Sheets Webhook is active and running!");
+  return ContentService
+    .createTextOutput(JSON.stringify({ 
+      status: "active", 
+      service: "Editing Crew Lead Collector" 
+    }))
+    .setMimeType(ContentService.MimeType.JSON);
 }
