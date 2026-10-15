@@ -73,22 +73,43 @@ function doPost(e) {
       // Smart Header-to-Column Mapping based on existing Row 1 headers
       var headerValues = sheet.getRange(1, 1, 1, lastCol).getValues()[0];
       var newRow = new Array(headerValues.length);
+      
+      var dateAssigned = false;
+      var nameAssigned = false;
+      var emailAssigned = false;
+      var phoneAssigned = false;
+      var projectAssigned = false;
+      var durationAssigned = false;
 
       for (var i = 0; i < headerValues.length; i++) {
         var header = (headerValues[i] || "").toString().toLowerCase().trim();
 
-        if (header.indexOf("date") !== -1 || header.indexOf("datum") !== -1) {
+        // Skip completely empty headers or old removed fields like "Tell us..." / "Total"
+        if (!header || header.indexOf("tell") !== -1 || header.indexOf("idea") !== -1 || 
+            header.indexOf("product") !== -1 || header.indexOf("total") !== -1 || 
+            header.indexOf("price") !== -1 || header.indexOf("preis") !== -1) {
+          newRow[i] = "";
+          continue;
+        }
+
+        if (!dateAssigned && (header.indexOf("date") !== -1 || header.indexOf("datum") !== -1)) {
           newRow[i] = date;
-        } else if (header.indexOf("name") !== -1) {
+          dateAssigned = true;
+        } else if (!nameAssigned && header.indexOf("name") !== -1) {
           newRow[i] = name;
-        } else if (header.indexOf("email") !== -1 || header.indexOf("e-mail") !== -1 || header.indexOf("mail") !== -1) {
+          nameAssigned = true;
+        } else if (!emailAssigned && (header.indexOf("email") !== -1 || header.indexOf("e-mail") !== -1 || header.indexOf("mail") !== -1)) {
           newRow[i] = email;
-        } else if (header.indexOf("phone") !== -1 || header.indexOf("whatsapp") !== -1 || header.indexOf("telefon") !== -1 || header.indexOf("tel") !== -1 || header.indexOf("handy") !== -1) {
+          emailAssigned = true;
+        } else if (!phoneAssigned && (header.indexOf("phone") !== -1 || header.indexOf("whatsapp") !== -1 || header.indexOf("telefon") !== -1 || header.indexOf("handy") !== -1 || /(^|[^a-z])tel(\.|$|\s)/i.test(header))) {
           newRow[i] = formattedPhone;
-        } else if (header.indexOf("project") !== -1 || header.indexOf("projekttyp") !== -1) {
+          phoneAssigned = true;
+        } else if (!projectAssigned && (header.indexOf("project") !== -1 || header.indexOf("projekttyp") !== -1)) {
           newRow[i] = projectType;
-        } else if (header.indexOf("duration") !== -1 || header.indexOf("dauer") !== -1 || header.indexOf("minute") !== -1) {
+          projectAssigned = true;
+        } else if (!durationAssigned && (header.indexOf("duration") !== -1 || header.indexOf("dauer") !== -1 || header.indexOf("minute") !== -1)) {
           newRow[i] = duration;
+          durationAssigned = true;
         } else {
           newRow[i] = "";
         }
