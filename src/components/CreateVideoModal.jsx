@@ -216,6 +216,15 @@ export default function CreateVideoModal({ isOpen, onClose, initialService }) {
       });
     }
 
+    // Trigger Meta Pixel Lead event
+    if (typeof window !== 'undefined' && typeof window.fbq === 'function') {
+      try {
+        window.fbq('track', 'Lead');
+      } catch (e) {
+        console.warn('Meta Pixel Lead tracking error:', e);
+      }
+    }
+
     // Fast ~700ms loading transition for instant, seamless user experience (< 1 sec)
     await new Promise((resolve) => setTimeout(resolve, 700));
 

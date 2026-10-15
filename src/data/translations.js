@@ -2006,42 +2006,51 @@ export const translations = {
       customIdeaBadge: "Custom Production",
       customIdeaHeading: "Have another idea? Tell us what you have in mind.",
       customIdeaSub: "From multi-angle 3D CGI to custom storyboards and Southeast Asian campaigns — we bring any creative concept to life.",
+      customIdeaBtn: "Tell Us Your Idea",
       items: [
         {
-          id: "product-showcase",
-          title: "Product Showcase Videos",
-          description: "Highlight your products from every angle with clean, high-detail visuals.",
-          badge: "E-Commerce",
-          icon: "ShoppingBag",
-          color: "blue"
+          id: "ugc",
+          title: "UGC-Style Ads",
+          description: "Create creator-style videos that feel natural, relatable, and authentic for TikTok and Instagram.",
+          badge: "Creator Style",
+          icon: "Users",
+          color: "violet"
         },
         {
-          id: "social-ads",
-          title: "Social Media Ads",
-          description: "High-energy videos designed to stop the scroll on TikTok Shop, Shopee, Meta and Instagram.",
-          badge: "High Conversion",
-          icon: "Flame",
+          id: "unboxing",
+          title: "Unboxing Videos",
+          description: "Showcase the product experience through engaging unboxing-style content.",
+          badge: "Experience",
+          icon: "Package",
+          color: "rose"
+        },
+        {
+          id: "showcase",
+          title: "Product Showcase Videos",
+          description: "Present your products with premium visuals and creative scenes.",
+          badge: "High Impact",
+          icon: "ShoppingCart",
           color: "emerald"
         },
         {
-          id: "brand-stories",
-          title: "Brand Storytelling",
-          description: "Build an emotional connection between your brand, vision, and your customers.",
-          badge: "Brand Identity",
-          icon: "Heart",
-          color: "purple"
-        },
-        {
-          id: "explainer-videos",
-          title: "Explainer Videos",
-          description: "Break down complex products, software, or services into clear, compelling visuals.",
-          badge: "Clarity",
-          icon: "Cpu",
+          id: "concept",
+          title: "Concept Ads",
+          description: "Bring creative advertising ideas to life with unique visuals and storytelling.",
+          badge: "Creative Hooks",
+          icon: "Lightbulb",
           color: "amber"
         },
         {
-          id: "cinematic-vfx",
-          title: "Cinematic Visuals",
+          id: "animation",
+          title: "Animation Videos",
+          description: "Explain product features and benefits through eye-catching animations.",
+          badge: "Explainer",
+          icon: "Layers",
+          color: "blue"
+        },
+        {
+          id: "cinematic",
+          title: "Cinematic & VFX Videos",
           description: "Give your products a premium look with cinematic scenes and visual effects.",
           badge: "Studio Grade",
           icon: "Sparkles",
