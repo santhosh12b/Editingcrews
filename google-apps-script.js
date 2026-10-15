@@ -1,6 +1,14 @@
 /**
  * EDITING CREW - Google Sheets Web App Backend
  * 
+ * Columns in Google Sheet:
+ * Column A: Date
+ * Column B: Your Name
+ * Column C: Email Address *
+ * Column D: Phone / WhatsApp
+ * Column E: Project Type
+ * Column F: Target Duration (minutes)
+ * 
  * Instructions to Update Google Apps Script:
  * 1. Open your Google Sheet: https://sheets.google.com
  * 2. Click "Extensions" (Erweiterungen) -> "Apps Script"
@@ -31,9 +39,9 @@ function doPost(e) {
     var date = data.date || Utilities.formatDate(new Date(), "Europe/Berlin", "dd.MM.yyyy, HH:mm");
     var name = (data.name || data["Your Name"] || "").toString().trim();
     var email = (data.email || data["Email Address *"] || data["Email"] || "").toString().trim();
-    var phone = (data.phone || data.phoneNumber || data["Phone / WhatsApp"] || "").toString().trim();
-    var projectType = (data.projectType || data["Project Type"] || "General Enquiry").toString().trim();
-    var duration = data.duration || data["Target Duration (minutes)"] || 1;
+    var phone = (data.realPhone || data.phone || data.phoneNumber || data["Phone / WhatsApp"] || "").toString().trim();
+    var projectType = (data.realProjectType || data["Project Type"] || (data.projectType !== phone ? data.projectType : "") || "General Enquiry").toString().trim();
+    var duration = data.realDuration || data["Target Duration (minutes)"] || data.duration || 1;
 
     // Prefix phone with a single quote so Google Sheets stores +49... as text instead of a formula
     var formattedPhone = phone ? ("'" + phone.replace(/^'+/, '')) : "";
@@ -71,7 +79,7 @@ function doPost(e) {
       ]);
     } else {
       // Smart Header-to-Column Mapping based on existing Row 1 headers
-      var headerValues = sheet.getRange(1, 1, 1, lastCol).getValues()[0];
+      var headerValues = sheet.getRange(1, 1, 1, Math.min(lastCol, 20)).getValues()[0];
       var newRow = new Array(headerValues.length);
       
       var dateAssigned = false;
@@ -113,6 +121,17 @@ function doPost(e) {
         } else {
           newRow[i] = "";
         }
+      }
+
+      // Positional guarantee for exact 6 columns if any was missed
+      if (!phoneAssigned && headerValues.length >= 4) {
+        newRow[3] = formattedPhone;
+      }
+      if (!projectAssigned && headerValues.length >= 5) {
+        newRow[4] = projectType;
+      }
+      if (!durationAssigned && headerValues.length >= 6) {
+        newRow[5] = duration;
       }
 
       sheet.appendRow(newRow);

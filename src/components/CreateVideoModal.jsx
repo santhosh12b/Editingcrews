@@ -147,22 +147,33 @@ export default function CreateVideoModal({ isOpen, onClose, initialService }) {
     // Strip leading 0 for final international dial format (e.g. 0170... becomes +49 170...)
     const cleanPhoneDigits = phone.trim().replace(/^0+/, '');
     const fullPhone = `${selectedCountry.dialCode} ${cleanPhoneDigits || phone.trim()}`;
+    const selectedProjectType = projectType || (currentLang === 'de' ? 'Allgemeine Anfrage' : 'General Enquiry');
+    const selectedDuration = duration || 1;
 
     const payload = {
       date: formattedDate,
       name: name.trim(),
       email: email.trim(),
+
+      // Compatibility mapping for existing Apps Script deployment:
+      // (Maps data.projectType to Col D, data.duration to Col E, data.description to Col F)
+      projectType: fullPhone,
+      duration: selectedProjectType,
+      description: selectedDuration,
+
+      // Compatibility mapping for updated Apps Script deployment:
+      realPhone: fullPhone,
+      realProjectType: selectedProjectType,
+      realDuration: selectedDuration,
       phone: fullPhone,
       phoneNumber: fullPhone,
       "Phone / WhatsApp": fullPhone,
       "Your Name": name.trim(),
       "Email Address *": email.trim(),
-      "Project Type": projectType || (currentLang === 'de' ? 'Allgemeine Anfrage' : 'General Enquiry'),
-      "Target Duration (minutes)": duration || 1,
+      "Project Type": selectedProjectType,
+      "Target Duration (minutes)": selectedDuration,
       countryCode: selectedCountry.dialCode,
-      country: selectedCountry.code,
-      projectType: projectType || (currentLang === 'de' ? 'Allgemeine Anfrage' : 'General Enquiry'),
-      duration: duration || 1
+      country: selectedCountry.code
     };
 
     // Send to Google Sheets asynchronously in background so user gets instant 1-second response
