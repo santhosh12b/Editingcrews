@@ -3,11 +3,11 @@ import { Play, Sparkles, ArrowRight, ShieldCheck, Clock, CheckCircle, TrendingUp
 import { useLanguage } from '../context/LanguageContext';
 
 const trustAvatars = [
-  { url: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80", name: "User 1" },
-  { url: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&auto=format&fit=crop&q=80", name: "User 2" },
-  { url: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&auto=format&fit=crop&q=80", name: "User 3" },
-  { url: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&auto=format&fit=crop&q=80", name: "User 4" },
-  { url: "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?w=100&auto=format&fit=crop&q=80", name: "User 5" },
+  { url: "/avatars/avatar1.jpg", name: "Elena Rostova" },
+  { url: "/avatars/avatar2.jpg", name: "Marcus Weber" },
+  { url: "/avatars/avatar3.jpg", name: "Sophie Dupont" },
+  { url: "/avatars/avatar4.jpg", name: "Lukas Becker" },
+  { url: "/avatars/avatar5.jpg", name: "Hannah Meyer" },
 ];
 
 const trustText = {
