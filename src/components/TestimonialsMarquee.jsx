@@ -47,7 +47,7 @@ export default function TestimonialsMarquee() {
   }[currentLang] || "Google Review";
 
   return (
-    <section id="testimonials" className="py-14 sm:py-20 md:py-28 bg-white relative border-t border-slate-100">
+    <section id="testimonials" className="pt-8 pb-8 sm:pt-14 sm:pb-14 md:pt-18 md:pb-18 bg-white relative border-t border-slate-100 scroll-mt-28">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
         
         {/* Section Header (Matching User Design) */}

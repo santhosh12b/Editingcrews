@@ -271,6 +271,27 @@ export const translations = {
         }
       ]
     },
+    howItWorks: {
+      badge: "HOW IT WORKS",
+      heading: "From Your Idea to a Finished Video in 3 Simple Steps",
+      subheading: "Simple, straightforward, and without the hassle of a traditional video shoot.",
+      step1: {
+        num: "1",
+        title: "Share Your Idea",
+        desc: "Send us your product photos, script, reference video, or just a rough concept."
+      },
+      step2: {
+        num: "2",
+        title: "We Create Your Video",
+        desc: "Our team handles AI production, editing, sound effects, and background music."
+      },
+      step3: {
+        num: "3",
+        title: "Receive Your Finished Video",
+        desc: "Get your completed video, ready to use across your marketing channels."
+      },
+      note: "Simple, straightforward, and without the hassle of a traditional video shoot."
+    },
     bottomCta: {
       heading: "Ready to Create Videos for Your Brand?",
       description: "Give your products more ways to stand out with high-quality AI videos. Whether you need product ads, UGC-style content, animations, or creative concepts, we're ready to help.",
@@ -582,6 +603,27 @@ export const translations = {
           answer: "Jedes Projekt beinhaltet 2 Korrekturrunden. Wir passen Pacing, Musik, Untertitel oder visuelle Szenen an, bis Sie rundum zufrieden sind."
         }
       ]
+    },
+    howItWorks: {
+      badge: "SO FUNKTIONIERT'S",
+      heading: "In 3 einfachen Schritten zu deinem Video",
+      subheading: "Von deiner Idee bis zum fertigen Video – einfach und unkompliziert.",
+      step1: {
+        num: "1",
+        title: "Teile deine Idee",
+        desc: "Schick uns deine Produktfotos, dein Skript, Referenzvideos oder eine grobe Idee."
+      },
+      step2: {
+        num: "2",
+        title: "Wir erstellen dein Video",
+        desc: "Unser Team übernimmt die KI-Produktion, den Schnitt, Soundeffekte und Hintergrundmusik."
+      },
+      step3: {
+        num: "3",
+        title: "Du erhältst dein fertiges Video",
+        desc: "Dein fertiges Video, direkt einsatzbereit für deine Marketing- und Social-Media-Kanäle."
+      },
+      note: "Einfach, unkompliziert und ganz ohne den Aufwand eines traditionellen Videodrehs."
     },
     bottomCta: {
       heading: "Bereit für dein erstes KI-Video?",
@@ -895,6 +937,27 @@ export const translations = {
         }
       ]
     },
+    howItWorks: {
+      badge: "COMMENT ÇA MARCHE",
+      heading: "De votre idée à une vidéo finie en 3 étapes simples",
+      subheading: "Simple, rapide et sans les contraintes d'un tournage traditionnel.",
+      step1: {
+        num: "1",
+        title: "Partagez votre idée",
+        desc: "Envoyez-nous vos photos de produits, votre script ou un simple concept."
+      },
+      step2: {
+        num: "2",
+        title: "Nous créons votre vidéo",
+        desc: "Notre équipe s'occupe de la production IA, du montage, des effets sonores et de la musique."
+      },
+      step3: {
+        num: "3",
+        title: "Recevez votre vidéo terminée",
+        desc: "Votre vidéo finalisée, prête à l'emploi pour vos réseaux sociaux et publicités."
+      },
+      note: "Simple, rapide et sans les contraintes d'un tournage traditionnel."
+    },
     bottomCta: {
       heading: "Prêt pour votre première vidéo IA ?",
       description: "Donnez à vos produits toutes les chances de captiver vos clients grâce à des vidéos IA percutantes.",
@@ -1207,6 +1270,27 @@ export const translations = {
         }
       ]
     },
+    howItWorks: {
+      badge: "CÓMO FUNCIONA",
+      heading: "De tu idea a un vídeo terminado en 3 sencillos pasos",
+      subheading: "Sencillo, directo y sin las complicaciones de un rodaje tradicional.",
+      step1: {
+        num: "1",
+        title: "Comparte tu idea",
+        desc: "Envíanos las fotos de tu producto, tu guion o una idea general."
+      },
+      step2: {
+        num: "2",
+        title: "Creamos tu vídeo",
+        desc: "Nuestro equipo se encarga de la producción con IA, edición, efectos sonoros y música."
+      },
+      step3: {
+        num: "3",
+        title: "Recibe tu vídeo terminado",
+        desc: "Tu vídeo completado, listo para usar en tus canales de marketing y redes."
+      },
+      note: "Sencillo, directo y sin las complicaciones de un rodaje tradicional."
+    },
     bottomCta: {
       heading: "¿Listo para tu primer vídeo con IA?",
       description: "Da a tus productos más opciones de destacar con vídeos de alta calidad.",
@@ -1518,6 +1602,27 @@ export const translations = {
           answer: "Ogni progetto include 2 cicli di revisione. Modificheremo ritmo, musica, voce o scene fino alla tua completa soddisfazione."
         }
       ]
+    },
+    howItWorks: {
+      badge: "COME FUNZIONA",
+      heading: "Dalla tua idea a un video pronto in 3 semplici passaggi",
+      subheading: "Semplice, veloce e senza lo stress di un set tradizionale.",
+      step1: {
+        num: "1",
+        title: "Condividi la tua idea",
+        desc: "Inviaci le foto del tuo prodotto, lo script o un'idea di massima."
+      },
+      step2: {
+        num: "2",
+        title: "Creiamo il tuo video",
+        desc: "Il nostro team cura produzione IA, montaggio, effetti sonori e musica di sottofondo."
+      },
+      step3: {
+        num: "3",
+        title: "Ricevi il video finito",
+        desc: "Il tuo video completato, subito pronto per le tue campagne e i social media."
+      },
+      note: "Semplice, veloce e senza lo stress di un set tradizionale."
     },
     bottomCta: {
       heading: "Pronto per il tuo primo video con IA?",
