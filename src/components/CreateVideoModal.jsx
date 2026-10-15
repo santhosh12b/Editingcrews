@@ -87,57 +87,40 @@ export default function CreateVideoModal({ isOpen, onClose, initialService }) {
     onClose();
   };
 
-  // Strictly disallow numbers in Name input
+  // Strictly disallow numbers in Name input (letters and spaces only)
   const handleNameChange = (e) => {
     const cleanVal = e.target.value.replace(/[0-9]/g, '');
     setName(cleanVal);
     if (nameError) setNameError('');
   };
 
-  // Strictly disallow letters & special characters in Phone input (digits only)
+  // Strictly disallow letters & special characters in Phone input (digits only 0-9)
   const handlePhoneChange = (e) => {
-    let digits = e.target.value.replace(/\D/g, '');
-
-    // Strip leading 0 if typed after international dial code (e.g. 0170 -> 170)
-    if (digits.startsWith('0')) {
-      digits = digits.replace(/^0+/, '');
-    }
-
-    // Limit to country maxDigits
-    const maxDigits = selectedCountry.maxDigits || 12;
-    if (digits.length > maxDigits) {
-      digits = digits.slice(0, maxDigits);
-    }
-
-    setPhone(digits);
+    // Only keep numeric digits 0-9
+    const digits = e.target.value.replace(/\D/g, '');
+    // Allow up to 15 digits (international max standard)
+    setPhone(digits.slice(0, 15));
     if (phoneError) setPhoneError('');
   };
 
   const handleSelectCountry = (country) => {
     setSelectedCountry(country);
     setIsCountryDropdownOpen(false);
-    if (phone.length > country.maxDigits) {
-      setPhone(phone.slice(0, country.maxDigits));
-    }
     if (phoneError) setPhoneError('');
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // 1. Validate Name (no numbers, minimum 2 characters)
+    // 1. Validate Name (minimum 2 characters)
     if (!name.trim() || name.trim().length < 2) {
-      setNameError(isGerman ? 'Bitte geben Sie einen gültigen Namen ein (nur Buchstaben, keine Zahlen).' : 'Please enter a valid name (letters only, no numbers).');
+      setNameError(isGerman ? 'Bitte geben Sie Ihren Namen ein (nur Buchstaben).' : 'Please enter your name (letters only).');
       return;
     }
 
-    // 2. Validate Phone digits based on selected country
-    const minDigits = selectedCountry.minDigits || 8;
-    if (!phone || phone.length < minDigits) {
-      const msg = isGerman
-        ? `Bitte geben Sie mindestens ${minDigits} Ziffern für ${selectedCountry.name.split(' ')[0]} ein (aktuell: ${phone.length}).`
-        : `Please enter at least ${minDigits} digits for ${selectedCountry.name.split(' ')[0]} (current: ${phone.length}).`;
-      setPhoneError(msg);
+    // 2. Validate Phone (at least 6 digits)
+    if (!phone.trim() || phone.trim().length < 6) {
+      setPhoneError(isGerman ? 'Bitte geben Sie eine gültige Telefonnummer ein.' : 'Please enter a valid phone number.');
       return;
     }
 
@@ -152,7 +135,9 @@ export default function CreateVideoModal({ isOpen, onClose, initialService }) {
       minute: '2-digit'
     });
 
-    const fullPhone = `${selectedCountry.dialCode} ${phone.trim()}`;
+    // Strip leading 0 for final international dial format (e.g. 0170... becomes +49 170...)
+    const cleanPhoneDigits = phone.trim().replace(/^0+/, '');
+    const fullPhone = `${selectedCountry.dialCode} ${cleanPhoneDigits || phone.trim()}`;
 
     const payload = {
       date: formattedDate,
@@ -174,23 +159,22 @@ export default function CreateVideoModal({ isOpen, onClose, initialService }) {
       description: description.trim()
     };
 
+    // Send to Google Sheets asynchronously in background so user gets instant 1-second response
     if (GOOGLE_SHEETS_SCRIPT_URL) {
-      try {
-        await fetch(GOOGLE_SHEETS_SCRIPT_URL, {
-          method: 'POST',
-          mode: 'no-cors',
-          headers: {
-            'Content-Type': 'text/plain;charset=utf-8'
-          },
-          body: JSON.stringify(payload)
-        });
-      } catch (err) {
+      fetch(GOOGLE_SHEETS_SCRIPT_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: {
+          'Content-Type': 'text/plain;charset=utf-8'
+        },
+        body: JSON.stringify(payload)
+      }).catch((err) => {
         console.error('Failed to submit to Google Sheets:', err);
-      }
-    } else {
-      // Simulate brief network delay if no URL is configured yet
-      await new Promise((resolve) => setTimeout(resolve, 600));
+      });
     }
+
+    // Fast ~700ms loading transition for instant, seamless user experience (< 1 sec)
+    await new Promise((resolve) => setTimeout(resolve, 700));
 
     setIsSubmitting(false);
     setIsSuccess(true);
@@ -319,15 +303,13 @@ export default function CreateVideoModal({ isOpen, onClose, initialService }) {
                       {strings.phoneLabel}
                     </label>
                     {/* Live digit counter indicator */}
-                    <span className={`text-[11px] font-semibold tracking-tight transition-colors ${
-                      phone.length >= (selectedCountry.minDigits || 8)
-                        ? 'text-emerald-600 font-bold'
-                        : phone.length > 0
-                        ? 'text-amber-600'
-                        : 'text-slate-400'
-                    }`}>
-                      {phone.length}/{selectedCountry.minDigits === selectedCountry.maxDigits ? selectedCountry.minDigits : `${selectedCountry.minDigits}-${selectedCountry.maxDigits}`} digits
-                    </span>
+                    {phone.length > 0 && (
+                      <span className={`text-[11px] font-semibold tracking-tight transition-colors ${
+                        phone.length >= 8 ? 'text-emerald-600 font-bold' : 'text-slate-500'
+                      }`}>
+                        {phone.length} digits
+                      </span>
+                    )}
                   </div>
 
                   <div className={`relative flex rounded-xl border bg-slate-50/50 transition-all ${
@@ -400,7 +382,7 @@ export default function CreateVideoModal({ isOpen, onClose, initialService }) {
                       value={phone}
                       onChange={handlePhoneChange}
                       placeholder={selectedCountry.placeholder || strings.phonePlaceholder}
-                      maxLength={selectedCountry.maxDigits || 12}
+                      maxLength={15}
                       className="w-full bg-transparent px-3 py-2.5 sm:py-3 text-slate-900 placeholder:text-slate-400 text-sm focus:outline-none rounded-r-xl"
                     />
                   </div>
