@@ -1,6 +1,13 @@
+import { msTranslation } from './translations/ms';
+import { zhTranslation } from './translations/zh';
+import { taTranslation } from './translations/ta';
+
 export const languages = [
   { code: 'de', label: 'Deutsch', short: 'DE' },
   { code: 'en', label: 'English', short: 'EN' },
+  { code: 'ms', label: 'Bahasa Melayu', short: 'MS' },
+  { code: 'zh', label: '中文 (Mandarin)', short: 'ZH' },
+  { code: 'ta', label: 'தமிழ் (Tamil)', short: 'TA' },
   { code: 'sg', label: 'English (Singapore)', short: 'SG' },
   { code: 'my', label: 'English (Malaysia)', short: 'MY' },
   { code: 'fr', label: 'Français', short: 'FR' },
@@ -2298,5 +2305,8 @@ export const translations = {
       successNote2: "Estimated delivery time: 48-72 hours after concept approval.",
       done: "Done"
     }
-  }
+  },
+  ms: msTranslation,
+  zh: zhTranslation,
+  ta: taTranslation
 };

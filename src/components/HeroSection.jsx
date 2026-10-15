@@ -23,6 +23,15 @@ const trustText = {
   my: {
     highlight: "Trusted by 100+ users"
   },
+  ms: {
+    highlight: "100+ pengguna mempercayai kami"
+  },
+  zh: {
+    highlight: "超过 100+ 用户的信赖"
+  },
+  ta: {
+    highlight: "100+ பயனர்களால் நம்பப்படுகிறது"
+  },
   fr: {
     highlight: "Approuvé par 100+ utilisateurs"
   },

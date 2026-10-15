@@ -235,48 +235,65 @@ export default function CreateVideoModal({ isOpen, onClose, initialService }) {
 
   // Localized texts based on current language & region
   const isGerman = currentLang === 'de';
+  const isZh = currentLang === 'zh';
+  const isMs = currentLang === 'ms';
+  const isTa = currentLang === 'ta';
   const isSg = isSingapore || currentLang === 'sg';
   const isMy = isMalaysia || currentLang === 'my';
 
   const strings = {
-    title: isGerman ? "Starten Sie Ihr Videoprojekt" : "Start Your Video Project",
+    title: isGerman 
+      ? "Starten Sie Ihr Videoprojekt" 
+      : (isZh ? "开启您的商业视频项目" : (isMs ? "Mulakan Projek Video Anda" : (isTa ? "உங்கள் வீடியோ திட்டத்தைத் தொடங்குங்கள்" : "Start Your Video Project"))),
     subtitle: isGerman 
       ? "Erzählen Sie uns von Ihrem Produkt, Ihrer Dienstleistung oder Ihrer Idee. Wir verwandeln sie in ein überzeugendes Video für Ihr Unternehmen."
-      : (isMy
-        ? "Tell us about your product, service or creative idea. We'll help turn it into a high-converting video for your brand in Malaysia."
-        : (isSg 
-          ? "Tell us about your product, service or creative idea. We'll help turn it into a high-converting video for your brand in Singapore." 
-          : "Tell us about your product, service or creative idea. We'll help turn it into a compelling video for your business.")),
-    nameLabel: isGerman ? "Ihr Name *" : "Your Name *",
-    namePlaceholder: isMy ? "e.g. Amir Hakim" : (isSg ? "e.g. Rachel Tan" : (isGerman ? "z.B. Max Mustermann" : "e.g. Elena Rostova")),
-    emailLabel: isGerman ? "E-Mail-Adresse *" : "Email Address *",
+      : (isZh
+        ? "告诉我们关于您的产品、服务或核心创意。我们将协助您打造极具转化力的高品质商业成片。"
+        : (isMs
+          ? "Kongsi tentang produk, perkhidmatan atau idea kreatif anda. Kami bantu jadikan video berimpak tinggi untuk jenama anda."
+          : (isTa
+            ? "உங்கள் தயாரிப்பு, சேவை அல்லது படைப்பு யோசனையைப் பற்றி எங்களிடம் கூறுங்கள். அதை சிறந்த வீடியோவாக மாற்ற நாங்கள் உதவுகிறோம்."
+            : (isMy
+              ? "Tell us about your product, service or creative idea. We'll help turn it into a high-converting video for your brand in Malaysia."
+              : (isSg 
+                ? "Tell us about your product, service or creative idea. We'll help turn it into a high-converting video for your brand in Singapore." 
+                : "Tell us about your product, service or creative idea. We'll help turn it into a compelling video for your business."))))),
+    nameLabel: isGerman ? "Ihr Name *" : (isZh ? "您的姓名 *" : (isMs ? "Nama Anda *" : (isTa ? "உங்கள் பெயர் *" : "Your Name *"))),
+    namePlaceholder: isZh ? "例如：张经理" : (isMs ? "cth. Amir Hakim" : (isTa ? "எ.கா. கார்த்திக்" : (isMy ? "e.g. Amir Hakim" : (isSg ? "e.g. Rachel Tan" : (isGerman ? "z.B. Max Mustermann" : "e.g. Elena Rostova"))))),
+    emailLabel: isGerman ? "E-Mail-Adresse *" : (isZh ? "工作邮箱 *" : (isMs ? "Alamat E-mel *" : (isTa ? "மின்னஞ்சல் முகவரி *" : "Email Address *"))),
     emailPlaceholder: "name@company.com",
-    phoneLabel: isGerman ? "Telefon / WhatsApp *" : "Phone / WhatsApp *",
-    phonePlaceholder: isMy ? "12 345 6789" : (isSg ? "8123 4567" : (isGerman ? "0170 1234567" : "170 1234567")),
-    projectTypeLabel: isGerman ? "Projekttyp" : "Project Type",
-    projectTypePlaceholder: isGerman ? "Videokategorie auswählen" : "Select a video category",
-    durationLabel: isGerman ? "Zieldauer (Minuten)" : "Target Duration (minutes)",
-    submitBtn: isGerman ? "Projektanfrage absenden" : "Submit Project Enquiry",
-    submitting: isGerman ? "Wird gesendet..." : "Submitting Enquiry...",
-    successTitle: isGerman ? "Vielen Dank für Ihre Anfrage!" : "Enquiry Received Successfully!",
+    phoneLabel: isGerman ? "Telefon / WhatsApp *" : (isZh ? "联系电话 / 微信 / WhatsApp *" : (isMs ? "Telefon / WhatsApp *" : (isTa ? "தொலைபேசி / WhatsApp *" : "Phone / WhatsApp *"))),
+    phonePlaceholder: isZh ? "138 0000 0000" : (isMs ? "12 345 6789" : (isTa ? "98765 43210" : (isMy ? "12 345 6789" : (isSg ? "8123 4567" : (isGerman ? "0170 1234567" : "170 1234567"))))),
+    projectTypeLabel: isGerman ? "Projekttyp" : (isZh ? "视频类型" : (isMs ? "Jenis Projek" : (isTa ? "திட்ட வகை" : "Project Type"))),
+    projectTypePlaceholder: isGerman ? "Videokategorie auswählen" : (isZh ? "请选择视频类型" : (isMs ? "Pilih kategori video" : (isTa ? "வீடியோ வகையைத் தேர்ந்தெடுக்கவும்" : "Select a video category"))),
+    durationLabel: isGerman ? "Zieldauer (Minuten)" : (isZh ? "目标时长（分钟）" : (isMs ? "Sasaran Tempoh (Minit)" : (isTa ? "இலக்கு கால அளவு (நிமிடங்கள்)" : "Target Duration (minutes)"))),
+    submitBtn: isGerman ? "Projektanfrage absenden" : (isZh ? "提交视频制作需求" : (isMs ? "Hantar Pertanyaan Projek" : (isTa ? "திட்டக் கோரிக்கையை சமர்ப்பிக்கவும்" : "Submit Project Enquiry"))),
+    submitting: isGerman ? "Wird gesendet..." : (isZh ? "正在提交中..." : (isMs ? "Sedang Dihantar..." : (isTa ? "சமர்ப்பிக்கிறது..." : "Submitting Enquiry..."))),
+    successTitle: isGerman ? "Vielen Dank für Ihre Anfrage!" : (isZh ? "已成功收到您的视频需求！" : (isMs ? "Pertanyaan Berjaya Diterima!" : (isTa ? "கோரிக்கை வெற்றிகரமாகப் பெறப்பட்டது!" : "Enquiry Received Successfully!"))),
     successDesc: isGerman 
       ? `Danke, ${name || 'Kunde'}. Unser Produktionsteam wird sich innerhalb von 12 Stunden mit den ersten Vorschlägen bei Ihnen melden.`
-      : (isMy
-        ? `Thank you, ${name || 'there'}. Our video production team in Malaysia will reach out within 12 hours with script & storyboard previews.`
-        : (isSg 
-          ? `Thank you, ${name || 'there'}. Our video production team in Singapore will reach out within 12 hours with script & storyboard previews.`
-          : `Thank you, ${name || 'there'}. Our video production directors will reach out within 12 hours with script & storyboard previews.`)),
-    successClose: isGerman ? "Schließen" : "Close"
+      : (isZh
+        ? `感谢您，${name || '贵客'}。我们的制片团队将在 12 小时内与您取得联系，并发送初步创意方案与分镜预览。`
+        : (isMs
+          ? `Terima kasih, ${name || 'anda'}. Pasukan produksi kami akan menghubungi anda dalam tempoh 12 jam dengan pratonton papan cerita.`
+          : (isTa
+            ? `நன்றி, ${name || 'வாடிக்கையாளர்'}. எங்கள் தயாரிப்புக் குழு 12 மணி நேரத்திற்குள் உங்களைத் தொடர்புகொள்ளும்.`
+            : (isMy
+              ? `Thank you, ${name || 'there'}. Our video production team in Malaysia will reach out within 12 hours with script & storyboard previews.`
+              : (isSg 
+                ? `Thank you, ${name || 'there'}. Our video production team in Singapore will reach out within 12 hours with script & storyboard previews.`
+                : `Thank you, ${name || 'there'}. Our video production directors will reach out within 12 hours with script & storyboard previews.`))))),
+    successClose: isGerman ? "Schließen" : (isZh ? "完成" : (isMs ? "Tutup" : (isTa ? "மூடு" : "Close")))
   };
 
   // Video categories from services
   const categories = [
-    { value: 'product-ads', label: isGerman ? 'Produkt-Videoanzeigen' : (isSg ? 'Product & TikTok Video Ads' : 'Product Video Ads') },
-    { value: 'explainers', label: isGerman ? 'Service-Erklärvideos' : 'Service Explainer Videos' },
-    { value: 'animated-stories', label: isGerman ? 'Animierte Geschichten' : 'Animated Stories' },
-    { value: 'cinematic-vfx', label: isGerman ? 'Cinematische Ads & VFX' : 'Cinematic Ads & VFX' },
-    { value: 'promotional', label: isGerman ? 'Unternehmens- & Promotion-Videos' : 'Business Promotional Videos' },
-    { value: 'multilingual', label: isGerman ? 'Mehrsprachige Videos (Europa)' : (isSg ? 'Multilingual Videos (Singapore & APAC)' : 'Multilingual Videos (European Markets)') }
+    { value: 'product-ads', label: isGerman ? 'Produkt-Videoanzeigen' : (isZh ? '产品视频广告' : (isMs ? 'Iklan Video Produk' : (isTa ? 'தயாரிப்பு வீடியோ விளம்பரங்கள்' : (isSg ? 'Product & TikTok Video Ads' : 'Product Video Ads')))) },
+    { value: 'explainers', label: isGerman ? 'Service-Erklärvideos' : (isZh ? '业务与服务解说片' : (isMs ? 'Video Penerangan Servis' : (isTa ? 'சேவை விளக்க வீடியோக்கள்' : 'Service Explainer Videos'))) },
+    { value: 'animated-stories', label: isGerman ? 'Animierte Geschichten' : (isZh ? '创意动画故事' : (isMs ? 'Cerita Animasi' : (isTa ? 'அனிமேஷன் கதைகள்' : 'Animated Stories'))) },
+    { value: 'cinematic-vfx', label: isGerman ? 'Cinematische Ads & VFX' : (isZh ? '电影大片与特效视效' : (isMs ? 'Iklan Sinematik & VFX' : (isTa ? 'சினிமா விளம்பரங்கள் & VFX' : 'Cinematic Ads & VFX'))) },
+    { value: 'promotional', label: isGerman ? 'Unternehmens- & Promotion-Videos' : (isZh ? '企业形象与品牌推广片' : (isMs ? 'Video Promosi Perniagaan' : (isTa ? 'வணிக விளம்பர வீடியோக்கள்' : 'Business Promotional Videos'))) },
+    { value: 'multilingual', label: isGerman ? 'Mehrsprachige Videos (Europa)' : (isZh ? '全球多语言本地化视频' : (isMs ? 'Video Pelbagai Bahasa' : (isTa ? 'பன்மொழி வீடியோக்கள்' : (isSg ? 'Multilingual Videos (Singapore & APAC)' : 'Multilingual Videos (European Markets)')))) }
   ];
 
   return (
