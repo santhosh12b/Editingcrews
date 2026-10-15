@@ -154,20 +154,7 @@ export const portfolioVideos = [
 export default function OurWorkSection({ onOpenVideoModal, onOpenInquiryModal }) {
   const { currentLang, t } = useLanguage();
   const ow = t.ourWork || {};
-  const [activeCategory, setActiveCategory] = useState('all');
   const portfolioRef = useRef(null);
-
-  const categories = [
-    { id: 'all', label: ow.filterAll || 'All Videos' },
-    { id: 'product', label: ow.filterProduct || 'Product Ads' },
-    { id: 'ugc', label: ow.filterUGC || 'UGC Style' },
-    { id: 'cinematic', label: ow.filterCinematic || 'Cinematic & VFX' },
-    { id: 'explainer', label: ow.filterExplainer || 'Explainers' }
-  ];
-
-  const filteredVideos = activeCategory === 'all'
-    ? portfolioVideos
-    : portfolioVideos.filter(v => v.category === activeCategory);
 
   const handleScrollToPortfolio = () => {
     if (portfolioRef.current) {
@@ -215,26 +202,9 @@ export default function OurWorkSection({ onOpenVideoModal, onOpenInquiryModal })
         {/* Video Portfolio Stage */}
         <div ref={portfolioRef} id="ai-showcase" className="scroll-mt-24 pt-4">
           
-          {/* Category Filter Pills */}
-          <div className="flex items-center justify-center gap-2 sm:gap-2.5 flex-wrap mb-8 sm:mb-10">
-            {categories.map((cat) => (
-              <button
-                key={cat.id}
-                onClick={() => setActiveCategory(cat.id)}
-                className={`px-4 py-2 rounded-full text-xs sm:text-sm font-semibold transition-all duration-200 ${
-                  activeCategory === cat.id
-                    ? 'bg-indigo-600 text-white shadow-md shadow-indigo-600/20'
-                    : 'bg-slate-100 hover:bg-slate-200/80 text-slate-700'
-                }`}
-              >
-                {cat.label}
-              </button>
-            ))}
-          </div>
-
           {/* Desktop 5-Column Panoramic Showcase (lg+) */}
           <div className="hidden lg:grid lg:grid-cols-5 gap-4">
-            {filteredVideos.map((item, idx) => (
+            {portfolioVideos.map((item, idx) => (
               <PortfolioVideoCard 
                 key={item.id}
                 item={item}
@@ -248,7 +218,7 @@ export default function OurWorkSection({ onOpenVideoModal, onOpenInquiryModal })
           {/* Mobile & Tablet: 360° Rotating Carousel (< lg) */}
           <div className="block lg:hidden">
             <Mobile3DPortfolioCarousel
-              items={filteredVideos}
+              items={portfolioVideos}
               currentLang={currentLang}
               onOpenModal={onOpenVideoModal}
             />
