@@ -297,22 +297,9 @@ export default function CreateVideoModal({ isOpen, onClose, initialService }) {
               {/* Row 2: Phone Number (with Country Code) & Project Type (2 columns) */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-4">
                 <div>
-                  <div className="flex items-center justify-between mb-1.5">
-                    <label className="block text-xs sm:text-sm font-bold text-slate-800 whitespace-nowrap">
-                      {strings.phoneLabel}
-                    </label>
-                    {/* Live digit counter indicator */}
-                    {phone.length > 0 && (
-                      <span className={`text-[11px] font-semibold tracking-tight transition-colors flex items-center gap-1 ${
-                        phone.length >= (selectedCountry?.minDigits || 10) ? 'text-emerald-600 font-bold' : 'text-slate-500'
-                      }`}>
-                        {phone.length}/{selectedCountry?.maxDigits || 10} {isGerman ? 'Ziffern' : 'digits'}
-                        {phone.length >= (selectedCountry?.minDigits || 10) && (
-                          <CheckCircle2 className="w-3 h-3 text-emerald-600 shrink-0" />
-                        )}
-                      </span>
-                    )}
-                  </div>
+                  <label className="block text-xs sm:text-sm font-bold text-slate-800 mb-1.5">
+                    {strings.phoneLabel}
+                  </label>
 
                   <div className={`relative flex rounded-xl border bg-slate-50/50 transition-all ${
                     phoneError 
