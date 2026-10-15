@@ -1,20 +1,45 @@
-import React, { useState, useEffect } from 'react';
-import { X, CheckCircle2, ArrowRight } from 'lucide-react';
+import React, { useState, useEffect, useRef } from 'react';
+import { X, CheckCircle2, ArrowRight, ChevronDown } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 import { GOOGLE_SHEETS_SCRIPT_URL } from '../config/googleSheets';
+
+const countryList = [
+  { code: 'DE', dialCode: '+49', name: 'Germany (Deutschland)' },
+  { code: 'AT', dialCode: '+43', name: 'Austria (Österreich)' },
+  { code: 'CH', dialCode: '+41', name: 'Switzerland (Schweiz)' },
+  { code: 'GB', dialCode: '+44', name: 'United Kingdom' },
+  { code: 'US', dialCode: '+1', name: 'United States' },
+  { code: 'FR', dialCode: '+33', name: 'France' },
+  { code: 'ES', dialCode: '+34', name: 'Spain (España)' },
+  { code: 'IT', dialCode: '+39', name: 'Italy (Italia)' },
+  { code: 'NL', dialCode: '+31', name: 'Netherlands' },
+  { code: 'BE', dialCode: '+32', name: 'Belgium' },
+  { code: 'PL', dialCode: '+48', name: 'Poland' },
+  { code: 'SE', dialCode: '+46', name: 'Sweden' },
+  { code: 'NO', dialCode: '+47', name: 'Norway' },
+  { code: 'DK', dialCode: '+45', name: 'Denmark' },
+  { code: 'FI', dialCode: '+358', name: 'Finland' },
+  { code: 'IE', dialCode: '+353', name: 'Ireland' },
+  { code: 'PT', dialCode: '+351', name: 'Portugal' },
+  { code: 'IN', dialCode: '+91', name: 'India' },
+  { code: 'AE', dialCode: '+971', name: 'UAE (Dubai)' }
+];
 
 export default function CreateVideoModal({ isOpen, onClose, initialService }) {
   const { currentLang, t } = useLanguage();
   
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
+  const [selectedCountry, setSelectedCountry] = useState(countryList[0]);
   const [phone, setPhone] = useState('');
-  const [countryCode, setCountryCode] = useState('+49');
+  const [isCountryDropdownOpen, setIsCountryDropdownOpen] = useState(false);
   const [projectType, setProjectType] = useState(initialService || '');
   const [duration, setDuration] = useState(1);
   const [description, setDescription] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+
+  const countryDropdownRef = useRef(null);
 
   useEffect(() => {
     if (initialService) {
@@ -33,6 +58,17 @@ export default function CreateVideoModal({ isOpen, onClose, initialService }) {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [isOpen]);
 
+  // Handle click outside country dropdown
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (countryDropdownRef.current && !countryDropdownRef.current.contains(event.target)) {
+        setIsCountryDropdownOpen(false);
+      }
+    }
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
   if (!isOpen) return null;
 
   const handleClose = () => {
@@ -41,7 +77,8 @@ export default function CreateVideoModal({ isOpen, onClose, initialService }) {
     setName('');
     setEmail('');
     setPhone('');
-    setCountryCode('+49');
+    setSelectedCountry(countryList[0]);
+    setIsCountryDropdownOpen(false);
     setDescription('');
     onClose();
   };
@@ -59,7 +96,7 @@ export default function CreateVideoModal({ isOpen, onClose, initialService }) {
       minute: '2-digit'
     });
 
-    const fullPhone = phone.trim() ? `${countryCode} ${phone.trim()}` : '';
+    const fullPhone = phone.trim() ? `${selectedCountry.dialCode} ${phone.trim()}` : '';
 
     const payload = {
       date: formattedDate,
@@ -67,7 +104,8 @@ export default function CreateVideoModal({ isOpen, onClose, initialService }) {
       email: email.trim(),
       phone: fullPhone,
       phoneNumber: fullPhone,
-      countryCode: countryCode,
+      countryCode: selectedCountry.dialCode,
+      country: selectedCountry.code,
       projectType: projectType || (currentLang === 'de' ? 'Allgemeine Anfrage' : 'General Enquiry'),
       duration: duration || 1,
       totalPrice: `€${calculatedTotal}`,
@@ -110,7 +148,7 @@ export default function CreateVideoModal({ isOpen, onClose, initialService }) {
     namePlaceholder: "e.g. Elena Rostova",
     emailLabel: isGerman ? "E-Mail-Adresse *" : "Email Address *",
     emailPlaceholder: "name@company.com",
-    phoneLabel: isGerman ? "Telefonnummer / WhatsApp *" : "Phone Number / WhatsApp *",
+    phoneLabel: isGerman ? "Telefon / WhatsApp *" : "Phone / WhatsApp *",
     phonePlaceholder: isGerman ? "0170 1234567" : "170 1234567",
     projectTypeLabel: isGerman ? "Projekttyp" : "Project Type",
     projectTypePlaceholder: isGerman ? "Videokategorie auswählen" : "Select a video category",
@@ -152,7 +190,7 @@ export default function CreateVideoModal({ isOpen, onClose, initialService }) {
         <button
           type="button"
           onClick={handleClose}
-          className="absolute top-4 right-4 sm:top-6 sm:right-6 w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-500 hover:text-slate-800 flex items-center justify-center transition-colors z-20 focus:outline-none"
+          className="absolute top-4 right-4 sm:top-6 sm:right-6 w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-500 hover:text-slate-800 flex items-center justify-center transition-colors z-20 focus:outline-none cursor-pointer"
           aria-label="Close modal"
         >
           <X className="w-4 h-4 stroke-[2.5]" />
@@ -207,41 +245,74 @@ export default function CreateVideoModal({ isOpen, onClose, initialService }) {
               {/* Row 2: Phone Number (with Country Code) & Project Type (2 columns) */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-4">
                 <div>
-                  <label className="block text-xs sm:text-sm font-bold text-slate-800 mb-1.5">
+                  <label className="block text-xs sm:text-sm font-bold text-slate-800 mb-1.5 whitespace-nowrap">
                     {strings.phoneLabel}
                   </label>
-                  <div className="flex rounded-xl border border-slate-200 bg-slate-50/50 focus-within:ring-2 focus-within:ring-indigo-600/30 focus-within:border-indigo-600 transition-all overflow-hidden">
-                    <select
-                      value={countryCode}
-                      onChange={(e) => setCountryCode(e.target.value)}
-                      className="bg-transparent border-r border-slate-200 px-2 sm:px-2.5 py-2.5 sm:py-3 text-xs sm:text-sm font-bold text-slate-800 focus:outline-none cursor-pointer shrink-0"
-                      aria-label="Country Code"
-                    >
-                      <option value="+49">🇩🇪 +49 (DE)</option>
-                      <option value="+43">🇦🇹 +43 (AT)</option>
-                      <option value="+41">🇨🇭 +41 (CH)</option>
-                      <option value="+44">🇬🇧 +44 (UK)</option>
-                      <option value="+1">🇺🇸 +1 (US)</option>
-                      <option value="+33">🇫🇷 +33 (FR)</option>
-                      <option value="+34">🇪🇸 +34 (ES)</option>
-                      <option value="+39">🇮🇹 +39 (IT)</option>
-                      <option value="+31">🇳🇱 +31 (NL)</option>
-                      <option value="+48">🇵🇱 +48 (PL)</option>
-                      <option value="+32">🇧🇪 +32 (BE)</option>
-                      <option value="+46">🇸🇪 +46 (SE)</option>
-                      <option value="+47">🇳🇴 +47 (NO)</option>
-                      <option value="+45">🇩🇰 +45 (DK)</option>
-                      <option value="+358">🇫🇮 +358 (FI)</option>
-                      <option value="+91">🇮🇳 +91 (IN)</option>
-                      <option value="+971">🇦🇪 +971 (AE)</option>
-                    </select>
+                  <div className="relative flex rounded-xl border border-slate-200 bg-slate-50/50 focus-within:ring-2 focus-within:ring-indigo-600/30 focus-within:border-indigo-600 transition-all">
+                    
+                    {/* Country Code Trigger Button */}
+                    <div className="relative shrink-0" ref={countryDropdownRef}>
+                      <button
+                        type="button"
+                        onClick={() => setIsCountryDropdownOpen(!isCountryDropdownOpen)}
+                        className="h-full flex items-center gap-1.5 px-2.5 sm:px-3 py-2.5 sm:py-3 bg-slate-100/80 hover:bg-slate-200/80 text-slate-900 font-bold text-xs sm:text-sm border-r border-slate-200 rounded-l-xl transition-colors cursor-pointer select-none"
+                        aria-label="Select Country Code"
+                        aria-expanded={isCountryDropdownOpen}
+                      >
+                        <span className="text-[10px] sm:text-xs font-black text-indigo-700 bg-indigo-50 border border-indigo-200 px-1.5 py-0.5 rounded tracking-wide">
+                          {selectedCountry.code}
+                        </span>
+                        <span className="font-extrabold text-slate-800 tracking-tight">
+                          {selectedCountry.dialCode}
+                        </span>
+                        <ChevronDown className={`w-3.5 h-3.5 text-slate-500 transition-transform duration-150 ${isCountryDropdownOpen ? 'rotate-180' : ''}`} />
+                      </button>
+
+                      {/* Dropdown Popover */}
+                      {isCountryDropdownOpen && (
+                        <div className="absolute top-full left-0 mt-1.5 w-60 sm:w-64 max-h-56 overflow-y-auto rounded-2xl border border-slate-200 bg-white p-1.5 shadow-2xl z-50 animate-in fade-in-50 zoom-in-95 duration-150">
+                          <div className="space-y-0.5">
+                            {countryList.map((c) => {
+                              const isSelected = selectedCountry.code === c.code;
+                              return (
+                                <button
+                                  key={c.code}
+                                  type="button"
+                                  onClick={() => {
+                                    setSelectedCountry(c);
+                                    setIsCountryDropdownOpen(false);
+                                  }}
+                                  className={`w-full flex items-center justify-between px-3 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-colors cursor-pointer ${
+                                    isSelected 
+                                      ? 'bg-indigo-50 text-indigo-700 font-bold' 
+                                      : 'text-slate-700 hover:bg-slate-50 hover:text-slate-900'
+                                  }`}
+                                >
+                                  <div className="flex items-center gap-2 truncate">
+                                    <span className="text-[10px] font-black text-slate-600 bg-slate-100 border border-slate-200 px-1.5 py-0.5 rounded">
+                                      {c.code}
+                                    </span>
+                                    <span className="truncate">{c.name}</span>
+                                  </div>
+                                  <span className="text-slate-500 font-bold text-xs ml-2 shrink-0">
+                                    {c.dialCode}
+                                  </span>
+                                </button>
+                              );
+                            })}
+                          </div>
+                        </div>
+                      )}
+                    </div>
+
+                    {/* Phone Number Input */}
                     <input
                       type="tel"
                       required
                       value={phone}
                       onChange={(e) => setPhone(e.target.value)}
                       placeholder={strings.phonePlaceholder}
-                      className="w-full bg-transparent px-3 py-2.5 sm:py-3 text-slate-900 placeholder:text-slate-400 text-sm focus:outline-none"
+                      className="w-full bg-transparent px-3 py-2.5 sm:py-3 text-slate-900 placeholder:text-slate-400 text-sm focus:outline-none rounded-r-xl"
                     />
                   </div>
                 </div>
