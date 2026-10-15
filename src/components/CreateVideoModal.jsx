@@ -4,34 +4,36 @@ import { useLanguage } from '../context/LanguageContext';
 import { GOOGLE_SHEETS_SCRIPT_URL } from '../config/googleSheets';
 
 const countryList = [
-  { code: 'DE', dialCode: '+49', name: 'Germany (Deutschland)' },
-  { code: 'AT', dialCode: '+43', name: 'Austria (Österreich)' },
-  { code: 'CH', dialCode: '+41', name: 'Switzerland (Schweiz)' },
-  { code: 'GB', dialCode: '+44', name: 'United Kingdom' },
-  { code: 'US', dialCode: '+1', name: 'United States' },
-  { code: 'FR', dialCode: '+33', name: 'France' },
-  { code: 'ES', dialCode: '+34', name: 'Spain (España)' },
-  { code: 'IT', dialCode: '+39', name: 'Italy (Italia)' },
-  { code: 'NL', dialCode: '+31', name: 'Netherlands' },
-  { code: 'BE', dialCode: '+32', name: 'Belgium' },
-  { code: 'PL', dialCode: '+48', name: 'Poland' },
-  { code: 'SE', dialCode: '+46', name: 'Sweden' },
-  { code: 'NO', dialCode: '+47', name: 'Norway' },
-  { code: 'DK', dialCode: '+45', name: 'Denmark' },
-  { code: 'FI', dialCode: '+358', name: 'Finland' },
-  { code: 'IE', dialCode: '+353', name: 'Ireland' },
-  { code: 'PT', dialCode: '+351', name: 'Portugal' },
-  { code: 'IN', dialCode: '+91', name: 'India' },
-  { code: 'AE', dialCode: '+971', name: 'UAE (Dubai)' }
+  { code: 'DE', dialCode: '+49', name: 'Germany (Deutschland)', minDigits: 10, maxDigits: 11, placeholder: '170 1234567' },
+  { code: 'AT', dialCode: '+43', name: 'Austria (Österreich)', minDigits: 10, maxDigits: 11, placeholder: '664 1234567' },
+  { code: 'CH', dialCode: '+41', name: 'Switzerland (Schweiz)', minDigits: 9, maxDigits: 9, placeholder: '79 123 4567' },
+  { code: 'GB', dialCode: '+44', name: 'United Kingdom', minDigits: 10, maxDigits: 10, placeholder: '7911 123456' },
+  { code: 'US', dialCode: '+1', name: 'United States', minDigits: 10, maxDigits: 10, placeholder: '202 555 0199' },
+  { code: 'FR', dialCode: '+33', name: 'France', minDigits: 9, maxDigits: 9, placeholder: '6 12 34 56 78' },
+  { code: 'ES', dialCode: '+34', name: 'Spain (España)', minDigits: 9, maxDigits: 9, placeholder: '612 345 678' },
+  { code: 'IT', dialCode: '+39', name: 'Italy (Italia)', minDigits: 10, maxDigits: 10, placeholder: '320 1234567' },
+  { code: 'NL', dialCode: '+31', name: 'Netherlands', minDigits: 9, maxDigits: 9, placeholder: '6 12345678' },
+  { code: 'BE', dialCode: '+32', name: 'Belgium', minDigits: 9, maxDigits: 9, placeholder: '470 12 34 56' },
+  { code: 'PL', dialCode: '+48', name: 'Poland', minDigits: 9, maxDigits: 9, placeholder: '512 345 678' },
+  { code: 'SE', dialCode: '+46', name: 'Sweden', minDigits: 9, maxDigits: 9, placeholder: '70 123 4567' },
+  { code: 'NO', dialCode: '+47', name: 'Norway', minDigits: 8, maxDigits: 8, placeholder: '412 34 567' },
+  { code: 'DK', dialCode: '+45', name: 'Denmark', minDigits: 8, maxDigits: 8, placeholder: '31 23 45 67' },
+  { code: 'FI', dialCode: '+358', name: 'Finland', minDigits: 9, maxDigits: 10, placeholder: '40 1234567' },
+  { code: 'IE', dialCode: '+353', name: 'Ireland', minDigits: 9, maxDigits: 9, placeholder: '85 123 4567' },
+  { code: 'PT', dialCode: '+351', name: 'Portugal', minDigits: 9, maxDigits: 9, placeholder: '912 345 678' },
+  { code: 'IN', dialCode: '+91', name: 'India', minDigits: 10, maxDigits: 10, placeholder: '98765 43210' },
+  { code: 'AE', dialCode: '+971', name: 'UAE (Dubai)', minDigits: 9, maxDigits: 9, placeholder: '50 123 4567' }
 ];
 
 export default function CreateVideoModal({ isOpen, onClose, initialService }) {
   const { currentLang, t } = useLanguage();
   
   const [name, setName] = useState('');
+  const [nameError, setNameError] = useState('');
   const [email, setEmail] = useState('');
   const [selectedCountry, setSelectedCountry] = useState(countryList[0]);
   const [phone, setPhone] = useState('');
+  const [phoneError, setPhoneError] = useState('');
   const [isCountryDropdownOpen, setIsCountryDropdownOpen] = useState(false);
   const [projectType, setProjectType] = useState(initialService || '');
   const [duration, setDuration] = useState(1);
@@ -75,16 +77,70 @@ export default function CreateVideoModal({ isOpen, onClose, initialService }) {
     setIsSubmitting(false);
     setIsSuccess(false);
     setName('');
+    setNameError('');
     setEmail('');
     setPhone('');
+    setPhoneError('');
     setSelectedCountry(countryList[0]);
     setIsCountryDropdownOpen(false);
     setDescription('');
     onClose();
   };
 
+  // Strictly disallow numbers in Name input
+  const handleNameChange = (e) => {
+    const cleanVal = e.target.value.replace(/[0-9]/g, '');
+    setName(cleanVal);
+    if (nameError) setNameError('');
+  };
+
+  // Strictly disallow letters & special characters in Phone input (digits only)
+  const handlePhoneChange = (e) => {
+    let digits = e.target.value.replace(/\D/g, '');
+
+    // Strip leading 0 if typed after international dial code (e.g. 0170 -> 170)
+    if (digits.startsWith('0')) {
+      digits = digits.replace(/^0+/, '');
+    }
+
+    // Limit to country maxDigits
+    const maxDigits = selectedCountry.maxDigits || 12;
+    if (digits.length > maxDigits) {
+      digits = digits.slice(0, maxDigits);
+    }
+
+    setPhone(digits);
+    if (phoneError) setPhoneError('');
+  };
+
+  const handleSelectCountry = (country) => {
+    setSelectedCountry(country);
+    setIsCountryDropdownOpen(false);
+    if (phone.length > country.maxDigits) {
+      setPhone(phone.slice(0, country.maxDigits));
+    }
+    if (phoneError) setPhoneError('');
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    // 1. Validate Name (no numbers, minimum 2 characters)
+    if (!name.trim() || name.trim().length < 2) {
+      setNameError(isGerman ? 'Bitte geben Sie einen gültigen Namen ein (nur Buchstaben, keine Zahlen).' : 'Please enter a valid name (letters only, no numbers).');
+      return;
+    }
+
+    // 2. Validate Phone digits based on selected country
+    const minDigits = selectedCountry.minDigits || 8;
+    if (!phone || phone.length < minDigits) {
+      const msg = isGerman
+        ? `Bitte geben Sie mindestens ${minDigits} Ziffern für ${selectedCountry.name.split(' ')[0]} ein (aktuell: ${phone.length}).`
+        : `Please enter at least ${minDigits} digits for ${selectedCountry.name.split(' ')[0]} (current: ${phone.length}).`;
+      setPhoneError(msg);
+      return;
+    }
+
     setIsSubmitting(true);
 
     const now = new Date();
@@ -96,7 +152,7 @@ export default function CreateVideoModal({ isOpen, onClose, initialService }) {
       minute: '2-digit'
     });
 
-    const fullPhone = phone.trim() ? `${selectedCountry.dialCode} ${phone.trim()}` : '';
+    const fullPhone = `${selectedCountry.dialCode} ${phone.trim()}`;
 
     const payload = {
       date: formattedDate,
@@ -104,6 +160,12 @@ export default function CreateVideoModal({ isOpen, onClose, initialService }) {
       email: email.trim(),
       phone: fullPhone,
       phoneNumber: fullPhone,
+      "Phone / WhatsApp": fullPhone,
+      "Your Name": name.trim(),
+      "Email Address *": email.trim(),
+      "Project Type": projectType || (currentLang === 'de' ? 'Allgemeine Anfrage' : 'General Enquiry'),
+      "Target Duration (minutes)": duration || 1,
+      "Tell us about your product or idea": description.trim(),
       countryCode: selectedCountry.dialCode,
       country: selectedCountry.code,
       projectType: projectType || (currentLang === 'de' ? 'Allgemeine Anfrage' : 'General Enquiry'),
@@ -221,10 +283,17 @@ export default function CreateVideoModal({ isOpen, onClose, initialService }) {
                     type="text"
                     required
                     value={name}
-                    onChange={(e) => setName(e.target.value)}
+                    onChange={handleNameChange}
                     placeholder={strings.namePlaceholder}
-                    className="w-full px-3.5 py-2.5 sm:px-4 sm:py-3 rounded-xl border border-slate-200 bg-slate-50/50 text-slate-900 placeholder:text-slate-400 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-600/30 focus:border-indigo-600 transition-all"
+                    className={`w-full px-3.5 py-2.5 sm:px-4 sm:py-3 rounded-xl border bg-slate-50/50 text-slate-900 placeholder:text-slate-400 text-sm focus:outline-none transition-all ${
+                      nameError 
+                        ? 'border-red-500 focus:ring-2 focus:ring-red-500/20' 
+                        : 'border-slate-200 focus:ring-2 focus:ring-indigo-600/30 focus:border-indigo-600'
+                    }`}
                   />
+                  {nameError && (
+                    <p className="mt-1 text-xs text-red-600 font-medium">{nameError}</p>
+                  )}
                 </div>
 
                 <div>
@@ -245,10 +314,27 @@ export default function CreateVideoModal({ isOpen, onClose, initialService }) {
               {/* Row 2: Phone Number (with Country Code) & Project Type (2 columns) */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-4">
                 <div>
-                  <label className="block text-xs sm:text-sm font-bold text-slate-800 mb-1.5 whitespace-nowrap">
-                    {strings.phoneLabel}
-                  </label>
-                  <div className="relative flex rounded-xl border border-slate-200 bg-slate-50/50 focus-within:ring-2 focus-within:ring-indigo-600/30 focus-within:border-indigo-600 transition-all">
+                  <div className="flex items-center justify-between mb-1.5">
+                    <label className="block text-xs sm:text-sm font-bold text-slate-800 whitespace-nowrap">
+                      {strings.phoneLabel}
+                    </label>
+                    {/* Live digit counter indicator */}
+                    <span className={`text-[11px] font-semibold tracking-tight transition-colors ${
+                      phone.length >= (selectedCountry.minDigits || 8)
+                        ? 'text-emerald-600 font-bold'
+                        : phone.length > 0
+                        ? 'text-amber-600'
+                        : 'text-slate-400'
+                    }`}>
+                      {phone.length}/{selectedCountry.minDigits === selectedCountry.maxDigits ? selectedCountry.minDigits : `${selectedCountry.minDigits}-${selectedCountry.maxDigits}`} digits
+                    </span>
+                  </div>
+
+                  <div className={`relative flex rounded-xl border bg-slate-50/50 transition-all ${
+                    phoneError 
+                      ? 'border-red-500 focus-within:ring-2 focus-within:ring-red-500/20' 
+                      : 'border-slate-200 focus-within:ring-2 focus-within:ring-indigo-600/30 focus-within:border-indigo-600'
+                  }`}>
                     
                     {/* Country Code Trigger Button */}
                     <div className="relative shrink-0" ref={countryDropdownRef}>
@@ -270,7 +356,7 @@ export default function CreateVideoModal({ isOpen, onClose, initialService }) {
 
                       {/* Dropdown Popover */}
                       {isCountryDropdownOpen && (
-                        <div className="absolute top-full left-0 mt-1.5 w-60 sm:w-64 max-h-56 overflow-y-auto rounded-2xl border border-slate-200 bg-white p-1.5 shadow-2xl z-50 animate-in fade-in-50 zoom-in-95 duration-150">
+                        <div className="absolute top-full left-0 mt-1.5 w-64 max-h-56 overflow-y-auto rounded-2xl border border-slate-200 bg-white p-1.5 shadow-2xl z-50 animate-in fade-in-50 zoom-in-95 duration-150">
                           <div className="space-y-0.5">
                             {countryList.map((c) => {
                               const isSelected = selectedCountry.code === c.code;
@@ -278,10 +364,7 @@ export default function CreateVideoModal({ isOpen, onClose, initialService }) {
                                 <button
                                   key={c.code}
                                   type="button"
-                                  onClick={() => {
-                                    setSelectedCountry(c);
-                                    setIsCountryDropdownOpen(false);
-                                  }}
+                                  onClick={() => handleSelectCountry(c)}
                                   className={`w-full flex items-center justify-between px-3 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-colors cursor-pointer ${
                                     isSelected 
                                       ? 'bg-indigo-50 text-indigo-700 font-bold' 
@@ -294,9 +377,12 @@ export default function CreateVideoModal({ isOpen, onClose, initialService }) {
                                     </span>
                                     <span className="truncate">{c.name}</span>
                                   </div>
-                                  <span className="text-slate-500 font-bold text-xs ml-2 shrink-0">
-                                    {c.dialCode}
-                                  </span>
+                                  <div className="flex items-center gap-1.5 ml-2 shrink-0">
+                                    <span className="text-[10px] text-slate-400 font-medium">({c.minDigits} dig)</span>
+                                    <span className="text-slate-700 font-bold text-xs">
+                                      {c.dialCode}
+                                    </span>
+                                  </div>
                                 </button>
                               );
                             })}
@@ -305,16 +391,22 @@ export default function CreateVideoModal({ isOpen, onClose, initialService }) {
                       )}
                     </div>
 
-                    {/* Phone Number Input */}
+                    {/* Phone Number Input (Strictly Numeric) */}
                     <input
                       type="tel"
+                      inputMode="numeric"
+                      pattern="[0-9]*"
                       required
                       value={phone}
-                      onChange={(e) => setPhone(e.target.value)}
-                      placeholder={strings.phonePlaceholder}
+                      onChange={handlePhoneChange}
+                      placeholder={selectedCountry.placeholder || strings.phonePlaceholder}
+                      maxLength={selectedCountry.maxDigits || 12}
                       className="w-full bg-transparent px-3 py-2.5 sm:py-3 text-slate-900 placeholder:text-slate-400 text-sm focus:outline-none rounded-r-xl"
                     />
                   </div>
+                  {phoneError && (
+                    <p className="mt-1 text-xs text-red-600 font-medium">{phoneError}</p>
+                  )}
                 </div>
 
                 <div>
