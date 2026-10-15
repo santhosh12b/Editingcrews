@@ -8,6 +8,8 @@ export default function CreateVideoModal({ isOpen, onClose, initialService }) {
   
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
+  const [phone, setPhone] = useState('');
+  const [countryCode, setCountryCode] = useState('+49');
   const [projectType, setProjectType] = useState(initialService || '');
   const [duration, setDuration] = useState(1);
   const [description, setDescription] = useState('');
@@ -36,6 +38,11 @@ export default function CreateVideoModal({ isOpen, onClose, initialService }) {
   const handleClose = () => {
     setIsSubmitting(false);
     setIsSuccess(false);
+    setName('');
+    setEmail('');
+    setPhone('');
+    setCountryCode('+49');
+    setDescription('');
     onClose();
   };
 
@@ -52,12 +59,18 @@ export default function CreateVideoModal({ isOpen, onClose, initialService }) {
       minute: '2-digit'
     });
 
+    const fullPhone = phone.trim() ? `${countryCode} ${phone.trim()}` : '';
+
     const payload = {
       date: formattedDate,
       name: name.trim(),
       email: email.trim(),
+      phone: fullPhone,
+      phoneNumber: fullPhone,
+      countryCode: countryCode,
       projectType: projectType || (currentLang === 'de' ? 'Allgemeine Anfrage' : 'General Enquiry'),
       duration: duration || 1,
+      totalPrice: `€${calculatedTotal}`,
       description: description.trim()
     };
 
@@ -97,6 +110,8 @@ export default function CreateVideoModal({ isOpen, onClose, initialService }) {
     namePlaceholder: "e.g. Elena Rostova",
     emailLabel: isGerman ? "E-Mail-Adresse *" : "Email Address *",
     emailPlaceholder: "name@company.com",
+    phoneLabel: isGerman ? "Telefonnummer / WhatsApp *" : "Phone Number / WhatsApp *",
+    phonePlaceholder: isGerman ? "0170 1234567" : "170 1234567",
     projectTypeLabel: isGerman ? "Projekttyp" : "Project Type",
     projectTypePlaceholder: isGerman ? "Videokategorie auswählen" : "Select a video category",
     durationLabel: isGerman ? "Zieldauer (Minuten)" : "Target Duration (minutes)",
@@ -131,13 +146,13 @@ export default function CreateVideoModal({ isOpen, onClose, initialService }) {
       <div className="absolute inset-0" onClick={handleClose}></div>
 
       {/* Modal Dialog Card */}
-      <div className="relative z-10 w-full max-w-[620px] rounded-3xl border border-slate-200/90 bg-white p-6 sm:p-8 md:p-9 shadow-2xl text-slate-900 overflow-hidden max-h-[92vh] overflow-y-auto">
+      <div className="relative z-10 w-full max-w-[620px] rounded-3xl border border-slate-200/90 bg-white p-5 sm:p-8 md:p-9 shadow-2xl text-slate-900 overflow-hidden max-h-[92vh] overflow-y-auto">
         
         {/* Close Button (Circular, matching screenshot) */}
         <button
           type="button"
           onClick={handleClose}
-          className="absolute top-5 right-5 sm:top-6 sm:right-6 w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-500 hover:text-slate-800 flex items-center justify-center transition-colors z-20 focus:outline-none"
+          className="absolute top-4 right-4 sm:top-6 sm:right-6 w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-500 hover:text-slate-800 flex items-center justify-center transition-colors z-20 focus:outline-none"
           aria-label="Close modal"
         >
           <X className="w-4 h-4 stroke-[2.5]" />
@@ -146,8 +161,8 @@ export default function CreateVideoModal({ isOpen, onClose, initialService }) {
         {!isSuccess ? (
           <div>
             {/* Modal Header */}
-            <div className="pr-10 mb-6">
-              <h3 className="text-2xl sm:text-[26px] font-extrabold text-slate-900 tracking-tight font-heading mb-1.5">
+            <div className="pr-10 mb-5 sm:mb-6">
+              <h3 className="text-xl sm:text-2xl md:text-[26px] font-extrabold text-slate-900 tracking-tight font-heading mb-1.5">
                 {strings.title}
               </h3>
               <p className="text-xs sm:text-sm text-slate-500 leading-relaxed">
@@ -156,10 +171,10 @@ export default function CreateVideoModal({ isOpen, onClose, initialService }) {
             </div>
 
             {/* Form */}
-            <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-5">
+            <form onSubmit={handleSubmit} className="space-y-3.5 sm:space-y-4">
               
               {/* Row 1: Your Name & Email Address (2 columns) */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-4">
                 <div>
                   <label className="block text-xs sm:text-sm font-bold text-slate-800 mb-1.5">
                     {strings.nameLabel}
@@ -189,8 +204,48 @@ export default function CreateVideoModal({ isOpen, onClose, initialService }) {
                 </div>
               </div>
 
-              {/* Row 2: Project Type & Target Duration (2 columns) */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {/* Row 2: Phone Number (with Country Code) & Project Type (2 columns) */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-4">
+                <div>
+                  <label className="block text-xs sm:text-sm font-bold text-slate-800 mb-1.5">
+                    {strings.phoneLabel}
+                  </label>
+                  <div className="flex rounded-xl border border-slate-200 bg-slate-50/50 focus-within:ring-2 focus-within:ring-indigo-600/30 focus-within:border-indigo-600 transition-all overflow-hidden">
+                    <select
+                      value={countryCode}
+                      onChange={(e) => setCountryCode(e.target.value)}
+                      className="bg-transparent border-r border-slate-200 px-2 sm:px-2.5 py-2.5 sm:py-3 text-xs sm:text-sm font-bold text-slate-800 focus:outline-none cursor-pointer shrink-0"
+                      aria-label="Country Code"
+                    >
+                      <option value="+49">🇩🇪 +49 (DE)</option>
+                      <option value="+43">🇦🇹 +43 (AT)</option>
+                      <option value="+41">🇨🇭 +41 (CH)</option>
+                      <option value="+44">🇬🇧 +44 (UK)</option>
+                      <option value="+1">🇺🇸 +1 (US)</option>
+                      <option value="+33">🇫🇷 +33 (FR)</option>
+                      <option value="+34">🇪🇸 +34 (ES)</option>
+                      <option value="+39">🇮🇹 +39 (IT)</option>
+                      <option value="+31">🇳🇱 +31 (NL)</option>
+                      <option value="+48">🇵🇱 +48 (PL)</option>
+                      <option value="+32">🇧🇪 +32 (BE)</option>
+                      <option value="+46">🇸🇪 +46 (SE)</option>
+                      <option value="+47">🇳🇴 +47 (NO)</option>
+                      <option value="+45">🇩🇰 +45 (DK)</option>
+                      <option value="+358">🇫🇮 +358 (FI)</option>
+                      <option value="+91">🇮🇳 +91 (IN)</option>
+                      <option value="+971">🇦🇪 +971 (AE)</option>
+                    </select>
+                    <input
+                      type="tel"
+                      required
+                      value={phone}
+                      onChange={(e) => setPhone(e.target.value)}
+                      placeholder={strings.phonePlaceholder}
+                      className="w-full bg-transparent px-3 py-2.5 sm:py-3 text-slate-900 placeholder:text-slate-400 text-sm focus:outline-none"
+                    />
+                  </div>
+                </div>
+
                 <div>
                   <label className="block text-xs sm:text-sm font-bold text-slate-800 mb-1.5">
                     {strings.projectTypeLabel}
@@ -208,7 +263,10 @@ export default function CreateVideoModal({ isOpen, onClose, initialService }) {
                     ))}
                   </select>
                 </div>
+              </div>
 
+              {/* Row 3: Target Duration & Estimated Total (2 columns) */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-4 items-center">
                 <div>
                   <label className="block text-xs sm:text-sm font-bold text-slate-800 mb-1.5">
                     {strings.durationLabel}
@@ -222,16 +280,20 @@ export default function CreateVideoModal({ isOpen, onClose, initialService }) {
                     className="w-full px-3.5 py-2.5 sm:px-4 sm:py-3 rounded-xl border border-slate-200 bg-slate-50/50 text-slate-900 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-600/30 focus:border-indigo-600 transition-all"
                   />
                 </div>
-              </div>
 
-              {/* Row 3: Estimated Total Highlight Box (Styled in Brand Indigo instead of orange) */}
-              <div className="rounded-2xl border border-indigo-100 bg-indigo-50/70 p-4 sm:p-4.5 flex items-center justify-between transition-colors">
-                <span className="text-xs sm:text-sm font-bold text-slate-700">
-                  {strings.estimatedTotalLabel}
-                </span>
-                <span className="text-xl sm:text-2xl font-black text-indigo-600 font-heading tracking-tight">
-                  €{calculatedTotal}
-                </span>
+                <div>
+                  <span className="block text-xs sm:text-sm font-bold text-transparent select-none mb-1.5 hidden sm:block">
+                    Total
+                  </span>
+                  <div className="rounded-xl border border-indigo-100 bg-indigo-50/80 px-3.5 py-2.5 sm:py-3 flex items-center justify-between transition-colors">
+                    <span className="text-xs sm:text-sm font-bold text-slate-700">
+                      {strings.estimatedTotalLabel}
+                    </span>
+                    <span className="text-lg sm:text-xl font-black text-indigo-600 font-heading tracking-tight">
+                      €{calculatedTotal}
+                    </span>
+                  </div>
+                </div>
               </div>
 
               {/* Row 4: Tell us about your product or idea (Textarea) */}
