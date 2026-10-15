@@ -9,7 +9,6 @@
  *    - Click the Edit (pencil) icon next to your active Web app deployment
  *    - In "Version", select "New version" (Neue Version)
  *    - Click "Deploy" (Bereitstellen)
- *    (Or click "New deployment" -> Web app -> Anyone can access -> Deploy)
  */
 
 function doPost(e) {
@@ -35,8 +34,6 @@ function doPost(e) {
     var phone = (data.phone || data.phoneNumber || data["Phone / WhatsApp"] || "").toString().trim();
     var projectType = (data.projectType || data["Project Type"] || "General Enquiry").toString().trim();
     var duration = data.duration || data["Target Duration (minutes)"] || 1;
-    var description = (data.description || data["Tell us about your product or idea"] || "").toString().trim();
-    var totalPrice = data.totalPrice || ("€" + ((parseInt(duration) || 1) * 69));
 
     // Prefix phone with a single quote so Google Sheets stores +49... as text instead of a formula
     var formattedPhone = phone ? ("'" + phone.replace(/^'+/, '')) : "";
@@ -45,15 +42,14 @@ function doPost(e) {
     var lastRow = sheet.getLastRow();
 
     if (lastRow === 0 || lastCol === 0) {
-      // Sheet is completely empty, create default 7 headers matching client requirements
+      // Sheet is completely empty, create default 6 headers
       var defaultHeaders = [
         "Date",
         "Your Name",
         "Email Address *",
         "Phone / WhatsApp",
         "Project Type",
-        "Target Duration (minutes)",
-        "Tell us about your product or idea"
+        "Target Duration (minutes)"
       ];
       sheet.appendRow(defaultHeaders);
       
@@ -71,8 +67,7 @@ function doPost(e) {
         email,
         formattedPhone,
         projectType,
-        duration,
-        description
+        duration
       ]);
     } else {
       // Smart Header-to-Column Mapping based on existing Row 1 headers
@@ -94,12 +89,8 @@ function doPost(e) {
           newRow[i] = projectType;
         } else if (header.indexOf("duration") !== -1 || header.indexOf("dauer") !== -1 || header.indexOf("minute") !== -1) {
           newRow[i] = duration;
-        } else if (header.indexOf("idea") !== -1 || header.indexOf("idee") !== -1 || header.indexOf("product") !== -1 || header.indexOf("tell us") !== -1 || header.indexOf("beschreibung") !== -1 || header.indexOf("description") !== -1) {
-          newRow[i] = description;
-        } else if (header.indexOf("total") !== -1 || header.indexOf("price") !== -1 || header.indexOf("preis") !== -1) {
-          newRow[i] = totalPrice;
         } else {
-          newRow[i] = data[headerValues[i]] || "";
+          newRow[i] = "";
         }
       }
 

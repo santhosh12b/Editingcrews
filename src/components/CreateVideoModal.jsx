@@ -37,7 +37,6 @@ export default function CreateVideoModal({ isOpen, onClose, initialService }) {
   const [isCountryDropdownOpen, setIsCountryDropdownOpen] = useState(false);
   const [projectType, setProjectType] = useState(initialService || '');
   const [duration, setDuration] = useState(1);
-  const [description, setDescription] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
 
@@ -83,7 +82,6 @@ export default function CreateVideoModal({ isOpen, onClose, initialService }) {
     setPhoneError('');
     setSelectedCountry(countryList[0]);
     setIsCountryDropdownOpen(false);
-    setDescription('');
     onClose();
   };
 
@@ -150,13 +148,10 @@ export default function CreateVideoModal({ isOpen, onClose, initialService }) {
       "Email Address *": email.trim(),
       "Project Type": projectType || (currentLang === 'de' ? 'Allgemeine Anfrage' : 'General Enquiry'),
       "Target Duration (minutes)": duration || 1,
-      "Tell us about your product or idea": description.trim(),
       countryCode: selectedCountry.dialCode,
       country: selectedCountry.code,
       projectType: projectType || (currentLang === 'de' ? 'Allgemeine Anfrage' : 'General Enquiry'),
-      duration: duration || 1,
-      totalPrice: `€${calculatedTotal}`,
-      description: description.trim()
+      duration: duration || 1
     };
 
     // Send to Google Sheets asynchronously in background so user gets instant 1-second response
@@ -180,8 +175,6 @@ export default function CreateVideoModal({ isOpen, onClose, initialService }) {
     setIsSuccess(true);
   };
 
-  const calculatedTotal = (parseInt(duration) || 1) * 69;
-
   // Localized texts based on current language
   const isGerman = currentLang === 'de';
 
@@ -199,11 +192,6 @@ export default function CreateVideoModal({ isOpen, onClose, initialService }) {
     projectTypeLabel: isGerman ? "Projekttyp" : "Project Type",
     projectTypePlaceholder: isGerman ? "Videokategorie auswählen" : "Select a video category",
     durationLabel: isGerman ? "Zieldauer (Minuten)" : "Target Duration (minutes)",
-    estimatedTotalLabel: isGerman ? "Geschätzte Gesamtsumme (@ 69 €/Min.):" : "Estimated Total (@ €69/min):",
-    descLabel: isGerman ? "Erzählen Sie uns von Ihrem Produkt oder Ihrer Idee" : "Tell us about your product or idea",
-    descPlaceholder: isGerman 
-      ? "Beschreiben Sie das Produkt, die gewünschte Stimmung, Ihr Branding oder konkrete Szenen, die Sie sich vorstellen..."
-      : "Tell us about the product, mood, branding, or specific scenes you envision...",
     submitBtn: isGerman ? "Projektanfrage absenden" : "Submit Project Enquiry",
     submitting: isGerman ? "Wird gesendet..." : "Submitting Enquiry...",
     successTitle: isGerman ? "Vielen Dank für Ihre Anfrage!" : "Enquiry Received Successfully!",
@@ -410,49 +398,19 @@ export default function CreateVideoModal({ isOpen, onClose, initialService }) {
                 </div>
               </div>
 
-              {/* Row 3: Target Duration & Estimated Total (2 columns) */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-4 items-center">
-                <div>
-                  <label className="block text-xs sm:text-sm font-bold text-slate-800 mb-1.5">
-                    {strings.durationLabel}
-                  </label>
-                  <input
-                    type="number"
-                    min="1"
-                    max="60"
-                    value={duration}
-                    onChange={(e) => setDuration(Math.max(1, parseInt(e.target.value) || 1))}
-                    className="w-full px-3.5 py-2.5 sm:px-4 sm:py-3 rounded-xl border border-slate-200 bg-slate-50/50 text-slate-900 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-600/30 focus:border-indigo-600 transition-all"
-                  />
-                </div>
-
-                <div>
-                  <span className="block text-xs sm:text-sm font-bold text-transparent select-none mb-1.5 hidden sm:block">
-                    Total
-                  </span>
-                  <div className="rounded-xl border border-indigo-100 bg-indigo-50/80 px-3.5 py-2.5 sm:py-3 flex items-center justify-between transition-colors">
-                    <span className="text-xs sm:text-sm font-bold text-slate-700">
-                      {strings.estimatedTotalLabel}
-                    </span>
-                    <span className="text-lg sm:text-xl font-black text-indigo-600 font-heading tracking-tight">
-                      €{calculatedTotal}
-                    </span>
-                  </div>
-                </div>
-              </div>
-
-              {/* Row 4: Tell us about your product or idea (Textarea) */}
+              {/* Row 3: Target Duration (minutes) */}
               <div>
                 <label className="block text-xs sm:text-sm font-bold text-slate-800 mb-1.5">
-                  {strings.descLabel}
+                  {strings.durationLabel}
                 </label>
-                <textarea
-                  rows="3"
-                  value={description}
-                  onChange={(e) => setDescription(e.target.value)}
-                  placeholder={strings.descPlaceholder}
-                  className="w-full px-3.5 py-2.5 sm:px-4 sm:py-3 rounded-xl border border-slate-200 bg-slate-50/50 text-slate-900 placeholder:text-slate-400 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-600/30 focus:border-indigo-600 transition-all resize-none"
-                ></textarea>
+                <input
+                  type="number"
+                  min="1"
+                  max="60"
+                  value={duration}
+                  onChange={(e) => setDuration(Math.max(1, parseInt(e.target.value) || 1))}
+                  className="w-full px-3.5 py-2.5 sm:px-4 sm:py-3 rounded-xl border border-slate-200 bg-slate-50/50 text-slate-900 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-600/30 focus:border-indigo-600 transition-all"
+                />
               </div>
 
               {/* Row 5: Submit Project Enquiry Button (Brand Indigo instead of orange) */}
