@@ -1,7 +1,16 @@
 {
+  "cleanUrls": true,
   "rewrites": [
     {
-      "source": "/(.*)",
+      "source": "/singapore",
+      "destination": "/singapore/index.html"
+    },
+    {
+      "source": "/singapore/(.*)",
+      "destination": "/singapore/index.html"
+    },
+    {
+      "source": "/((?!assets/|fonts/|video/|logo\\.png|favicon\\.ico).*)",
       "destination": "/index.html"
     }
   ]

@@ -1,5 +1,6 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
+import { resolve } from 'path';
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -8,5 +9,12 @@ export default defineConfig({
     port: 5173,
     host: true
   },
-  // Reload trigger for tailwind theme update
+  build: {
+    rollupOptions: {
+      input: {
+        main: resolve(__dirname, 'index.html'),
+        singapore: resolve(__dirname, 'singapore/index.html')
+      }
+    }
+  }
 });
