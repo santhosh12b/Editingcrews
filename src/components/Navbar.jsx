@@ -4,7 +4,7 @@ import { useLanguage } from '../context/LanguageContext';
 
 export default function Navbar() {
   const [dropdownOpen, setDropdownOpen] = useState(false);
-  const { currentLang, setLanguage, languages, currentLanguageObj, isSingapore, navigateToMarket, priceFormatted } = useLanguage();
+  const { currentLang, setLanguage, languages, currentLanguageObj, isSingapore, isMalaysia, navigateToMarket, priceFormatted } = useLanguage();
   const dropdownRef = useRef(null);
 
   // Close dropdown when clicking outside
@@ -19,7 +19,9 @@ export default function Navbar() {
   }, []);
 
   const handleSelectLanguage = (code) => {
-    if (code === 'sg') {
+    if (code === 'my') {
+      navigateToMarket('malaysia');
+    } else if (code === 'sg') {
       navigateToMarket('singapore');
     } else {
       setLanguage(code);
@@ -39,10 +41,10 @@ export default function Navbar() {
           
           {/* Logo */}
           <a 
-            href={isSingapore ? "/singapore" : "/"} 
+            href={isMalaysia ? "/malaysia" : (isSingapore ? "/singapore" : "/")} 
             onClick={(e) => {
               e.preventDefault();
-              navigateToMarket(isSingapore ? 'singapore' : 'global');
+              navigateToMarket(isMalaysia ? 'malaysia' : (isSingapore ? 'singapore' : 'global'));
             }}
             className="flex items-center space-x-2.5 sm:space-x-3 group"
           >
@@ -57,6 +59,11 @@ export default function Navbar() {
             >
               The Editing Crew
             </span>
+            {isMalaysia && (
+              <span className="ml-1 text-[10px] sm:text-xs font-extrabold uppercase tracking-wider bg-amber-100 text-amber-900 px-2 py-0.5 rounded-full border border-amber-300">
+                Malaysia
+              </span>
+            )}
             {isSingapore && (
               <span className="ml-1 text-[10px] sm:text-xs font-extrabold uppercase tracking-wider bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded-full border border-emerald-300">
                 Singapore
@@ -75,7 +82,7 @@ export default function Navbar() {
             >
               <Globe className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-slate-800 shrink-0" />
               <span className="font-extrabold tracking-wide">
-                {isSingapore ? '🇸🇬 SG · S$94' : `🇪🇺 ${currentLanguageObj.short}`}
+                {isMalaysia ? '🇲🇾 MY · RM299' : (isSingapore ? '🇸🇬 SG · S$94' : `🇪🇺 ${currentLanguageObj.short}`)}
               </span>
               <ChevronDown 
                 className={`w-3.5 h-3.5 text-slate-800 transition-transform duration-200 ${
@@ -96,6 +103,22 @@ export default function Navbar() {
                 <div className="space-y-0.5 mb-2">
                   <button
                     type="button"
+                    onClick={() => handleSwitchMarket('malaysia')}
+                    className={`w-full flex items-center justify-between px-3 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-colors cursor-pointer ${
+                      isMalaysia
+                        ? 'bg-amber-50 text-amber-900 font-bold border border-amber-200'
+                        : 'text-slate-700 hover:bg-slate-50 hover:text-slate-900'
+                    }`}
+                  >
+                    <span className="flex items-center gap-2">
+                      <span className="text-base">🇲🇾</span>
+                      <span>Malaysia (RM299/min)</span>
+                    </span>
+                    {isMalaysia && <Check className="w-4 h-4 text-amber-800 stroke-[2.5]" />}
+                  </button>
+
+                  <button
+                    type="button"
                     onClick={() => handleSwitchMarket('singapore')}
                     className={`w-full flex items-center justify-between px-3 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-colors cursor-pointer ${
                       isSingapore
@@ -114,7 +137,7 @@ export default function Navbar() {
                     type="button"
                     onClick={() => handleSwitchMarket('global')}
                     className={`w-full flex items-center justify-between px-3 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-colors cursor-pointer ${
-                      !isSingapore
+                      !isSingapore && !isMalaysia
                         ? 'bg-emerald-50 text-emerald-800 font-bold border border-emerald-200'
                         : 'text-slate-700 hover:bg-slate-50 hover:text-slate-900'
                     }`}
@@ -123,7 +146,7 @@ export default function Navbar() {
                       <span className="text-base">🇪🇺</span>
                       <span>Europe (69 €/min)</span>
                     </span>
-                    {!isSingapore && <Check className="w-4 h-4 text-emerald-800 stroke-[2.5]" />}
+                    {!isSingapore && !isMalaysia && <Check className="w-4 h-4 text-emerald-800 stroke-[2.5]" />}
                   </button>
                 </div>
 
@@ -136,9 +159,9 @@ export default function Navbar() {
 
                 <div className="space-y-0.5">
                   {languages
-                    .filter(l => l.code !== 'sg') // sg is selected via Singapore region above
+                    .filter(l => l.code !== 'sg' && l.code !== 'my') // sg and my are selected via region options above
                     .map((lang) => {
-                      const isSelected = !isSingapore && currentLang === lang.code;
+                      const isSelected = !isSingapore && !isMalaysia && currentLang === lang.code;
                       return (
                         <button
                           key={lang.code}

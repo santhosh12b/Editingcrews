@@ -120,6 +120,7 @@ export const aiVideosList = [
       de: "Nur 69 €/Min.",
       en: "Just €69/Min.",
       sg: "Just S$94/Min.",
+      my: "Just RM299/Min.",
       fr: "Dès 69 €/Min.",
       es: "Solo 69 €/Min.",
       it: "Solo 69 €/Min."
@@ -127,6 +128,8 @@ export const aiVideosList = [
     benefit: {
       de: "Europaweite Reichweite",
       en: "European Reach",
+      sg: "APAC & Regional Reach",
+      my: "Regional & Malaysia Reach",
       fr: "Portée européenne",
       es: "Alcance europeo",
       it: "Portata europea"
@@ -216,6 +219,7 @@ export default function ValuePropositionSection({ onOpenVideoModal }) {
 }
 
 function VideoPhoneCard({ item, index, currentLang, onOpenModal }) {
+  const { rateText } = useLanguage();
   const videoRef = useRef(null);
 
   const title = item.title[currentLang] || item.title.en;
@@ -276,7 +280,7 @@ function VideoPhoneCard({ item, index, currentLang, onOpenModal }) {
           {badge}
         </span>
         <span className="text-[10px] sm:text-xs font-extrabold text-white/90 bg-black/40 backdrop-blur-md px-2 py-0.5 rounded-md">
-          {item.rate}
+          {rateText || item.rate}
         </span>
       </div>
 
@@ -460,6 +464,7 @@ function Mobile3DVideoCarousel({ items, currentLang, onOpenModal }) {
 }
 
 function Mobile3DCard({ item, diff, isActive, currentLang, onClickCard }) {
+  const { rateText } = useLanguage();
   const videoRef = useRef(null);
 
   const title = item.title[currentLang] || item.title.en;
@@ -557,7 +562,7 @@ function Mobile3DCard({ item, diff, isActive, currentLang, onClickCard }) {
           {badge}
         </span>
         <span className="text-[10px] font-extrabold text-white/90 bg-black/50 backdrop-blur-md px-1.5 py-0.5 rounded-md">
-          {item.rate}
+          {rateText || item.rate}
         </span>
       </div>
 

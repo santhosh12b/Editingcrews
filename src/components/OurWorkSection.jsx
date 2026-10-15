@@ -136,6 +136,7 @@ export const portfolioVideos = [
       de: "Nur 69 €/Min.",
       en: "Just €69/Min.",
       sg: "Just S$94/Min.",
+      my: "Just RM299/Min.",
       fr: "Dès 69 €/Min.",
       es: "Solo 69 €/Min.",
       it: "Solo 69 €/Min."
@@ -143,6 +144,8 @@ export const portfolioVideos = [
     benefit: {
       de: "Europaweite Reichweite",
       en: "European Reach",
+      sg: "APAC & Regional Reach",
+      my: "Regional & Malaysia Reach",
       fr: "Portée européenne",
       es: "Alcance europeo",
       it: "Portata europea"
@@ -242,7 +245,11 @@ export default function OurWorkSection({ onOpenVideoModal, onOpenInquiryModal })
               <p className="text-slate-300 text-xs sm:text-sm mt-1 sm:mt-1.5 leading-relaxed">
                 {currentLang === 'de' 
                   ? "Starten Sie Ihre professionelle KI-Videoproduktion ab 69 €/Minute – fertig in 48–72 Stunden."
-                  : "Launch your professional AI video production from €69/minute — delivered in 48–72 hours."}
+                  : (currentLang === 'my'
+                    ? "Launch your professional AI video production from RM299/minute — delivered in 48–72 hours."
+                    : (currentLang === 'sg'
+                      ? "Launch your professional AI video production from S$94/minute — delivered in 48–72 hours."
+                      : "Launch your professional AI video production from €69/minute — delivered in 48–72 hours."))}
               </p>
             </div>
           </div>
@@ -264,6 +271,7 @@ export default function OurWorkSection({ onOpenVideoModal, onOpenInquiryModal })
 }
 
 function PortfolioVideoCard({ item, currentLang, onOpenModal }) {
+  const { rateText } = useLanguage();
   const videoRef = useRef(null);
 
   const title = item.title[currentLang] || item.title.en;
@@ -323,7 +331,7 @@ function PortfolioVideoCard({ item, currentLang, onOpenModal }) {
           {badge}
         </span>
         <span className="text-[10px] sm:text-xs font-extrabold text-white/90 bg-black/50 backdrop-blur-md px-2 py-0.5 rounded-md">
-          {item.rate}
+          {rateText || item.rate}
         </span>
       </div>
 
@@ -351,6 +359,7 @@ function PortfolioVideoCard({ item, currentLang, onOpenModal }) {
 }
 
 function Mobile3DPortfolioCarousel({ items, currentLang, onOpenModal }) {
+  const { rateText } = useLanguage();
   const [activeIndex, setActiveIndex] = useState(0);
   const touchStartX = useRef(0);
   const touchStartY = useRef(0);
@@ -486,7 +495,7 @@ function Mobile3DPortfolioCarousel({ items, currentLang, onOpenModal }) {
                     {badge}
                   </span>
                   <span className="text-[10px] font-extrabold text-white/90 bg-black/50 px-2 py-0.5 rounded-md">
-                    {item.rate}
+                    {rateText || item.rate}
                   </span>
                 </div>
 

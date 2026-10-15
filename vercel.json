@@ -10,6 +10,14 @@
       "destination": "/singapore/index.html"
     },
     {
+      "source": "/malaysia",
+      "destination": "/malaysia/index.html"
+    },
+    {
+      "source": "/malaysia/(.*)",
+      "destination": "/malaysia/index.html"
+    },
+    {
       "source": "/((?!assets/|fonts/|video/|logo\\.png|favicon\\.ico).*)",
       "destination": "/index.html"
     }

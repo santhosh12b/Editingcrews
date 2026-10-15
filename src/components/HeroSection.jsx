@@ -20,6 +20,9 @@ const trustText = {
   sg: {
     highlight: "100+ Brands in Singapore trust us"
   },
+  my: {
+    highlight: "100+ Brands in Malaysia trust us"
+  },
   fr: {
     highlight: "Approuvé par 100+ utilisateurs"
   },
@@ -34,14 +37,14 @@ const trustText = {
 export default function HeroSection({ onOpenShowreel, onOpenInquiryModal }) {
   const { currentLang, t } = useLanguage();
   const hero = t.hero;
-  const trust = trustText[currentLang] || (currentLang === 'sg' ? trustText.sg : trustText.en);
+  const trust = trustText[currentLang] || (currentLang === 'my' ? trustText.my : (currentLang === 'sg' ? trustText.sg : trustText.en));
 
-  // Ensure pricing tokens (e.g. "S$94/Minute." or "69 €/Minute.") stay atomically together and never wrap separately
+  // Ensure pricing tokens (e.g. "RM299/Minute.", "S$94/Minute." or "69 €/Minute.") stay atomically together and never wrap separately
   const renderHeadline = (text) => {
     if (!text || typeof text !== 'string') return text;
 
-    // Matches Singapore, German, French, Spanish, Italian, and English price phrases
-    const priceRegex = /(S\$[\s\u00A0]*94[\s\u00A0]*\/[\s\u00A0]*Minute\.?|94[\s\u00A0]*SGD[\s\u00A0]*\/[\s\u00A0]*Minute\.?|69[\s\u00A0]*€[\s\u00A0]*\/[\s\u00A0]*Minute\.?|€[\s\u00A0]*69[\s\u00A0]*\/[\s\u00A0]*Minute\.?|69[\s\u00A0]*€[\s\u00A0]*\/[\s\u00A0]*minute\.?|69[\s\u00A0]*€[\s\u00A0]*\/[\s\u00A0]*minuto\.?)/i;
+    // Matches Malaysia, Singapore, German, French, Spanish, Italian, and English price phrases
+    const priceRegex = /(RM[\s\u00A0]*299[\s\u00A0]*\/[\s\u00A0]*Minute\.?|299[\s\u00A0]*MYR[\s\u00A0]*\/[\s\u00A0]*Minute\.?|299[\s\u00A0]*Ringgit[\s\u00A0]*\/[\s\u00A0]*Minute\.?|S\$[\s\u00A0]*94[\s\u00A0]*\/[\s\u00A0]*Minute\.?|94[\s\u00A0]*SGD[\s\u00A0]*\/[\s\u00A0]*Minute\.?|69[\s\u00A0]*€[\s\u00A0]*\/[\s\u00A0]*Minute\.?|€[\s\u00A0]*69[\s\u00A0]*\/[\s\u00A0]*Minute\.?|69[\s\u00A0]*€[\s\u00A0]*\/[\s\u00A0]*minute\.?|69[\s\u00A0]*€[\s\u00A0]*\/[\s\u00A0]*minuto\.?)/i;
     const match = text.match(priceRegex);
 
     if (match) {

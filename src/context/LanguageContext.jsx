@@ -3,26 +3,31 @@ import { translations, languages } from '../data/translations';
 
 const LanguageContext = createContext();
 
-const checkIsSingaporePath = () => {
-  if (typeof window === 'undefined') return false;
+const getMarketFromPath = () => {
+  if (typeof window === 'undefined') return 'global';
   const path = window.location.pathname.toLowerCase();
-  return path.startsWith('/singapore') || path === '/sg';
+  if (path.startsWith('/singapore') || path === '/sg') return 'singapore';
+  if (path.startsWith('/malaysia') || path === '/my') return 'malaysia';
+  return 'global';
 };
 
 export function LanguageProvider({ children }) {
-  const [isSingapore, setIsSingapore] = useState(checkIsSingaporePath);
+  const [market, setMarket] = useState(getMarketFromPath);
+
+  const isSingapore = market === 'singapore';
+  const isMalaysia = market === 'malaysia';
 
   const [currentLang, setCurrentLang] = useState(() => {
-    if (checkIsSingaporePath()) {
-      return 'sg';
-    }
+    const currentMarket = getMarketFromPath();
+    if (currentMarket === 'singapore') return 'sg';
+    if (currentMarket === 'malaysia') return 'my';
 
     try {
       localStorage.removeItem('editing_crew_lang');
     } catch (e) {}
 
     const saved = localStorage.getItem('editing_crew_lang_v2');
-    if (saved && saved !== 'sg' && translations[saved]) {
+    if (saved && saved !== 'sg' && saved !== 'my' && translations[saved]) {
       return saved;
     }
     // Default language for global / European root is German ('de')
@@ -32,13 +37,15 @@ export function LanguageProvider({ children }) {
   // Listen to popstate (back/forward navigation)
   useEffect(() => {
     const handlePopState = () => {
-      const isSg = checkIsSingaporePath();
-      setIsSingapore(isSg);
-      if (isSg) {
+      const currentMarket = getMarketFromPath();
+      setMarket(currentMarket);
+      if (currentMarket === 'singapore') {
         setCurrentLang('sg');
+      } else if (currentMarket === 'malaysia') {
+        setCurrentLang('my');
       } else {
         const saved = localStorage.getItem('editing_crew_lang_v2');
-        setCurrentLang(saved && saved !== 'sg' && translations[saved] ? saved : 'de');
+        setCurrentLang(saved && saved !== 'sg' && saved !== 'my' && translations[saved] ? saved : 'de');
       }
     };
     window.addEventListener('popstate', handlePopState);
@@ -47,46 +54,56 @@ export function LanguageProvider({ children }) {
 
   // Update HTML lang & document title
   useEffect(() => {
-    if (currentLang !== 'sg') {
+    if (currentLang !== 'sg' && currentLang !== 'my') {
       localStorage.setItem('editing_crew_lang_v2', currentLang);
     }
-    document.documentElement.lang = currentLang === 'sg' ? 'en' : currentLang;
+    document.documentElement.lang = (currentLang === 'sg' || currentLang === 'my') ? 'en' : currentLang;
 
-    if (isSingapore) {
+    if (isMalaysia) {
+      document.title = "The Editing Crew — AI Video Production & Video Editing Malaysia";
+    } else if (isSingapore) {
       document.title = "The Editing Crew — AI Video Production & Video Editing Singapore";
     } else {
       document.title = "The Editing Crew — Professionelle KI-Videoproduktion & Videoschnitt";
     }
-  }, [currentLang, isSingapore]);
+  }, [currentLang, isSingapore, isMalaysia]);
 
-  // Navigate between Singapore (/singapore) and Global/European (/)
+  // Navigate between Malaysia (/malaysia), Singapore (/singapore) and Global/European (/)
   const navigateToMarket = (targetMarket) => {
-    if (targetMarket === 'singapore') {
+    if (targetMarket === 'malaysia') {
+      if (window.location.pathname !== '/malaysia') {
+        window.history.pushState({}, '', '/malaysia');
+      }
+      setMarket('malaysia');
+      setCurrentLang('my');
+    } else if (targetMarket === 'singapore') {
       if (window.location.pathname !== '/singapore') {
         window.history.pushState({}, '', '/singapore');
       }
-      setIsSingapore(true);
+      setMarket('singapore');
       setCurrentLang('sg');
     } else {
       if (window.location.pathname !== '/') {
         window.history.pushState({}, '', '/');
       }
-      setIsSingapore(false);
+      setMarket('global');
       const saved = localStorage.getItem('editing_crew_lang_v2');
-      setCurrentLang(saved && saved !== 'sg' && translations[saved] ? saved : 'de');
+      setCurrentLang(saved && saved !== 'sg' && saved !== 'my' && translations[saved] ? saved : 'de');
     }
   };
 
-  const t = isSingapore 
-    ? (translations[currentLang] || translations.sg || translations.en)
-    : (translations[currentLang] || translations.de);
+  const t = isMalaysia
+    ? (translations[currentLang] || translations.my || translations.en)
+    : isSingapore 
+      ? (translations[currentLang] || translations.sg || translations.en)
+      : (translations[currentLang] || translations.de);
 
   const currentLanguageObj = languages.find(l => l.code === currentLang) || languages[0];
 
-  const currency = isSingapore ? 'S$' : '€';
-  const pricePerMinute = isSingapore ? 94 : 69;
-  const priceFormatted = isSingapore ? 'S$94' : '69 €';
-  const rateText = isSingapore ? 'S$94/Min.' : '69 €/Min.';
+  const currency = isMalaysia ? 'RM' : (isSingapore ? 'S$' : '€');
+  const pricePerMinute = isMalaysia ? 299 : (isSingapore ? 94 : 69);
+  const priceFormatted = isMalaysia ? 'RM299' : (isSingapore ? 'S$94' : '69 €');
+  const rateText = isMalaysia ? 'RM299/Min.' : (isSingapore ? 'S$94/Min.' : '69 €/Min.');
 
   return (
     <LanguageContext.Provider value={{ 
@@ -95,8 +112,10 @@ export function LanguageProvider({ children }) {
       t, 
       languages,
       currentLanguageObj,
+      market,
       isSingapore,
-      region: isSingapore ? 'singapore' : 'global',
+      isMalaysia,
+      region: market,
       currency,
       pricePerMinute,
       priceFormatted,

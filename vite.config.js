@@ -13,7 +13,8 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: resolve(__dirname, 'index.html'),
-        singapore: resolve(__dirname, 'singapore/index.html')
+        singapore: resolve(__dirname, 'singapore/index.html'),
+        malaysia: resolve(__dirname, 'malaysia/index.html')
       }
     }
   }

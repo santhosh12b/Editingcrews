@@ -4,6 +4,7 @@ import { useLanguage } from '../context/LanguageContext';
 import { GOOGLE_SHEETS_SCRIPT_URL } from '../config/googleSheets';
 
 const countryList = [
+  { code: 'MY', dialCode: '+60', name: 'Malaysia', minDigits: 9, maxDigits: 10, placeholder: '12 345 6789' },
   { code: 'SG', dialCode: '+65', name: 'Singapore', minDigits: 8, maxDigits: 8, placeholder: '8123 4567' },
   { code: 'DE', dialCode: '+49', name: 'Germany (Deutschland)', minDigits: 10, maxDigits: 10, placeholder: '170 1234567' },
   { code: 'AT', dialCode: '+43', name: 'Austria (Österreich)', minDigits: 10, maxDigits: 10, placeholder: '664 1234567' },
@@ -27,15 +28,19 @@ const countryList = [
 ];
 
 export default function CreateVideoModal({ isOpen, onClose, initialService }) {
-  const { currentLang, t, isSingapore } = useLanguage();
+  const { currentLang, t, isSingapore, isMalaysia } = useLanguage();
   
   const [name, setName] = useState('');
   const [nameError, setNameError] = useState('');
   const [email, setEmail] = useState('');
   const [selectedCountry, setSelectedCountry] = useState(() => {
-    return isSingapore 
-      ? countryList[0] 
-      : (countryList.find(c => c.code === 'DE') || countryList[1]);
+    if (isMalaysia) {
+      return countryList.find(c => c.code === 'MY') || countryList[0];
+    }
+    if (isSingapore) {
+      return countryList.find(c => c.code === 'SG') || countryList[1];
+    }
+    return countryList.find(c => c.code === 'DE') || countryList[2];
   });
   const [phone, setPhone] = useState('');
   const [phoneError, setPhoneError] = useState('');
@@ -49,13 +54,17 @@ export default function CreateVideoModal({ isOpen, onClose, initialService }) {
 
   // Sync default country if market changes
   useEffect(() => {
-    if (isSingapore) {
-      setSelectedCountry(countryList[0]);
+    if (isMalaysia) {
+      const my = countryList.find(c => c.code === 'MY');
+      if (my) setSelectedCountry(my);
+    } else if (isSingapore) {
+      const sg = countryList.find(c => c.code === 'SG');
+      if (sg) setSelectedCountry(sg);
     } else {
       const de = countryList.find(c => c.code === 'DE');
       if (de) setSelectedCountry(de);
     }
-  }, [isSingapore]);
+  }, [isSingapore, isMalaysia]);
 
   useEffect(() => {
     if (initialService) {
@@ -217,20 +226,23 @@ export default function CreateVideoModal({ isOpen, onClose, initialService }) {
   // Localized texts based on current language & region
   const isGerman = currentLang === 'de';
   const isSg = isSingapore || currentLang === 'sg';
+  const isMy = isMalaysia || currentLang === 'my';
 
   const strings = {
     title: isGerman ? "Starten Sie Ihr Videoprojekt" : "Start Your Video Project",
     subtitle: isGerman 
       ? "Erzählen Sie uns von Ihrem Produkt, Ihrer Dienstleistung oder Ihrer Idee. Wir verwandeln sie in ein überzeugendes Video für Ihr Unternehmen."
-      : (isSg 
-        ? "Tell us about your product, service or creative idea. We'll help turn it into a high-converting video for your brand in Singapore." 
-        : "Tell us about your product, service or creative idea. We'll help turn it into a compelling video for your business."),
+      : (isMy
+        ? "Tell us about your product, service or creative idea. We'll help turn it into a high-converting video for your brand in Malaysia."
+        : (isSg 
+          ? "Tell us about your product, service or creative idea. We'll help turn it into a high-converting video for your brand in Singapore." 
+          : "Tell us about your product, service or creative idea. We'll help turn it into a compelling video for your business.")),
     nameLabel: isGerman ? "Ihr Name *" : "Your Name *",
-    namePlaceholder: isSg ? "e.g. Rachel Tan" : (isGerman ? "z.B. Max Mustermann" : "e.g. Elena Rostova"),
+    namePlaceholder: isMy ? "e.g. Amir Hakim" : (isSg ? "e.g. Rachel Tan" : (isGerman ? "z.B. Max Mustermann" : "e.g. Elena Rostova")),
     emailLabel: isGerman ? "E-Mail-Adresse *" : "Email Address *",
     emailPlaceholder: "name@company.com",
     phoneLabel: isGerman ? "Telefon / WhatsApp *" : "Phone / WhatsApp *",
-    phonePlaceholder: isSg ? "8123 4567" : (isGerman ? "0170 1234567" : "170 1234567"),
+    phonePlaceholder: isMy ? "12 345 6789" : (isSg ? "8123 4567" : (isGerman ? "0170 1234567" : "170 1234567")),
     projectTypeLabel: isGerman ? "Projekttyp" : "Project Type",
     projectTypePlaceholder: isGerman ? "Videokategorie auswählen" : "Select a video category",
     durationLabel: isGerman ? "Zieldauer (Minuten)" : "Target Duration (minutes)",
@@ -239,9 +251,11 @@ export default function CreateVideoModal({ isOpen, onClose, initialService }) {
     successTitle: isGerman ? "Vielen Dank für Ihre Anfrage!" : "Enquiry Received Successfully!",
     successDesc: isGerman 
       ? `Danke, ${name || 'Kunde'}. Unser Produktionsteam wird sich innerhalb von 12 Stunden mit den ersten Vorschlägen bei Ihnen melden.`
-      : (isSg 
-        ? `Thank you, ${name || 'there'}. Our video production team in Singapore will reach out within 12 hours with script & storyboard previews.`
-        : `Thank you, ${name || 'there'}. Our video production directors will reach out within 12 hours with script & storyboard previews.`),
+      : (isMy
+        ? `Thank you, ${name || 'there'}. Our video production team in Malaysia will reach out within 12 hours with script & storyboard previews.`
+        : (isSg 
+          ? `Thank you, ${name || 'there'}. Our video production team in Singapore will reach out within 12 hours with script & storyboard previews.`
+          : `Thank you, ${name || 'there'}. Our video production directors will reach out within 12 hours with script & storyboard previews.`)),
     successClose: isGerman ? "Schließen" : "Close"
   };
 
