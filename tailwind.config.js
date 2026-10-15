@@ -19,6 +19,32 @@ export default {
     },
     extend: {
       colors: {
+        indigo: {
+          50: '#ecfdf5',
+          100: '#d1fae5',
+          200: '#a7f3d0',
+          300: '#6ee7b7',
+          400: '#34d399',
+          500: '#10b981',
+          600: '#078465', // Primary logo green from public/logo.png
+          700: '#056d53', // Hover dark green
+          800: '#045742',
+          900: '#033d2e',
+          950: '#01241b',
+        },
+        brand: {
+          50: '#ecfdf5',
+          100: '#d1fae5',
+          200: '#a7f3d0',
+          300: '#6ee7b7',
+          400: '#34d399',
+          500: '#10b981',
+          600: '#078465',
+          700: '#056d53',
+          800: '#045742',
+          900: '#033d2e',
+          DEFAULT: '#078465',
+        },
         border: 'hsl(var(--border) / <alpha-value>)',
         input: 'hsl(var(--input) / <alpha-value>)',
         ring: 'hsl(var(--ring) / <alpha-value>)',

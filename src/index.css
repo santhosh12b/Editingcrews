@@ -8,19 +8,19 @@
     --foreground: 222.2 84% 4.9%;
     --card: 0 0% 100%;
     --card-foreground: 222.2 84% 4.9%;
-    --primary: 243.4 75.4% 58.6%;
+    --primary: 165 90% 27.3%;
     --primary-foreground: 210 40% 98%;
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 160 84% 97%;
+    --secondary-foreground: 165 90% 20%;
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 160 84% 97%;
+    --accent-foreground: 165 90% 20%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 243.4 75.4% 58.6%;
+    --ring: 165 90% 27.3%;
     --radius: 0.75rem;
     --font-heading: 'Satoshi', sans-serif;
   }
@@ -51,9 +51,9 @@ h1, h2, h3, h4, .font-heading {
   animation-play-state: paused;
 }
 
-/* Subtle light mode glow & shadow utilities */
+/* Subtle light mode glow & shadow utilities matching brand logo */
 .glow-primary {
-  box-shadow: 0 10px 25px -5px rgba(79, 70, 229, 0.25);
+  box-shadow: 0 10px 25px -5px rgba(7, 132, 101, 0.3);
 }
 
 .glow-card {

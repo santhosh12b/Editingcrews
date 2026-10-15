@@ -31,7 +31,7 @@ const iconMap = {
 
 const colorStyles = {
   violet: {
-    iconBg: "bg-[#EEF0FF] text-[#5046E5]",
+    iconBg: "bg-[#ecfdf5] text-[#078465]",
     hoverBorder: "hover:border-indigo-200 hover:shadow-indigo-500/10"
   },
   rose: {
@@ -47,15 +47,15 @@ const colorStyles = {
     hoverBorder: "hover:border-amber-200 hover:shadow-amber-500/10"
   },
   blue: {
-    iconBg: "bg-[#EEF5FF] text-[#3B82F6]",
-    hoverBorder: "hover:border-blue-200 hover:shadow-blue-500/10"
+    iconBg: "bg-[#ecfdf5] text-[#078465]",
+    hoverBorder: "hover:border-indigo-200 hover:shadow-indigo-500/10"
   },
   pink: {
     iconBg: "bg-[#FFF0F5] text-[#EC4899]",
     hoverBorder: "hover:border-pink-200 hover:shadow-pink-500/10"
   },
   indigo: {
-    iconBg: "bg-[#EEF0FF] text-[#5046E5]",
+    iconBg: "bg-[#ecfdf5] text-[#078465]",
     hoverBorder: "hover:border-indigo-200 hover:shadow-indigo-500/10"
   },
   fuchsia: {
@@ -73,7 +73,7 @@ export default function WhatWeOfferSection({ onOpenInquiryModal }) {
       
       {/* Background Subtle Gradient Atmosphere */}
       <div className="absolute inset-0 pointer-events-none -z-10">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[500px] bg-gradient-to-tr from-indigo-50/50 via-purple-50/30 to-pink-50/20 rounded-full blur-3xl -z-10"></div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[500px] bg-gradient-to-tr from-indigo-50/50 via-emerald-50/30 to-teal-50/20 rounded-full blur-3xl -z-10"></div>
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1360px]">

@@ -74,13 +74,13 @@ export default function Navbar() {
                         onClick={() => handleSelectLanguage(lang.code)}
                         className={`w-full flex items-center justify-between px-3.5 py-2 rounded-xl text-sm font-semibold transition-colors ${
                           isSelected
-                            ? 'bg-orange-50/90 text-orange-600 font-bold'
+                            ? 'bg-indigo-50 text-indigo-700 font-bold'
                             : 'text-slate-700 hover:bg-slate-50 hover:text-slate-900'
                         }`}
                       >
                         <span>{lang.label}</span>
                         {isSelected && (
-                          <Check className="w-4 h-4 text-orange-600 stroke-[2.5]" />
+                          <Check className="w-4 h-4 text-indigo-700 stroke-[2.5]" />
                         )}
                       </button>
                     );

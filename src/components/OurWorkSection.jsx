@@ -167,7 +167,7 @@ export default function OurWorkSection({ onOpenVideoModal, onOpenInquiryModal })
       
       {/* Background Soft Mesh */}
       <div className="absolute inset-0 pointer-events-none -z-10">
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-gradient-to-tr from-indigo-100/30 via-purple-100/20 to-pink-100/20 rounded-full blur-3xl -z-10"></div>
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-gradient-to-tr from-indigo-100/30 via-emerald-100/20 to-teal-100/20 rounded-full blur-3xl -z-10"></div>
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1360px]">
@@ -228,7 +228,7 @@ export default function OurWorkSection({ onOpenVideoModal, onOpenInquiryModal })
 
         {/* Bottom Tagline Banner: "Your next winning creative could start with a simple idea." */}
         <div className="mt-10 sm:mt-16 rounded-2xl sm:rounded-3xl bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 text-white p-5 sm:p-8 md:p-9 shadow-xl border border-slate-800 flex flex-col md:flex-row items-center justify-between gap-5 sm:gap-6 relative overflow-hidden">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(99,102,241,0.22),transparent_50%)] pointer-events-none"></div>
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(7,132,101,0.28),transparent_50%)] pointer-events-none"></div>
 
           <div className="relative z-10 flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-3.5 sm:gap-4 max-w-2xl">
             <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-indigo-500/20 border border-indigo-400/30 flex items-center justify-center text-indigo-300 shrink-0 shadow-inner">
@@ -465,7 +465,7 @@ function Mobile3DPortfolioCarousel({ items, currentLang, onOpenModal }) {
                   transform: `translateX(${translateX}px) translateZ(${translateZ}px) rotateY(${rotateY}deg) scale(${scale})`,
                   opacity: opacity,
                   zIndex: 20 - Math.abs(offset),
-                  boxShadow: isCenter ? '0 25px 50px -12px rgba(79, 70, 229, 0.4)' : '0 10px 25px -5px rgba(0,0,0,0.5)',
+                  boxShadow: isCenter ? '0 25px 50px -12px rgba(7, 132, 101, 0.45)' : '0 10px 25px -5px rgba(0,0,0,0.5)',
                 }}
               >
                 <video

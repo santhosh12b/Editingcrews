@@ -29,7 +29,7 @@ export default function PricingSection({ onOpenInquiryModal }) {
       
       {/* Background Soft Mesh Ambient Lighting */}
       <div className="absolute inset-0 pointer-events-none -z-10">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[850px] h-[450px] bg-gradient-to-tr from-indigo-50/60 via-purple-50/40 to-pink-50/20 rounded-full blur-3xl -z-10"></div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[850px] h-[450px] bg-gradient-to-tr from-indigo-50/60 via-emerald-50/40 to-teal-50/20 rounded-full blur-3xl -z-10"></div>
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
@@ -55,7 +55,7 @@ export default function PricingSection({ onOpenInquiryModal }) {
             <span className="text-sm sm:text-lg font-bold text-indigo-600 mb-0.5 sm:mb-1">
               {pricing.pricePrefix || "Just"}
             </span>
-            <span className="text-5xl sm:text-6xl md:text-7xl font-extrabold text-[#4F46E5] tracking-tight leading-none my-1.5 sm:my-2 font-heading">
+            <span className="text-5xl sm:text-6xl md:text-7xl font-extrabold text-indigo-600 tracking-tight leading-none my-1.5 sm:my-2 font-heading">
               {pricing.price || "€69"}
             </span>
             <span className="text-sm sm:text-lg font-bold text-indigo-600/90 mt-0.5 sm:mt-1">

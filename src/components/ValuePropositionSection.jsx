@@ -149,7 +149,7 @@ export default function ValuePropositionSection({ onOpenVideoModal }) {
         <div className="relative rounded-3xl bg-gradient-to-br from-slate-900 via-indigo-950 to-slate-900 text-white p-6 sm:p-10 md:p-14 shadow-2xl overflow-hidden border border-slate-800">
           
           {/* Subtle Ambient Background Mesh */}
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(99,102,241,0.28),transparent_50%)] pointer-events-none"></div>
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(7,132,101,0.35),transparent_50%)] pointer-events-none"></div>
           <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.04)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.04)_1px,transparent_1px)] bg-[size:32px_32px] pointer-events-none"></div>
 
           {/* Section Header */}
