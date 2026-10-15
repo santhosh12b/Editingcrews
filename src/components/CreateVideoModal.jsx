@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { X, CheckCircle2, ArrowRight, ChevronDown } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 import { GOOGLE_SHEETS_SCRIPT_URL } from '../config/googleSheets';
+import Thanks from './Thanks';
 
 const countryList = [
   { code: 'MY', dialCode: '+60', name: 'Malaysia', minDigits: 9, maxDigits: 10, placeholder: '12 345 6789' },
@@ -488,25 +489,8 @@ export default function CreateVideoModal({ isOpen, onClose, initialService }) {
             </form>
           </div>
         ) : (
-          /* Success State */
-          <div className="py-8 sm:py-10 text-center">
-            <div className="w-16 h-16 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center mx-auto mb-5 shadow-sm">
-              <CheckCircle2 className="w-9 h-9 stroke-[2.5]" />
-            </div>
-            <h3 className="text-2xl font-extrabold text-slate-900 font-heading mb-3">
-              {strings.successTitle}
-            </h3>
-            <p className="text-sm text-slate-600 max-w-md mx-auto mb-8 leading-relaxed">
-              {strings.successDesc}
-            </p>
-            <button
-              type="button"
-              onClick={handleClose}
-              className="px-8 py-3 rounded-2xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-sm shadow-md transition-all cursor-pointer"
-            >
-              {strings.successClose}
-            </button>
-          </div>
+          /* Success State via Thanks component */
+          <Thanks onClose={handleClose} strings={strings} />
         )}
 
       </div>

@@ -10,10 +10,16 @@ import BottomCtaSection from './components/BottomCtaSection';
 import Footer from './components/Footer';
 import VideoModal from './components/VideoModal';
 import CreateVideoModal from './components/CreateVideoModal';
+import Thanks from './components/Thanks';
 
 export default function App() {
   const [selectedVideo, setSelectedVideo] = useState(null);
   const [isInquiryModalOpen, setIsInquiryModalOpen] = useState(false);
+
+  const isThanksPage = typeof window !== 'undefined' && (
+    window.location.pathname.endsWith('/thanks') || 
+    window.location.pathname.endsWith('/thanks/')
+  );
 
   const handleOpenInquiryModal = () => {
     setIsInquiryModalOpen(true);
@@ -38,6 +44,23 @@ export default function App() {
       el.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   };
+
+  if (isThanksPage) {
+    return (
+      <div className="relative min-h-screen bg-white text-slate-900 overflow-x-hidden selection:bg-indigo-100 selection:text-indigo-800 flex flex-col justify-between">
+        <Navbar 
+          onOpenInquiryModal={handleOpenInquiryModal} 
+          onOpenShowreel={handleOpenShowreel}
+        />
+        <main className="flex-1 flex items-center justify-center px-4 pt-28 pb-16">
+          <div className="max-w-xl w-full bg-[#FAFAFC] rounded-3xl p-6 sm:p-10 border border-slate-200/80 shadow-xl shadow-slate-200/50 text-center">
+            <Thanks onClose={() => { window.location.href = '/'; }} />
+          </div>
+        </main>
+        <Footer onOpenInquiryModal={handleOpenInquiryModal} />
+      </div>
+    );
+  }
 
   return (
     <div className="relative min-h-screen bg-white text-slate-900 overflow-x-hidden selection:bg-indigo-100 selection:text-indigo-800">
