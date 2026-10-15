@@ -15,7 +15,7 @@ export const translations = {
       description: "From UGC-style ads to cinematic product videos, we handle everything from AI production to final editing.",
       primaryCta: "Get Your First Video",
       secondaryCta: "Get Your First Video",
-      badge1: "Fixed €69 / Finished Minute",
+      badge1: "Just €69 / Finished Minute",
       badge2: "48–72h Turn around",
       badge3: "100% Commercial Rights"
     },
@@ -348,7 +348,7 @@ export const translations = {
       description: "Von Ads im UGC-Stil bis hin zu kinoreifen Produktvideos: Wir übernehmen alles von der KI-Produktion bis zum finalen Schnitt.",
       primaryCta: "Jetzt erstes Video erstellen",
       secondaryCta: "Jetzt erstes Video erstellen",
-      badge1: "Feste 69 € / Fertige Minute",
+      badge1: "Nur 69 € / Fertige Minute",
       badge2: "48–72 Std. Lieferzeit",
       badge3: "100 % kommerzielle Rechte"
     },
@@ -681,7 +681,7 @@ export const translations = {
       description: "Des publicités style UGC aux vidéos produits cinématiques, nous gérons tout, de la production IA au montage final.",
       primaryCta: "Obtenez votre première vidéo",
       secondaryCta: "Obtenez votre première vidéo",
-      badge1: "Tarif fixe 69 € / minute finalisée",
+      badge1: "Seulement 69 € / minute finalisée",
       badge2: "Livraison 48–72h",
       badge3: "100 % droits commerciaux"
     },
@@ -1014,7 +1014,7 @@ export const translations = {
       description: "Desde anuncios estilo UGC hasta vídeos de producto cinematográficos, gestionamos todo, desde la producción con IA hasta la edición final.",
       primaryCta: "Consigue tu primer vídeo",
       secondaryCta: "Consigue tu primer vídeo",
-      badge1: "Tarifa fija 69 € / minuto finalizado",
+      badge1: "Solo 69 € / minuto finalizado",
       badge2: "Entrega 48–72h",
       badge3: "100 % derechos comerciales"
     },
@@ -1347,7 +1347,7 @@ export const translations = {
       description: "Dalle inserzioni in stile UGC ai video prodotto cinematografici, gestiamo tutto: dalla generazione IA al montaggio finale.",
       primaryCta: "Ottieni il tuo primo video",
       secondaryCta: "Ottieni il tuo primo video",
-      badge1: "Prezzo fisso 69 € / minuto completato",
+      badge1: "Solo 69 € / minuto completato",
       badge2: "Consegna 48–72h",
       badge3: "100% diritti commerciali"
     },

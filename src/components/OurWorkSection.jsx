@@ -133,11 +133,11 @@ export const portfolioVideos = [
     },
     category: "product",
     badge: {
-      de: "Feste 69 €/Min.",
-      en: "Fixed €69/Min.",
-      fr: "Fixe 69 €/Min.",
-      es: "Fijo 69 €/Min.",
-      it: "Fisso 69 €/Min."
+      de: "Nur 69 €/Min.",
+      en: "Just €69/Min.",
+      fr: "Dès 69 €/Min.",
+      es: "Solo 69 €/Min.",
+      it: "Solo 69 €/Min."
     },
     benefit: {
       de: "Europaweite Reichweite",
