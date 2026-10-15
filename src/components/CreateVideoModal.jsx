@@ -147,6 +147,8 @@ export default function CreateVideoModal({ isOpen, onClose, initialService }) {
     // Strip leading 0 for final international dial format (e.g. 0170... becomes +49 170...)
     const cleanPhoneDigits = phone.trim().replace(/^0+/, '');
     const fullPhone = `${selectedCountry.dialCode} ${cleanPhoneDigits || phone.trim()}`;
+    // Prefix with single quote so Google Sheets always stores as raw text and NEVER evaluates '+' as a formula (#ERROR!)
+    const textPhone = `'${fullPhone}`;
     const selectedProjectType = projectType || (currentLang === 'de' ? 'Allgemeine Anfrage' : 'General Enquiry');
     const selectedDuration = duration || 1;
 
@@ -157,17 +159,17 @@ export default function CreateVideoModal({ isOpen, onClose, initialService }) {
 
       // Compatibility mapping for existing Apps Script deployment:
       // (Maps data.projectType to Col D, data.duration to Col E, data.description to Col F)
-      projectType: fullPhone,
+      projectType: textPhone,
       duration: selectedProjectType,
       description: selectedDuration,
 
       // Compatibility mapping for updated Apps Script deployment:
-      realPhone: fullPhone,
+      realPhone: textPhone,
       realProjectType: selectedProjectType,
       realDuration: selectedDuration,
-      phone: fullPhone,
-      phoneNumber: fullPhone,
-      "Phone / WhatsApp": fullPhone,
+      phone: textPhone,
+      phoneNumber: textPhone,
+      "Phone / WhatsApp": textPhone,
       "Your Name": name.trim(),
       "Email Address *": email.trim(),
       "Project Type": selectedProjectType,
