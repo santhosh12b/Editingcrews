@@ -6,7 +6,7 @@ export default function VideoModal({ video, onClose, onOpenInquiryModal }) {
   const videoRef = useRef(null);
   const [isPlaying, setIsPlaying] = React.useState(true);
   const [isMuted, setIsMuted] = React.useState(false);
-  const { t } = useLanguage();
+  const { t, priceFormatted } = useLanguage();
 
   useEffect(() => {
     const handleKeyDown = (e) => {
@@ -100,7 +100,7 @@ export default function VideoModal({ video, onClose, onOpenInquiryModal }) {
             </h4>
             <div className="flex items-center justify-between text-xs text-slate-300 mt-1">
               <span>{t.showreel.duration}: {video.duration}</span>
-              <span className="font-semibold text-emerald-400">€69 / {t.pricing.calcSuffix}</span>
+              <span className="font-semibold text-emerald-400">{priceFormatted} / {t.pricing.calcSuffix}</span>
             </div>
           </div>
 

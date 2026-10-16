@@ -19,13 +19,7 @@ export default function Navbar() {
   }, []);
 
   const handleSelectLanguage = (code) => {
-    if (code === 'my') {
-      navigateToMarket('malaysia');
-    } else if (code === 'sg') {
-      navigateToMarket('singapore');
-    } else {
-      setLanguage(code);
-    }
+    setLanguage(code);
     setDropdownOpen(false);
   };
 
@@ -72,7 +66,7 @@ export default function Navbar() {
             >
               <Globe className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-slate-800 shrink-0" />
               <span className="font-extrabold tracking-wide">
-                {(currentLang === 'sg' || currentLang === 'my' || currentLang === 'en') ? 'EN' : (currentLanguageObj?.short || 'DE')}
+                {currentLanguageObj?.short || (isSingapore || isMalaysia ? 'EN' : 'DE')}
               </span>
               <ChevronDown 
                 className={`w-3.5 h-3.5 text-slate-800 transition-transform duration-200 ${
@@ -92,7 +86,7 @@ export default function Navbar() {
                   {languages
                     .filter(l => l.code !== 'sg' && l.code !== 'my')
                     .map((lang) => {
-                      const isSelected = (currentLang === lang.code) || ((currentLang === 'sg' || currentLang === 'my') && lang.code === 'en');
+                      const isSelected = currentLang === lang.code;
                       return (
                         <button
                           key={lang.code}

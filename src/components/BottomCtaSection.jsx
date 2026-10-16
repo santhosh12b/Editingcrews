@@ -3,7 +3,7 @@ import { ArrowRight } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 
 export default function BottomCtaSection({ onOpenInquiryModal }) {
-  const { currentLang, t } = useLanguage();
+  const { currentLang, t, priceFormatted } = useLanguage();
   const cta = t?.bottomCta || {};
   const isGerman = currentLang === 'de';
 
@@ -25,7 +25,7 @@ export default function BottomCtaSection({ onOpenInquiryModal }) {
                 : "Give your products more ways to stand out with high-quality AI videos. Whether you need product ads, UGC-style content, animations, or creative concepts, we're ready to help.")}
             </p>
             <p className="text-xs sm:text-sm font-extrabold text-indigo-600 tracking-tight">
-              {cta.priceHighlight || (isGerman ? "Dein erstes Video schon ab 69 € pro Minute." : "Your first video starts at just €69 per minute.")}
+              {cta.priceHighlight || (isGerman ? `Dein erstes Video schon ab ${priceFormatted} pro Minute.` : `Your first video starts at just ${priceFormatted} per minute.`)}
             </p>
           </div>
 

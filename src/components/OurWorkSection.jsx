@@ -156,7 +156,7 @@ export const portfolioVideos = [
 ];
 
 export default function OurWorkSection({ onOpenVideoModal, onOpenInquiryModal }) {
-  const { currentLang, t } = useLanguage();
+  const { currentLang, t, priceFormatted } = useLanguage();
   const ow = t.ourWork || {};
   const portfolioRef = useRef(null);
 
@@ -244,12 +244,8 @@ export default function OurWorkSection({ onOpenVideoModal, onOpenInquiryModal })
               </h3>
               <p className="text-slate-300 text-xs sm:text-sm mt-1 sm:mt-1.5 leading-relaxed">
                 {currentLang === 'de' 
-                  ? "Starten Sie Ihre professionelle KI-Videoproduktion ab 69 €/Minute – fertig in 48–72 Stunden."
-                  : (currentLang === 'my'
-                    ? "Launch your professional AI video production from RM299/minute — delivered in 48–72 hours."
-                    : (currentLang === 'sg'
-                      ? "Launch your professional AI video production from S$94/minute — delivered in 48–72 hours."
-                      : "Launch your professional AI video production from €69/minute — delivered in 48–72 hours."))}
+                  ? `Starten Sie Ihre professionelle KI-Videoproduktion ab ${priceFormatted}/Minute – fertig in 48–72 Stunden.`
+                  : `Launch your professional AI video production from ${priceFormatted}/minute — delivered in 48–72 hours.`}
               </p>
             </div>
           </div>

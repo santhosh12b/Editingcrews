@@ -68,6 +68,7 @@ export default function ShowcaseMarquee({ onSelectVideo }) {
 }
 
 function VideoCard({ video, onSelectVideo }) {
+  const { rateText } = useLanguage();
   const videoRef = useRef(null);
 
   const handleMouseEnter = () => {
@@ -132,7 +133,7 @@ function VideoCard({ video, onSelectVideo }) {
           </p>
           <div className="flex items-center justify-between text-[10px] text-slate-300 mt-1">
             <span>Duration: {video.duration}</span>
-            <span>€69/min</span>
+            <span>{rateText}</span>
           </div>
         </div>
 

@@ -140,7 +140,7 @@ export const aiVideosList = [
 ];
 
 export default function ValuePropositionSection({ onOpenVideoModal }) {
-  const { currentLang, t } = useLanguage();
+  const { currentLang, t, isSingapore, isMalaysia, priceFormatted } = useLanguage();
   const vp = t.valueProposition;
 
   const isGerman = currentLang === 'de';
@@ -207,7 +207,7 @@ export default function ValuePropositionSection({ onOpenVideoModal }) {
             </div>
             <div className="flex items-center justify-center gap-2 text-xs sm:text-sm font-semibold text-emerald-400">
               <ShieldCheck className="w-4 h-4 shrink-0" />
-              <span>{isGerman ? "Fester Minutenpreis: 69 € / Minute" : "Fixed Transparent Price: €69 / Minute"}</span>
+              <span>{isGerman ? "Fester Minutenpreis: 69 € / Minute" : `Fixed Transparent Price: ${priceFormatted} / Minute`}</span>
             </div>
           </div>
 

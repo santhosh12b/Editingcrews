@@ -1,6 +1,6 @@
-import { msTranslation } from './translations/ms';
-import { zhTranslation } from './translations/zh';
-import { taTranslation } from './translations/ta';
+import { msTranslation } from './translations/ms.js';
+import { zhTranslation } from './translations/zh.js';
+import { taTranslation } from './translations/ta.js';
 
 export const languages = [
   { code: 'de', label: 'Deutsch', short: 'DE' },

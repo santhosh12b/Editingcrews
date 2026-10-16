@@ -21,8 +21,8 @@ const featureIcons = [
 ];
 
 export default function PricingSection({ onOpenInquiryModal }) {
-  const { t } = useLanguage();
-  const pricing = t.pricing;
+  const { t, priceFormatted } = useLanguage();
+  const pricing = t?.pricing || {};
 
   return (
     <section id="pricing" className="py-14 sm:py-20 md:py-28 bg-[#FAFAFC] relative overflow-hidden border-b border-slate-200/80 scroll-mt-20">
@@ -37,7 +37,7 @@ export default function PricingSection({ onOpenInquiryModal }) {
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-12 md:mb-16">
           <span className="text-[11px] sm:text-[13px] font-bold uppercase tracking-widest text-indigo-600 mb-2 sm:mb-3 block">
-            {pricing.badge || "What You Get for €69/Minute"}
+            {pricing.badge || `What You Get for ${priceFormatted}/Minute`}
           </span>
           <h2 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900 leading-tight font-heading">
             {pricing.heading || "Complete Video Production. One Simple Price."}
@@ -50,13 +50,13 @@ export default function PricingSection({ onOpenInquiryModal }) {
         {/* Focused All-Inclusive Pricing Container */}
         <div className="bg-white rounded-2xl sm:rounded-3xl p-5 sm:p-8 md:p-10 border border-slate-100 shadow-[0_4px_30px_-5px_rgba(0,0,0,0.05)] max-w-5xl mx-auto flex flex-col md:flex-row items-stretch gap-6 sm:gap-8 lg:gap-10">
           
-          {/* Left Price Box: "Nur 69 € pro Videominute" */}
+          {/* Left Price Box: e.g. "Nur 69 € pro Videominute" */}
           <div className="w-full md:w-[280px] lg:w-[320px] rounded-xl sm:rounded-3xl bg-[#F8FAFC] border border-slate-100 p-5 sm:p-8 md:p-10 flex flex-col items-center justify-center text-center shrink-0">
             <span className="text-sm sm:text-lg font-bold text-indigo-600 mb-0.5 sm:mb-1">
               {pricing.pricePrefix || "Just"}
             </span>
             <span className="text-5xl sm:text-6xl md:text-7xl font-extrabold text-indigo-600 tracking-tight leading-none my-1.5 sm:my-2 font-heading">
-              {pricing.price || "€69"}
+              {pricing.price || priceFormatted}
             </span>
             <span className="text-sm sm:text-lg font-bold text-indigo-600/90 mt-0.5 sm:mt-1">
               {pricing.priceSuffix || "per finished minute"}
@@ -97,7 +97,7 @@ export default function PricingSection({ onOpenInquiryModal }) {
             <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
           </button>
           <p className="text-xs sm:text-sm text-slate-500 mt-2.5 sm:mt-3 font-medium">
-            {pricing.subnote || "Starting at just €69 per finished minute. No expensive video shoots required."}
+            {pricing.subnote || `Starting at just ${priceFormatted} per finished minute. No expensive video shoots required.`}
           </p>
         </div>
 

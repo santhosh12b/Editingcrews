@@ -52,8 +52,8 @@ export default function HeroSection({ onOpenShowreel, onOpenInquiryModal }) {
   const renderHeadline = (text) => {
     if (!text || typeof text !== 'string') return text;
 
-    // Matches Malaysia, Singapore, German, French, Spanish, Italian, and English price phrases
-    const priceRegex = /(RM[\s\u00A0]*299[\s\u00A0]*\/[\s\u00A0]*Minute\.?|299[\s\u00A0]*MYR[\s\u00A0]*\/[\s\u00A0]*Minute\.?|299[\s\u00A0]*Ringgit[\s\u00A0]*\/[\s\u00A0]*Minute\.?|S\$[\s\u00A0]*94[\s\u00A0]*\/[\s\u00A0]*Minute\.?|94[\s\u00A0]*SGD[\s\u00A0]*\/[\s\u00A0]*Minute\.?|69[\s\u00A0]*€[\s\u00A0]*\/[\s\u00A0]*Minute\.?|€[\s\u00A0]*69[\s\u00A0]*\/[\s\u00A0]*Minute\.?|69[\s\u00A0]*€[\s\u00A0]*\/[\s\u00A0]*minute\.?|69[\s\u00A0]*€[\s\u00A0]*\/[\s\u00A0]*minuto\.?)/i;
+    // Matches Malaysia, Singapore, German, French, Spanish, Italian, Tamil, Chinese and Malay price phrases
+    const priceRegex = /(?:RM[\s\u00A0]*299|299[\s\u00A0]*MYR|299[\s\u00A0]*Ringgit|S\$[\s\u00A0]*94|94[\s\u00A0]*SGD|69[\s\u00A0]*€|€[\s\u00A0]*69|69[\s\u00A0]*欧元)(?:[\s\u00A0]*\/[\s\u00A0]*(?:Minute|minute|minuto|Minit|minit|நிமிடத்தில்|நிமிடம்|分钟))?\.?/i;
     const match = text.match(priceRegex);
 
     if (match) {
