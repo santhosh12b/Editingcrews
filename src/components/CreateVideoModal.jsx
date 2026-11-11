@@ -347,19 +347,19 @@ export default function CreateVideoModal({ isOpen, onClose }) {
   const selectedFreqObj = billingOptions.find((b) => b.id === billingType) || billingOptions[0];
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-5 bg-slate-900/60 backdrop-blur-sm animate-in fade-in duration-200">
+    <div className="fixed inset-0 z-50 overflow-y-auto p-2 sm:p-4 flex min-h-full items-center justify-center bg-slate-900/60 backdrop-blur-sm animate-in fade-in duration-200">
       
       {/* Backdrop overlay */}
       <div className="absolute inset-0" onClick={handleClose}></div>
 
       {/* Modal Dialog Card */}
-      <div className="relative z-10 w-full max-w-[560px] rounded-3xl border border-slate-200/90 bg-white p-5 sm:p-6 shadow-2xl text-slate-900 max-h-[92vh] overflow-y-auto no-scrollbar">
+      <div className="relative z-10 w-full max-w-[530px] my-auto rounded-3xl border border-slate-200/90 bg-white p-4 sm:p-5.5 shadow-2xl text-slate-900 max-h-[95vh] overflow-y-auto custom-scrollbar">
         
         {/* Close Button */}
         <button
           type="button"
           onClick={handleClose}
-          className="absolute top-4 right-4 sm:top-5 sm:right-5 w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-500 hover:text-slate-800 flex items-center justify-center transition-colors z-20 focus:outline-none cursor-pointer"
+          className="absolute top-3.5 right-3.5 sm:top-5 sm:right-5 w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-500 hover:text-slate-800 flex items-center justify-center transition-colors z-20 focus:outline-none cursor-pointer"
           aria-label="Close modal"
         >
           <X className="w-4 h-4 stroke-[2.5]" />
@@ -368,9 +368,9 @@ export default function CreateVideoModal({ isOpen, onClose }) {
         {!isSuccess ? (
           <div>
             {/* Modal Header Row: Title & 1-Click Language Switcher */}
-            <div className="pr-10 mb-3 sm:mb-4">
-              <div className="flex flex-wrap items-center justify-between gap-2 mb-1">
-                <h3 className="text-lg sm:text-2xl font-extrabold text-slate-900 font-heading leading-tight">
+            <div className="pr-10 mb-2 sm:mb-2.5">
+              <div className="flex flex-wrap items-center justify-between gap-1.5 mb-0.5">
+                <h3 className="text-base sm:text-xl font-extrabold text-slate-900 font-heading leading-tight">
                   {strings.title}
                 </h3>
                 
@@ -379,7 +379,7 @@ export default function CreateVideoModal({ isOpen, onClose }) {
                   <button
                     type="button"
                     onClick={() => setLanguage('en')}
-                    className={`px-2.5 py-0.5 rounded-full text-[11px] sm:text-xs font-bold transition-all cursor-pointer ${
+                    className={`px-2 py-0.5 rounded-full text-[11px] sm:text-xs font-bold transition-all cursor-pointer ${
                       currentLang === 'en'
                         ? 'bg-white text-indigo-700 shadow-2xs font-black'
                         : 'text-slate-600 hover:text-slate-900'
@@ -390,7 +390,7 @@ export default function CreateVideoModal({ isOpen, onClose }) {
                   <button
                     type="button"
                     onClick={() => setLanguage('ta')}
-                    className={`px-2.5 py-0.5 rounded-full text-[11px] sm:text-xs font-bold transition-all cursor-pointer ${
+                    className={`px-2 py-0.5 rounded-full text-[11px] sm:text-xs font-bold transition-all cursor-pointer ${
                       currentLang === 'ta'
                         ? 'bg-white text-indigo-700 shadow-2xs font-black'
                         : 'text-slate-600 hover:text-slate-900'
@@ -401,19 +401,19 @@ export default function CreateVideoModal({ isOpen, onClose }) {
                 </div>
               </div>
 
-              <p className="text-xs sm:text-sm text-slate-500 leading-relaxed">
+              <p className="text-[11px] sm:text-xs text-slate-500 leading-snug">
                 {strings.subtitle}
               </p>
             </div>
 
             {/* Form */}
-            <form onSubmit={handleSubmit} className="space-y-3.5 sm:space-y-4">
+            <form onSubmit={handleSubmit} className="space-y-2.5 sm:space-y-3">
               
               {/* Row 1: Name & Phone Number (2 columns) */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-3.5">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3">
                 {/* Name */}
                 <div>
-                  <label className="block text-xs sm:text-sm font-bold text-slate-800 mb-1">
+                  <label className="block text-xs font-bold text-slate-800 mb-1">
                     {strings.nameLabel}
                   </label>
                   <div className="relative">
@@ -423,7 +423,7 @@ export default function CreateVideoModal({ isOpen, onClose }) {
                       value={name}
                       onChange={handleNameChange}
                       placeholder={strings.namePlaceholder}
-                      className={`w-full pl-9 pr-3.5 py-2.5 rounded-xl border bg-slate-50/50 text-slate-900 placeholder:text-slate-400 text-sm focus:outline-none transition-all ${
+                      className={`w-full pl-9 pr-3 py-2 sm:py-2.5 rounded-xl border bg-slate-50/50 text-slate-900 placeholder:text-slate-400 text-xs sm:text-sm focus:outline-none transition-all ${
                         nameError 
                           ? 'border-red-500 focus:ring-2 focus:ring-red-500/20' 
                           : 'border-slate-200 focus:ring-2 focus:ring-indigo-600/30 focus:border-indigo-600'
@@ -438,7 +438,7 @@ export default function CreateVideoModal({ isOpen, onClose }) {
 
                 {/* Phone Number */}
                 <div>
-                  <label className="block text-xs sm:text-sm font-bold text-slate-800 mb-1">
+                  <label className="block text-xs font-bold text-slate-800 mb-1">
                     {strings.phoneLabel}
                   </label>
 
@@ -453,14 +453,14 @@ export default function CreateVideoModal({ isOpen, onClose }) {
                       <button
                         type="button"
                         onClick={() => setIsCountryDropdownOpen(!isCountryDropdownOpen)}
-                        className="h-full flex items-center gap-1 px-2.5 py-2 bg-slate-100/80 hover:bg-slate-200/80 text-slate-900 font-bold text-xs sm:text-sm border-r border-slate-200 rounded-l-xl transition-colors cursor-pointer select-none"
+                        className="h-full flex items-center gap-1 px-2.5 py-1.5 sm:py-2 bg-slate-100/80 hover:bg-slate-200/80 text-slate-900 font-bold text-xs border-r border-slate-200 rounded-l-xl transition-colors cursor-pointer select-none"
                         aria-label="Select Country Code"
                         aria-expanded={isCountryDropdownOpen}
                       >
-                        <span className="text-[10px] sm:text-xs font-black text-indigo-700 bg-indigo-50 border border-indigo-200 px-1 py-0.5 rounded tracking-wide">
+                        <span className="text-[10px] font-black text-indigo-700 bg-indigo-50 border border-indigo-200 px-1 py-0.5 rounded tracking-wide">
                           {selectedCountry.code}
                         </span>
-                        <span className="font-extrabold text-slate-800 tracking-tight text-xs sm:text-sm">
+                        <span className="font-extrabold text-slate-800 tracking-tight text-xs">
                           {selectedCountry.dialCode}
                         </span>
                         <ChevronDown className={`w-3.5 h-3.5 text-slate-500 transition-transform duration-150 ${isCountryDropdownOpen ? 'rotate-180' : ''}`} />
@@ -468,7 +468,7 @@ export default function CreateVideoModal({ isOpen, onClose }) {
 
                       {/* Dropdown Popover */}
                       {isCountryDropdownOpen && (
-                        <div className="absolute top-full left-0 mt-1.5 w-60 max-h-52 overflow-y-auto no-scrollbar rounded-2xl border border-slate-200 bg-white p-1.5 shadow-2xl z-50 animate-in fade-in-50 zoom-in-95 duration-150">
+                        <div className="absolute top-full left-0 mt-1.5 w-60 max-h-48 overflow-y-auto custom-scrollbar rounded-2xl border border-slate-200 bg-white p-1.5 shadow-2xl z-50 animate-in fade-in-50 zoom-in-95 duration-150">
                           <div className="space-y-0.5">
                             {countryList.map((c) => {
                               const isSelected = selectedCountry.code === c.code;
@@ -510,7 +510,7 @@ export default function CreateVideoModal({ isOpen, onClose }) {
                       onChange={handlePhoneChange}
                       placeholder={selectedCountry.placeholder || strings.phonePlaceholder}
                       maxLength={selectedCountry?.maxDigits || 10}
-                      className="w-full bg-transparent px-3 py-2 text-slate-900 placeholder:text-slate-400 text-sm focus:outline-none rounded-r-xl"
+                      className="w-full bg-transparent px-3 py-1.5 sm:py-2 text-slate-900 placeholder:text-slate-400 text-xs sm:text-sm focus:outline-none rounded-r-xl"
                     />
                   </div>
                   {phoneError && (
@@ -520,10 +520,10 @@ export default function CreateVideoModal({ isOpen, onClose }) {
               </div>
 
               {/* Row 2: City & Monthly/One-Time Question (2 columns) */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-3.5">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3">
                 {/* City */}
                 <div>
-                  <label className="block text-xs sm:text-sm font-bold text-slate-800 mb-1">
+                  <label className="block text-xs font-bold text-slate-800 mb-1">
                     {strings.cityLabel}
                   </label>
                   <div className="relative">
@@ -533,7 +533,7 @@ export default function CreateVideoModal({ isOpen, onClose }) {
                       value={city}
                       onChange={handleCityChange}
                       placeholder={strings.cityPlaceholder}
-                      className={`w-full pl-9 pr-3.5 py-2.5 rounded-xl border bg-slate-50/50 text-slate-900 placeholder:text-slate-400 text-sm focus:outline-none transition-all ${
+                      className={`w-full pl-9 pr-3 py-2 sm:py-2.5 rounded-xl border bg-slate-50/50 text-slate-900 placeholder:text-slate-400 text-xs sm:text-sm focus:outline-none transition-all ${
                         cityError 
                           ? 'border-red-500 focus:ring-2 focus:ring-red-500/20' 
                           : 'border-slate-200 focus:ring-2 focus:ring-indigo-600/30 focus:border-indigo-600'
@@ -548,7 +548,7 @@ export default function CreateVideoModal({ isOpen, onClose }) {
 
                 {/* Monthly or One Time Question Dropdown */}
                 <div className="relative" ref={freqDropdownRef}>
-                  <label className="block text-xs sm:text-sm font-bold text-slate-800 mb-1 leading-snug">
+                  <label className="block text-xs font-bold text-slate-800 mb-1 leading-snug">
                     {strings.questionFrequencyLabel}
                   </label>
                   
@@ -560,7 +560,7 @@ export default function CreateVideoModal({ isOpen, onClose }) {
                       setIsPkgOpen(false);
                       setIsCountryDropdownOpen(false);
                     }}
-                    className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl border bg-slate-50/50 text-left transition-all cursor-pointer ${
+                    className={`w-full flex items-center justify-between px-3 py-2 sm:py-2.5 rounded-xl border bg-slate-50/50 text-left transition-all cursor-pointer ${
                       isFreqOpen 
                         ? 'border-indigo-600 ring-2 ring-indigo-600/20 bg-white' 
                         : 'border-slate-200 hover:border-slate-300 hover:bg-slate-50'
@@ -571,12 +571,12 @@ export default function CreateVideoModal({ isOpen, onClose }) {
                     <span className="text-xs sm:text-sm font-bold text-slate-900 truncate">
                       {isTa ? selectedFreqObj.labelTa : selectedFreqObj.labelEn}
                     </span>
-                    <ChevronDown className={`w-4 h-4 text-slate-400 shrink-0 ml-2 transition-transform duration-200 ${isFreqOpen ? 'rotate-180 text-indigo-600' : ''}`} />
+                    <ChevronDown className={`w-4 h-4 text-slate-400 shrink-0 ml-1.5 transition-transform duration-200 ${isFreqOpen ? 'rotate-180 text-indigo-600' : ''}`} />
                   </button>
 
                   {/* Custom Popover */}
                   {isFreqOpen && (
-                    <div className="absolute top-full left-0 mt-1.5 w-full rounded-2xl border border-slate-200 bg-white p-1.5 shadow-2xl z-30 animate-in fade-in-50 zoom-in-95 duration-150 space-y-1">
+                    <div className="absolute top-full left-0 mt-1 w-full rounded-2xl border border-slate-200 bg-white p-1.5 shadow-2xl z-30 animate-in fade-in-50 zoom-in-95 duration-150 space-y-1">
                       {billingOptions.map((opt) => {
                         const isSelected = billingType === opt.id;
                         return (
@@ -587,7 +587,7 @@ export default function CreateVideoModal({ isOpen, onClose }) {
                               setBillingType(opt.id);
                               setIsFreqOpen(false);
                             }}
-                            className={`w-full flex items-center justify-between px-3 py-2 rounded-xl text-left transition-all cursor-pointer ${
+                            className={`w-full flex items-center justify-between px-2.5 py-1.5 sm:py-2 rounded-xl text-left transition-all cursor-pointer ${
                               isSelected
                                 ? 'bg-indigo-50/90 text-indigo-950 font-bold border border-indigo-200/80 shadow-2xs'
                                 : 'hover:bg-slate-50 text-slate-700 border border-transparent'
@@ -612,109 +612,103 @@ export default function CreateVideoModal({ isOpen, onClose }) {
                 </div>
               </div>
 
-              {/* Row 3: Package Selection Dropdown */}
-              <div ref={pkgDropdownRef}>
+              {/* Row 3: Package Selection Dropdown (Drop-Up Popover to perfectly fit laptops and prevent any clipping!) */}
+              <div className="relative" ref={pkgDropdownRef}>
                 <div className="flex items-center justify-between mb-1">
-                  <label className="block text-xs sm:text-sm font-bold text-slate-800">
+                  <label className="block text-xs font-bold text-slate-800">
                     {strings.packageLabel}
                   </label>
-                  <span className="text-[10px] sm:text-[11px] font-semibold text-slate-500 bg-slate-100 border border-slate-200/80 px-2 py-0.5 rounded-full">
+                  <span className="text-[10px] font-semibold text-slate-500 bg-slate-100 border border-slate-200/80 px-2 py-0.5 rounded-full">
                     AI Video Production
                   </span>
                 </div>
 
-                {/* Dropdown Box */}
-                <div className={`rounded-2xl border transition-all ${
-                  isPkgOpen 
-                    ? 'border-indigo-600 ring-2 ring-indigo-600/20 bg-white shadow-md' 
-                    : 'border-slate-200 hover:border-slate-300 bg-slate-50/50'
-                }`}>
-                  
-                  {/* Custom Trigger */}
-                  <button
-                    type="button"
-                    onClick={() => {
-                      setIsPkgOpen((prev) => !prev);
-                      setIsFreqOpen(false);
-                      setIsCountryDropdownOpen(false);
-                    }}
-                    className={`w-full flex items-center justify-between px-3.5 py-2.5 sm:py-3 text-left transition-colors cursor-pointer ${
-                      isPkgOpen ? 'border-b border-slate-100' : ''
-                    }`}
-                    aria-haspopup="listbox"
-                    aria-expanded={isPkgOpen}
-                  >
-                    <div className="flex items-center gap-2 truncate">
-                      <span className="text-xs sm:text-sm font-black text-slate-900">
-                        {isTa ? selectedPkgObj.durationTa : selectedPkgObj.durationEn}
-                      </span>
-                      <span className="text-[11px] text-slate-500 font-medium">
-                        ({isTa ? selectedPkgObj.rateTa : selectedPkgObj.rateEn})
-                      </span>
-                    </div>
+                {/* Custom Trigger */}
+                <button
+                  type="button"
+                  onClick={() => {
+                    setIsPkgOpen((prev) => !prev);
+                    setIsFreqOpen(false);
+                    setIsCountryDropdownOpen(false);
+                  }}
+                  className={`w-full flex items-center justify-between px-3 py-2 sm:py-2.5 rounded-xl border bg-slate-50/50 text-left transition-all cursor-pointer ${
+                    isPkgOpen
+                      ? 'border-indigo-600 ring-2 ring-indigo-600/20 bg-white'
+                      : 'border-slate-200 hover:border-slate-300 hover:bg-slate-50'
+                  }`}
+                  aria-haspopup="listbox"
+                  aria-expanded={isPkgOpen}
+                >
+                  <div className="flex items-center gap-2 truncate">
+                    <span className="text-xs sm:text-sm font-black text-slate-900">
+                      {isTa ? selectedPkgObj.durationTa : selectedPkgObj.durationEn}
+                    </span>
+                    <span className="text-[11px] text-slate-500 font-medium">
+                      ({isTa ? selectedPkgObj.rateTa : selectedPkgObj.rateEn})
+                    </span>
+                  </div>
 
-                    <div className="flex items-center gap-2 shrink-0 ml-2">
-                      <span className="text-xs sm:text-sm font-black text-indigo-700 bg-indigo-50 border border-indigo-200/80 px-2.5 py-0.5 rounded-lg shadow-2xs">
-                        {selectedPkgObj.price}
-                      </span>
-                      <ChevronDown className={`w-4 h-4 text-slate-400 transition-transform duration-200 ${isPkgOpen ? 'rotate-180 text-indigo-600' : ''}`} />
-                    </div>
-                  </button>
+                  <div className="flex items-center gap-2 shrink-0 ml-2">
+                    <span className="text-xs sm:text-sm font-black text-indigo-700 bg-indigo-50 border border-indigo-200/80 px-2 py-0.5 rounded-lg shadow-2xs">
+                      {selectedPkgObj.price}
+                    </span>
+                    <ChevronDown className={`w-4 h-4 text-slate-400 transition-transform duration-200 ${isPkgOpen ? 'rotate-180 text-indigo-600' : ''}`} />
+                  </div>
+                </button>
 
-                  {/* Expanded Dropdown Options (In-Flow, Never Cut Off!) */}
-                  {isPkgOpen && (
-                    <div className="p-1.5 space-y-1 animate-in fade-in-50 duration-150 max-h-60 overflow-y-auto custom-scrollbar">
-                      {packages.map((pkg) => {
-                        const isSelected = selectedPackage === pkg.id;
-                        return (
-                          <button
-                            key={pkg.id}
-                            type="button"
-                            onClick={() => {
-                              setSelectedPackage(pkg.id);
-                              setIsPkgOpen(false);
-                            }}
-                            className={`w-full flex items-center justify-between p-2.5 sm:p-3 rounded-xl text-left transition-all cursor-pointer ${
-                              isSelected
-                                ? 'bg-indigo-50/90 text-indigo-950 font-bold border border-indigo-200/80 shadow-2xs'
-                                : 'hover:bg-slate-50 text-slate-700 border border-transparent'
-                            }`}
-                          >
-                            <div className="flex items-center gap-2.5">
-                              {/* Radio indicator */}
-                              <div className={`w-4 h-4 rounded-full border flex items-center justify-center shrink-0 transition-colors ${
-                                isSelected ? 'border-indigo-600 bg-indigo-600' : 'border-slate-300 bg-white'
-                              }`}>
-                                {isSelected && <div className="w-1.5 h-1.5 rounded-full bg-white" />}
-                              </div>
-
-                              <div>
-                                <p className="text-xs sm:text-sm font-extrabold text-slate-900 leading-tight">
-                                  {isTa ? pkg.durationTa : pkg.durationEn}
-                                </p>
-                                <p className="text-[10px] text-slate-500 font-medium">
-                                  {isTa ? pkg.rateTa : pkg.rateEn}
-                                </p>
-                              </div>
+                {/* Custom Drop-Up Popover: Opens smoothly upward over form fields so it NEVER expands modal height or cuts off on laptops! */}
+                {isPkgOpen && (
+                  <div className="absolute bottom-full left-0 mb-1.5 w-full rounded-2xl border border-slate-200 bg-white p-1.5 shadow-2xl z-40 animate-in fade-in-50 zoom-in-95 duration-150 max-h-52 overflow-y-auto custom-scrollbar space-y-1">
+                    {packages.map((pkg) => {
+                      const isSelected = selectedPackage === pkg.id;
+                      return (
+                        <button
+                          key={pkg.id}
+                          type="button"
+                          onClick={() => {
+                            setSelectedPackage(pkg.id);
+                            setIsPkgOpen(false);
+                          }}
+                          className={`w-full flex items-center justify-between p-2 sm:p-2.5 rounded-xl text-left transition-all cursor-pointer ${
+                            isSelected
+                              ? 'bg-indigo-50/90 text-indigo-950 font-bold border border-indigo-200/80 shadow-2xs'
+                              : 'hover:bg-slate-50 text-slate-700 border border-transparent'
+                          }`}
+                        >
+                          <div className="flex items-center gap-2">
+                            {/* Radio indicator */}
+                            <div className={`w-3.5 h-3.5 rounded-full border flex items-center justify-center shrink-0 transition-colors ${
+                              isSelected ? 'border-indigo-600 bg-indigo-600' : 'border-slate-300 bg-white'
+                            }`}>
+                              {isSelected && <div className="w-1.5 h-1.5 rounded-full bg-white" />}
                             </div>
 
-                            <div className="flex items-center gap-2 shrink-0">
-                              <span className={`text-xs sm:text-sm font-black ${isSelected ? 'text-indigo-700' : 'text-slate-900'}`}>
-                                {pkg.price}
-                              </span>
-                              {isSelected && (
-                                <Check className="w-4 h-4 text-indigo-600 shrink-0" />
-                              )}
+                            <div>
+                              <p className="text-xs sm:text-sm font-extrabold text-slate-900 leading-tight">
+                                {isTa ? pkg.durationTa : pkg.durationEn}
+                              </p>
+                              <p className="text-[10px] text-slate-500 font-medium">
+                                {isTa ? pkg.rateTa : pkg.rateEn}
+                              </p>
                             </div>
-                          </button>
-                        );
-                      })}
-                    </div>
-                  )}
-                </div>
+                          </div>
 
-                {/* Footnote — always cleanly below the entire dropdown */}
-                <p className="text-[10px] text-slate-400 font-medium mt-1.5 leading-relaxed px-0.5">
+                          <div className="flex items-center gap-2 shrink-0">
+                            <span className={`text-xs sm:text-sm font-black ${isSelected ? 'text-indigo-700' : 'text-slate-900'}`}>
+                              {pkg.price}
+                            </span>
+                            {isSelected && (
+                              <Check className="w-4 h-4 text-indigo-600 shrink-0" />
+                            )}
+                          </div>
+                        </button>
+                      );
+                    })}
+                  </div>
+                )}
+
+                {/* Footnote */}
+                <p className="text-[10px] text-slate-400 font-medium mt-1 leading-snug px-0.5">
                   {isTa
                     ? "விலைகள் குறிப்பீட்டுக்கானவை. ஸ்கிரிப்ட், வாய்ஸ்ஓவர், எடிட்டிங் மற்றும் திருத்தங்கள் சேவை ஒப்பந்தத்தில் முடிவு செய்யப்படும்."
                     : "Prices are indicative. Define script, voiceover, editing, revisions and delivery specifications in the service agreement."
@@ -723,11 +717,11 @@ export default function CreateVideoModal({ isOpen, onClose }) {
               </div>
 
               {/* Submit Button */}
-              <div className="pt-1.5">
+              <div className="pt-1">
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full py-3.5 px-6 rounded-2xl bg-indigo-600 hover:bg-indigo-700 active:scale-[0.99] text-white font-extrabold text-sm sm:text-base shadow-lg shadow-indigo-600/25 transition-all duration-200 flex items-center justify-center gap-2 cursor-pointer disabled:opacity-70"
+                  className="w-full py-2.5 sm:py-3 px-5 rounded-2xl bg-indigo-600 hover:bg-indigo-700 active:scale-[0.99] text-white font-extrabold text-xs sm:text-sm shadow-md shadow-indigo-600/25 transition-all duration-200 flex items-center justify-center gap-2 cursor-pointer disabled:opacity-70"
                 >
                   {isSubmitting ? (
                     <span>{strings.submitting}</span>
