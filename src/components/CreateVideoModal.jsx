@@ -353,7 +353,7 @@ export default function CreateVideoModal({ isOpen, onClose }) {
       <div className="absolute inset-0" onClick={handleClose}></div>
 
       {/* Modal Dialog Card */}
-      <div className="relative z-10 w-full max-w-[560px] rounded-3xl border border-slate-200/90 bg-white p-5 sm:p-7 shadow-2xl text-slate-900 max-h-[92vh] overflow-y-auto no-scrollbar">
+      <div className="relative z-10 w-full max-w-[560px] rounded-3xl border border-slate-200/90 bg-white p-5 sm:p-6 shadow-2xl text-slate-900 max-h-[92vh] overflow-y-auto no-scrollbar">
         
         {/* Close Button */}
         <button
@@ -613,7 +613,7 @@ export default function CreateVideoModal({ isOpen, onClose }) {
               </div>
 
               {/* Row 3: Package Selection Dropdown */}
-              <div className="relative" ref={pkgDropdownRef}>
+              <div ref={pkgDropdownRef}>
                 <div className="flex items-center justify-between mb-1">
                   <label className="block text-xs sm:text-sm font-bold text-slate-800">
                     {strings.packageLabel}
@@ -623,91 +623,97 @@ export default function CreateVideoModal({ isOpen, onClose }) {
                   </span>
                 </div>
 
-                {/* Custom Trigger */}
-                <button
-                  type="button"
-                  onClick={() => {
-                    setIsPkgOpen((prev) => !prev);
-                    setIsFreqOpen(false);
-                    setIsCountryDropdownOpen(false);
-                  }}
-                  className={`w-full flex items-center justify-between px-3.5 py-2.5 sm:py-3 rounded-xl border bg-slate-50/50 text-left transition-all cursor-pointer ${
-                    isPkgOpen
-                      ? 'border-indigo-600 ring-2 ring-indigo-600/20 bg-white'
-                      : 'border-slate-200 hover:border-slate-300 hover:bg-slate-50'
-                  }`}
-                  aria-haspopup="listbox"
-                  aria-expanded={isPkgOpen}
-                >
-                  <div className="flex items-center gap-2 truncate">
-                    <span className="text-xs sm:text-sm font-black text-slate-900">
-                      {isTa ? selectedPkgObj.durationTa : selectedPkgObj.durationEn}
-                    </span>
-                    <span className="text-[11px] text-slate-500 font-medium">
-                      ({isTa ? selectedPkgObj.rateTa : selectedPkgObj.rateEn})
-                    </span>
-                  </div>
+                {/* Dropdown Box */}
+                <div className={`rounded-2xl border transition-all ${
+                  isPkgOpen 
+                    ? 'border-indigo-600 ring-2 ring-indigo-600/20 bg-white shadow-md' 
+                    : 'border-slate-200 hover:border-slate-300 bg-slate-50/50'
+                }`}>
+                  
+                  {/* Custom Trigger */}
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setIsPkgOpen((prev) => !prev);
+                      setIsFreqOpen(false);
+                      setIsCountryDropdownOpen(false);
+                    }}
+                    className={`w-full flex items-center justify-between px-3.5 py-2.5 sm:py-3 text-left transition-colors cursor-pointer ${
+                      isPkgOpen ? 'border-b border-slate-100' : ''
+                    }`}
+                    aria-haspopup="listbox"
+                    aria-expanded={isPkgOpen}
+                  >
+                    <div className="flex items-center gap-2 truncate">
+                      <span className="text-xs sm:text-sm font-black text-slate-900">
+                        {isTa ? selectedPkgObj.durationTa : selectedPkgObj.durationEn}
+                      </span>
+                      <span className="text-[11px] text-slate-500 font-medium">
+                        ({isTa ? selectedPkgObj.rateTa : selectedPkgObj.rateEn})
+                      </span>
+                    </div>
 
-                  <div className="flex items-center gap-2 shrink-0 ml-2">
-                    <span className="text-xs sm:text-sm font-black text-indigo-700 bg-indigo-50 border border-indigo-200/80 px-2.5 py-0.5 rounded-lg shadow-2xs">
-                      {selectedPkgObj.price}
-                    </span>
-                    <ChevronDown className={`w-4 h-4 text-slate-400 transition-transform duration-200 ${isPkgOpen ? 'rotate-180 text-indigo-600' : ''}`} />
-                  </div>
-                </button>
+                    <div className="flex items-center gap-2 shrink-0 ml-2">
+                      <span className="text-xs sm:text-sm font-black text-indigo-700 bg-indigo-50 border border-indigo-200/80 px-2.5 py-0.5 rounded-lg shadow-2xs">
+                        {selectedPkgObj.price}
+                      </span>
+                      <ChevronDown className={`w-4 h-4 text-slate-400 transition-transform duration-200 ${isPkgOpen ? 'rotate-180 text-indigo-600' : ''}`} />
+                    </div>
+                  </button>
 
-                {/* Custom Dropdown Popover */}
-                {isPkgOpen && (
-                  <div className="absolute top-full left-0 mt-1.5 w-full rounded-2xl border border-slate-200 bg-white p-1.5 shadow-2xl z-40 animate-in fade-in-50 zoom-in-95 duration-150 max-h-60 overflow-y-auto no-scrollbar space-y-1">
-                    {packages.map((pkg) => {
-                      const isSelected = selectedPackage === pkg.id;
-                      return (
-                        <button
-                          key={pkg.id}
-                          type="button"
-                          onClick={() => {
-                            setSelectedPackage(pkg.id);
-                            setIsPkgOpen(false);
-                          }}
-                          className={`w-full flex items-center justify-between p-2.5 sm:p-3 rounded-xl text-left transition-all cursor-pointer ${
-                            isSelected
-                              ? 'bg-indigo-50/90 text-indigo-950 font-bold border border-indigo-200/80 shadow-2xs'
-                              : 'hover:bg-slate-50 text-slate-700 border border-transparent'
-                          }`}
-                        >
-                          <div className="flex items-center gap-2.5">
-                            {/* Radio indicator */}
-                            <div className={`w-4 h-4 rounded-full border flex items-center justify-center shrink-0 transition-colors ${
-                              isSelected ? 'border-indigo-600 bg-indigo-600' : 'border-slate-300 bg-white'
-                            }`}>
-                              {isSelected && <div className="w-1.5 h-1.5 rounded-full bg-white" />}
+                  {/* Expanded Dropdown Options (In-Flow, Never Cut Off!) */}
+                  {isPkgOpen && (
+                    <div className="p-1.5 space-y-1 animate-in fade-in-50 duration-150 max-h-60 overflow-y-auto custom-scrollbar">
+                      {packages.map((pkg) => {
+                        const isSelected = selectedPackage === pkg.id;
+                        return (
+                          <button
+                            key={pkg.id}
+                            type="button"
+                            onClick={() => {
+                              setSelectedPackage(pkg.id);
+                              setIsPkgOpen(false);
+                            }}
+                            className={`w-full flex items-center justify-between p-2.5 sm:p-3 rounded-xl text-left transition-all cursor-pointer ${
+                              isSelected
+                                ? 'bg-indigo-50/90 text-indigo-950 font-bold border border-indigo-200/80 shadow-2xs'
+                                : 'hover:bg-slate-50 text-slate-700 border border-transparent'
+                            }`}
+                          >
+                            <div className="flex items-center gap-2.5">
+                              {/* Radio indicator */}
+                              <div className={`w-4 h-4 rounded-full border flex items-center justify-center shrink-0 transition-colors ${
+                                isSelected ? 'border-indigo-600 bg-indigo-600' : 'border-slate-300 bg-white'
+                              }`}>
+                                {isSelected && <div className="w-1.5 h-1.5 rounded-full bg-white" />}
+                              </div>
+
+                              <div>
+                                <p className="text-xs sm:text-sm font-extrabold text-slate-900 leading-tight">
+                                  {isTa ? pkg.durationTa : pkg.durationEn}
+                                </p>
+                                <p className="text-[10px] text-slate-500 font-medium">
+                                  {isTa ? pkg.rateTa : pkg.rateEn}
+                                </p>
+                              </div>
                             </div>
 
-                            <div>
-                              <p className="text-xs sm:text-sm font-extrabold text-slate-900 leading-tight">
-                                {isTa ? pkg.durationTa : pkg.durationEn}
-                              </p>
-                              <p className="text-[10px] text-slate-500 font-medium">
-                                {isTa ? pkg.rateTa : pkg.rateEn}
-                              </p>
+                            <div className="flex items-center gap-2 shrink-0">
+                              <span className={`text-xs sm:text-sm font-black ${isSelected ? 'text-indigo-700' : 'text-slate-900'}`}>
+                                {pkg.price}
+                              </span>
+                              {isSelected && (
+                                <Check className="w-4 h-4 text-indigo-600 shrink-0" />
+                              )}
                             </div>
-                          </div>
+                          </button>
+                        );
+                      })}
+                    </div>
+                  )}
+                </div>
 
-                          <div className="flex items-center gap-2 shrink-0">
-                            <span className={`text-xs sm:text-sm font-black ${isSelected ? 'text-indigo-700' : 'text-slate-900'}`}>
-                              {pkg.price}
-                            </span>
-                            {isSelected && (
-                              <Check className="w-4 h-4 text-indigo-600 shrink-0" />
-                            )}
-                          </div>
-                        </button>
-                      );
-                    })}
-                  </div>
-                )}
-
-                {/* Footnote */}
+                {/* Footnote — always cleanly below the entire dropdown */}
                 <p className="text-[10px] text-slate-400 font-medium mt-1.5 leading-relaxed px-0.5">
                   {isTa
                     ? "விலைகள் குறிப்பீட்டுக்கானவை. ஸ்கிரிப்ட், வாய்ஸ்ஓவர், எடிட்டிங் மற்றும் திருத்தங்கள் சேவை ஒப்பந்தத்தில் முடிவு செய்யப்படும்."
