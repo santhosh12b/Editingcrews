@@ -8,9 +8,9 @@ export const languages = [
 export const translations = {
   en: {
     hero: {
-      eyebrow: "AI & 3D Video Production for Real Estate in India",
-      headline: "Sell Properties Faster with High-Impact Real Estate Videos — Packages From ₹2,500.",
-      subheading: "Transform floor plans, architectural CADs, and property photos into cinematic 3D walkthroughs, aerial drone CGI, and high-converting social media reels.",
+      eyebrow: "Real Estate Video Production Tamil Nadu",
+      headline: "More Enquiries Start With Better Stories.",
+      subheading: "AI Video Advertisements for Real Estate Businesses",
       description: "From luxury villa tours and apartment walkthroughs to plot layout animations, we handle complete 3D modeling, AI rendering, professional editing, and voiceovers.",
       primaryCta: "Get Your Property Video",
       secondaryCta: "Explore Property Showcase",
