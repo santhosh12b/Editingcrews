@@ -116,9 +116,9 @@ export default function Thanks({ onClose, strings }) {
         <button
           type="button"
           onClick={onClose || (() => { window.location.href = getHomePath(); })}
-          className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3 rounded-2xl bg-indigo-600 hover:bg-indigo-700 active:scale-95 text-white font-bold text-xs sm:text-sm shadow-md shadow-indigo-600/20 transition-all cursor-pointer"
+          className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3 rounded-2xl bg-black hover:bg-neutral-800 active:scale-95 text-white font-black text-xs sm:text-sm shadow-md shadow-black/20 transition-all cursor-pointer"
         >
-          <ArrowLeft className="w-4 h-4" />
+          <ArrowLeft className="w-4 h-4 text-white" />
           <span>{isTa ? "முகப்புப் பக்கத்திற்குச் செல்லவும்" : "Back to Website"}</span>
         </button>
       </div>

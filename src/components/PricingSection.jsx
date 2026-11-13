@@ -140,42 +140,42 @@ export default function PricingSection({ onOpenInquiryModal }) {
   ];
 
   return (
-    <section id="pricing" className="py-16 sm:py-20 md:py-24 bg-[#F7F5EE] relative overflow-hidden border-b border-amber-200/60 scroll-mt-20">
+    <section id="pricing" className="py-16 sm:py-20 md:py-24 bg-slate-50/70 relative overflow-hidden border-b border-slate-200/80 scroll-mt-20">
       
       {/* Background Soft Mesh Ambient Lighting */}
       <div className="absolute inset-0 pointer-events-none -z-10">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[850px] h-[450px] bg-gradient-to-tr from-emerald-100/40 via-amber-100/30 to-yellow-100/20 rounded-full blur-3xl -z-10"></div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[850px] h-[450px] bg-gradient-to-tr from-emerald-100/30 via-slate-100/30 to-emerald-50/20 rounded-full blur-3xl -z-10"></div>
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
         
         {/* Section Header matching Page 4 of Brochure */}
         <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-12">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-[#064E3B] font-heading leading-tight">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-slate-950 font-heading leading-tight">
             AI Video Production{' '}
-            <span className="font-serif italic text-[#D97706] font-normal">
+            <span className="font-serif italic text-emerald-600 font-normal">
               Packages
             </span>
           </h2>
-          <p className="text-slate-700 text-base sm:text-lg md:text-xl font-medium mt-3 leading-relaxed">
+          <p className="text-slate-600 text-base sm:text-lg md:text-xl font-medium mt-3 leading-relaxed">
             {isTa 
               ? "எளிமையான, வெளிப்படையான மற்றும் நெகிழ்வான கட்டணம்." 
               : "Simple, transparent and flexible pricing."}
           </p>
         </div>
 
-        {/* The White Pricing Table Card (Exact match of Image 2) */}
-        <div className="bg-white rounded-3xl border border-amber-200/80 shadow-[0_4px_30px_rgba(6,95,70,0.06)] overflow-hidden">
-          <div className="divide-y divide-amber-200/50">
+        {/* The White Pricing Table Card */}
+        <div className="bg-white rounded-3xl border border-slate-200/80 shadow-sm overflow-hidden">
+          <div className="divide-y divide-slate-200/70">
             {packages.map((pkg) => (
               <div 
                 key={pkg.id}
                 onClick={() => onOpenInquiryModal && onOpenInquiryModal(pkg)}
-                className="px-6 py-4 sm:px-10 sm:py-5 flex items-center justify-between hover:bg-emerald-50/50 transition-colors cursor-pointer group"
+                className="px-6 py-4 sm:px-10 sm:py-5 flex items-center justify-between hover:bg-emerald-50/40 transition-colors cursor-pointer group"
               >
                 {/* Left: Duration + Rate */}
                 <div className="flex-1">
-                  <h3 className="text-lg sm:text-2xl font-extrabold text-[#064E3B] font-heading tracking-tight group-hover:text-emerald-700 transition-colors">
+                  <h3 className="text-lg sm:text-2xl font-extrabold text-slate-950 font-heading tracking-tight group-hover:text-emerald-600 transition-colors">
                     {isTa ? pkg.durationTa : pkg.durationEn}
                   </h3>
                   <p className="text-xs sm:text-sm text-slate-500 font-semibold mt-0.5">
@@ -184,11 +184,11 @@ export default function PricingSection({ onOpenInquiryModal }) {
                 </div>
 
                 {/* Center Divider: Vertical line */}
-                <div className="h-10 w-px bg-amber-200/60 mx-4 sm:mx-8 shrink-0"></div>
+                <div className="h-10 w-px bg-slate-200 mx-4 sm:mx-8 shrink-0"></div>
 
                 {/* Right: Large Bold Green Price */}
                 <div className="w-32 sm:w-44 text-right shrink-0">
-                  <span className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#047857] tracking-tight font-heading">
+                  <span className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-emerald-600 tracking-tight font-heading">
                     {pkg.price}
                   </span>
                 </div>
@@ -197,8 +197,8 @@ export default function PricingSection({ onOpenInquiryModal }) {
           </div>
         </div>
 
-        {/* 5-Feature Inclusions Card (Matching bottom of Image 2 with exact icons) */}
-        <div className="mt-6 sm:mt-8 bg-white rounded-2xl sm:rounded-3xl border border-amber-200/80 shadow-md p-4 sm:p-5">
+        {/* 5-Feature Inclusions Card */}
+        <div className="mt-6 sm:mt-8 bg-white rounded-2xl sm:rounded-3xl border border-slate-200/80 shadow-sm p-4 sm:p-5">
           <div className="grid grid-cols-2 sm:grid-cols-5 gap-3 sm:gap-2 items-center">
             {inclusionFeatures.map((feat, idx) => {
               const IconComp = feat.icon;
@@ -206,13 +206,13 @@ export default function PricingSection({ onOpenInquiryModal }) {
                 <div 
                   key={idx} 
                   className={`flex flex-col items-center text-center px-2 py-1 ${
-                    idx !== inclusionFeatures.length - 1 ? 'sm:border-r sm:border-amber-200/70' : ''
+                    idx !== inclusionFeatures.length - 1 ? 'sm:border-r sm:border-slate-200/70' : ''
                   }`}
                 >
-                  <div className="text-[#047857] mb-2 shrink-0">
+                  <div className="text-emerald-600 mb-2 shrink-0">
                     <IconComp className="w-7 h-7 sm:w-8 sm:h-8" />
                   </div>
-                  <div className="font-bold text-[#064E3B] text-xs sm:text-[13px] leading-tight font-heading">
+                  <div className="font-bold text-slate-900 text-xs sm:text-[13px] leading-tight font-heading">
                     <div>{feat.line1}</div>
                     <div>{feat.line2}</div>
                   </div>
@@ -227,10 +227,10 @@ export default function PricingSection({ onOpenInquiryModal }) {
           <button
             type="button"
             onClick={() => onOpenInquiryModal && onOpenInquiryModal()}
-            className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full bg-gradient-to-r from-amber-400 via-amber-500 to-amber-600 hover:from-amber-500 hover:to-amber-700 text-slate-950 font-black text-sm sm:text-base shadow-xl shadow-amber-500/30 transition-all cursor-pointer active:scale-95"
+            className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full bg-black hover:bg-neutral-800 text-white font-black text-sm sm:text-base shadow-xl shadow-black/25 transition-all cursor-pointer active:scale-95"
           >
             <span>{isTa ? "உங்கள் AI வீடியோவை இன்றே முன்பதிவு செய்யுங்கள்" : "Book your AI video Today"}</span>
-            <ArrowRight className="w-4 h-4 text-slate-950 stroke-[3]" />
+            <ArrowRight className="w-4 h-4 text-white stroke-[3]" />
           </button>
         </div>
 

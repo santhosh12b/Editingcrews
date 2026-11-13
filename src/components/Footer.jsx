@@ -6,7 +6,7 @@ export default function Footer() {
   const f = t.footer;
 
   return (
-    <footer className="border-t border-amber-200/60 bg-[#FCFBF7] py-10 sm:py-12">
+    <footer className="border-t border-slate-200/80 bg-white py-10 sm:py-12">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         <div className="flex flex-col sm:flex-row items-center justify-between gap-5 text-center sm:text-left">
           
@@ -19,8 +19,8 @@ export default function Footer() {
                 className="w-8 h-8 sm:w-9 sm:h-9 object-contain drop-shadow-[0_4px_10px_rgba(4,120,87,0.3)] group-hover:scale-105 transition-transform duration-200" 
               />
               <span 
-                className="text-xl font-semibold tracking-tight text-[#064E3B] font-heading"
-                style={{ fontFamily: "'Satoshi', sans-serif", fontWeight: 600 }}
+                className="text-xl font-bold tracking-tight text-slate-950 font-heading"
+                style={{ fontFamily: "'Satoshi', sans-serif" }}
               >
                 The Editing Crew
               </span>

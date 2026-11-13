@@ -695,14 +695,14 @@ export default function CreateVideoModal({ isOpen, onClose }) {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full py-2.5 sm:py-3 px-5 rounded-2xl bg-gradient-to-r from-amber-400 via-amber-500 to-amber-600 hover:from-amber-500 hover:to-amber-700 text-slate-950 font-black text-xs sm:text-sm shadow-md shadow-amber-500/30 transition-all duration-200 flex items-center justify-center gap-2 cursor-pointer disabled:opacity-70"
+                  className="w-full py-2.5 sm:py-3 px-5 rounded-2xl bg-black hover:bg-neutral-800 text-white font-black text-xs sm:text-sm shadow-md shadow-black/25 transition-all duration-200 flex items-center justify-center gap-2 cursor-pointer disabled:opacity-70 border border-white/10"
                 >
                   {isSubmitting ? (
                     <span>{strings.submitting}</span>
                   ) : (
                     <>
                       <span>{strings.submitBtn}</span>
-                      <ArrowRight className="w-4 h-4" />
+                      <ArrowRight className="w-4 h-4 text-white" />
                     </>
                   )}
                 </button>

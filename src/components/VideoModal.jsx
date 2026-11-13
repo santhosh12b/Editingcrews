@@ -109,10 +109,10 @@ export default function VideoModal({ video, onClose, onOpenInquiryModal }) {
               onClose();
               if (onOpenInquiryModal) onOpenInquiryModal();
             }}
-            className="w-full py-3 px-4 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs sm:text-sm shadow-lg flex items-center justify-center gap-2 glow-primary transition-all"
+            className="w-full py-3 px-4 rounded-xl bg-black hover:bg-neutral-800 text-white font-black text-xs sm:text-sm shadow-lg flex items-center justify-center gap-2 transition-all border border-white/10 cursor-pointer"
           >
             <span>{currentLang === 'ta' ? "உங்கள் AI வீடியோவை இன்றே முன்பதிவு செய்யுங்கள்" : "Book your AI video Today"}</span>
-            <ExternalLink className="w-4 h-4" />
+            <ExternalLink className="w-4 h-4 text-white" />
           </button>
         </div>
 
