@@ -11,8 +11,8 @@ export const translations = {
       eyebrow: "Real Estate Video Production Tamil Nadu",
       headline: "AI Video Advertisements for Real Estate Businesses",
       subheading: "More Enquiries Start With Better Stories.",
-      description: "From luxury villa tours and apartment walkthroughs to plot layout animations, we handle complete 3D modeling, AI rendering, professional editing, and voiceovers.",
-      primaryCta: "Get Your Property Video",
+      description: "From luxury villa tours and apartment walkthroughs to plot layout animations, we handle complete AI rendering, professional editing, and voiceovers.",
+      primaryCta: "Book your AI video Today",
       secondaryCta: "Explore Property Showcase",
       badge1: "Packages Starting at ₹2,500",
       badge2: "48–72h Turnaround",
@@ -20,9 +20,9 @@ export const translations = {
     },
     whatWeOffer: {
       badge: "Real Estate Video Production",
-      heading: "Video Types We Create",
+      heading: "AI Video Types We Create",
       subheading: "Different formats. One production partner.",
-      cta: "Order Property Video",
+      cta: "Book your AI video Today",
       suitableFor: {
         badge: "Suitable For",
         col1: ["Plot Developments", "Independent Houses"],
@@ -32,7 +32,7 @@ export const translations = {
       customIdeaBadge: "Custom Project Requirements",
       customIdeaHeading: "Have a large township, villa community, or commercial project?",
       customIdeaSub: "From 360° master plan CGI flythroughs to custom architectural animations — we bring any real estate project to life.",
-      customIdeaBtn: "Discuss Your Project",
+      customIdeaBtn: "Book your AI video Today",
       items: [
         {
           id: "walkthrough",
@@ -80,11 +80,11 @@ export const translations = {
     },
     ourWork: {
       badge: "Real Estate Portfolio",
-      heading: "See How Top Builders & Agents Sell Properties",
-      subheading: "Explore virtual walkthroughs, aerial CGI, and ad reels produced for residential townships, luxury villas, and plotting projects across India.",
+      heading: "Project We Work For Other Brands",
+      subheading: "Explore aerial CGI and ad reels produced for residential townships, luxury villas, and plotting projects across India.",
       cta: "View Property Reel",
       tagline: "Your next property booking starts with a visually stunning walkthrough.",
-      taglineCta: "Book Your Video Today",
+      taglineCta: "Book your AI video Today",
       filterAll: "All Properties",
       filterProduct: "Luxury Villas",
       filterUGC: "Apartment Tours",
@@ -95,7 +95,7 @@ export const translations = {
       badge: "End-to-End Real Estate Media",
       heading: "Comprehensive Video Services for Indian Real Estate",
       subheading: "From 2D floor plans to broadcast-ready 3D architectural commercials with professional Tamil and English voiceovers starting from just ₹2,500.",
-      cta: "Create Video",
+      cta: "Book your AI video Today",
       items: [
         {
           id: "apartment-walkthrough",
@@ -143,16 +143,16 @@ export const translations = {
     },
     howItWorks: {
       badge: "SIMPLE 3-STEP PROCESS",
-      heading: "From Floor Plan to Finished Property Video in 3 Easy Steps",
+      heading: "From Idea to Finish the AI Video in Three Steps",
       subheading: "No costly cameras, drone permissions, or weather delays. We create everything digitally.",
       step1: {
         num: "1",
-        title: "Send Your Property Details",
-        desc: "Share your 2D floor plans, elevation sketches, plot layout, photos, or rough brochure."
+        title: "Send your Details and Ideas",
+        desc: "Share your elevation sketches, plot layout, photos, or rough brochure, voice note and target audience."
       },
       step2: {
         num: "2",
-        title: "We Build 3D & AI Walkthrough",
+        title: "We Produce AI Video",
         desc: "Our team models the architecture, applies realistic lighting, edits the footage, and adds professional voiceovers."
       },
       step3: {
@@ -160,7 +160,7 @@ export const translations = {
         title: "Receive Ready-to-Publish Video",
         desc: "Download your high-definition video ready for WhatsApp, Instagram, YouTube, and property portal listings."
       },
-      note: "100% digital production with zero physical shoot hassle or construction dust."
+      note: "100% digital production with zero physical shoot hassle."
     },
     showreel: {
       badge: "Real Estate Showreel",
@@ -190,7 +190,7 @@ export const translations = {
       pricePrefix: "Starting at",
       price: "₹2,500",
       priceSuffix: "for 30s video ad",
-      cta: "Order Property Video",
+      cta: "Book your AI video Today",
       subnote: "Starting at ₹2,500 for a 30s ad. Zero hidden fees. Includes 3D rendering and professional voiceover.",
       features: [
         {
@@ -250,6 +250,20 @@ export const translations = {
         },
         {
           id: 2,
+          name: "Rok Hrastnik",
+          initials: "RH",
+          avatarImg: "/reviews/rok-hrastnik.png",
+          avatarBg: "#1F2937",
+          avatarColor: "#FFFFFF",
+          reviewCount: "4 reviews",
+          date: "a month ago",
+          isNew: false,
+          rating: 5,
+          quote: "Really happy with them! Did my ad request for a few complex ads in a few days. Great service, great price, fast.",
+          role: "Verified Google Reviewer"
+        },
+        {
+          id: 3,
           name: "S Sujin",
           initials: "SS",
           avatarImg: "/reviews/s-sujin.png",
@@ -263,7 +277,7 @@ export const translations = {
           role: "Verified Google Reviewer"
         },
         {
-          id: 3,
+          id: 4,
           name: "Bijoy Cherian",
           initials: "BC",
           avatarImg: "/reviews/bijoy-cherian.png",
@@ -308,9 +322,8 @@ export const translations = {
     bottomCta: {
       heading: "Ready to Accelerate Your Property Sales?",
       description: "Give your apartment, villa, or plotting project the visual impact it deserves. Generate high-intent buyer inquiries and increase site visits with high-converting 3D property videos.",
-      priceHighlight: "Your first property video starts at just ₹2,500.",
-      buttonText: "Request Property Video",
-      subtext: "Share your floor plan or property photos, and let's bring it to life."
+      buttonText: "Book your AI video Today",
+      subtext: "Your first property video starts at just ₹2,500."
     },
     footer: {
       tagline: "India's premier AI & 3D real estate video production service. High-converting walkthroughs, aerial CGI, and social media reels for builders, developers, and property agents starting from ₹2,500.",
@@ -318,7 +331,7 @@ export const translations = {
       col2Title: "Solutions",
       col3Title: "Get Started",
       col3Desc: "Ready to showcase your new property? Send us your floor plan or layout details to get started today.",
-      cta: "Order Property Video",
+      cta: "Book your AI video Today",
       rights: "© 2026 The Editing Crew — Real Estate Media. All rights reserved."
     },
     modal: {

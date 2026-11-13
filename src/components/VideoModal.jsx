@@ -6,7 +6,7 @@ export default function VideoModal({ video, onClose, onOpenInquiryModal }) {
   const videoRef = useRef(null);
   const [isPlaying, setIsPlaying] = React.useState(true);
   const [isMuted, setIsMuted] = React.useState(false);
-  const { t, priceFormatted } = useLanguage();
+  const { t, priceFormatted, currentLang } = useLanguage();
 
   useEffect(() => {
     const handleKeyDown = (e) => {
@@ -111,7 +111,7 @@ export default function VideoModal({ video, onClose, onOpenInquiryModal }) {
             }}
             className="w-full py-3 px-4 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs sm:text-sm shadow-lg flex items-center justify-center gap-2 glow-primary transition-all"
           >
-            <span>{t.hero.secondaryCta}</span>
+            <span>{currentLang === 'ta' ? "உங்கள் AI வீடியோவை இன்றே முன்பதிவு செய்யுங்கள்" : "Book your AI video Today"}</span>
             <ExternalLink className="w-4 h-4" />
           </button>
         </div>

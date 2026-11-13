@@ -229,7 +229,7 @@ export default function PricingSection({ onOpenInquiryModal }) {
             onClick={() => onOpenInquiryModal && onOpenInquiryModal()}
             className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full bg-gradient-to-r from-amber-400 via-amber-500 to-amber-600 hover:from-amber-500 hover:to-amber-700 text-slate-950 font-black text-sm sm:text-base shadow-xl shadow-amber-500/30 transition-all cursor-pointer active:scale-95"
           >
-            <span>{isTa ? "உங்கள் பேக்கேஜை தேர்வு செய்யவும்" : "Choose Your Video Package"}</span>
+            <span>{isTa ? "உங்கள் AI வீடியோவை இன்றே முன்பதிவு செய்யுங்கள்" : "Book your AI video Today"}</span>
             <ArrowRight className="w-4 h-4 text-slate-950 stroke-[3]" />
           </button>
         </div>

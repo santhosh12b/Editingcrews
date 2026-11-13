@@ -17,74 +17,58 @@ export const portfolioVideos = [
   {
     id: 1,
     title: {
-      en: "Luxury Villa & House Tour",
-      ta: "சொகுசு வில்லா இல்லக் காட்சி"
+      en: "Presenter Video",
+      ta: "தொகுப்பாளர் வீடியோ"
     },
-    category: "product",
+    category: "presenter",
     badge: {
-      en: "3D Virtual Tour",
-      ta: "3D விர்ச்சுவல் டூர்"
-    },
-    benefit: {
-      en: "No Physical Shoot",
-      ta: "நேரடி படப்பிடிப்பு தேவையில்லை"
+      en: "Presenter Video",
+      ta: "தொகுப்பாளர் வீடியோ"
     },
     videoUrl: "/video/estate.mp4",
-    rate: "₹4,000 (1 Min)"
+    rate: ""
   },
   {
     id: 2,
     title: {
-      en: "Apartment & Flat Walkthrough",
-      ta: "அடுக்குமாடி குடியிருப்பு வால்க்த்ரூ"
+      en: "Presenter Video",
+      ta: "தொகுப்பாளர் வீடியோ"
     },
-    category: "explainer",
+    category: "presenter",
     badge: {
-      en: "48h Fast Delivery",
-      ta: "48 மணிநேர விரைவு டெலிவரி"
-    },
-    benefit: {
-      en: "Realistic Interiors",
-      ta: "தத்ரூபமான உள்துறை காட்சிகள்"
+      en: "Presenter Video",
+      ta: "தொகுப்பாளர் வீடியோ"
     },
     videoUrl: "/video/estate1.mp4",
-    rate: "₹4,000 (1 Min)"
+    rate: ""
   },
   {
     id: 3,
     title: {
-      en: "Township & Gated Community CGI",
-      ta: "கேடட் கம்யூனிட்டி 3D ட்ரோன் பார்வை"
+      en: "Concept Ads",
+      ta: "கருத்துரு விளம்பரம்"
     },
-    category: "cinematic",
+    category: "concept",
     badge: {
-      en: "Drone & Aerial View",
-      ta: "வான்வழி ட்ரோன் பார்வை"
-    },
-    benefit: {
-      en: "Master Plan Preview",
-      ta: "மாஸ்டர் பிளான் மாதிரி"
+      en: "Concept Ads",
+      ta: "கருத்துரு விளம்பரம்"
     },
     videoUrl: "/video/estate2.mp4",
-    rate: "₹7,000 (2 Min)"
+    rate: ""
   },
   {
     id: 4,
     title: {
-      en: "Plot Layout & Real Estate Reels",
-      ta: "மனை லேஅவுட் & விளம்பர ரீல்ஸ்"
+      en: "Concept Ads",
+      ta: "கருத்துரு விளம்பரம்"
     },
-    category: "ugc",
+    category: "concept",
     badge: {
-      en: "Lead Generating",
-      ta: "அதிக லீட்ஸ் உருவாக்கம்"
-    },
-    benefit: {
-      en: "Tamil & English Voiceover",
-      ta: "தமிழ் & ஆங்கில குரல் பதிவு"
+      en: "Concept Ads",
+      ta: "கருத்துரு விளம்பரம்"
     },
     videoUrl: "/video/estate3.mp4",
-    rate: "₹2,500 (30s)"
+    rate: ""
   }
 ];
 
@@ -188,7 +172,7 @@ export default function OurWorkSection({ onOpenVideoModal, onOpenInquiryModal })
               onClick={() => onOpenInquiryModal && onOpenInquiryModal()}
               className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl sm:rounded-2xl bg-gradient-to-r from-amber-500 via-amber-600 to-amber-700 hover:from-amber-600 hover:to-amber-800 text-slate-950 font-black text-sm sm:text-base px-6 py-3.5 shadow-lg shadow-amber-500/25 transition-all duration-200 transform hover:scale-[1.02] active:scale-[0.98]"
             >
-              <span>{ow.taglineCta || "Get Your Video Today"}</span>
+              <span>{ow.taglineCta || "Book your AI video Today"}</span>
               <ArrowRight className="w-4 h-4 stroke-[3]" />
             </button>
           </div>
@@ -205,7 +189,6 @@ function PortfolioVideoCard({ item, currentLang, onOpenModal }) {
 
   const title = item.title[currentLang] || item.title.en;
   const badge = item.badge[currentLang] || item.badge.en;
-  const benefit = item.benefit[currentLang] || item.benefit.en;
 
   const handleMouseEnter = () => {
     if (videoRef.current) {
@@ -255,12 +238,9 @@ function PortfolioVideoCard({ item, currentLang, onOpenModal }) {
       <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-slate-950/60 pointer-events-none group-hover:from-slate-950/90 transition-colors"></div>
 
       {/* Top Badge */}
-      <div className="absolute top-3 inset-x-3 flex items-center justify-between z-10 pointer-events-none">
-        <span className="text-[10px] sm:text-xs font-bold text-white bg-indigo-600/90 backdrop-blur-md px-2.5 py-1 rounded-full shadow-sm">
+      <div className="absolute top-3 left-3 z-10 pointer-events-none">
+        <span className="text-[10px] sm:text-xs font-bold text-white bg-amber-500/90 backdrop-blur-md px-2.5 py-1 rounded-full shadow-sm">
           {badge}
-        </span>
-        <span className="text-[10px] sm:text-xs font-extrabold text-white/90 bg-black/50 backdrop-blur-md px-2 py-0.5 rounded-md">
-          {rateText || item.rate}
         </span>
       </div>
 
@@ -272,16 +252,13 @@ function PortfolioVideoCard({ item, currentLang, onOpenModal }) {
       </div>
 
       {/* Bottom Info Bar */}
-      <div className="absolute bottom-3.5 inset-x-3.5 z-10 pointer-events-none text-left">
-        <h4 className="text-xs sm:text-sm font-extrabold text-white leading-snug font-heading mb-1 drop-shadow-sm">
+      <div className="absolute bottom-3.5 inset-x-3.5 z-10 pointer-events-none text-left flex items-center justify-between">
+        <h4 className="text-xs sm:text-sm font-extrabold text-white leading-snug font-heading drop-shadow-sm">
           {title}
         </h4>
-        <div className="flex items-center justify-between text-[10px] sm:text-xs text-indigo-300 font-medium">
-          <span>{benefit}</span>
-          <span className="text-white/80 group-hover:translate-x-0.5 transition-transform flex items-center">
-            ▶
-          </span>
-        </div>
+        <span className="text-white/80 text-xs group-hover:translate-x-0.5 transition-transform">
+          ▶
+        </span>
       </div>
     </div>
   );
@@ -417,12 +394,9 @@ function Mobile3DPortfolioCarousel({ items, currentLang, onOpenModal }) {
 
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-slate-950/60 pointer-events-none"></div>
 
-                <div className="absolute top-3 inset-x-3 flex items-center justify-between z-10 pointer-events-none">
-                  <span className="text-[10px] font-bold text-white bg-indigo-600/90 backdrop-blur-md px-2.5 py-0.5 rounded-full shadow-sm">
+                <div className="absolute top-3 left-3 z-10 pointer-events-none">
+                  <span className="text-[10px] font-bold text-white bg-amber-500/90 backdrop-blur-md px-2.5 py-0.5 rounded-full shadow-sm">
                     {badge}
-                  </span>
-                  <span className="text-[10px] font-extrabold text-white/90 bg-black/50 px-2 py-0.5 rounded-md">
-                    {rateText || item.rate}
                   </span>
                 </div>
 

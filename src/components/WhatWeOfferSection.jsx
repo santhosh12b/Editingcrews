@@ -3,7 +3,12 @@ import {
   UserRound, 
   Palmtree, 
   HardHat, 
-  ArrowRight 
+  ArrowRight,
+  LandPlot,
+  Home,
+  Building2,
+  Building,
+  Trees
 } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 
@@ -123,32 +128,62 @@ export default function WhatWeOfferSection({ onOpenInquiryModal }) {
             {/* 3 Columns */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 w-full text-slate-900 py-1">
               {/* Column 1 */}
-              <div className="border-b sm:border-b-0 sm:border-r border-slate-200/90 pb-2.5 sm:pb-0 sm:pr-4 text-center sm:text-left">
-                <div className="font-bold text-slate-900 text-xs sm:text-sm md:text-[14px] leading-tight">
-                  {offer.suitableFor?.col1?.[0] || "Plot Developments"}
+              <div className="border-b sm:border-b-0 sm:border-r border-slate-200/90 pb-2.5 sm:pb-0 sm:pr-4 flex flex-col gap-2">
+                <div className="flex items-center gap-2.5">
+                  <div className="w-6 h-6 rounded-lg bg-emerald-50 border border-emerald-200/80 flex items-center justify-center shrink-0 text-[#047857]">
+                    <LandPlot className="w-3.5 h-3.5" />
+                  </div>
+                  <span className="font-bold text-slate-900 text-xs sm:text-sm md:text-[14px] leading-tight">
+                    {offer.suitableFor?.col1?.[0] || "Plot Developments"}
+                  </span>
                 </div>
-                <div className="font-bold text-slate-800 text-xs sm:text-sm md:text-[14px] leading-tight mt-1">
-                  {offer.suitableFor?.col1?.[1] || "Independent Houses"}
+                <div className="flex items-center gap-2.5">
+                  <div className="w-6 h-6 rounded-lg bg-emerald-50 border border-emerald-200/80 flex items-center justify-center shrink-0 text-[#047857]">
+                    <Home className="w-3.5 h-3.5" />
+                  </div>
+                  <span className="font-bold text-slate-800 text-xs sm:text-sm md:text-[14px] leading-tight">
+                    {offer.suitableFor?.col1?.[1] || "Independent Houses"}
+                  </span>
                 </div>
               </div>
 
               {/* Column 2 */}
-              <div className="border-b sm:border-b-0 sm:border-r border-slate-200/90 pb-2.5 sm:pb-0 sm:pr-4 text-center sm:text-left">
-                <div className="font-bold text-slate-900 text-xs sm:text-sm md:text-[14px] leading-tight">
-                  {offer.suitableFor?.col2?.[0] || "Apartments"}
+              <div className="border-b sm:border-b-0 sm:border-r border-slate-200/90 pb-2.5 sm:pb-0 sm:pr-4 flex flex-col gap-2">
+                <div className="flex items-center gap-2.5">
+                  <div className="w-6 h-6 rounded-lg bg-emerald-50 border border-emerald-200/80 flex items-center justify-center shrink-0 text-[#047857]">
+                    <Building2 className="w-3.5 h-3.5" />
+                  </div>
+                  <span className="font-bold text-slate-900 text-xs sm:text-sm md:text-[14px] leading-tight">
+                    {offer.suitableFor?.col2?.[0] || "Apartments"}
+                  </span>
                 </div>
-                <div className="font-bold text-slate-800 text-xs sm:text-sm md:text-[14px] leading-tight mt-1">
-                  {offer.suitableFor?.col2?.[1] || "Commercial Projects"}
+                <div className="flex items-center gap-2.5">
+                  <div className="w-6 h-6 rounded-lg bg-emerald-50 border border-emerald-200/80 flex items-center justify-center shrink-0 text-[#047857]">
+                    <Building className="w-3.5 h-3.5" />
+                  </div>
+                  <span className="font-bold text-slate-800 text-xs sm:text-sm md:text-[14px] leading-tight">
+                    {offer.suitableFor?.col2?.[1] || "Commercial Projects"}
+                  </span>
                 </div>
               </div>
 
               {/* Column 3 */}
-              <div className="text-center sm:text-left">
-                <div className="font-bold text-slate-900 text-xs sm:text-sm md:text-[14px] leading-tight">
-                  {offer.suitableFor?.col3?.[0] || "Villas"}
+              <div className="flex flex-col gap-2">
+                <div className="flex items-center gap-2.5">
+                  <div className="w-6 h-6 rounded-lg bg-emerald-50 border border-emerald-200/80 flex items-center justify-center shrink-0 text-[#047857]">
+                    <Palmtree className="w-3.5 h-3.5" />
+                  </div>
+                  <span className="font-bold text-slate-900 text-xs sm:text-sm md:text-[14px] leading-tight">
+                    {offer.suitableFor?.col3?.[0] || "Villas"}
+                  </span>
                 </div>
-                <div className="font-bold text-slate-800 text-xs sm:text-sm md:text-[14px] leading-tight mt-1">
-                  {offer.suitableFor?.col3?.[1] || "Farm Land"}
+                <div className="flex items-center gap-2.5">
+                  <div className="w-6 h-6 rounded-lg bg-emerald-50 border border-emerald-200/80 flex items-center justify-center shrink-0 text-[#047857]">
+                    <Trees className="w-3.5 h-3.5" />
+                  </div>
+                  <span className="font-bold text-slate-800 text-xs sm:text-sm md:text-[14px] leading-tight">
+                    {offer.suitableFor?.col3?.[1] || "Farm Land"}
+                  </span>
                 </div>
               </div>
             </div>
@@ -169,7 +204,7 @@ export default function WhatWeOfferSection({ onOpenInquiryModal }) {
               onClick={() => onOpenInquiryModal && onOpenInquiryModal()}
               className="w-full sm:w-auto inline-flex items-center justify-center gap-2 text-xs sm:text-sm font-black text-slate-950 bg-gradient-to-r from-amber-400 via-amber-500 to-amber-600 hover:from-amber-500 hover:to-amber-700 px-5 py-2.5 rounded-xl sm:rounded-full transition-all shadow-md shadow-amber-500/30 active:scale-95 shrink-0"
             >
-              <span>{offer.customIdeaBtn || "Discuss Your Project"}</span>
+              <span>{offer.customIdeaBtn || "Book your AI video Today"}</span>
               <ArrowRight className="w-4 h-4 text-slate-950 stroke-[3]" />
             </button>
           </div>

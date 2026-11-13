@@ -153,7 +153,7 @@ export default function TestimonialsMarquee() {
 
             {/* Subtitle */}
             <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-              {testInfo.subheading || "Honest feedback from founders and marketing executives who scale with Pixoda."}
+              {testInfo.subheading || "Honest feedback from founders, builders, and businesses who work with The Editing Crew."}
             </p>
 
             {/* Rating Summary Bar */}
