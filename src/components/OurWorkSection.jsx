@@ -100,24 +100,24 @@ export default function OurWorkSection({ onOpenVideoModal, onOpenInquiryModal })
   };
 
   return (
-    <section id="our-work" className="py-14 sm:py-20 md:py-28 bg-white relative overflow-hidden border-b border-slate-200/80 scroll-mt-20">
+    <section id="our-work" className="py-14 sm:py-20 md:py-28 bg-[#FCFBF7] relative overflow-hidden border-b border-amber-200/60 scroll-mt-20">
       
       {/* Background Soft Mesh */}
       <div className="absolute inset-0 pointer-events-none -z-10">
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-gradient-to-tr from-indigo-100/30 via-emerald-100/20 to-teal-100/20 rounded-full blur-3xl -z-10"></div>
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-gradient-to-tr from-amber-100/40 via-emerald-100/30 to-yellow-100/20 rounded-full blur-3xl -z-10"></div>
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1360px]">
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-12">
-          <span className="text-[11px] sm:text-[13px] font-bold uppercase tracking-widest text-indigo-600 mb-2 sm:mb-3 block">
+          <span className="text-[11px] sm:text-[13px] font-extrabold uppercase tracking-widest text-[#047857] mb-2 sm:mb-3 block">
             {ow.badge || "Our Work"}
           </span>
-          <h2 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900 leading-tight font-heading">
+          <h2 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-[#064E3B] leading-tight font-heading">
             {ow.heading || "See What AI Video Can Do for Your Brand"}
           </h2>
-          <p className="text-slate-600 text-xs sm:text-base md:text-lg mt-2.5 sm:mt-4 leading-relaxed max-w-2xl mx-auto">
+          <p className="text-slate-700 text-xs sm:text-base md:text-lg mt-2.5 sm:mt-4 leading-relaxed max-w-2xl mx-auto">
             {ow.subheading || "Explore videos we've created for other brands and discover what's possible for your products."}
           </p>
 
@@ -125,13 +125,13 @@ export default function OurWorkSection({ onOpenVideoModal, onOpenInquiryModal })
           <div className="mt-6 sm:mt-7 flex items-center justify-center">
             <button
               onClick={handleScrollToPortfolio}
-              className="w-full sm:w-auto group inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-full bg-slate-900 hover:bg-indigo-600 text-white font-bold text-sm sm:text-base shadow-lg shadow-slate-900/10 hover:shadow-indigo-600/30 transition-all duration-200 transform hover:scale-[1.02] active:scale-[0.98]"
+              className="w-full sm:w-auto group inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-full bg-gradient-to-r from-amber-400 via-amber-500 to-amber-600 hover:from-amber-500 hover:to-amber-700 text-slate-950 font-black text-sm sm:text-base shadow-xl shadow-amber-500/30 transition-all duration-200 transform hover:scale-[1.02] active:scale-[0.98] cursor-pointer"
             >
-              <div className="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center group-hover:scale-110 transition-transform">
-                <Play className="w-3.5 h-3.5 fill-white text-white ml-0.5" />
+              <div className="w-6 h-6 rounded-full bg-slate-950/15 flex items-center justify-center group-hover:scale-110 transition-transform">
+                <Play className="w-3.5 h-3.5 fill-slate-950 text-slate-950 ml-0.5" />
               </div>
               <span>{ow.cta || "Show Video Portfolio"}</span>
-              <ArrowRight className="w-4 h-4 ml-0.5 group-hover:translate-x-1 transition-transform" />
+              <ArrowRight className="w-4 h-4 ml-0.5 group-hover:translate-x-1 transition-transform stroke-[3]" />
             </button>
           </div>
         </div>
@@ -164,18 +164,18 @@ export default function OurWorkSection({ onOpenVideoModal, onOpenInquiryModal })
         </div>
 
         {/* Bottom Tagline Banner: "Your next winning creative could start with a simple idea." */}
-        <div className="mt-10 sm:mt-16 rounded-2xl sm:rounded-3xl bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 text-white p-5 sm:p-8 md:p-9 shadow-xl border border-slate-800 flex flex-col md:flex-row items-center justify-between gap-5 sm:gap-6 relative overflow-hidden">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(7,132,101,0.28),transparent_50%)] pointer-events-none"></div>
+        <div className="mt-10 sm:mt-16 rounded-2xl sm:rounded-3xl bg-gradient-to-r from-[#0c4a32] via-[#083825] to-[#042417] text-white p-5 sm:p-8 md:p-9 shadow-xl border border-emerald-900/40 flex flex-col md:flex-row items-center justify-between gap-5 sm:gap-6 relative overflow-hidden">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(245,158,11,0.2),transparent_50%)] pointer-events-none"></div>
 
           <div className="relative z-10 flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-3.5 sm:gap-4 max-w-2xl">
-            <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-indigo-500/20 border border-indigo-400/30 flex items-center justify-center text-indigo-300 shrink-0 shadow-inner">
-              <Sparkles className="w-5 h-5 sm:w-6 sm:h-6 text-indigo-400" />
+            <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-amber-500/20 border border-amber-400/30 flex items-center justify-center text-amber-300 shrink-0 shadow-inner">
+              <Sparkles className="w-5 h-5 sm:w-6 sm:h-6 text-amber-300" />
             </div>
             <div>
               <h3 className="text-lg sm:text-2xl font-extrabold text-white font-heading leading-snug">
                 {ow.tagline || "Your next winning creative could start with a simple idea."}
               </h3>
-              <p className="text-slate-300 text-xs sm:text-sm mt-1 sm:mt-1.5 leading-relaxed">
+              <p className="text-emerald-100/90 text-xs sm:text-sm mt-1 sm:mt-1.5 leading-relaxed">
                 {currentLang === 'ta' 
                   ? `${priceFormatted}/நிமிடத்திலிருந்து தொழில்முறை AI வீடியோ தயாரிப்பைத் தொடங்குங்கள் — 48–72 மணிநேரத்தில் டெலிவரி.`
                   : `Launch your professional AI video production from ${priceFormatted}/minute — delivered in 48–72 hours.`}
@@ -186,10 +186,10 @@ export default function OurWorkSection({ onOpenVideoModal, onOpenInquiryModal })
           <div className="relative z-10 shrink-0 w-full sm:w-auto">
             <button
               onClick={() => onOpenInquiryModal && onOpenInquiryModal()}
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl sm:rounded-2xl bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-sm sm:text-base px-6 py-3.5 shadow-lg shadow-indigo-600/30 transition-all duration-200 transform hover:scale-[1.02] active:scale-[0.98]"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl sm:rounded-2xl bg-gradient-to-r from-amber-500 via-amber-600 to-amber-700 hover:from-amber-600 hover:to-amber-800 text-slate-950 font-black text-sm sm:text-base px-6 py-3.5 shadow-lg shadow-amber-500/25 transition-all duration-200 transform hover:scale-[1.02] active:scale-[0.98]"
             >
               <span>{ow.taglineCta || "Get Your Video Today"}</span>
-              <ArrowRight className="w-4 h-4" />
+              <ArrowRight className="w-4 h-4 stroke-[3]" />
             </button>
           </div>
         </div>

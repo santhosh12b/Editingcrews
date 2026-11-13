@@ -20,30 +20,35 @@ export default {
     extend: {
       colors: {
         indigo: {
-          50: '#ecfdf5',
-          100: '#d1fae5',
-          200: '#a7f3d0',
-          300: '#6ee7b7',
-          400: '#34d399',
-          500: '#10b981',
-          600: '#078465', // Primary logo green from public/logo.png
-          700: '#056d53', // Hover dark green
-          800: '#045742',
-          900: '#033d2e',
-          950: '#01241b',
+          50: '#fffbeb',   // Temple warm ivory cream
+          100: '#fef3c7',  // Soft turmeric glow
+          200: '#fde68a',
+          300: '#fcd34d',
+          400: '#fbbf24',
+          500: '#f59e0b',  // Vibrant temple gold
+          600: '#d97706',  // Rich auspicious temple gold / amber
+          700: '#b45309',  // Deep royal gold
+          800: '#92400e',
+          900: '#78350f',
+          950: '#451a03',
         },
         brand: {
-          50: '#ecfdf5',
-          100: '#d1fae5',
-          200: '#a7f3d0',
-          300: '#6ee7b7',
-          400: '#34d399',
-          500: '#10b981',
-          600: '#078465',
-          700: '#056d53',
-          800: '#045742',
-          900: '#033d2e',
-          DEFAULT: '#078465',
+          50: '#fffbeb',
+          100: '#fef3c7',
+          200: '#fde68a',
+          300: '#fcd34d',
+          400: '#fbbf24',
+          500: '#f59e0b',
+          600: '#d97706',
+          700: '#b45309',
+          800: '#92400e',
+          900: '#78350f',
+          DEFAULT: '#d97706',
+          gold: '#f59e0b',
+          amber: '#d97706',
+          emerald: '#047857',
+          deepGreen: '#064e3b',
+          cream: '#fffdf7'
         },
         border: 'hsl(var(--border) / <alpha-value>)',
         input: 'hsl(var(--input) / <alpha-value>)',

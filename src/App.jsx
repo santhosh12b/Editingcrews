@@ -71,7 +71,7 @@ export default function App() {
   }
 
   return (
-    <div className="relative min-h-screen bg-white text-slate-900 overflow-x-hidden selection:bg-indigo-100 selection:text-indigo-800">
+    <div className="relative min-h-screen bg-[#FCFBF7] text-slate-900 overflow-x-hidden selection:bg-amber-200 selection:text-emerald-950">
       
       {/* 1. Header / Navbar */}
       <Navbar 

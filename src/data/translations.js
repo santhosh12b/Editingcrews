@@ -9,8 +9,8 @@ export const translations = {
   en: {
     hero: {
       eyebrow: "Real Estate Video Production Tamil Nadu",
-      headline: "More Enquiries Start With Better Stories.",
-      subheading: "AI Video Advertisements for Real Estate Businesses",
+      headline: "AI Video Advertisements for Real Estate Businesses",
+      subheading: "More Enquiries Start With Better Stories.",
       description: "From luxury villa tours and apartment walkthroughs to plot layout animations, we handle complete 3D modeling, AI rendering, professional editing, and voiceovers.",
       primaryCta: "Get Your Property Video",
       secondaryCta: "Explore Property Showcase",
@@ -19,62 +19,62 @@ export const translations = {
       badge3: "100% Commercial Ad Rights"
     },
     whatWeOffer: {
-      badge: "What We Create for Builders & Agents",
-      heading: "Showcase Your Properties. Convert Buyers Faster.",
-      subheading: "Give prospective home buyers an immersive visual experience with hyper-realistic property videos designed for Instagram, YouTube, WhatsApp marketing, and property portals.",
+      badge: "Real Estate Video Production",
+      heading: "Video Types We Create",
+      subheading: "Different formats. One production partner.",
       cta: "Order Property Video",
+      suitableFor: {
+        badge: "Suitable For",
+        col1: ["Plot Developments", "Independent Houses"],
+        col2: ["Apartments", "Commercial Projects"],
+        col3: ["Villas", "Farm Land"]
+      },
       customIdeaBadge: "Custom Project Requirements",
       customIdeaHeading: "Have a large township, villa community, or commercial project?",
       customIdeaSub: "From 360° master plan CGI flythroughs to custom architectural animations — we bring any real estate project to life.",
       customIdeaBtn: "Discuss Your Project",
       items: [
         {
-          id: "apartment",
-          title: "Apartment & Flat Walkthroughs",
-          description: "Hyper-realistic virtual tours showcasing modern living rooms, modular kitchens, master suites, and balcony views.",
-          badge: "High Buyer Interest",
-          icon: "Building2",
-          color: "violet"
+          id: "walkthrough",
+          title: "Property Walkthrough Videos",
+          description: "Plots, villas, apartments and township layouts.",
+          image: "/services/service_1_walkthrough.jpg",
+          icon: "Layers"
         },
         {
-          id: "villa",
-          title: "Luxury Villa & House Tours",
-          description: "Cinematic interior and exterior tours featuring landscaped gardens, private pools, and premium architectural detailing.",
-          badge: "Luxury Living",
-          icon: "Home",
-          color: "rose"
+          id: "story",
+          title: "Story-Based Advertisement",
+          description: "Emotional and relatable Tamil stories.",
+          image: "/services/service_2_story.jpg",
+          icon: "Video"
         },
         {
-          id: "plot",
-          title: "Plot & Layout CGI Flyovers",
-          description: "Transform 2D plot maps into lively 3D gated communities highlighting blacktop roads, parks, water tanks, and future amenities.",
-          badge: "Layout Visualizer",
-          icon: "MapPin",
-          color: "emerald"
+          id: "presenter",
+          title: "Presenter Videos",
+          description: "Project highlights, offers and location advantages.",
+          image: "/services/service_3_presenter.jpg",
+          icon: "UserRound"
         },
         {
-          id: "reels",
-          title: "Viral Real Estate Reels & Shorts",
-          description: "Punchy, fast-paced vertical video ads crafted specifically for Instagram, Facebook Ads, and WhatsApp statuses to generate qualified buyer leads.",
-          badge: "Lead Generating",
-          icon: "Smartphone",
-          color: "amber"
+          id: "amenities",
+          title: "Amenities & Lifestyle Videos",
+          description: "Showcase the lifestyle, facilities and community experience.",
+          image: "/services/service_4_amenities.jpg",
+          icon: "Palmtree"
         },
         {
-          id: "commercial",
-          title: "Commercial & Retail Space Promos",
-          description: "Demonstrate footfall potential, retail elevations, corporate office setups, and tech park facilities with polished 3D visuals.",
-          badge: "B2B Commercial",
-          icon: "Briefcase",
-          color: "blue"
+          id: "concept",
+          title: "Concept & 3D Visual Videos",
+          description: "Master plan, layout, development and future view.",
+          image: "/services/service_5_concept.jpg",
+          icon: "Layers"
         },
         {
-          id: "cinematic",
-          title: "Cinematic Drone & CGI Flythroughs",
-          description: "Dramatic aerial perspective views capturing neighborhood connectivity, nearby metro stations, schools, and highway access.",
-          badge: "Aerial Cinematic",
-          icon: "Sparkles",
-          color: "pink"
+          id: "project_update",
+          title: "Project Update Videos",
+          description: "Construction progress, new phase and launch campaigns.",
+          image: "/services/service_6_project_update.jpg",
+          icon: "HardHat"
         }
       ]
     },
@@ -220,27 +220,61 @@ export const translations = {
       ]
     },
     testimonials: {
-      badge: "BUILDER & BROKER REVIEWS",
-      heading: "Trusted by Real Estate Developers & Agents Across India",
-      subheading: "See how our walkthrough videos help property sellers close bookings faster.",
+      badge: "GOOGLE REVIEWS",
+      heading: "What Our Clients Say",
+      subheading: "Honest feedback from founders, builders, and businesses who work with The Editing Crew.",
+      rating: "5.0",
+      basedOn: "Based on verified Google reviews",
+      verifiedBadge: "Verified Reviews",
+      viewAll: "View All",
+      showFirst3: "Show First 3",
+      readMore: "Read more",
+      showLess: "Show less",
+      verifiedClient: "Verified Client • ",
+      sourceText: "Reviews sourced directly from verified Google clients in Coimbatore",
+      writeReview: "Write a Review",
       items: [
         {
-          quote: "We sold out our 3BHK luxury floor units during pre-launch entirely through these 3D walkthrough videos before the model apartment was ready. Inquiries on Meta ads doubled!",
-          author: "S. K. Ramesh",
-          role: "Managing Director, Sri Krishna Builders, Chennai",
-          rating: 5
+          id: 1,
+          name: "Vignesh Natarajan",
+          initials: "VN",
+          avatarImg: "/reviews/vignesh-natarajan.png",
+          avatarBg: "#E8F0FE",
+          avatarColor: "#1A73E8",
+          reviewCount: "Local Guide · 56 reviews · 39 photos",
+          date: "a year ago",
+          isNew: false,
+          rating: 5,
+          quote: "Excellent work ethics! Outstanding customer satisfaction — they don’t even ask for any advance payment before starting the work, and only collect full payment after completion, which is truly commendable. The quality of their AI videos is exceptional, and I’ll definitely be working with them again!",
+          role: "Local Guide • Verified Google Reviewer"
         },
         {
-          quote: "The plot layout 3D drone CGI gave our customers a crystal-clear picture of the upcoming clubhouse and road network. Site visits increased by 70%. Outstanding quality and fast delivery.",
-          author: "Anand Natarajan",
-          role: "Sales Head, Greenfield Developers, Coimbatore",
-          rating: 5
+          id: 2,
+          name: "S Sujin",
+          initials: "SS",
+          avatarImg: "/reviews/s-sujin.png",
+          avatarBg: "#8C6A5E",
+          avatarColor: "#FFFFFF",
+          reviewCount: "5 reviews",
+          date: "a year ago",
+          isNew: false,
+          rating: 5,
+          quote: "Good AI provides excellent video-making services for branding, product promotions, and conceptual videos for corporate companies and startups. Their team is flexible, professional, and offers services at affordable rates. Highly recommended for their quality and reliability.",
+          role: "Verified Google Reviewer"
         },
         {
-          quote: "Our Instagram real estate ad reels made by this team generated high-quality NRI investor inquiries from Dubai and Singapore. Having both Tamil and English voiceovers was a huge game-changer.",
-          author: "Vignesh Sundaram",
-          role: "Principal Broker, Prime Realty, Bangalore",
-          rating: 5
+          id: 3,
+          name: "Bijoy Cherian",
+          initials: "BC",
+          avatarImg: "/reviews/bijoy-cherian.png",
+          avatarBg: "#5E35B1",
+          avatarColor: "#FFFFFF",
+          reviewCount: "11 reviews",
+          date: "a year ago",
+          isNew: false,
+          rating: 5,
+          quote: "Very understanding and creative team. Keep up the good work.",
+          role: "Verified Google Reviewer"
         }
       ]
     },

@@ -375,14 +375,14 @@ export default function CreateVideoModal({ isOpen, onClose }) {
                 </h3>
                 
                 {/* 1-Click Language Switcher */}
-                <div className="inline-flex items-center p-0.5 rounded-full border border-slate-200 bg-slate-100/90 shadow-2xs">
+                <div className="inline-flex items-center p-0.5 rounded-full border border-amber-200/80 bg-amber-50/60 shadow-2xs">
                   <button
                     type="button"
                     onClick={() => setLanguage('en')}
                     className={`px-2 py-0.5 rounded-full text-[11px] sm:text-xs font-bold transition-all cursor-pointer ${
                       currentLang === 'en'
-                        ? 'bg-white text-indigo-700 shadow-2xs font-black'
-                        : 'text-slate-600 hover:text-slate-900'
+                        ? 'bg-gradient-to-r from-amber-400 via-amber-500 to-amber-600 text-slate-950 shadow-2xs font-black'
+                        : 'text-emerald-900 hover:text-amber-800'
                     }`}
                   >
                     English
@@ -392,8 +392,8 @@ export default function CreateVideoModal({ isOpen, onClose }) {
                     onClick={() => setLanguage('ta')}
                     className={`px-2 py-0.5 rounded-full text-[11px] sm:text-xs font-bold transition-all cursor-pointer ${
                       currentLang === 'ta'
-                        ? 'bg-white text-indigo-700 shadow-2xs font-black'
-                        : 'text-slate-600 hover:text-slate-900'
+                        ? 'bg-gradient-to-r from-amber-400 via-amber-500 to-amber-600 text-slate-950 shadow-2xs font-black'
+                        : 'text-emerald-900 hover:text-amber-800'
                     }`}
                   >
                     தமிழ்
@@ -721,7 +721,7 @@ export default function CreateVideoModal({ isOpen, onClose }) {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full py-2.5 sm:py-3 px-5 rounded-2xl bg-indigo-600 hover:bg-indigo-700 active:scale-[0.99] text-white font-extrabold text-xs sm:text-sm shadow-md shadow-indigo-600/25 transition-all duration-200 flex items-center justify-center gap-2 cursor-pointer disabled:opacity-70"
+                  className="w-full py-2.5 sm:py-3 px-5 rounded-2xl bg-gradient-to-r from-amber-400 via-amber-500 to-amber-600 hover:from-amber-500 hover:to-amber-700 text-slate-950 font-black text-xs sm:text-sm shadow-md shadow-amber-500/30 transition-all duration-200 flex items-center justify-center gap-2 cursor-pointer disabled:opacity-70"
                 >
                   {isSubmitting ? (
                     <span>{strings.submitting}</span>
