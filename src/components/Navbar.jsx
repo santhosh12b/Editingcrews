@@ -15,8 +15,8 @@ export default function Navbar({ onOpenInquiryModal }) {
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300 ${
       scrolled 
-        ? 'bg-black/80 backdrop-blur-md border-b border-white/15 shadow-lg' 
-        : 'bg-black/50 backdrop-blur-md border-b border-white/10'
+        ? 'bg-black/90 backdrop-blur-md border-b border-white/15 shadow-xl' 
+        : 'bg-black/60 backdrop-blur-md border-b border-white/10'
     }`}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         <div className="flex h-16 sm:h-20 items-center justify-between">

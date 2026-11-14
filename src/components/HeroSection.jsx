@@ -145,9 +145,9 @@ export default function HeroSection({ onOpenShowreel, onOpenInquiryModal }) {
         <source src="/video/hero-estate.mp4" type="video/mp4" />
       </video>
 
-      {/* Black Overlay Layers (Richer cinematic dark overlay for bold text contrast while keeping video in motion) */}
-      <div className="absolute inset-0 bg-black/68 z-[1] pointer-events-none" />
-      <div className="absolute inset-0 bg-gradient-to-b from-black/65 via-black/30 to-black/85 z-[2] pointer-events-none" />
+      {/* Black Overlay Layers (Deep cinematic dark overlay for 100% font legibility while keeping video in motion) */}
+      <div className="absolute inset-0 bg-black/75 z-[1] pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/50 to-black/90 z-[2] pointer-events-none" />
 
       {/* Main Center Content (Vertically centered in viewport) */}
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl text-center relative z-10 my-auto flex flex-col items-center justify-center py-2 sm:py-6">
@@ -179,7 +179,7 @@ export default function HeroSection({ onOpenShowreel, onOpenInquiryModal }) {
         </div>
 
         {/* Headline */}
-        <h1 className={`font-extrabold text-white mb-2 sm:mb-3 font-heading tracking-tight ${
+        <h1 className={`font-extrabold text-white mb-2 sm:mb-3 font-heading tracking-tight drop-shadow-[0_4px_16px_rgba(0,0,0,0.85)] ${
           currentLang === 'ta' 
             ? 'text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-snug sm:leading-tight max-w-4xl mx-auto' 
             : 'text-2xl xs:text-3xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight sm:leading-[1.1]'
@@ -188,7 +188,7 @@ export default function HeroSection({ onOpenShowreel, onOpenInquiryModal }) {
         </h1>
 
         {/* Subheading in Clean Crisp White */}
-        <p className={`font-bold text-white mb-1.5 sm:mb-3 font-heading max-w-3xl mx-auto drop-shadow-sm ${
+        <p className={`font-bold text-white mb-1.5 sm:mb-3 font-heading max-w-3xl mx-auto drop-shadow-[0_2px_12px_rgba(0,0,0,0.85)] ${
           currentLang === 'ta'
             ? 'text-xs xs:text-sm sm:text-xl md:text-2xl leading-relaxed'
             : 'text-sm xs:text-base sm:text-2xl md:text-3xl tracking-tight'
@@ -196,8 +196,8 @@ export default function HeroSection({ onOpenShowreel, onOpenInquiryModal }) {
           {hero.subheading}
         </p>
 
-        {/* Description in Light Silver */}
-        <p className="text-xs sm:text-base md:text-lg text-slate-200/90 max-w-3xl mx-auto leading-relaxed mb-4 sm:mb-7 font-normal">
+        {/* Description in Clean Crisp White with High Readability */}
+        <p className="text-xs sm:text-base md:text-lg text-white font-medium max-w-3xl mx-auto leading-relaxed mb-4 sm:mb-7 drop-shadow-[0_2px_10px_rgba(0,0,0,0.95)]">
           {hero.description}
         </p>
 
