@@ -145,9 +145,9 @@ export default function HeroSection({ onOpenShowreel, onOpenInquiryModal }) {
         <source src="/video/hero-estate.mp4" type="video/mp4" />
       </video>
 
-      {/* Black Overlay Layers (Reduced opacity so video actively runs and is clearly visible behind header and throughout) */}
-      <div className="absolute inset-0 bg-black/40 z-[1] pointer-events-none" />
-      <div className="absolute inset-0 bg-gradient-to-b from-black/25 via-transparent to-black/75 z-[2] pointer-events-none" />
+      {/* Black Overlay Layers (Balanced cinematic tint: video clearly visible in motion with rich contrast for text) */}
+      <div className="absolute inset-0 bg-black/55 z-[1] pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/10 to-black/80 z-[2] pointer-events-none" />
 
       {/* Main Center Content (Vertically centered in viewport) */}
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl text-center relative z-10 my-auto flex flex-col items-center justify-center py-2 sm:py-6">
