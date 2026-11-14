@@ -227,10 +227,10 @@ export default function PricingSection({ onOpenInquiryModal }) {
           <button
             type="button"
             onClick={() => onOpenInquiryModal && onOpenInquiryModal()}
-            className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full bg-black hover:bg-neutral-800 text-white font-black text-sm sm:text-base shadow-xl shadow-black/25 transition-all cursor-pointer active:scale-95"
+            className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full bg-black hover:bg-neutral-800 text-white font-bold text-sm sm:text-base shadow-xl transition-all cursor-pointer active:scale-95 group"
           >
             <span>{isTa ? "உங்கள் AI வீடியோவை இன்றே முன்பதிவு செய்யுங்கள்" : "Book your AI video Today"}</span>
-            <ArrowRight className="w-4 h-4 text-white stroke-[3]" />
+            <ArrowRight className="w-4 h-4 text-white stroke-[2.5] group-hover:translate-x-1 transition-transform duration-200" />
           </button>
         </div>
 

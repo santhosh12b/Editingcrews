@@ -30,10 +30,10 @@ export default function BottomCtaSection({ onOpenInquiryModal }) {
           <div className="flex flex-col items-center justify-center shrink-0 w-full md:w-auto text-center relative z-10">
             <button
               onClick={onOpenInquiryModal}
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 sm:px-9 py-3.5 sm:py-4 rounded-full bg-black hover:bg-neutral-800 active:scale-[0.98] text-white font-black text-sm sm:text-base shadow-xl shadow-black/40 transition-all duration-200 cursor-pointer whitespace-nowrap border border-white/20"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 sm:px-9 py-3.5 sm:py-4 rounded-full bg-white hover:bg-slate-100 active:scale-[0.98] text-slate-950 font-bold text-sm sm:text-base shadow-xl transition-all duration-200 cursor-pointer whitespace-nowrap group"
             >
               <span>{cta.buttonText || "Book your AI video Today"}</span>
-              <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 ml-0.5 shrink-0 stroke-[3] text-white" />
+              <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 ml-0.5 shrink-0 stroke-[2.5] text-slate-950 group-hover:translate-x-1 transition-transform duration-200" />
             </button>
             
             <p className="text-xs sm:text-sm font-bold text-emerald-400 text-center mt-2.5 sm:mt-3 leading-relaxed">

@@ -1,11 +1,9 @@
 import React from 'react';
-import { useLanguage } from '../context/LanguageContext';
+import { ArrowRight } from 'lucide-react';
 
-export default function Navbar() {
-  const { currentLang, setLanguage } = useLanguage();
-
+export default function Navbar({ onOpenInquiryModal }) {
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 w-full bg-white/95 backdrop-blur-md border-b border-slate-200/80 transition-all duration-200 shadow-xs">
+    <header className="fixed top-0 left-0 right-0 z-50 w-full bg-black/60 backdrop-blur-md border-b border-white/10 transition-all duration-200 shadow-md">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         <div className="flex h-16 sm:h-20 items-center justify-between">
           
@@ -17,43 +15,25 @@ export default function Navbar() {
             <img 
               src="/logo.png" 
               alt="The Editing Crew Logo" 
-              className="w-9 h-9 sm:w-10 sm:h-10 object-contain drop-shadow-[0_4px_12px_rgba(5,150,105,0.25)] group-hover:scale-105 transition-transform duration-200" 
+              className="w-9 h-9 sm:w-10 sm:h-10 object-contain drop-shadow-[0_4px_12px_rgba(52,211,153,0.35)] group-hover:scale-105 transition-transform duration-200" 
             />
             <span 
-              className="text-xl sm:text-2xl font-bold text-slate-950 font-heading tracking-tight"
+              className="text-xl sm:text-2xl font-bold text-white font-heading tracking-tight"
             >
               The Editing Crew
             </span>
           </a>
 
-          {/* Right: Direct 1-Click Language Switcher */}
+          {/* Right: Enquire CTA Button */}
           <div className="flex items-center">
-            <div className="flex items-center p-0.5 sm:p-1 rounded-full border border-slate-200/80 bg-white/80 shadow-2xs">
-              <button
-                type="button"
-                onClick={() => setLanguage('en')}
-                className={`px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full text-xs sm:text-sm font-bold transition-all duration-200 cursor-pointer ${
-                  currentLang === 'en'
-                    ? 'bg-black text-white shadow-xs font-black'
-                    : 'text-slate-700 hover:text-black'
-                }`}
-                aria-label="Switch to English"
-              >
-                English
-              </button>
-              <button
-                type="button"
-                onClick={() => setLanguage('ta')}
-                className={`px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full text-xs sm:text-sm font-bold transition-all duration-200 cursor-pointer ${
-                  currentLang === 'ta'
-                    ? 'bg-black text-white shadow-xs font-black'
-                    : 'text-slate-700 hover:text-black'
-                }`}
-                aria-label="தமிழில் மாற்றவும்"
-              >
-                தமிழ்
-              </button>
-            </div>
+            <button
+              type="button"
+              onClick={onOpenInquiryModal}
+              className="inline-flex items-center justify-center gap-1.5 sm:gap-2 px-4 py-2 sm:px-5 sm:py-2.5 rounded-full bg-white hover:bg-slate-100 text-slate-950 font-bold text-xs sm:text-sm shadow-md transition-all duration-200 active:scale-95 group cursor-pointer"
+            >
+              <span>Enquire Now</span>
+              <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 group-hover:translate-x-0.5 transition-transform duration-200" />
+            </button>
           </div>
 
         </div>

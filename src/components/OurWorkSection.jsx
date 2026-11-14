@@ -17,13 +17,13 @@ export const portfolioVideos = [
   {
     id: 1,
     title: {
-      en: "Presenter Video",
-      ta: "தொகுப்பாளர் வீடியோ"
+      en: "Concept Ads",
+      ta: "கருத்துரு விளம்பரம்"
     },
-    category: "presenter",
+    category: "concept",
     badge: {
-      en: "Presenter Video",
-      ta: "தொகுப்பாளர் வீடியோ"
+      en: "Concept Ads",
+      ta: "கருத்துரு விளம்பரம்"
     },
     videoUrl: "/video/estate.mp4",
     rate: ""
@@ -31,6 +31,20 @@ export const portfolioVideos = [
   {
     id: 2,
     title: {
+      en: "Concept Ads",
+      ta: "கருத்துரு விளம்பரம்"
+    },
+    category: "concept",
+    badge: {
+      en: "Concept Ads",
+      ta: "கருத்துரு விளம்பரம்"
+    },
+    videoUrl: "/video/estate1.mp4",
+    rate: ""
+  },
+  {
+    id: 3,
+    title: {
       en: "Presenter Video",
       ta: "தொகுப்பாளர் வீடியோ"
     },
@@ -39,33 +53,19 @@ export const portfolioVideos = [
       en: "Presenter Video",
       ta: "தொகுப்பாளர் வீடியோ"
     },
-    videoUrl: "/video/estate1.mp4",
-    rate: ""
-  },
-  {
-    id: 3,
-    title: {
-      en: "Concept Ads",
-      ta: "கருத்துரு விளம்பரம்"
-    },
-    category: "concept",
-    badge: {
-      en: "Concept Ads",
-      ta: "கருத்துரு விளம்பரம்"
-    },
     videoUrl: "/video/estate2.mp4",
     rate: ""
   },
   {
     id: 4,
     title: {
-      en: "Concept Ads",
-      ta: "கருத்துரு விளம்பரம்"
+      en: "Presenter Video",
+      ta: "தொகுப்பாளர் வீடியோ"
     },
-    category: "concept",
+    category: "presenter",
     badge: {
-      en: "Concept Ads",
-      ta: "கருத்துரு விளம்பரம்"
+      en: "Presenter Video",
+      ta: "தொகுப்பாளர் வீடியோ"
     },
     videoUrl: "/video/estate3.mp4",
     rate: ""
@@ -170,10 +170,10 @@ export default function OurWorkSection({ onOpenVideoModal, onOpenInquiryModal })
           <div className="relative z-10 shrink-0 w-full sm:w-auto">
             <button
               onClick={() => onOpenInquiryModal && onOpenInquiryModal()}
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl sm:rounded-2xl bg-black hover:bg-neutral-800 text-white font-black text-sm sm:text-base px-6 py-3.5 shadow-lg shadow-black/35 transition-all duration-200 transform hover:scale-[1.02] active:scale-[0.98] border border-white/15 cursor-pointer"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full bg-white hover:bg-slate-100 text-slate-950 font-bold text-sm sm:text-base px-6 py-3.5 shadow-xl transition-all duration-200 transform hover:scale-[1.02] active:scale-[0.98] cursor-pointer group"
             >
               <span>{ow.taglineCta || "Book your AI video Today"}</span>
-              <ArrowRight className="w-4 h-4 stroke-[3] text-white" />
+              <ArrowRight className="w-4 h-4 stroke-[2.5] text-slate-950 group-hover:translate-x-1 transition-transform duration-200" />
             </button>
           </div>
         </div>
