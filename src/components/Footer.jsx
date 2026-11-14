@@ -16,7 +16,7 @@ export default function Footer() {
               <img 
                 src="/logo.png" 
                 alt="The Editing Crew" 
-                className="w-8 h-8 sm:w-9 sm:h-9 object-contain drop-shadow-[0_4px_10px_rgba(4,120,87,0.3)] group-hover:scale-105 transition-transform duration-200" 
+                className="w-8 h-8 sm:w-9 sm:h-9 object-contain group-hover:scale-105 transition-transform duration-200" 
               />
               <span 
                 className="text-xl font-bold tracking-tight text-slate-950 font-heading"

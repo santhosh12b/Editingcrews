@@ -189,7 +189,7 @@ export default function PricingSection({ onOpenInquiryModal }) {
 
                 {/* Right: Large Bold Emerald Green Price */}
                 <div className="w-32 sm:w-44 text-right shrink-0">
-                  <span className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-emerald-400 tracking-tight font-heading drop-shadow-[0_2px_10px_rgba(52,211,153,0.3)]">
+                  <span className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-emerald-400 tracking-tight font-heading">
                     {pkg.price}
                   </span>
                 </div>
@@ -210,7 +210,7 @@ export default function PricingSection({ onOpenInquiryModal }) {
                     idx !== inclusionFeatures.length - 1 ? 'sm:border-r sm:border-slate-800' : ''
                   }`}
                 >
-                  <div className="text-emerald-400 mb-2 shrink-0 drop-shadow-[0_2px_8px_rgba(52,211,153,0.35)]">
+                  <div className="text-emerald-400 mb-2 shrink-0">
                     <IconComp className="w-7 h-7 sm:w-8 sm:h-8" />
                   </div>
                   <div className="font-bold text-white text-xs sm:text-[13px] leading-tight font-heading">

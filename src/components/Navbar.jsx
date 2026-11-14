@@ -29,10 +29,10 @@ export default function Navbar({ onOpenInquiryModal }) {
             <img 
               src="/logo.png" 
               alt="The Editing Crew Logo" 
-              className="w-9 h-9 sm:w-10 sm:h-10 object-contain drop-shadow-[0_4px_12px_rgba(52,211,153,0.35)] group-hover:scale-105 transition-transform duration-200" 
+              className="w-9 h-9 sm:w-10 sm:h-10 object-contain group-hover:scale-105 transition-transform duration-200" 
             />
             <span 
-              className="text-xl sm:text-2xl font-bold text-white font-heading tracking-tight drop-shadow-md"
+              className="text-xl sm:text-2xl font-bold text-white font-heading tracking-tight"
             >
               The Editing Crew
             </span>
