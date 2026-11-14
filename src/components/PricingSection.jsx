@@ -140,12 +140,12 @@ export default function PricingSection({ onOpenInquiryModal }) {
   ];
 
   return (
-    <section id="pricing" className="py-16 sm:py-20 md:py-24 bg-slate-950 text-white relative overflow-hidden border-b border-slate-800 scroll-mt-20">
+    <section id="pricing" className="py-16 sm:py-20 md:py-24 bg-gradient-to-b from-slate-950 via-[#071914] to-slate-950 text-white relative overflow-hidden border-b border-slate-800/80 scroll-mt-20">
       
       {/* Background Soft Mesh Ambient Lighting */}
       <div className="absolute inset-0 pointer-events-none -z-10">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[850px] h-[450px] bg-gradient-to-tr from-emerald-500/10 via-slate-900 to-emerald-950/20 rounded-full blur-3xl -z-10"></div>
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(16,185,129,0.08),transparent_50%)]"></div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[850px] h-[450px] bg-gradient-to-tr from-emerald-500/15 via-emerald-950/20 to-transparent rounded-full blur-3xl -z-10"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_40%,rgba(16,185,129,0.12),transparent_70%)]"></div>
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
@@ -154,7 +154,7 @@ export default function PricingSection({ onOpenInquiryModal }) {
         <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-12">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-white font-heading leading-tight">
             AI Video Production{' '}
-            <span className="font-serif italic text-emerald-400 font-normal">
+            <span className="font-serif italic bg-gradient-to-r from-emerald-400 via-teal-300 to-emerald-400 bg-clip-text text-transparent font-normal">
               Packages
             </span>
           </h2>
@@ -165,14 +165,14 @@ export default function PricingSection({ onOpenInquiryModal }) {
           </p>
         </div>
 
-        {/* The Dark Pricing Table Card */}
-        <div className="bg-slate-900/90 backdrop-blur-sm rounded-3xl border border-slate-800 shadow-2xl overflow-hidden">
+        {/* The Mild Gradient Dark Pricing Table Card */}
+        <div className="bg-gradient-to-br from-slate-900/95 via-slate-900/85 to-[#06241b]/50 backdrop-blur-sm rounded-3xl border border-slate-800/90 border-t-emerald-500/25 shadow-2xl overflow-hidden">
           <div className="divide-y divide-slate-800/80">
             {packages.map((pkg) => (
               <div 
                 key={pkg.id}
                 onClick={() => onOpenInquiryModal && onOpenInquiryModal(pkg)}
-                className="px-6 py-4 sm:px-10 sm:py-5 flex items-center justify-between hover:bg-slate-800/50 transition-colors cursor-pointer group"
+                className="px-6 py-4 sm:px-10 sm:py-5 flex items-center justify-between hover:bg-gradient-to-r hover:from-emerald-950/30 hover:via-slate-800/40 hover:to-transparent transition-colors cursor-pointer group"
               >
                 {/* Left: Duration + Rate */}
                 <div className="flex-1">
@@ -199,7 +199,7 @@ export default function PricingSection({ onOpenInquiryModal }) {
         </div>
 
         {/* 5-Feature Inclusions Card */}
-        <div className="mt-6 sm:mt-8 bg-slate-900/90 backdrop-blur-sm rounded-2xl sm:rounded-3xl border border-slate-800 shadow-xl p-4 sm:p-5">
+        <div className="mt-6 sm:mt-8 bg-gradient-to-b from-slate-900/95 to-[#041d15]/50 backdrop-blur-sm rounded-2xl sm:rounded-3xl border border-slate-800/90 shadow-xl p-4 sm:p-5">
           <div className="grid grid-cols-2 sm:grid-cols-5 gap-3 sm:gap-2 items-center">
             {inclusionFeatures.map((feat, idx) => {
               const IconComp = feat.icon;
